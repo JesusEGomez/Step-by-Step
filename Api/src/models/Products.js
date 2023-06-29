@@ -1,14 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("Product", {
+  sequelize.define("product", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
     item_number: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     name: {
@@ -20,14 +20,14 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     price: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     discount_percentage: {
       type: DataTypes.INTEGER,
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.ARRAY(DataTypes.INTEGER),
     },
     stock: {
       type: DataTypes.INTEGER,
@@ -42,16 +42,14 @@ module.exports = (sequelize) => {
     },
     images: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-
-      primaryKey: true,
+      allowNull: false,
     },
     size: {
       type: DataTypes.ARRAY(DataTypes.INTEGER),
     },
     color: {
       type: DataTypes.ARRAY(DataTypes.STRING),
-
-      primaryKey: true,
+      allowNull: false,
     },
     gender: {
       type: DataTypes.ARRAY(DataTypes.STRING),
