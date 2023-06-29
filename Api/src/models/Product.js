@@ -1,27 +1,27 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("Product", {
+  sequelize.define("product", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
     item_number: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.STRING,
+      // allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      // allowNull: false,
     },
     price: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
+      type: DataTypes.FLOAT,
+      // allowNull: false,
     },
     discount_percentage: {
       type: DataTypes.INTEGER,
@@ -33,33 +33,29 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     brand: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      type: DataTypes.STRING,
+      // allowNull: false,
     },
     category: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
+      type: DataTypes.STRING,
+      // allowNull: false,
     },
-    images: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-
-      primaryKey: true,
+    image: {
+      type: DataTypes.STRING,
     },
     size: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+      type: DataTypes.INTEGER,
     },
     color: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-
-      primaryKey: true,
+      type: DataTypes.STRING,
     },
     gender: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
     },
     is_active: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
-      allowNull: false,
+      // allowNull: false,
     },
 
     sold_count: {
