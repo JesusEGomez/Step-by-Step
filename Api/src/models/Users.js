@@ -79,5 +79,6 @@ module.exports = (sequelize) => {
                 },
             },
         },
+        // Aqui se puede agregar mas.
     })
 }
