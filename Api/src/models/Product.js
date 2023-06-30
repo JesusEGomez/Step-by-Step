@@ -9,59 +9,68 @@ module.exports = (sequelize) => {
     },
     item_number: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: 'sin item number',
+      allowNull: true,
     },
-    name: {
+    model: {
       type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        len: {
+          args: [2],
+          msg: "El modelo debe tener al menos 2 caracteres",
+        },
+      },
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+      validate: {
+        len: {
+          args: [10],
+          msg: "El eslogan debe tener al menos 10 caracteres",
+        },
+      }
     },
     price: {
       type: DataTypes.FLOAT,
-      allowNull: false,
+      allowNull: true,
+      defaultValue: 0.0,
+      validate: {
+        min: {
+          args: 0.0,
+          msg: "El precio no puede ser menor que 0",
+        },
+      }
     },
-    discount_percentage: {
-      type: DataTypes.INTEGER,
-    },
-    rating: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
+    discountPercentage: {
+      type: DataTypes.FLOAT,
+      defaultValue: 0.0,
+      allowNull: true,
+      min: {
+        args: 0.0,
+        msg: "El porcentaje de descuento no puede ser menor que 0",
+      },
+      max: {
+        args: 100.0,
+        msg: "El porcentaje de descuento no puede ser mayor a 100"
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
+      defaultValue: 0,
+      allowNull: true,
+      validate: {
+        min: {
+          args: 0,
+          msg: "El stock no puede ser menor que 0",
+        },
+      }
     },
-    brand: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    category: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    images: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    size: {
-      type: DataTypes.ARRAY(DataTypes.INTEGER),
-    },
-    color: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-      allowNull: false,
-    },
-    gender: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
-    },
-    is_active: {
+    isPublish: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      defaultValue: false,
       allowNull: false,
-    },
-
-    sold_count: {
-      type: DataTypes.INTEGER,
-    },
+    }
   });
 };
