@@ -4,8 +4,12 @@ const { Router } = require("express");
 
 const router = Router();
 const productsRouter = require("./productsRoutes");
+const userAllCtrl = require('../controllers/users/usersAllCtrl');
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 router.use("/products", productsRouter);
+
+router.get('/users', userAllCtrl)
 
 module.exports = router;

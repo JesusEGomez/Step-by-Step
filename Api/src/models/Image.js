@@ -1,14 +1,14 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-    sequelize.define("user", {
+    sequelize.define("image", {
         id: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-        }, name: {
+        },
+        name: {
             type: DataTypes.STRING,
-            allowNull: false,
-        }
-    })
-}
+        },
+    });
+};
