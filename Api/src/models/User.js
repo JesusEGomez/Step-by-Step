@@ -79,6 +79,10 @@ module.exports = (sequelize) => {
                 },
             },
         },
-        // Aqui se puede agregar mas.
+        isActive: {
+            type: DataTypes.BOOLEAN,
+            allowNull: true,
+            defaultValue: true,
+        }
     })
 }
