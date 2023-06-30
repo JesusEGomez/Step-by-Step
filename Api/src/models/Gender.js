@@ -7,8 +7,14 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    gender: {
+      type: DataTypes.ENUM('men', 'women', 'unisex'),
+      defaultValue: 'unisex',
+      allowNull: false,
+    },
+    // Se utiliza el atributo "set" para guardar los valores en minusculas. Así no hay problemas con las musyusculas y minusculas.
+    set(value) {
+      this.setDataValue('gender', value.toLowerCase());
     },
   });
 };
