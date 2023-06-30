@@ -7,8 +7,16 @@ module.exports = (sequelize) => {
             autoIncrement: true,
             primaryKey: true,
         },
-        name: {
+        urlImage: {
             type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                isAcceptedFormat(value) {
+                    if (!/\.(png|jpg)$/.test(value)) {
+                        throw new Error("La URL de la imagen debe terminar en .png o .jpg");
+                    }
+                },
+            }
         },
     });
 };
