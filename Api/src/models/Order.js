@@ -20,8 +20,5 @@ module.exports = (sequelize) => {
         min: 0,
       },
     },
-    date: {
-      type: DataTypes.DATEONLY,
-    },
   });
 };
