@@ -48,7 +48,7 @@ const {
   // Product,
   // User,
   // Brand,
-  // Size,
+  Size,
   // Category,
   // Image,
   // Rating,
@@ -61,10 +61,6 @@ const {
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
-
-
-// Product.belongsTo(Brand, { foreignKey: 'brandId' });
-// Brand.hasMany(Product, { foreignKey: 'brandId' });
 
 Brand.hasMany(Product, {
   foreignKey: {
@@ -107,12 +103,12 @@ Product.belongsTo(Brand);
 //   through: "product_category",
 // });
 
-// Product.belongsToMany(Size, {
-//   through: "product_size",
-// });
-// Size.belongsToMany(Product, {
-//   through: "product_size",
-// });
+Product.belongsToMany(Size, {
+  through: "productSize",
+});
+Size.belongsToMany(Product, {
+  through: "productSize",
+});
 
 // Product.hasOne(Gender, {
 //   foreignKey: {
