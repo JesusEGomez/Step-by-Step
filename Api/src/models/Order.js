@@ -10,5 +10,8 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
     },
+    date: {
+      type: DataTypes.DATEONLY,
+    },
   });
 };

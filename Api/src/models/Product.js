@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
     },
     item_number: {
       type: DataTypes.STRING,
-      defaultValue: 'sin item number',
+      defaultValue: "sin item number",
       allowNull: true,
     },
     model: {
@@ -30,7 +30,7 @@ module.exports = (sequelize) => {
           args: [10],
           msg: "El eslogan debe tener al menos 10 caracteres",
         },
-      }
+      },
     },
     price: {
       type: DataTypes.FLOAT,
@@ -41,7 +41,7 @@ module.exports = (sequelize) => {
           args: 0.0,
           msg: "El precio no puede ser menor que 0",
         },
-      }
+      },
     },
     discountPercentage: {
       type: DataTypes.FLOAT,
@@ -53,8 +53,8 @@ module.exports = (sequelize) => {
       },
       max: {
         args: 100.0,
-        msg: "El porcentaje de descuento no puede ser mayor a 100"
-      }
+        msg: "El porcentaje de descuento no puede ser mayor a 100",
+      },
     },
     stock: {
       type: DataTypes.INTEGER,
@@ -65,12 +65,12 @@ module.exports = (sequelize) => {
           args: 0,
           msg: "El stock no puede ser menor que 0",
         },
-      }
+      },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
       allowNull: false,
-    }
+    },
   });
 };
