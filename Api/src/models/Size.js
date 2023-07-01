@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define("size", {
     id: {
       type: DataTypes.UUID,
-      autoIncrement: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
     size: {

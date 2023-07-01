@@ -1,7 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
-  sequelize.define("products", {
+  sequelize.define("product", {
     id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
@@ -37,10 +37,7 @@ module.exports = (sequelize) => {
       allowNull: true,
       defaultValue: 0.0,
       validate: {
-        min: {
-          args: 0.0,
-          msg: "El precio no puede ser menor que 0",
-        },
+        min: 0,
       }
     },
     discountPercentage: {
@@ -61,10 +58,11 @@ module.exports = (sequelize) => {
       defaultValue: 0,
       allowNull: true,
       validate: {
-        min: {
-          args: 0,
-          msg: "El stock no puede ser menor que 0",
-        },
+        min: 0
+        // {
+        //     args: 0,
+        //     msg: "El stock no puede ser menor que 0",
+        //   },
       }
     },
     isPublish: {
