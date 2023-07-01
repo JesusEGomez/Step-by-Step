@@ -1766,4 +1766,42 @@ const products = [
     gender: ["men"],
   },
 ];
-module.exports = products;
+
+const getAllCategories = products.map((p) => p.category).flat();
+const categories = [...new Set(getAllCategories)].map((b) => b.toLowerCase());
+
+console.log("category", categories);
+const sizes = [34, 35, 37, 38, 39, 40, 42, 43, 44, 45];
+const getAllBrands = products
+  .map((p) => p.brand)
+
+  .flat();
+// .toLowerCase();
+const brands = [...new Set(getAllBrands)].map((b) => b.toLowerCase());
+console.log("brands", brands);
+
+const gender = ["men", "women", "unisex"];
+const rating = [1, 2, 3, 4, 5];
+
+const getAllColors = products.map((p) => p.color).flat();
+
+const colors = [...new Set(getAllColors)].map((b) => b.toLowerCase().trim());
+console.log("colors", colors);
+
+const image = products.map((p) =>
+  p.images.map((c, i) => {
+    return { item_number: p.item_number, image: p.images[i] };
+  })
+);
+
+console.log("images", image);
+
+module.exports = {
+  products,
+  colors,
+  brands,
+  categories,
+  rating,
+  gender,
+  sizes,
+};
