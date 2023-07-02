@@ -6,7 +6,7 @@ const router = Router();
 // const productsRouter = require("./productsRoutes");
 const createProductCtrl = require('../controllers/products/productCreateCtrl');
 const usersRouter = require('../routes/users.routes.js')
-
+const addressRoutes = require('../routes/address.routes.js')
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -15,5 +15,6 @@ const usersRouter = require('../routes/users.routes.js')
 // router.get('/users', userAllCtrl)
 router.post('/producto', createProductCtrl);
 router.use('/users', usersRouter);
+router.use('/address', addressRoutes);
 
 module.exports = router;
