@@ -42,13 +42,12 @@ module.exports = (sequelize) => {
                 len: [2, 50], // Longitud mínima de 2 caracteres y máxima de 50 caracteres
             },
         },
-        n_street: {
+        nStreet: {
             type: DataTypes.INTEGER,
             allowNull: false,
             validate: {
                 min: 0,
             }
-
         },
         floor: {
             type: DataTypes.STRING,

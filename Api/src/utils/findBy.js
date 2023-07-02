@@ -1,5 +1,3 @@
-
-
 const findById = async (model, id) => {
     try {
         const entity = await model.findOne({ where: { id } });
