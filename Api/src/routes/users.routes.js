@@ -12,6 +12,6 @@ usersRouter.post('/', createUserCtrl);
 usersRouter.get('/', userAllCtrl);
 usersRouter.delete('/:id', deleteUserCtrl);
 usersRouter.get('/:id', userByIdCtrl);
-usersRouter.put('/id', updateUserCtrl);
+usersRouter.put('/:id', updateUserCtrl);
 
 module.exports = usersRouter;
