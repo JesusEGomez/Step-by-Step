@@ -10,9 +10,6 @@ const sequelize = new Sequelize(
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-    define: {
-      freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
-    },
   }
 );
 const basename = path.basename(__filename);
@@ -51,7 +48,7 @@ const {
   Size,
   Category,
   Image,
-  Rating,
+
   Color,
   Gender,
   Order,
@@ -60,26 +57,10 @@ const {
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-// Brand.hasMany(Product, {
-//   foreignKey: {
-//     type: DataTypes.INTEGER,
-//     allowNull: false,
-//   },
-// });
-// Product.belongsTo(Brand);
-
-Product.hasOne(Brand, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Brand.belongsTo(Product);
-
 Product.hasMany(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    // allowNull: false,
   },
 });
 Order.belongsTo(Product);
@@ -87,59 +68,59 @@ Order.belongsTo(Product);
 User.hasMany(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    // allowNull: false,
   },
 });
 Order.belongsTo(User);
 
 Product.belongsToMany(Category, {
   through: "product_category",
+  // foreignKey: "productId",
 });
 
 Category.belongsToMany(Product, {
   through: "product_category",
+  // foreignKey: "categoryId",
 });
 
 Product.belongsToMany(Size, {
   through: "product_size",
+  // foreignKey: "productId",
 });
 Size.belongsToMany(Product, {
   through: "product_size",
+  // foreignKey: "sizeId",
 });
 
-Product.hasOne(Gender, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Gender.belongsTo(Product);
-
-// Color.hasMany(Product, {
+//* Color.hasMany(Product, {
 //   foreignKey: {
 //     type: DataTypes.INTEGER,
-//     allowNull: false,
+//     // allowNull: false,
 //   },
 // });
 // Product.belongsTo(Color);
 
 Product.hasMany(Image, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
+  foreignKey: "productId",
 });
 Image.belongsTo(Product);
-
-Product.hasOne(Rating, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Rating.belongsTo(Product);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
+
+// Gender.hasMany(Product, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     // allowNull: false,
+//   },
+// });
+// Product.belongsTo(Gender);
+// Brand.hasMany(Product, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     // allowNull: false,
+//   },
+// });
+// Product.belongsTo(Brand);
