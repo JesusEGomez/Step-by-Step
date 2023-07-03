@@ -2,7 +2,7 @@ require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const products = require("../productos");
+// const products = require("../productos");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
@@ -45,75 +45,80 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 const {
-  Product,
+  // Product,
   User,
-  Brand,
+  // Brand,
   Size,
-  Category,
-  Image,
-  Rating,
-  Color,
-  Gender,
-  Order,
+  // Category,
+  // Image,
+  // Rating,
+  // Color,
+  // Gender,
+  // Order,
+  Product, Brand, Address
+
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-// Brand.hasMany(Product, {
+Brand.hasMany(Product, {
+  foreignKey: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+});
+Product.belongsTo(Brand);
+
+Address.hasMany(User, { foreignKey: 'addressId' });
+User.belongsTo(Address, { foreignKey: 'addressId' });
+
+// Product.hasOne(Brand, {
 //   foreignKey: {
 //     type: DataTypes.INTEGER,
 //     allowNull: false,
 //   },
 // });
-// Product.belongsTo(Brand);
+// Brand.belongsTo(Product);
 
-Product.hasOne(Brand, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Brand.belongsTo(Product);
+// Product.hasMany(Order, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//   },
+// });
+// Order.belongsTo(Product);
 
-Product.hasMany(Order, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Order.belongsTo(Product);
+// User.hasMany(Order, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//   },
+// });
+// Order.belongsTo(User);
 
-User.hasMany(Order, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Order.belongsTo(User);
+// Product.belongsToMany(Category, {
+//   through: "product_category",
+// });
 
-Product.belongsToMany(Category, {
-  through: "product_category",
-});
-
-Category.belongsToMany(Product, {
-  through: "product_category",
-});
+// Category.belongsToMany(Product, {
+//   through: "product_category",
+// });
 
 Product.belongsToMany(Size, {
-  through: "product_size",
+  through: "productSize",
 });
 Size.belongsToMany(Product, {
-  through: "product_size",
+  through: "productSize",
 });
 
-Product.hasOne(Gender, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Gender.belongsTo(Product);
+// Product.hasOne(Gender, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//   },
+// });
+// Gender.belongsTo(Product);
 
 // Color.hasMany(Product, {
 //   foreignKey: {
@@ -123,21 +128,21 @@ Gender.belongsTo(Product);
 // });
 // Product.belongsTo(Color);
 
-Product.hasMany(Image, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Image.belongsTo(Product);
+// Product.hasMany(Image, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//   },
+// });
+// Image.belongsTo(Product);
 
-Product.hasOne(Rating, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Rating.belongsTo(Product);
+// Product.hasOne(Rating, {
+//   foreignKey: {
+//     type: DataTypes.INTEGER,
+//     allowNull: false,
+//   },
+// });
+// Rating.belongsTo(Product);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

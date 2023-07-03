@@ -7,30 +7,14 @@ const getAllProducts = async () => {
 };
 
 const postProduct = async (
-  id,
-  item_number,
-  name,
-  category,
-  brand,
-  image,
-  size,
-  gender,
-  color,
-  description,
-  rating
+  item_number, model, description,
+  price, discountPercentage, stock,
+  isPublish
 ) => {
   const newProduct = await Product.create({
-    id,
-    item_number,
-    name,
-    category,
-    brand,
-    image,
-    size,
-    gender,
-    color,
-    description,
-    rating,
+    item_number, model, description,
+    price, discountPercentage, stock,
+    isPublish
   });
   return newProduct;
 };

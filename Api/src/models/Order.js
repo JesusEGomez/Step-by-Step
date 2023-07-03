@@ -3,15 +3,22 @@ const { DataTypes } = require("sequelize");
 module.exports = (sequelize) => {
   sequelize.define("order", {
     id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING,
+    status: {
+      type: DataTypes.ENUM('pending', 'shipped', 'delivered'),
+      defaultValue: 'pending',
+      allowNull: false,
     },
-    date: {
-      type: DataTypes.DATEONLY,
+    totalAmount: {
+      type: DataTypes.DECIMAL(10, 2),
+      allowNull: false,
+      validate: {
+        isDecimal: true,
+        min: 0,
+      },
     },
   });
 };
