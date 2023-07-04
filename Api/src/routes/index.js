@@ -3,8 +3,8 @@ const { Router } = require("express");
 // Ejemplo: const authRouter = require('./auth.js');
 
 const router = Router();
-// const productsRouter = require("./productsRoutes");
-const createProductCtrl = require('../controllers/products/productCreateCtrl');
+const productsRouter = require("./productsRoutes");
+// const createProductCtrl = require('../controllers/products/productCreateCtrl');
 const usersRouter = require('../routes/users.routes.js')
 const addressRoutes = require('../routes/address.routes.js')
 
@@ -13,8 +13,9 @@ const addressRoutes = require('../routes/address.routes.js')
 // router.use("/products", productsRouter);
 
 // router.get('/users', userAllCtrl)
-router.post('/producto', createProductCtrl);
+// router.post('/producto', createProductCtrl);
 router.use('/users', usersRouter);
 router.use('/address', addressRoutes);
+router.use('/products', productsRouter);
 
 module.exports = router;
