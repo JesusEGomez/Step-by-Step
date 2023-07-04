@@ -5,10 +5,10 @@ const NavBar = () => {
 
         <div className="navbar bg-base-100 fixed top-1">
             <div className="flex-1">
-                <Link to="/home" className="text-black hover:text-gray-500"><img src={logo} alt="logo" className=" w-24 rounded-full  " /></Link>
+                <Link to="/home" className="text-black hover:text-gray-500"><img src={logo} alt="logo" className=" w-28 h-24 rounded-sm ml-5 mt-1  " /></Link>
             </div>
-            <div className="flex-none">
-                <div  >
+            <div className="flex-auto justify-between">
+                <div className="" >
                     <Link to="/tienda" className="text-black hover:text-gray-500">MUJER/</Link>
                     <Link to="/tienda" className="text-black hover:text-gray-500">/VARON/</Link>
                     <Link to="/tienda" className="text-black hover:text-gray-500">/UNISEX/</Link>
