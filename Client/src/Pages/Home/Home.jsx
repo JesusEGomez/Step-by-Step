@@ -1,9 +1,11 @@
+import { GiRunningShoe } from 'react-icons/gi';
 
-const Home =()=>{
-    return(
+const Home = () => {
+    return (
         <div>
+
             <h1>Step-by-Step</h1>
-            <p>todo lo que buscas en zapas </p>
+            <p className="flex items-center ">todo lo que buscas en zapas   <GiRunningShoe className="ml-1 " />   </p>
         </div>
     )
 }
