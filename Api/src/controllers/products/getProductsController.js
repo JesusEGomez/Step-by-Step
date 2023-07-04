@@ -16,7 +16,6 @@ const getDbProducts = async () => {
       {
         model: Size,
         through: { attributes: [] },
-
         attributes: ["size"], // Specify the attributes you want to retrieve from the associated Comment model
       },
     ],
