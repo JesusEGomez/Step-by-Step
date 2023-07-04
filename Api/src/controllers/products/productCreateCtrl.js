@@ -17,36 +17,31 @@ const createProductCtrl = async (req, res) => {
       categories,
     } = req.body;
 
-    // // Verificar si el brand ya existe en la base de datos
+    // Verificar si el brand ya existe en la base de datos
     let existingBrand = await Brand.findOne({ where: { name: brand } });
 
     if (!existingBrand) {
       existingBrand = await Brand.create({ name: brand });
-      // return res.status(404).json({ message: 'Esta marca de producto no esta registrada en la base de datos.' })
     }
-    // --------------------- Size ---------------------
 
-    // // // Validar y convertir el array de size
-    // const validatedSize = size.map((value) => {
-    //   // if (typeof value === "number") {
-    //   //   return value.toString();
-    //   // }
-    //   return value;
-    // });
+    // Validar y convertir el array de size
+    const validatedSize = size.map((value) => value);
 
-    // // Verificar si los tamaños ya existen en la base de datos
-    // const existingSizes = await Size.findAll({
-    //   where: { size: validatedSize },
-    // });
+    // Verificar si los tamaños ya existen en la base de datos
+    const existingSizes = await Size.findAll({
+      where: { size: validatedSize },
+    });
 
-    // // Crear nuevos tamaños si no existen
-    // const newSizes = validatedSize.filter(
-    //   (value) => !existingSizes.some((size) => size.size === value)
-    // );
-    // await Size.bulkCreate(newSizes.map((value) => ({ size: value })));
+    // Crear nuevos tamaños si no existen
+    const newSizes = validatedSize.filter(
+      (value) => !existingSizes.some((size) => size.size === value)
+    );
+    await Size.bulkCreate(newSizes.map((value) => ({ size: value })));
 
-
-    // #####################################################
+    // Obtener los objetos de tamaño correspondientes
+    const sizeObjects = await Size.findAll({
+      where: { size: validatedSize },
+    });
 
     // Crear el producto con las asociaciones
     const newProduct = await Product.create({
@@ -59,14 +54,14 @@ const createProductCtrl = async (req, res) => {
       stock,
       isPublish,
       brandId: existingBrand.id,
-      size
     });
 
+    // Agregar las asociaciones entre el producto y los tamaños
+    await newProduct.addSizes(sizeObjects);
 
-    // ---------------------- Categorias -------------------------------------------------
     // Verificar si las categorías existen en la base de datos
     const existingCategories = await Category.findAll({
-      where: { name: categories }
+      where: { name: categories },
     });
 
     // Obtener o crear los objetos de categoría correspondientes
@@ -84,7 +79,6 @@ const createProductCtrl = async (req, res) => {
     await newProduct.addCategories(categoryObjects);
 
     res.status(201).json({ message: "Producto creado exitosamente", product: newProduct });
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Error al crear el producto" });

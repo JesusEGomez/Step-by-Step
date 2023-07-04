@@ -80,12 +80,8 @@ Product.belongsTo(Brand, { foreignKey: "brandId" });
 Product.belongsToMany(Category, { through: "productCategory" });
 Category.belongsToMany(Product, { through: "productCategory" });
 
-Product.belongsToMany(Size, {
-  through: "productSize",
-});
-Size.belongsToMany(Product, {
-  through: "productSize",
-});
+Product.belongsToMany(Size, { through: "productSize" });
+Size.belongsToMany(Product, { through: "productSize" });
 
 // Product.belongsToMany(Color, {
 //   through: "productColor",
