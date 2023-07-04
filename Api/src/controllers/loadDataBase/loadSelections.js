@@ -11,33 +11,14 @@ const {
 } = require("../../db.js");
 const axios = require("axios");
 
-const data = require("../../../productos.js");
+// const data = require("../../../productos.js");
 const brands = require("../../../assets/database/brands.json");
 const categories = require("../../../assets/database/categories.json");
 const sizes = require("../../../assets/database/sizes.json");
 const gender = require("../../../assets/database/gender.json");
-const images = require("../../../assets/database/images.json");
+
 const colors = require("../../../assets/database/colors.json");
 const products = require("../../../assets/database/products.json");
-
-// const bulkCreateProducts = async () => {
-//   try {
-//     const loadProducts = await Product.bulkCreate(products);
-
-//     return loadProducts;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-const bulkCreateImages = async () => {
-  // try {
-  //   const loadImages = await Image.bulkCreate(images);
-  //   return loadImages;
-  // } catch (error) {
-  //   console.log(error);
-  // }
-};
 
 const bulkCreateBrands = async () => {
   try {
@@ -52,7 +33,7 @@ const bulkCreateBrands = async () => {
 const bulkCreateCategories = async () => {
   try {
     const loadCategories = await Category.bulkCreate(categories);
-    // console.log("loadCategories", loadCategories[0]);
+
     return loadCategories;
   } catch (error) {
     console.log(error);
@@ -62,77 +43,118 @@ const bulkCreateCategories = async () => {
 const bulkCreateSizes = async () => {
   try {
     const loadSizes = await Size.bulkCreate(sizes);
-    // console.log("loadSizes", loadSizes[0]);
+
     return loadSizes;
   } catch (error) {
     console.log(error);
   }
 };
-// const bulkCreateColors = async () => {
-//   try {
-//     const loadColors = await Color.bulkCreate(colors);
-//     // console.log("loadColors", loadColors[0]);
-//     return loadColors;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+const bulkCreateColors = async () => {
+  try {
+    const loadColors = await Color.bulkCreate(colors);
+
+    return loadColors;
+  } catch (error) {
+    console.log(error);
+  }
+};
 const bulkCreateGender = async () => {
   try {
     const loadGender = await Gender.bulkCreate(gender);
-    // console.log("loadGender", loadGender[0]);
+
     return loadGender;
   } catch (error) {
     console.log(error);
   }
 };
 
-const createProducts = () => {
-  data.products.forEach(async (product) => {
-    const productData = {
-      item_number: product.item_number,
-      model: product.name,
-      description: product.description,
-      price: product.price,
-      discount_percentage: product.discount_percentage,
-      gender: product.gender[0],
-      brand: product.brand[0],
-      stock: product.stock,
-      sold_count: product.sold_count,
-      // image: product.images,
-      // size: product.size,
-      // category: product.category,
-    };
-    const createProduct = Product.create(productData);
+const createAllProducts = async () => {
+  try {
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
 
-    const categoryIds = await Promise.all(
-      product.category.map(async (category) => {
-        console.log("category", category);
-        const foundCategory = await Category.findOne({
-          where: { name: category },
-        });
+      const productData = {
+        item_number: product.item_number,
+        model: product.name,
+        description: product.description,
+        price: product.price,
+        discount_percentage: product.discount_percentage,
+        gender: product.gender[0],
+        brand: product.brand[0],
+        stock: product.stock,
+        sold_count: product.sold_count,
+      };
+      const createProduct = await Product.create(productData);
 
-        if (foundCategory) {
-          // console.log("foundCategory.categoryId", foundCategory.id);
-          return foundCategory.id;
-        }
+      const categoryIds = await Promise.all(
+        product.category.map(async (category) => {
+          const foundCategories = await Category.findOne({
+            where: { name: category },
+          });
 
-        await createProduct.setCategory(categoryIds);
-      })
-    ).then((values) => {
-      return values;
-    });
-    console.log(categoryIds);
-  });
+          if (foundCategories) {
+            return foundCategories.id;
+          }
+        })
+      );
+      await createProduct.addCategories(categoryIds);
+
+      const sizeIds = await Promise.all(
+        product.size.map(async (size) => {
+          const foundSize = await Size.findOne({
+            where: { size: size },
+          });
+
+          if (foundSize) {
+            return foundSize.id;
+          }
+        })
+      );
+      await createProduct.addSizes(sizeIds);
+
+      const colorIds = await Promise.all(
+        product.color.map(async (color) => {
+          const foundColor = await Color.findOne({
+            where: { color: color },
+          });
+
+          if (foundColor) {
+            return foundColor.id;
+          }
+        })
+      );
+      await createProduct.addColors(colorIds);
+
+      const imagesArr = product.images;
+
+      const mappedImages = imagesArr.map((s) => {
+        return {
+          imageUrl: s,
+        };
+      });
+
+      await Promise.all(
+        mappedImages.map(async (obj) => {
+          const image = await Image.create(obj);
+
+          image.setProduct(createProduct);
+        })
+      );
+    }
+    console.log("base de datos cargada");
+  } catch (error) {
+    console.log("error en la carga base de datos");
+    throw error;
+  }
 };
 
 module.exports = {
   bulkCreateBrands,
-  bulkCreateImages,
+
   bulkCreateCategories,
   bulkCreateGender,
-  // bulkCreateColors,
+  bulkCreateColors,
   bulkCreateSizes,
-  // bulkCreateProducts,
-  createProducts,
+
+  createAllProducts,
 };

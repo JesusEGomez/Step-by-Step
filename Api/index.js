@@ -26,10 +26,9 @@ conn.sync({ force: true }).then(async () => {
   await loadDb.bulkCreateBrands();
   await loadDb.bulkCreateCategories();
   await loadDb.bulkCreateSizes();
-  // await loadDb.bulkCreateColors();
+  await loadDb.bulkCreateColors();
   await loadDb.bulkCreateGender();
-  await loadDb.createProducts();
-  // await loadDb.bulkCreateImages();
+  await loadDb.createAllProducts();
 
   server.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console

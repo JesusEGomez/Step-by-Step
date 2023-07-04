@@ -1792,6 +1792,7 @@ const images = products.map((p, j) =>
     return { productId: j + 1, image: p.images[i] };
   })
 );
+const imagesUrl = products.map((p) => p.images).flat();
 
 //&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
@@ -2727,4 +2728,5 @@ module.exports = {
   gender,
   sizes,
   images,
+  imagesUrl,
 };

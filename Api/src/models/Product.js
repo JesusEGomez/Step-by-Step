@@ -11,8 +11,8 @@ module.exports = (sequelize) => {
       },
       item_number: {
         type: DataTypes.STRING,
-        defaultValue: "sin item number",
-        allowNull: true,
+
+        allowNull: false,
       },
       model: {
         type: DataTypes.STRING,

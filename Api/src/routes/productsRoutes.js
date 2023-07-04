@@ -1,21 +1,15 @@
 const { Router } = require("express");
-const {
-  getProducts,
-  postProduct,
-  postImagesToUrl,
-  hardcodeProducts,
-} = require("../handlers/products");
+const postProduct = require("../handlers/createProductHandler");
+const getProductsFromDb = require("../handlers/getProductsHandler");
+
 const createProductCtrl = require("../controllers//products/productCreateCtrl");
-const { getAllProducts } = require("../controllers/products/products");
 
 const productsRouter = Router();
-// console.log("routes", images);
-productsRouter.get("/", getProducts);
-// productsRouter.get("/:idProduct", getById);
-productsRouter.post("/create2", postProduct);
-productsRouter.post("/create", createProductCtrl);
-productsRouter.post("/images", postImagesToUrl);
-productsRouter.post("/all", hardcodeProducts);
 
+productsRouter.get("/", getProductsFromDb);
+
+productsRouter.post("/create", postProduct);
+// productsRouter.get("/:idProduct", getById);
+productsRouter.post("/create2", createProductCtrl);
 //
 module.exports = productsRouter;

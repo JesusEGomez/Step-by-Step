@@ -15,7 +15,7 @@ module.exports = (sequelize) => {
       // },
       imageUrl: {
         type: DataTypes.TEXT,
-        allowNull: false,
+        allowNull: true,
         // validate: {
         //     isAcceptedFormat(value) {
         //         if (!/\.(png|jpg)$/.test(value)) {
