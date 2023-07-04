@@ -10,14 +10,13 @@ const createProduct = async (req, res) => {
       isPublish
     } = req.body;
 
-
     console.log("req.body", req.body);
     const newProduct = await postProduct(req.body);
     // console.log("handler", newProduct);
     return res.status(201).json(newProduct);
 
   } catch (error) {
-    return res.status(500).json({ message: 'no se puso crear' })
+    return res.status(500).json({ message: 'no se pudo crear' })
   }
 };
 

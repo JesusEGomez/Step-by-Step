@@ -13,7 +13,7 @@ const addressRoutes = require('../routes/address.routes.js')
 // router.use("/products", productsRouter);
 
 // router.get('/users', userAllCtrl)
-router.post('/producto', createProductCtrl);
+router.use('/producto', createProductCtrl);
 router.use('/users', usersRouter);
 router.use('/address', addressRoutes);
 
