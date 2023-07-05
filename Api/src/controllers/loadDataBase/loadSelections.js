@@ -125,6 +125,19 @@ const createAllProducts = async () => {
       );
       await createProduct.addColors(colorIds);
 
+      // const imageIds = await Promise.all(
+      //   product.images.map(async (image) => {
+      //     const foundImage = await Image.findOne({
+      //       where: { imageUrl: image },
+      //     });
+
+      //     if (foundImage) {
+      //       return foundImage.id;
+      //     }
+      //   })
+      // );
+      // await createProduct.addImages(imageIds);
+
       const imagesArr = product.images;
 
       const mappedImages = imagesArr.map((s) => {

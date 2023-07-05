@@ -1,4 +1,3 @@
-
 import LayoutPublic from "../layout/LayoutPublic";
 import { Home, Landing, Tienda, ErrorPage, Form, Detail } from "../pages";
 import {
