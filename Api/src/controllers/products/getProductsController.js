@@ -28,7 +28,6 @@ const getDbProducts = async () => {
 
   // const categories = result.category.map((category) => category.name);
   // console.log(categories);
-  console.log(...result.toJSON());
   return result;
 
   // return { ...result.toJSON(), categories };
