@@ -75,8 +75,8 @@ Size.belongsToMany(Product, { through: "productSize" });
 Product.belongsToMany(Color, { through: "productColor" });
 Color.belongsToMany(Product, { through: "productColor" });
 
-Image.belongsTo(Product, { foreignKey: "productId" });
-Product.hasMany(Image, { foreignKey: "productId" });
+Image.belongsTo(Product, { foreignKey: 'productId' });
+Product.hasMany(Image, { foreignKey: 'productId' });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
