@@ -6,12 +6,13 @@ const path = require("path");
 const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  define: {
+    freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
   }
-);
+});
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -48,11 +49,8 @@ const {
   Size,
   Category,
   Image,
-
   Color,
-  Gender,
   Order,
-
   Address,
 } = sequelize.models;
 
@@ -66,44 +64,29 @@ Product.hasMany(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
     allowNull: false,
-  },
+  }
 });
 Order.belongsTo(Product);
 
-User.hasMany(Order, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-});
-Order.belongsTo(User);
+User.hasMany(Order, { foreignKey: "orderId" });
+Order.belongsTo(User, { foreignKey: "orderId" });
 
-Product.belongsToMany(Category, {
-  through: "product_category",
-});
+Brand.hasMany(Product, { foreignKey: "brandId" });
+Product.belongsTo(Brand, { foreignKey: "brandId" });
 
-Category.belongsToMany(Product, {
-  through: "product_category",
-});
+Product.belongsToMany(Category, { through: "productCategory" });
+Category.belongsToMany(Product, { through: "productCategory" });
 
-Product.belongsToMany(Size, {
-  through: "product_size",
-});
-Size.belongsToMany(Product, {
-  through: "product_size",
-});
+Product.belongsToMany(Size, { through: "productSize" });
+Size.belongsToMany(Product, { through: "productSize" });
 
-Product.belongsToMany(Color, {
-  through: "product_color",
-});
-Color.belongsToMany(Product, {
-  through: "product_color",
-});
+Product.belongsToMany(Color, { through: "productColor" });
+Color.belongsToMany(Product, { through: "productColor" });
 
-Product.hasMany(Image, {
-  foreignKey: "productId",
-});
-Image.belongsTo(Product);
+Image.hasMany(Product, { foreignKey: "productId" });
+Product.belongsTo(Image, { foreignKey: "productId" });
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

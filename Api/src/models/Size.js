@@ -12,13 +12,13 @@ module.exports = (sequelize) => {
       size: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        set(value) {
-          if (typeof value === "number") {
-            this.setDataValue("size", value.toString());
-          } else {
-            this.setDataValue("size", value);
-          }
-        },
+        // set(value) {
+        //   if (typeof value === "number") {
+        //     this.setDataValue("size", value.toString());
+        //   } else {
+        //     this.setDataValue("size", value);
+        //   }
+        // },
         validate: {
           isNumeric: {
             args: true,
@@ -26,9 +26,6 @@ module.exports = (sequelize) => {
           },
         },
       },
-    },
-    {
-      timestamps: false,
-    }
+    }, { timestamps: false, }
   );
 };
