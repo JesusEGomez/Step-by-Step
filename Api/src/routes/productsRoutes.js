@@ -11,11 +11,11 @@ const productsRouter = Router();
 
 // productsRouter.get("/", getProducts);
 productsRouter.get("/", getProductsFromDb);
-productsRouter.post("/create", postProduct);
+// productsRouter.post("/create", postProduct);
 // productsRouter.get("/:idProduct", getById);
 // productsRouter.post("/", createProduct);
 
-// productsRouter.post("/", createProductCtrl);
+productsRouter.post("/create", createProductCtrl);
 productsRouter.get("/name", productsByNameCtrl);
 productsRouter.get("/:id", productsByIdCtrl);
 

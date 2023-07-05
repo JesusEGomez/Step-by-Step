@@ -1,4 +1,4 @@
-const { Product, Color, Size, Category, Image } = require("../../db");
+const { Product, Color, Size, Category, Image, Brand } = require("../../db");
 
 const getDbProducts = async () => {
   const result = await Product.findAll({
@@ -21,6 +21,11 @@ const getDbProducts = async () => {
       {
         model: Image,
         attributes: ["imageUrl"],
+      },
+      {
+        model: Brand,
+        attributes: ["name"],
+        through: { attributes: [] },
       },
     ],
     // raw: true,
