@@ -52,6 +52,9 @@ const createProductCtrl = async (req, res) => {
     );
     const allColors = [...existingColors, ...createdColors];
 
+    // RELACIONAR CON imagenes
+
+
     // Crear el nuevo producto y establecer la marca, tamaños, categorías y colores
     const newProduct = await Product.create({
       item_number,
