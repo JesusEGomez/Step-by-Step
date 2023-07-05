@@ -9,7 +9,12 @@
     "stock": 50,
     "brand": ["nike"],
     "category": ["casual"],
-    "images": ["...", "...", "...", "..."],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw33725747/products/NIDR7882-700/NIDR7882-700-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd99ab27e/products/NIDR7882-700/NIDR7882-700-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw642f7ce0/products/NIDR7882-700/NIDR7882-700-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwaf2a9d18/products/NIDR7882-700/NIDR7882-700-4.JPG"
+    ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["brown"],
     "gender": ["men"],
