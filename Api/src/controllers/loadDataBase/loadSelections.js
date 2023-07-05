@@ -163,11 +163,9 @@ const createAllProducts = async () => {
 
 module.exports = {
   bulkCreateBrands,
-
   bulkCreateCategories,
   bulkCreateGender,
   bulkCreateColors,
   bulkCreateSizes,
-
   createAllProducts,
 };

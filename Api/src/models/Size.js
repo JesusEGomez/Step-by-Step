@@ -19,13 +19,14 @@ module.exports = (sequelize) => {
         //     this.setDataValue("size", value);
         //   }
         // },
-        validate: {
-          isNumeric: {
-            args: true,
-            msg: "El valor de size debe contener solo numeros",
-          },
-        },
+        // validate: {
+        //   isNumeric: {
+        //     args: true,
+        //     msg: "El valor de size debe contener solo numeros",
+        //   },
+        // },
       },
-    }, { timestamps: false, }
+    },
+    { timestamps: false }
   );
 };
