@@ -55,56 +55,28 @@ User.belongsTo(Address, { foreignKey: "addressId" });
 Product.hasMany(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
-    // allowNull: false,
     allowNull: false,
   },
 });
 Order.belongsTo(Product);
 
-User.hasMany(Order, {
-  foreignKey: {
-    type: DataTypes.INTEGER,
-    // allowNull: false,
-    allowNull: false,
-  },
-});
-Order.belongsTo(User);
+User.hasMany(Order, { foreignKey: "orderId" });
+Order.belongsTo(User, { foreignKey: "orderId" });
 
-Product.belongsToMany(Category, {
-  through: "product_category",
-  // foreignKey: "productId",
-});
+Brand.hasMany(Product, { foreignKey: "brandId" });
+Product.belongsTo(Brand, { foreignKey: "brandId" });
 
-Category.belongsToMany(Product, {
-  through: "product_category",
-  // foreignKey: "categoryId",
-});
+Product.belongsToMany(Category, { through: "productCategory" });
+Category.belongsToMany(Product, { through: "productCategory" });
 
-Product.belongsToMany(Size, {
-  through: "product_size",
-  // foreignKey: "productId",
-});
-Size.belongsToMany(Product, {
-  through: "product_size",
-  // foreignKey: "sizeId",
-});
+Product.belongsToMany(Size, { through: "productSize" });
+Size.belongsToMany(Product, { through: "productSize" });
 
-//* Color.hasMany(Product, {
-//   foreignKey: {
-//     type: DataTypes.INTEGER,
-//     // allowNull: false,
-//   },
-// });
-// Product.belongsTo(Color);
-Product.belongsToMany(Color, {
-  through: "product_color",
-});
-Color.belongsToMany(Product, {
-  through: "product_color",
-});
+Product.belongsToMany(Color, { through: "productColor" });
+Color.belongsToMany(Product, { through: "productColor" });
 
-Image.hasMany(Product, { foreignKey: "productId" });
-Product.belongsTo(Image, { foreignKey: "productId" });
+Image.belongsTo(Product, { foreignKey: "productId" });
+Product.hasMany(Image, { foreignKey: "productId" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
