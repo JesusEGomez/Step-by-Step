@@ -10,13 +10,13 @@ module.exports = (sequelize) => {
     imageUrl: {
       type: DataTypes.TEXT,
       allowNull: true,
-      validate: {
-        isAcceptedFormat(value) {
-          if (!/\.(png|jpg)$/.test(value)) {
-            throw new Error("La URL de la imagen debe terminar en .png o .jpg");
-          }
-        },
-      }
+      // validate: {
+      //   isAcceptedFormat(value) {
+      //     if (!/\.(png|jpg)$/.test(value)) {
+      //       throw new Error("La URL de la imagen debe terminar en .png o .jpg");
+      //     }
+      //   },
+      // }
     },
   },
   );
