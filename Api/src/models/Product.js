@@ -15,12 +15,12 @@ module.exports = (sequelize) => {
     model: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: {
-          args: [2],
-          msg: "El modelo debe tener al menos 2 caracteres",
-        },
-      },
+      // validate: {
+      //   len: {
+      //     args: [2],
+      //     msg: "El modelo debe tener al menos 2 caracteres",
+      //   },
+      // },
     },
 
     description: {
@@ -46,21 +46,21 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: true,
       defaultValue: 0.0,
-      validate: {
-        min: 0.0,
-      },
+      // validate: {
+      //   min: 0.0,
+      // },
     },
     discountPercentage: {
       type: DataTypes.FLOAT,
       defaultValue: 0.0,
       allowNull: true,
-      validate: {
-        min: 0.0,
-        max: {
-          args: 100.0,
-          msg: "El porcentaje de descuento no puede ser mayor a 100",
-        },
-      },
+      // validate: {
+      //   min: 0.0,
+      //   max: {
+      //     args: 100.0,
+      //     msg: "El porcentaje de descuento no puede ser mayor a 100",
+      //   },
+      // },
     },
     total: {
       type: DataTypes.VIRTUAL, // Columna virtual (no se almacena en la base de datos)
@@ -75,17 +75,17 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      validate: {
-        min: 0,
-      },
+      // validate: {
+      //   min: 0,
+      // },
     },
     sold_count: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      validate: {
-        min: 0,
-      },
+      // validate: {
+      //   min: 0,
+      // },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,
