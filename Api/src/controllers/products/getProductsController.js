@@ -15,7 +15,7 @@ const getDbProducts = async () => {
       },
       {
         model: Size,
-        attributes: ["size"],
+        // attributes: ["size"],
         through: { attributes: [] },
       },
       {
@@ -28,6 +28,7 @@ const getDbProducts = async () => {
 
   // const categories = result.category.map((category) => category.name);
   // console.log(categories);
+  // console.log(...result.toJSON());
   return result;
 
   // return { ...result.toJSON(), categories };
