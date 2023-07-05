@@ -9,9 +9,9 @@ const sequelize = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  define: {
-    freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
-  }
+  // define: {
+  //   freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
+  // }
 });
 const basename = path.basename(__filename);
 
@@ -83,9 +83,8 @@ Size.belongsToMany(Product, { through: "productSize" });
 Product.belongsToMany(Color, { through: "productColor" });
 Color.belongsToMany(Product, { through: "productColor" });
 
-Image.hasMany(Product, { foreignKey: "productId" });
-Product.belongsTo(Image, { foreignKey: "productId" });
-
+Image.belongsTo(Product, { foreignKey: 'productId' });
+Product.hasMany(Image, { foreignKey: 'productId' });
 
 
 module.exports = {

@@ -26,12 +26,12 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: {
-          args: [10],
-          msg: "El eslogan debe tener al menos 10 caracteres",
-        },
-      },
+      // validate: {
+      //   len: {
+      //     args: [10],
+      //     msg: "El eslogan debe tener al menos 10 caracteres",
+      //   },
+      // },
     },
     gender: {
       type: DataTypes.ENUM("men", "women", "unisex"),
