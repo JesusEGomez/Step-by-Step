@@ -26,6 +26,7 @@ export const productsSlice = createSlice({
     builder
       .addCase(fetchProducts.fulfilled, (state, actions) => {
         actions.payload.forEach((element) => {
+          console.log(element);
           state.products.push(element);
         });
       })

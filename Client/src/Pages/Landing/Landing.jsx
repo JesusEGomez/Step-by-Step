@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 
 const Landing = () => {
-
-    location.pathname
     return (
 
         <>
