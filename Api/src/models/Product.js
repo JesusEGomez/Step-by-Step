@@ -60,14 +60,14 @@ module.exports = (sequelize) => {
           args: 100.0,
           msg: "El porcentaje de descuento no puede ser mayor a 100",
         },
-      }
+      },
     },
     total: {
       type: DataTypes.VIRTUAL, // Columna virtual (no se almacena en la base de datos)
       get() {
         const price = this.getDataValue("price");
         const discountPercentage = this.getDataValue("discountPercentage");
-        const total = price - (price * (discountPercentage / 100));
+        const total = price - price * (discountPercentage / 100);
         return total;
       },
     },
