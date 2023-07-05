@@ -78,7 +78,7 @@ const createAllProducts = async () => {
         model: product.name,
         description: product.description,
         price: product.price,
-        discount_percentage: product.discount_percentage,
+        discountPercentage: product.discount_percentage,
         gender: product.gender[0],
         brand: product.brand[0],
         stock: product.stock,

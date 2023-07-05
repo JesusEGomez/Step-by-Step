@@ -5,6 +5,7 @@ const postProduct = require("../handlers/createProductHandler");
 const getProductsFromDb = require("../handlers/getProductsHandler");
 // const createProduct = require("../controllers/products/createProductController.js");
 const productsByNameCtrl = require("../controllers/products/productsByNameCtrl.js");
+const productsByIdCtrl = require("../controllers/products/productByIdCtrl.js");
 
 const productsRouter = Router();
 
@@ -16,5 +17,6 @@ productsRouter.post("/create", postProduct);
 
 // productsRouter.post("/", createProductCtrl);
 productsRouter.get("/name", productsByNameCtrl);
+productsRouter.get("/:id", productsByIdCtrl);
 
 module.exports = productsRouter;

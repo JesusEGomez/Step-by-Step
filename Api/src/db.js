@@ -10,6 +10,9 @@ const sequelize = new Sequelize(
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+    define: {
+      freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
+    },
   }
 );
 const basename = path.basename(__filename);
@@ -100,10 +103,8 @@ Color.belongsToMany(Product, {
   through: "product_color",
 });
 
-Product.hasMany(Image, {
-  foreignKey: "productId",
-});
-Image.belongsTo(Product);
+Image.hasMany(Product, { foreignKey: "productId" });
+Product.belongsTo(Image, { foreignKey: "productId" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
