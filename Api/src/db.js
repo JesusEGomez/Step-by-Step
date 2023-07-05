@@ -66,7 +66,7 @@ Product.hasMany(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
     allowNull: false,
-  },
+  }
 });
 Order.belongsTo(Product);
 
@@ -76,24 +76,19 @@ Order.belongsTo(User, { foreignKey: "orderId" });
 Brand.hasMany(Product, { foreignKey: "brandId" });
 Product.belongsTo(Brand, { foreignKey: "brandId" });
 
-
 Product.belongsToMany(Category, { through: "productCategory" });
 Category.belongsToMany(Product, { through: "productCategory" });
 
 Product.belongsToMany(Size, { through: "productSize" });
 Size.belongsToMany(Product, { through: "productSize" });
 
-// Product.belongsToMany(Color, {
-//   through: "productColor",
-// });
-// Color.belongsToMany(Product, {
-//   through: "productColor",
-// });
+Product.belongsToMany(Color, { through: "productColor" });
+Color.belongsToMany(Product, { through: "productColor" });
 
-// Product.hasMany(Image, {
-//   foreignKey: "productId",
-// });
-// Image.belongsTo(Product);
+Image.hasMany(Product, { foreignKey: "productId" });
+Product.belongsTo(Image, { foreignKey: "productId" });
+
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
