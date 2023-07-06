@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 const NavBar = () => {
     return (
 
-        <div className="navbar bg-base-100 fixed top-1 shadow-md  z-10">
+        <div className="navbar bg-base-100 fixed top-1 shadow-md z-10">
             <div className="flex-1">
                 <Link to="/home" className="text-black hover:text-gray-500"><img src={logo} alt="logo" className=" w-28 h-24 rounded-sm ml-5 mt-1  " /></Link>
             </div>
@@ -13,6 +13,7 @@ const NavBar = () => {
                     <Link to="/tienda" className="link">VARON</Link>
                     <Link to="/tienda" className="link">UNISEX</Link>
                     <Link to="/tienda" className="link">ALL</Link>
+                    <Link to="/form" className="link">CREATE</Link>
                 </div>
 
                 <div className="dropdown dropdown-end">
@@ -22,7 +23,7 @@ const NavBar = () => {
                             <span className="badge badge-sm indicator-item">8</span>
                         </div>
                     </label>
-                    <div tabIndex={0} className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
+                    <div tabIndex={0} className="mt-1 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
                         <div className="card-body">
                             <span className="font-bold text-lg">8 Items</span>
                             <span className="text-info">Subtotal: $999</span>
