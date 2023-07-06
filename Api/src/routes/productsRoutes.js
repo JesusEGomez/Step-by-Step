@@ -15,7 +15,7 @@ productsRouter.get("/", getProductsFromDb);
 // productsRouter.get("/:idProduct", getById);
 // productsRouter.post("/", createProduct);
 
-productsRouter.post("/create", createProductCtrl);
+productsRouter.post("/", createProductCtrl);
 productsRouter.get("/name", productsByNameCtrl);
 productsRouter.get("/:id", productsByIdCtrl);
 
