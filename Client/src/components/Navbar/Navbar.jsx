@@ -27,6 +27,7 @@ const NavBar = () => {
                     <Link to="/tienda" className="link">VARON</Link>
                     <Link to="/tienda" className="link">UNISEX</Link>
                     <Link to="/tienda" className="link">ALL</Link>
+                    <Link to="/form" className="link">CREATE</Link>
                 </div>
 
                 <div className="dropdown dropdown-end">

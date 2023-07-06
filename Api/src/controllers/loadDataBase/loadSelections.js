@@ -80,7 +80,7 @@ const createAllProducts = async () => {
         price: product.price,
         discountPercentage: product.discount_percentage,
         gender: product.gender[0],
-        brand: product.brand[0],
+        // brand: product.brand[0],
         stock: product.stock,
         sold_count: product.sold_count,
       };
@@ -125,18 +125,13 @@ const createAllProducts = async () => {
       );
       await createProduct.addColors(colorIds);
 
-      // const imageIds = await Promise.all(
-      //   product.images.map(async (image) => {
-      //     const foundImage = await Image.findOne({
-      //       where: { imageUrl: image },
-      //     });
+      const foundBrand = await Brand.findOne({
+        where: { name: product.brand[0] },
+      });
 
-      //     if (foundImage) {
-      //       return foundImage.id;
-      //     }
-      //   })
-      // );
-      // await createProduct.addImages(imageIds);
+      if (foundBrand) {
+        await createProduct.setBrand(foundBrand.id);
+      }
 
       const imagesArr = product.images;
 

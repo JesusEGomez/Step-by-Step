@@ -185,7 +185,7 @@
     "discount_percentage": 0,
     "rating": [4],
     "stock": 50,
-    "brand": ["nike", "adidas", "puma", "reebok", "sketchers", "converse"],
+    "brand": ["nike"],
     "category": ["casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf26be3c4/products/NIDM7590-001/NIDM7590-001-1.JPG",
@@ -1130,7 +1130,7 @@
     "discount_percentage": 0,
     "rating": [1],
     "stock": 30,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw18354b6e/products/UA_3025920-001/UA_3025920-001-1.JPG",
@@ -1152,7 +1152,7 @@
     "discount_percentage": 0,
     "rating": [6],
     "stock": 20,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwef306bce/products/UA3025920-103/UA3025920-103-1.JPG",
@@ -1174,7 +1174,7 @@
     "discount_percentage": 0,
     "rating": [7],
     "stock": 25,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["training"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa5511b90/products/UA3025527-600/UA3025527-600-1.JPG",
@@ -1196,7 +1196,7 @@
     "discount_percentage": 0,
     "rating": [2],
     "stock": 30,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw47f71e74/products/UA_3024936-100/UA_3024936-100-1.JPG",
@@ -1218,7 +1218,7 @@
     "discount_percentage": 0,
     "rating": [8],
     "stock": 10,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["training"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdf7d4a93/products/UA_3024878-401/UA_3024878-401-1.JPG",
@@ -1238,7 +1238,7 @@
     "discount_percentage": 0,
     "rating": [3],
     "stock": 20,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw67626899/products/UA3024880-002/UA3024880-002-1.JPG",
@@ -1260,7 +1260,7 @@
     "discount_percentage": 0,
     "rating": [4],
     "stock": 35,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw92fc37c0/products/UA3024898-601/UA3024898-601-1.JPG",
@@ -1282,7 +1282,7 @@
     "discount_percentage": 0,
     "rating": [9],
     "stock": 20,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["training"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1ce08be4/products/UA3024877-402/UA3024877-402-1.JPG",
@@ -1304,7 +1304,7 @@
     "discount_percentage": 0,
     "rating": [4],
     "stock": 20,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw752973cf/products/AD_GW0396/AD_GW0396-1.JPG",
@@ -1326,7 +1326,7 @@
     "discount_percentage": 0,
     "rating": [6],
     "stock": 25,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["training"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4f2a5981/products/UA_3025767-400/UA_3025767-400-1.JPG",
@@ -1348,7 +1348,7 @@
     "discount_percentage": 0,
     "rating": [10],
     "stock": 15,
-    "brand": ["Under Armour"],
+    "brand": ["under armour"],
     "category": ["training", "running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6b21bcc8/products/UA3025976-401/UA3025976-401-1.JPG",
@@ -1370,7 +1370,7 @@
     "discount_percentage": 0,
     "rating": [1],
     "stock": 30,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa560c5aa/products/CO_166582C/CO_166582C-1.JPG",
@@ -1390,7 +1390,7 @@
     "discount_percentage": 0,
     "rating": [6],
     "stock": 40,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfa893671/products/CO_166585C/CO_166585C-1.JPG",
@@ -1412,7 +1412,7 @@
     "discount_percentage": 0,
     "rating": [7],
     "stock": 25,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4bcdd626/products/CO_157196C/CO_157196C-1.JPG",
@@ -1434,7 +1434,7 @@
     "discount_percentage": 0,
     "rating": [2],
     "stock": 30,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw45761d03/products/CO_166584C/CO_166584C-1.JPG",
@@ -1456,7 +1456,7 @@
     "discount_percentage": 0,
     "rating": [8],
     "stock": 25,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwcb483c87/products/CO_156994C/CO_156994C-1.JPG",
@@ -1478,7 +1478,7 @@
     "discount_percentage": 0,
     "rating": [6],
     "stock": 40,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfa893671/products/CO_166585C/CO_166585C-1.JPG",
@@ -1500,7 +1500,7 @@
     "discount_percentage": 0,
     "rating": [7],
     "stock": 25,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4bcdd626/products/CO_157196C/CO_157196C-1.JPG",
@@ -1522,7 +1522,7 @@
     "discount_percentage": 0,
     "rating": [2],
     "stock": 30,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw45761d03/products/CO_166584C/CO_166584C-1.JPG",
@@ -1544,7 +1544,7 @@
     "discount_percentage": 0,
     "rating": [8],
     "stock": 25,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwcb483c87/products/CO_156994C/CO_156994C-1.JPG",
@@ -1566,7 +1566,7 @@
     "discount_percentage": 0,
     "rating": [3],
     "stock": 30,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6e443e0e/products/CO_166587C/CO_166587C-1.JPG",
@@ -1586,7 +1586,7 @@
     "discount_percentage": 0,
     "rating": [4],
     "stock": 35,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa4e9db9f/products/CO_166586C/CO_166586C-1.JPG",
@@ -1606,7 +1606,7 @@
     "discount_percentage": 0,
     "rating": [9],
     "stock": 20,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw55ddd25c/products/CO_157004C/CO_157004C-1.JPG",
@@ -1626,7 +1626,7 @@
     "discount_percentage": 0,
     "rating": [4],
     "stock": 20,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw306316f6/products/COA00985C/COA00985C-1.JPG",
@@ -1646,7 +1646,7 @@
     "discount_percentage": 0,
     "rating": [6],
     "stock": 25,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2726e4af/products/COA05774C/COA05774C-1.JPG",
@@ -1666,7 +1666,7 @@
     "discount_percentage": 0,
     "rating": [10],
     "stock": 10,
-    "brand": ["Converse"],
+    "brand": ["converse"],
     "category": ["training", "running"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwca457b22/products/COA00404C/COA00404C-1.JPG",

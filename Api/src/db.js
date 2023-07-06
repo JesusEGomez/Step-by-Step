@@ -10,9 +10,6 @@ const sequelize = new Sequelize(
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-    define: {
-      freezeTableName: true, // Evita la pluralización automática de los nombres de las tablas
-    },
   }
 );
 const basename = path.basename(__filename);
@@ -44,8 +41,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Product, User, Brand, Size, Category, Image, Color, Order, Address } =
-  sequelize.models;
+const { Product, User, Brand, Size, Category, Image, Color, Order, Address, Stock } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
@@ -60,11 +56,21 @@ Product.hasMany(Order, {
 });
 Order.belongsTo(Product);
 
-User.hasMany(Order, { foreignKey: "orderId" });
-Order.belongsTo(User, { foreignKey: "orderId" });
+User.hasMany(Order, { foreignKey: "userId" });
+Order.belongsTo(User, { foreignKey: "userId" });
 
-Brand.hasMany(Product, { foreignKey: "brandId" });
-Product.belongsTo(Brand, { foreignKey: "brandId" });
+Brand.hasMany(Product, {
+  foreignKey: {
+    type: DataTypes.INTEGER,
+    // allowNull: false,
+  },
+});
+Product.belongsTo(Brand, {
+  foreignKey: {
+    type: DataTypes.INTEGER,
+    // allowNull: false,
+  },
+});
 
 Product.belongsToMany(Category, { through: "productCategory" });
 Category.belongsToMany(Product, { through: "productCategory" });
@@ -75,10 +81,17 @@ Size.belongsToMany(Product, { through: "productSize" });
 Product.belongsToMany(Color, { through: "productColor" });
 Color.belongsToMany(Product, { through: "productColor" });
 
-Image.belongsTo(Product, { foreignKey: "productId" });
 Product.hasMany(Image, { foreignKey: "productId" });
+Image.belongsTo(Product, { foreignKey: "productId" });
+
+Size.hasOne(Stock, { foreignKey: "sizeId" });
+Stock.belongsTo(Size, { foreignKey: "sizeId" });
+
+Product.hasMany(Stock, { foreignKey: "productId" });
+Stock.belongsTo(Product, { foreignKey: "productId" });
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
+

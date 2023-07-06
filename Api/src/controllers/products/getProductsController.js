@@ -1,4 +1,4 @@
-const { Product, Color, Size, Category, Image } = require("../../db");
+const { Product, Color, Size, Category, Image, Brand, Stock } = require("../../db");
 
 const getDbProducts = async () => {
   const result = await Product.findAll({
@@ -15,23 +15,28 @@ const getDbProducts = async () => {
       },
       {
         model: Size,
-        // attributes: ["size"],
+        attributes: ["size"],
         through: { attributes: [] },
       },
       {
         model: Image,
         attributes: ["imageUrl"],
       },
+      {
+        model: Brand,
+        attributes: ["name"],
+      },
+      {
+        model: Stock
+      }
     ],
-    // raw: true,
   });
 
-  // const categories = result.category.map((category) => category.name);
-  // console.log(categories);
-  // console.log(...result.toJSON());
-  return result;
+  const cleanedCategories = result.map((c) => c.categories.map((c) => c.name));
+  console.log(cleanedCategories);
+  console.log(result.map((c) => c.name));
 
-  // return { ...result.toJSON(), categories };
+  return [...result, result.cleanedCategories];
 };
 
 module.exports = { getDbProducts };

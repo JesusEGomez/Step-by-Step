@@ -1,4 +1,4 @@
-const { Product, Color, Size, Category, Brand } = require("../../db");
+const { Product, Color, Size, Category, Brand, Image } = require("../../db");
 const { Op } = require("sequelize");
 
 const productsByNameCtrl = async (req, res) => {
@@ -11,7 +11,7 @@ const productsByNameCtrl = async (req, res) => {
                     [Op.iLike]: `%${name}%`
                 }
             },
-            include: [Color, Size, Category, Brand]
+            include: [Color, Size, Category, Brand, Image]
         })
 
         if (!products.length) {
