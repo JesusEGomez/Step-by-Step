@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const {
   getBrands,
-  updateBrands,
+  // updateBrands,
   createBrand,
 } = require("../handlers/brandsHandler");
 

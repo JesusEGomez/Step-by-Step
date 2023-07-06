@@ -112,7 +112,7 @@ const createProductCtrl = async (req, res) => {
       mappedImages.map(async (url) => {
         const image = await Image.create(url);
 
-        image.setProducts(newProduct);
+        image.setProduct(newProduct);
       })
     );
 

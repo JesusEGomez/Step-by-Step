@@ -1,5 +1,5 @@
-const { createBrandCtrl } = require("../controllers/brand/createBrandCtrl");
-const { getBrandsCtrl } = require("../controllers/brand/createBrandCtrl");
+const createBrandCtrl = require("../controllers/brand/createBrandCtrl");
+const getBrandsCtrl = require("../controllers/brand/createBrandCtrl");
 
 const createBrand = async (req, res) => {
   try {
