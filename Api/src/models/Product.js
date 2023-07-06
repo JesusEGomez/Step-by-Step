@@ -24,12 +24,14 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
+ develop
       validate: {
         len: {
           args: [1],
           msg: "El eslogan debe tener al menos 10 caracteres",
         },
       },
+
     },
     gender: {
       type: DataTypes.ENUM("men", "women", "unisex"),
