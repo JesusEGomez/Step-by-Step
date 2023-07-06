@@ -118,7 +118,7 @@ const createProductCtrl = async (req, res) => {
 
     await newProduct.setSizes(allSizes);
     await newProduct.setCategories(allCategories);
-    // await newProduct.setColors(allColors);
+    await newProduct.setColors(allColors);
 
     res
       .status(201)

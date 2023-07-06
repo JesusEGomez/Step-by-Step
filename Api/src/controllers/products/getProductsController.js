@@ -24,7 +24,8 @@ const getDbProducts = async () => {
       },
       {
         model: Brand,
-      }
+        attributes: ["name"],
+      },
     ],
     // raw: true,
   });
