@@ -28,7 +28,7 @@ const getDbProducts = async () => {
       },
     ],
   });
-  console.log(result.dataValues);
+
   return result;
 };
 
