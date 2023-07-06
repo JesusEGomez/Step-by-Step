@@ -15,7 +15,7 @@ const getDbProducts = async () => {
       },
       {
         model: Size,
-        // attributes: ["size"],
+        attributes: ["size"],
         through: { attributes: [] },
       },
       {
@@ -27,15 +27,13 @@ const getDbProducts = async () => {
         attributes: ["name"],
       },
     ],
-    // raw: true,
   });
 
-  // const categories = result.category.map((category) => category.name);
-  // console.log(categories);
-  // console.log(...result.toJSON());
-  return result;
+  const cleanedCategories = result.map((c) => c.categories.map((c) => c.name));
+  console.log(cleanedCategories);
+  console.log(result.map((c) => c.name));
 
-  // return { ...result.toJSON(), categories };
+  return [...result, result.cleanedCategories];
 };
 
 module.exports = { getDbProducts };
