@@ -5,7 +5,14 @@ const productsByIdCtrl = async (req, res) => {
     try {
         const products = await Product.findOne({
             where: { id },
-            include: [Color, Size, Category, Brand, Image, Stock]
+            include: [
+                { model: Color, attributes: ['color'] },
+                { model: Size, attributes: ['size'] },
+                { model: Category, attributes: ['name'] },
+                { model: Brand, attributes: ['name'] },
+                { model: Image, attributes: ['imageUrl'] },
+                { model: Stock, attributes: ['stockPerSize'] }
+            ]
         })
 
         if (!products) {
