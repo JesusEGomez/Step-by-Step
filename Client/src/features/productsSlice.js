@@ -4,10 +4,12 @@ const GET_URL = "http://localhost:3001/products";
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
-  array.forEach((element) => {
-    newArray.push(element[propiedad]);
-  });
-  return newArray;
+  if (array) {
+    array.forEach((element) => {
+      newArray.push(element[propiedad]);
+    });
+    return newArray;
+  }
 };
 
 const initialState = {
@@ -39,19 +41,25 @@ export const productsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchProducts.fulfilled, (state, actions) => {
-        actions.payload.forEach((element) => {
-          const categories = recorrerArray(element.categories, "name");
-          const colors = recorrerArray(element.colors, "color");
-          const images = recorrerArray(element.images, "imageUrl");
-          const sizes = recorrerArray(element.sizes, "size");
-          state.products.push({
-            ...element,
-            categories,
-            colors,
-            images,
-            sizes,
+        console.log(actions.payload);
+        {
+        }
+        if (!state.products.length) {
+          actions.payload.forEach((element) => {
+            const categories = recorrerArray(element?.categories, "name");
+            const colors = recorrerArray(element?.colors, "color");
+            const images = recorrerArray(element?.images, "imageUrl");
+            const sizes = recorrerArray(element?.sizes, "size");
+            state.products.push({
+              ...element,
+              categories,
+              colors,
+              images,
+              sizes,
+              totalPrice: parseInt(element?.totalPrice),
+            });
           });
-        });
+        }
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
         console.log(actions.error.message);
