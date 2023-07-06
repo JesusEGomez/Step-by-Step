@@ -28,7 +28,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       // validate: {
       //   len: {
-      //     args: [10],
+      //     args: [1],
       //     msg: "El eslogan debe tener al menos 10 caracteres",
       //   },
       // },
