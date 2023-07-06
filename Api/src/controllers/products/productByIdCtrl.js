@@ -1,11 +1,11 @@
-const { Product, Color, Size, Category, Brand, Image } = require("../../db");
+const { Product, Color, Size, Category, Brand, Image, Stock } = require("../../db");
 
 const productsByIdCtrl = async (req, res) => {
     const { id } = req.params;
     try {
         const products = await Product.findOne({
             where: { id },
-            include: [Color, Size, Category, Brand, Image]
+            include: [Color, Size, Category, Brand, Image, Stock]
         })
 
         if (!products) {
