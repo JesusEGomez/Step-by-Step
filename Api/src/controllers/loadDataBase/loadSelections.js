@@ -125,31 +125,13 @@ const createAllProducts = async () => {
       );
       await createProduct.addColors(colorIds);
 
-      // const brandIds = await Promise.all(
-      //   product.brand.map(async (brand) => {
-      //     const foundBrand = await Brand.findOne({
-      //       where: { brand: brand },
-      //     });
+      const foundBrand = await Brand.findOne({
+        where: { name: product.brand[0] },
+      });
 
-      //     if (foundBrand) {
-      //       return foundBrand.id;
-      //     }
-      //   })
-      // );
-      // await createProduct.addbrands(brandIds);
-
-      // const imageIds = await Promise.all(
-      //   product.images.map(async (image) => {
-      //     const foundImage = await Image.findOne({
-      //       where: { imageUrl: image },
-      //     });
-
-      //     if (foundImage) {
-      //       return foundImage.id;
-      //     }
-      //   })
-      // );
-      // await createProduct.addImages(imageIds);
+      if (foundBrand) {
+        await createProduct.setBrand(foundBrand.id);
+      }
 
       const imagesArr = product.images;
 

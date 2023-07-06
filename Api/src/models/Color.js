@@ -19,15 +19,15 @@ module.exports = (sequelize) => {
       //   unique: false,
       //   allowNull: true,
       //   defaultValue: '#ffffff',
-      //   // validate: {
-      //   //   isValidHex(value) {
-      //   //     // Puede tener #, debe tener un un codigo hex de 6 digitos...
-      //   //     const hexRegex = /^#?([0-9A-Fa-f]{6})$/;
-      //   //     if (!hexRegex.test(value)) {
-      //   //       throw new Error("El valor de hex debe ser un código hexadecimal válido de 6 dígitos.");
-      //   //     }
-      //   //   },
-      //   // },
+      // validate: {
+      //   isValidHex(value) {
+      //     // Puede tener #, debe tener un un codigo hex de 6 digitos...
+      //     const hexRegex = /^#?([0-9A-Fa-f]{6})$/;
+      //     if (!hexRegex.test(value)) {
+      //       throw new Error("El valor de hex debe ser un código hexadecimal válido de 6 dígitos.");
+      //     }
+      //   },
+      // },
       //   set(value) {
       //     if (value && !value.startsWith("#")) {
       //       this.setDataValue("hex", `#${value}`);
