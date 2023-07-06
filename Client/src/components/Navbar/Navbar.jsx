@@ -45,7 +45,7 @@ const NavBar = () => {
                                 {CartProducts.map((product, i) => {
                                     return <div key={i} className="flex-col justify-center items-center p-5 m-5">
                                         <h6>{product.model}</h6>
-                                        <h5><strong>{`Precio: ${product.total}`}</strong></h5>
+                                        <h5><strong>{`Precio: ${product.totalPrice}`}</strong></h5>
                                         <h5><strong>{`Cantidad: ${product.quantity}`}</strong></h5>
                                         <button onClick={() => handlerDelete(product.id)} className="">Quitar</button>
                                     </div>

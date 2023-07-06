@@ -24,14 +24,12 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
- develop
       validate: {
         len: {
           args: [1],
           msg: "El eslogan debe tener al menos 10 caracteres",
         },
       },
-
     },
     gender: {
       type: DataTypes.ENUM("men", "women", "unisex"),
@@ -68,7 +66,7 @@ module.exports = (sequelize) => {
         const price = this.getDataValue("price");
         const discountPercentage = this.getDataValue("discountPercentage");
         const total = price - (price * discountPercentage) / 100;
-        return total.toFixed(2);
+        return total.toFixed(0);
       },
     },
     totalStock: {

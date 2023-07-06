@@ -6,7 +6,21 @@
     "price": 54,
     "discount_percentage": 0,
     "rating": [1, 2, 3, 4, 5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["casual"],
     "images": [
@@ -15,7 +29,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw642f7ce0/products/NIDR7882-700/NIDR7882-700-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwaf2a9d18/products/NIDR7882-700/NIDR7882-700-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["brown"],
     "gender": ["men"],
     "sold_count": 0
@@ -27,7 +41,21 @@
     "price": 57,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["training", "casual"],
     "images": [
@@ -36,7 +64,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw888a9341/products/NI_CD5432-003/NI_CD5432-003-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw44aa7830/products/NI_CD5432-003/NI_CD5432-003-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
+
     "color": ["black"],
     "gender": ["women"],
     "sold_count": 0
@@ -48,7 +76,21 @@
     "price": 54,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["training"],
     "images": [
@@ -57,7 +99,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw22512755/products/NI_DC3729-502/NI_DC3729-502-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6ac9f231/products/NI_DC3729-502/NI_DC3729-502-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
     "color": ["pink"],
     "gender": ["men"],
     "sold_count": 0
@@ -69,7 +110,21 @@
     "price": 57,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["all day"],
     "images": [
@@ -78,7 +133,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw75748567/products/NIDR2402-100/NIDR2402-100-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw7f7a0022/products/NIDR2402-100/NIDR2402-100-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
     "color": ["white"],
     "gender": ["women"],
     "sold_count": 0
@@ -90,7 +144,21 @@
     "price": 50,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["all day"],
     "images": [
@@ -99,7 +167,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb7a2d842/products/NI_CW4555-006/NI_CW4555-006-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw805dd7d6/products/NI_CW4555-006/NI_CW4555-006-6.JPG"
     ],
-    "size": [38, 39, 40, 42, 43, 44, 45],
+
     "color": [
       "blac",
       "white",
@@ -121,7 +189,21 @@
     "price": 68,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["training"],
     "images": [
@@ -130,7 +212,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdfe9ab89/products/NIDA9492-100/NIDA9492-100-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwca20cdb0/products/NIDA9492-100/NIDA9492-100-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
+
     "color": ["white"],
     "gender": ["women"],
     "sold_count": 0
@@ -142,7 +224,21 @@
     "price": 34,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["training"],
     "images": [
@@ -151,7 +247,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa67bced5/products/NI_DC3728-401/NI_DC3728-401-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw74de5241/products/NI_DC3728-401/NI_DC3728-401-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["blue"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -163,7 +259,21 @@
     "price": 38,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["casual"],
     "images": [
@@ -172,7 +282,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa7de6be0/products/NIDH3158-104/NIDH3158-104-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw600defd5/products/NIDH3158-104/NIDH3158-104-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["white"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -184,7 +294,21 @@
     "price": 41,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["casual"],
     "images": [
@@ -193,7 +317,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwda674a1d/products/NIDM7590-001/NIDM7590-001-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw7bbe46ae/products/NIDM7590-001/NIDM7590-001-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["black"],
     "gender": ["men"],
     "sold_count": 0
@@ -205,7 +329,21 @@
     "price": 52,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["nike"],
     "category": ["all day"],
     "images": [
@@ -214,7 +352,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw35ae7ac8/products/NIDR2552-100/NIDR2552-100-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9d66e81e/products/NIDR2552-100/NIDR2552-100-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["white"],
     "gender": ["women"],
     "sold_count": 0
@@ -226,7 +364,21 @@
     "price": 32,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["all day"],
     "images": [
@@ -235,7 +387,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwcc73ca17/products/PU389002-03/PU389002-03-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw08e124b7/products/PU389002-03/PU389002-03-6.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["black"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -247,7 +399,21 @@
     "price": 25,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training"],
     "images": [
@@ -256,7 +422,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw279d4d21/products/PU378835-01/PU378835-01-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw30c5d346/products/PU378835-01/PU378835-01-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["black"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -268,7 +434,21 @@
     "price": 32,
     "discount_percentage": 0,
     "rating": [1, 2, 3, 4, 5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training"],
     "images": [
@@ -277,7 +457,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb0606d1e/products/PU377701-07/PU377701-07-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf43b72f0/products/PU377701-07/PU377701-07-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+
     "color": ["black"],
     "gender": ["women"],
     "sold_count": 0
@@ -289,7 +469,21 @@
     "price": 33,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["casual"],
     "images": [
@@ -298,7 +492,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw553ba44c/products/PU_386497-13/PU_386497-13-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf0ac4cf6/products/PU_386497-13/PU_386497-13-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -310,7 +503,21 @@
     "price": 27,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["all day"],
     "images": [
@@ -319,7 +526,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5eb018bf/products/PU_381811-01/PU_381811-01-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe86a8476/products/PU_381811-01/PU_381811-01-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "sold_count": 0
@@ -331,7 +537,21 @@
     "price": 32,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training"],
     "images": [
@@ -340,7 +560,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf5ed7b2d/products/PU378833-04/PU378833-04-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw64d3dcee/products/PU378833-04/PU378833-04-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
     "gender": ["women"],
     "is_active": true,
@@ -353,7 +572,21 @@
     "price": 28,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training", "trekking", "casual", "all day"],
     "images": [
@@ -362,7 +595,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1dc12444/products/PU378842-01/PU378842-01-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5e0433c6/products/PU378842-01/PU378842-01-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -375,7 +607,21 @@
     "price": 23,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["all day"],
     "images": [
@@ -384,7 +630,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbcd2b9cd/products/PU_195653-04/PU_195653-04-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb2a8dec6/products/PU_195653-04/PU_195653-04-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["women"],
     "is_active": true,
@@ -397,7 +642,21 @@
     "price": 35,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training"],
     "images": [
@@ -406,7 +665,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3129fa70/products/PU377970-01/PU377970-01-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw12c11dc0/products/PU377970-01/PU377970-01-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -419,7 +677,21 @@
     "price": 30,
     "discount_percentage": 0,
     "rating": [1, 2, 3, 4, 5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["all day"],
     "images": [
@@ -428,7 +700,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8ee9e1ae/products/PU_386494-01/PU_386494-01-2.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8ee9e1ae/products/PU_386494-01/PU_386494-01-2.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -441,7 +712,21 @@
     "price": 32,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["puma"],
     "category": ["training"],
     "images": [
@@ -450,7 +735,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw17991bd0/products/PU378853-05/PU378853-05-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfca66398/products/PU378853-05/PU378853-05-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
     "gender": ["women"],
     "is_active": true,
@@ -463,7 +747,21 @@
     "price": 25,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["all day"],
     "images": [
@@ -472,7 +770,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e39f3c/products/MG_110MT304710R1/MG_110MT304710R1-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e39f3c/products/MG_110MT304710R1/MG_110MT304710R1-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -485,7 +782,21 @@
     "price": 25,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -494,7 +805,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e39f3c/products/MG_110MT304710R1/MG_110MT304710R1-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe6c1355a/products/MG_110MT304710R1/MG_110MT304710R1-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -507,7 +817,21 @@
     "price": 28,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -516,7 +840,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw17c29580/products/MG_110MT306624W2/MG_110MT306624W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw246c975b/products/MG_110MT306624W2/MG_110MT306624W2-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
     "color": ["gray"],
     "gender": ["women"],
     "is_active": true,
@@ -529,7 +852,21 @@
     "price": 24,
     "discount_percentage": 0,
     "rating": [1, 2, 3, 4, 5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -538,7 +875,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc25028f5/products/MG210MT326710R1/MG210MT326710R1-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw84fafdcb/products/MG210MT326710R1/MG210MT326710R1-6.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
     "gender": ["men"],
     "is_active": true,
@@ -551,7 +887,21 @@
     "price": 54,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -560,7 +910,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdf23c20d/products/MG010MT1336J2W2/MG010MT1336J2W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw716c13d8/products/MG010MT1336J2W2/MG010MT1336J2W2-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
     "color": ["gray"],
     "gender": ["women"],
     "is_active": true,
@@ -573,7 +922,21 @@
     "price": 42,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -582,7 +945,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw297d8759/products/MG210MT3446ZJW2/MG210MT3446ZJW2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfb8722f8/products/MG210MT3446ZJW2/MG210MT3446ZJW2-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["blue"],
     "gender": ["unisex"],
     "is_active": true,
@@ -595,7 +957,21 @@
     "price": 41,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -604,7 +980,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw7665a50c/products/MG110MT1817Y8R1/MG110MT1817Y8R1-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwde5364f9/products/MG110MT1817Y8R1/MG110MT1817Y8R1-6.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
     "gender": ["unisex"],
     "is_active": true,
@@ -617,7 +992,21 @@
     "price": 54,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -626,7 +1015,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf4a67209/products/MG210MT3226Z0W2/MG210MT3226Z0W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1a3c3244/products/MG210MT3226Z0W2/MG210MT3226Z0W2-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43],
     "color": ["brown"],
     "gender": ["women"],
     "is_active": true,
@@ -639,7 +1027,21 @@
     "price": 37,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -648,7 +1050,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4323dd18/products/MG210MT342734R1/MG210MT342734R1-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4c7f6386/products/MG210MT342734R1/MG210MT342734R1-6.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["blue"],
     "gender": ["men"],
     "is_active": true,
@@ -661,7 +1062,21 @@
     "price": 25,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["montagne"],
     "category": ["trekking"],
     "images": [
@@ -670,7 +1085,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdc684bdf/products/MG110MT150621W2/MG110MT150621W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2c2455ed/products/MG110MT150621W2/MG110MT150621W2-6.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": [
       "blac",
       "white",
@@ -693,7 +1107,21 @@
     "price": 19,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 23,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["casual"],
     "images": [
@@ -702,7 +1130,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfe78027d/products/FI_11U335X-5024/FI_11U335X-5024-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2db5562f/products/FI_11U335X-5024/FI_11U335X-5024-6.JPG"
     ],
-    "size": [42, 44, 45],
     "color": ["pink"],
     "gender": ["men"],
     "is_active": true,
@@ -715,7 +1142,21 @@
     "price": 16,
     "discount_percentage": 0,
     "rating": [3, 4],
-    "stock": 46,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["casual"],
     "images": [
@@ -724,7 +1165,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e5b1a9/products/FI_51U335X-4704/FI_51U335X-4704-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc6d1b895/products/FI_51U335X-4704/FI_51U335X-4704-6.JPG"
     ],
-    "size": [34, 39, 40],
     "color": ["light-pink"],
     "gender": ["women"],
     "is_active": true,
@@ -737,7 +1177,21 @@
     "price": 21,
     "discount_percentage": 0,
     "rating": [3, 4],
-    "stock": 24,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["streetwear"],
     "images": [
@@ -746,7 +1200,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0ac6d894/products/FIF02L025-156/FIF02L025-156-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwea5ddd20/products/FIF02L025-156/FIF02L025-156-6.JPG"
     ],
-    "size": [35, 37, 38, 39, 40],
+
     "color": ["white"],
     "gender": ["women"],
     "is_active": true,
@@ -759,7 +1213,21 @@
     "price": 20,
     "discount_percentage": 0,
     "rating": [3, 4, 5],
-    "stock": 15,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["running"],
     "images": [
@@ -768,7 +1236,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3a75c90a/products/FIF01R031-2299/FIF01R031-2299-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9cbe8af6/products/FIF01R031-2299/FIF01R031-2299-6.JPG"
     ],
-    "size": [39, 40, 44, 45],
     "color": ["black"],
     "gender": ["women"],
     "is_active": true,
@@ -781,7 +1248,21 @@
     "price": 19,
     "discount_percentage": 0,
     "rating": [4, 5],
-    "stock": 35,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["all day"],
     "images": [
@@ -790,7 +1271,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe89e9083/products/FIF01AT00064-943/FIF01AT00064-943-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6a809d74/products/FIF01AT00064-943/FIF01AT00064-943-6.JPG"
     ],
-    "size": [38, 39, 40, 41, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -803,7 +1283,21 @@
     "price": 23,
     "discount_percentage": 0,
     "rating": [4, 5],
-    "stock": 11,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["training"],
     "images": [
@@ -812,7 +1306,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3b2a76d6/products/FIF01R00080-979/FIF01R00080-979-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd88fbfa6/products/FIF01R00080-979/FIF01R00080-979-6.JPG"
     ],
-    "size": [38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["women"],
     "is_active": true,
@@ -825,7 +1318,21 @@
     "price": 16,
     "discount_percentage": 0,
     "rating": [2, 3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["training"],
     "images": [
@@ -834,7 +1341,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw7e161c9d/products/FIF01AT004144-943/FIF01AT004144-943-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw479d0644/products/FIF01AT004144-943/FIF01AT004144-943-6.JPG"
     ],
-    "size": [40, 45],
     "color": ["black"],
     "gender": ["unisex"]
   },
@@ -845,7 +1351,21 @@
     "price": 24,
     "discount_percentage": 0,
     "rating": [3, 4, 5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["casual"],
     "images": [
@@ -854,7 +1374,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw855d43d7/products/FIF02AT00069-882/FIF02AT00069-882-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw858a55af/products/FIF02AT00069-882/FIF02AT00069-882-6.JPG"
     ],
-    "size": [35, 37, 38, 39, 40, 41],
     "color": ["white"],
     "gender": ["unisex"],
     "is_active": true,
@@ -867,7 +1386,21 @@
     "price": 41,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 53,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["running"],
     "images": [
@@ -876,7 +1409,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw925622b3/products/FI11J728X-972/FI11J728X-972-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw476f685b/products/FI11J728X-972/FI11J728X-972-6.JPG"
     ],
-    "size": [38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -889,7 +1421,21 @@
     "price": 27,
     "discount_percentage": 0,
     "rating": [1, 2, 3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["fila"],
     "category": ["all day"],
     "images": [
@@ -898,7 +1444,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw48ef5538/products/FI_11U386X-397/FI_11U386X-397-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8220fab9/products/FI_11U386X-397/FI_11U386X-397-6.JPG"
     ],
-    "size": [40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["women"],
     "is_active": true,
@@ -911,7 +1456,21 @@
     "price": 22,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["training", "casual"],
     "images": [
@@ -920,7 +1479,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwcb81543b/products/REFV1606/REFV1606-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf7012a05/products/REFV1606/REFV1606-6.JPG"
     ],
-    "size": [38, 39, 40, 41, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -933,7 +1491,21 @@
     "price": 56,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["training"],
     "images": [
@@ -942,7 +1514,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc23c8667/products/REGW5148/REGW5148-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw80dcaccb/products/REGW5148/REGW5148-6.JPG"
     ],
-    "size": [38, 39, 40, 41, 42, 43, 44],
     "color": ["black", "pink", "yellow"],
     "gender": ["men"],
     "is_active": true,
@@ -955,7 +1526,21 @@
     "price": 25,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["training"],
     "images": [
@@ -964,7 +1549,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw94a698bb/products/RE1475M/RE1475M-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa4e00478/products/RE1475M/RE1475M-6.JPG"
     ],
-    "size": [35, 37, 38, 40, 41],
     "color": ["white"],
     "gender": ["women"],
     "is_active": true,
@@ -977,7 +1561,21 @@
     "price": 30,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["all day"],
     "images": [
@@ -986,7 +1584,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4374a6d8/products/REGY0956/REGY0956-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8c958ac9/products/REGY0956/REGY0956-6.JPG"
     ],
-    "size": [34, 36, 38, 39, 40, 41],
     "color": ["white"],
     "gender": ["women"]
   },
@@ -997,7 +1594,21 @@
     "price": 23,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["training"],
     "images": [
@@ -1006,7 +1617,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd4e997a2/products/RE_GY7762/RE_GY7762-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe2f86503/products/RE_GY7762/RE_GY7762-6.JPG"
     ],
-    "size": [36, 38, 39, 40, 41],
     "color": ["grey"],
     "gender": ["women"],
     "is_active": true,
@@ -1019,7 +1629,21 @@
     "price": 17,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["all day"],
     "images": [
@@ -1028,7 +1652,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw997dfd73/products/REIE1942/REIE1942-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfffdd2b1/products/REIE1942/REIE1942-6.JPG"
     ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
     "color": ["blue"],
     "gender": ["men"],
     "is_active": true,
@@ -1041,7 +1664,21 @@
     "price": 569,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["training"],
     "images": [
@@ -1050,7 +1687,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw687892d1/products/REGW5152/REGW5152-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwccff7348/products/REGW5152/REGW5152-6.JPG"
     ],
-    "size": [36, 37, 38, 39, 40, 41],
+
     "color": ["cyan", "green", "pink", "yellow"],
     "gender": ["women"],
     "is_active": true,
@@ -1063,7 +1700,21 @@
     "price": 56,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["all day"],
     "images": [
@@ -1072,7 +1723,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc2feffba/products/REGX8757/REGX8757-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4e8b37f2/products/REGX8757/REGX8757-6.JPG"
     ],
-    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+
     "color": ["red", "black", "white"],
     "gender": ["men"],
     "is_active": true,
@@ -1085,7 +1736,21 @@
     "price": 26,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["all day"],
     "images": [
@@ -1094,7 +1759,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0dbd7002/products/REGY7716/REGY7716-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb1a12473/products/REGY7716/REGY7716-6.JPG"
     ],
-    "size": [40, 41, 42, 43, 44],
+
     "color": ["blue"],
     "gender": ["men"],
     "is_active": true,
@@ -1107,7 +1772,21 @@
     "price": 19,
     "discount_percentage": 0,
     "rating": [5],
-    "stock": 50,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["reebok"],
     "category": ["all day", "casual"],
     "images": [
@@ -1116,7 +1795,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3b2fda9c/products/REGY5197/REGY5197-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2d7ca11f/products/REGY5197/REGY5197-6.JPG"
     ],
-    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+
     "color": ["blue"],
     "gender": ["men"],
     "is_active": true,
@@ -1129,7 +1808,21 @@
     "price": 32,
     "discount_percentage": 0,
     "rating": [1],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["all day"],
     "images": [
@@ -1138,7 +1831,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa4862093/products/UA_3025920-001/UA_3025920-001-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa8fbb8de/products/UA_3025920-001/UA_3025920-001-4.JPG"
     ],
-    "size": [39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -1151,7 +1843,21 @@
     "price": 33,
     "discount_percentage": 0,
     "rating": [6],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["running"],
     "images": [
@@ -1160,7 +1866,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfbce5833/products/UA3025920-103/UA3025920-103-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb4b0586b/products/UA3025920-103/UA3025920-103-4.JPG"
     ],
-    "size": [39, 40, 42, 43, 44, 45],
     "color": ["grey"],
     "gender": ["men"],
     "is_active": true,
@@ -1173,7 +1878,21 @@
     "price": 35,
     "discount_percentage": 0,
     "rating": [7],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["training"],
     "images": [
@@ -1182,7 +1901,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1f9f3758/products/UA3025527-600/UA3025527-600-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc9a37ebd/products/UA3025527-600/UA3025527-600-4.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["red"],
     "gender": ["men"],
     "is_active": true,
@@ -1195,7 +1913,21 @@
     "price": 59,
     "discount_percentage": 0,
     "rating": [2],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["running"],
     "images": [
@@ -1204,7 +1936,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc7aa50bd/products/UA_3024936-100/UA_3024936-100-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2afdc52c/products/UA_3024936-100/UA_3024936-100-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["men"],
     "is_active": true,
@@ -1217,7 +1948,21 @@
     "price": 26,
     "discount_percentage": 0,
     "rating": [8],
-    "stock": 10,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["training"],
     "images": [
@@ -1226,7 +1971,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw25016403/products/UA_3024878-401/UA_3024878-401-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1a594767/products/UA_3024878-401/UA_3024878-401-4.JPG"
     ],
-    "size": [36, 37, 38, 39, 40, 42, 43],
     "color": ["blue"],
     "gender": ["men"]
   },
@@ -1237,7 +1981,21 @@
     "price": 24,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["running"],
     "images": [
@@ -1246,7 +2004,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9b144c11/products/UA3024880-002/UA3024880-002-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw553f8b17/products/UA3024880-002/UA3024880-002-4.JPG"
     ],
-    "size": [39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -1259,7 +2016,21 @@
     "price": 53,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 35,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["running"],
     "images": [
@@ -1268,7 +2039,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9b20cf44/products/UA3024898-601/UA3024898-601-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1d9d76b3/products/UA3024898-601/UA3024898-601-4.JPG"
     ],
-    "size": [35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["orange"],
     "gender": ["men"],
     "is_active": true,
@@ -1281,7 +2051,21 @@
     "price": 28,
     "discount_percentage": 0,
     "rating": [9],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["training"],
     "images": [
@@ -1290,7 +2074,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw297d77a0/products/UA3024877-402/UA3024877-402-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0b5800e4/products/UA3024877-402/UA3024877-402-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["violet"],
     "gender": ["women"],
     "is_active": true,
@@ -1303,7 +2086,21 @@
     "price": 27,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["casual"],
     "images": [
@@ -1312,7 +2109,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2e049f86/products/AD_GW0396/AD_GW0396-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb6fb96b3/products/AD_GW0396/AD_GW0396-4.JPG"
     ],
-    "size": [40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["men"],
     "is_active": true,
@@ -1325,7 +2121,21 @@
     "price": 39,
     "discount_percentage": 0,
     "rating": [6],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["training"],
     "images": [
@@ -1334,7 +2144,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw73dbfc7a/products/UA_3025767-400/UA_3025767-400-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw35ceab0f/products/UA_3025767-400/UA_3025767-400-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["blue"],
     "gender": ["men"],
     "is_active": true,
@@ -1347,7 +2156,21 @@
     "price": 58,
     "discount_percentage": 0,
     "rating": [10],
-    "stock": 15,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["under armour"],
     "category": ["training", "running"],
     "images": [
@@ -1356,7 +2179,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw663862e4/products/UA3025976-401/UA3025976-401-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw440ccb7b/products/UA3025976-401/UA3025976-401-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["violet"],
     "gender": ["men"],
     "is_active": true,
@@ -1369,7 +2191,21 @@
     "price": 34,
     "discount_percentage": 0,
     "rating": [1],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1378,7 +2214,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdf94b3ad/products/CO_166582C/CO_166582C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw73c34200/products/CO_166582C/CO_166582C-4.JPG"
     ],
-    "size": [35, 36, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"]
   },
@@ -1389,7 +2224,21 @@
     "price": 33,
     "discount_percentage": 0,
     "rating": [6],
-    "stock": 40,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1398,7 +2247,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw546b2bf4/products/CO_166585C/CO_166585C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa52fc6ed/products/CO_166585C/CO_166585C-4.JPG"
     ],
-    "size": [35, 36, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1411,7 +2259,21 @@
     "price": 35,
     "discount_percentage": 0,
     "rating": [7],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1420,7 +2282,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfc9d86c/products/CO_157196C/CO_157196C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe9c8ac25/products/CO_157196C/CO_157196C-4.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1433,7 +2294,21 @@
     "price": 29,
     "discount_percentage": 0,
     "rating": [2],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1442,7 +2317,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc8b23518/products/CO_166584C/CO_166584C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw97540e80/products/CO_166584C/CO_166584C-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1455,7 +2329,21 @@
     "price": 26,
     "discount_percentage": 0,
     "rating": [8],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1464,7 +2352,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1a77a665/products/CO_156994C/CO_156994C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa9a7941d/products/CO_156994C/CO_156994C-4.JPG"
     ],
-    "size": [36, 37, 38, 39, 40, 42, 43],
     "color": ["white"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1477,7 +2364,21 @@
     "price": 33,
     "discount_percentage": 0,
     "rating": [6],
-    "stock": 40,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1486,7 +2387,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw546b2bf4/products/CO_166585C/CO_166585C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa52fc6ed/products/CO_166585C/CO_166585C-4.JPG"
     ],
-    "size": [35, 36, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1499,7 +2399,21 @@
     "price": 35,
     "discount_percentage": 0,
     "rating": [7],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1508,7 +2422,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfc9d86c/products/CO_157196C/CO_157196C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe9c8ac25/products/CO_157196C/CO_157196C-4.JPG"
     ],
-    "size": [37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1521,7 +2434,21 @@
     "price": 29,
     "discount_percentage": 0,
     "rating": [2],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1530,7 +2457,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc8b23518/products/CO_166584C/CO_166584C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw97540e80/products/CO_166584C/CO_166584C-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1543,7 +2469,21 @@
     "price": 26,
     "discount_percentage": 0,
     "rating": [8],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1552,7 +2492,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1a77a665/products/CO_156994C/CO_156994C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa9a7941d/products/CO_156994C/CO_156994C-4.JPG"
     ],
-    "size": [36, 37, 38, 39, 40, 42, 43],
     "color": ["white"],
     "gender": ["unisex"],
     "is_active": true,
@@ -1565,7 +2504,21 @@
     "price": 34,
     "discount_percentage": 0,
     "rating": [3],
-    "stock": 30,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1574,7 +2527,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa3463c92/products/CO_166587C/CO_166587C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5c078dce/products/CO_166587C/CO_166587C-4.JPG"
     ],
-    "size": [35, 36, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["unisex"]
   },
@@ -1585,7 +2537,21 @@
     "price": 33,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 35,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1594,7 +2560,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1ea3f115/products/CO_166586C/CO_166586C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf384288d/products/CO_166586C/CO_166586C-4.JPG"
     ],
-    "size": [35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["red"],
     "gender": ["men", "women", "unisex"]
   },
@@ -1605,7 +2570,21 @@
     "price": 34,
     "discount_percentage": 0,
     "rating": [9],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day"],
     "images": [
@@ -1614,7 +2593,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwae6a4438/products/CO_157004C/CO_157004C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc2d2bba4/products/CO_157004C/CO_157004C-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
     "gender": ["unisex", "men", "women"]
   },
@@ -1625,7 +2603,21 @@
     "price": 42,
     "discount_percentage": 0,
     "rating": [4],
-    "stock": 20,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "running"],
     "images": [
@@ -1634,18 +2626,31 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb4a96dcd/products/COA00985C/COA00985C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw301b06f0/products/COA00985C/COA00985C-4.JPG"
     ],
-    "size": [39, 40, 42, 43, 44, 45],
     "color": ["white"],
     "gender": ["men"]
   },
   {
     "item_number": "co637737-470",
     "name": "Zapatillas Converse Chuck Taylor All Star Malden Street Mid Hombre",
-    "description": "...",
+    "description": "Las Zapatillas Converse Pro Blaze V2 Hombre presentan una silueta inspirada en el estilo urbano. Converse Pro Blaze, con una correa de nylon ajustable y extraíble que te mantiene a vos y a tu estilo seguros. Una suela exterior de goma inspirada en la cancha le brinda la tracción adecuada, con una plantilla Converse Comfort Cushioning para brindar soporte a cada paso.",
     "price": 39,
     "discount_percentage": 0,
     "rating": [6],
-    "stock": 25,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["all day", "casual"],
     "images": [
@@ -1654,7 +2659,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa74dd18d/products/COA05774C/COA05774C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw31a36a99/products/COA05774C/COA05774C-4.JPG"
     ],
-    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["grey"],
     "gender": ["men"]
   },
@@ -1665,7 +2669,21 @@
     "price": 78,
     "discount_percentage": 0,
     "rating": [10],
-    "stock": 10,
+    "stock": [
+      { "34": 10 },
+      { "35": 10 },
+      { "36": 10 },
+      { "37": 10 },
+      { "38": 10 },
+      { "39": 10 },
+      { "40": 10 },
+      { "41": 10 },
+      { "42": 10 },
+      { "43": 10 },
+      { "44": 10 },
+      { "45": 10 }
+    ],
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
     "brand": ["converse"],
     "category": ["training", "running"],
     "images": [
@@ -1674,7 +2692,6 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6ae5c2f5/products/COA00404C/COA00404C-3.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw542b78ee/products/COA00404C/COA00404C-4.JPG"
     ],
-    "size": [42, 43, 44, 45],
     "color": ["white"],
     "gender": ["men"]
   }
