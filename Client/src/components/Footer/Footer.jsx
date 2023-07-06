@@ -6,7 +6,7 @@ import {SiMercadopago} from 'react-icons/si'
 const Footer = () => {
     return (
         <div>
-        <footer className="footer p-10 bg-gray-100 text-gray-600">
+        <footer className="footer p-12 w-[150%] bg-gray-100 text-gray-600">
         <div>
         <FaRegFileCode
         size={56}
@@ -15,9 +15,9 @@ const Footer = () => {
         </FaRegFileCode>
         <p>HENRY proyecto final <br />julio 2023</p>
         </div>
-        <div>
+        <div className='ml-[50%]'>
         <span className="footer-title">TECNOLOGIAS</span>
-        <div className="grid grid-flow-col gap-4">
+        <div className="grid grid-flow-col gap-6">
         
         <LiaReact
         size={30}
