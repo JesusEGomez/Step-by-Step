@@ -1,15 +1,15 @@
 const { Router } = require("express");
 
 const {
-  getBrands,
-  // updateBrands,
-  createBrand,
+  getBrandsHandler,
+  updateBrands,
+  createBrandHandler,
 } = require("../handlers/brandsHandler");
 
 const brandsRoutes = Router();
 
-brandsRoutes.post("/create", createBrand);
-brandsRoutes.get("/", getBrands);
+brandsRoutes.post("/create", createBrandHandler);
+brandsRoutes.get("/", getBrandsHandler);
 
 // brandsRoutes.put("/:id", updateBrands);
 
