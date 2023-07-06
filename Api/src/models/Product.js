@@ -84,9 +84,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      // validate: {
-      //   min: 0,
-      // },
+      validate: {
+        min: 0,
+      },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,
