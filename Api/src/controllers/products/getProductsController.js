@@ -28,12 +28,8 @@ const getDbProducts = async () => {
       },
     ],
   });
-
-  const cleanedCategories = result.map((c) => c.categories.map((c) => c.name));
-  console.log(cleanedCategories);
-  console.log(result.map((c) => c.name));
-
-  return [...result, result.cleanedCategories];
+  console.log(result.dataValues);
+  return result;
 };
 
 module.exports = { getDbProducts };
