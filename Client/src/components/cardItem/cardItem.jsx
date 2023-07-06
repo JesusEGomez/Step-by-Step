@@ -1,6 +1,4 @@
-
-
-function Card({ model, images, clickHandler, id }) {
+function cardItem({ model, images, clickHandler, id }) {
     console.log(model)
     return (
         <div className="card  w-96 bg-base-100 shadow-xl m-5">
@@ -15,4 +13,4 @@ function Card({ model, images, clickHandler, id }) {
     );
 }
 
-export default Card;
+export default cardItem;
