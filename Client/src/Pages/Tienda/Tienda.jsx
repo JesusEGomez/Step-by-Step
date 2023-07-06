@@ -1,10 +1,12 @@
 //filtros
-import { fetchProducts, getAllProducts, setCurrentPage } from "../../features/productsSlice"
+import { fetchProducts, getAllProducts } from "../../features/productsSlice"
 import { useSelector } from "react-redux/es/hooks/useSelector"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { getCurrentPage } from "../../features/productsSlice"
 import PaginationControls from "../../components/PaginationControls/PaginationControls"
+import { addProduct } from "../../features/cartSlice"
+import Card from "../../components/Card/Card"
 
 function Tienda() {
     const dispatch = useDispatch()
@@ -12,29 +14,28 @@ function Tienda() {
     useEffect(() => {
         dispatch(fetchProducts())
     }, [])
+
     const currentPage = useSelector(getCurrentPage)
     const products = useSelector(getAllProducts)
-    let arrayLength = products.length
     const startIndex = (currentPage - 1) * 8;
     const endIndex = startIndex + 8;
     const displayedProducts = products.slice(startIndex, endIndex);
+    let arrayLength = products.length
+
+    const clickHandler = (id) => {
+        const product = products.find((element) => element.id === id)
+        dispatch(addProduct(product))
+
+    }
+
 
     console.log(displayedProducts)
     return (
-        <div className="flex-col text-center mt-20 ">
-            <div className="flex flex-wrap h-3/4 w-screen  justify-center">
+        <div className="flex-col text-center mt-32 ">
+            <div className="flex flex-wrap h-3/4 justify-center">
 
                 {displayedProducts?.map((element) => {
-                    return <div className="card  w-96 bg-base-100 shadow-xl m-5">
-                        <figure><img src={element.images[0]} alt="Shoes" /></figure>
-                        <div className="card-body">
-                            <h2 className="card-title">{element.model}</h2>
-                            {/* <p>{element.description}</p> */}
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
+                    return <Card clickHandler={clickHandler} id={element.id} images={element.images[0]} model={element.model} />
                 })}
             </div>
             <PaginationControls className="" arrayLength={arrayLength} />

@@ -39,19 +39,24 @@ export const productsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchProducts.fulfilled, (state, actions) => {
-        actions.payload.forEach((element) => {
-          const categories = recorrerArray(element.categories, "name");
-          const colors = recorrerArray(element.colors, "color");
-          const images = recorrerArray(element.images, "imageUrl");
-          const sizes = recorrerArray(element.sizes, "size");
-          state.products.push({
-            ...element,
-            categories,
-            colors,
-            images,
-            sizes,
+        console.log(actions);
+        {
+        }
+        if (!state.products.length) {
+          actions.payload.forEach((element) => {
+            const categories = recorrerArray(element.categories, "name");
+            const colors = recorrerArray(element.colors, "color");
+            const images = recorrerArray(element.images, "imageUrl");
+            const sizes = recorrerArray(element.sizes, "size");
+            state.products.push({
+              ...element,
+              categories,
+              colors,
+              images,
+              sizes,
+            });
           });
-        });
+        }
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
         console.log(actions.error.message);
