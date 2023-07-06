@@ -32,11 +32,8 @@ const getDbProducts = async () => {
     ],
   });
 
-  const cleanedCategories = result.map((c) => c.categories.map((c) => c.name));
-  console.log(cleanedCategories);
-  console.log(result.map((c) => c.name));
-
-  return [...result, result.cleanedCategories];
+  
+  return result;
 };
 
 module.exports = { getDbProducts };
