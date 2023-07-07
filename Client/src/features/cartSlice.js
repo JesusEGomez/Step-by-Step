@@ -10,7 +10,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      state.total += action.payload.total;
+      state.total += action.payload.totalPrice;
       const findProduct = state.cart.findIndex(
         (product) => product.id === action.payload.id
       );
@@ -27,10 +27,10 @@ export const cartSlice = createSlice({
       }
 
       localStorage.setItem("cart", JSON.stringify(state.cart));
-      localStorage.setItem("total", JSON.stringify(state.total));
+      localStorage.setItem("totalPrice", JSON.stringify(state.total));
     },
     deleteProduct: (state, action) => {
-      state.total -= action.payload.total;
+      state.total -= action.payload.totalPrice;
       const findProduct = state.cart.findIndex(
         (product) => product.id === action.payload.id
       );
@@ -48,11 +48,11 @@ export const cartSlice = createSlice({
       }
 
       localStorage.setItem("cart", JSON.stringify(state.cart));
-      localStorage.setItem("total", JSON.stringify(state.total));
+      localStorage.setItem("totalPrice", JSON.stringify(state.total));
     },
     updateState: (state, action) => {
       let localCart = JSON.parse(localStorage.getItem("cart"));
-      let localTotalCart = JSON.parse(localStorage.getItem("total"));
+      let localTotalCart = JSON.parse(localStorage.getItem("totalPrice"));
 
       if (!state.cart.length && localCart) {
         state.cart = localCart;

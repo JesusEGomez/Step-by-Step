@@ -1,4 +1,12 @@
-const { Product, Color, Size, Category, Image, Brand, Stock } = require("../../db");
+const {
+  Product,
+  Color,
+  Size,
+  Category,
+  Image,
+  Brand,
+  Stock,
+} = require("../../db");
 
 const getDbProducts = async () => {
   const result = await Product.findAll({
@@ -27,8 +35,8 @@ const getDbProducts = async () => {
         attributes: ["name"],
       },
       {
-        model: Stock
-      }
+        model: Stock,
+      },
     ],
   });
 
