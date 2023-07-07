@@ -22,26 +22,18 @@ function Tienda() {
   const displayedProducts = products.slice(startIndex, endIndex);
   let arrayLength = products.length;
 
-  const clickHandler = (id) => {
-    const product = products.find((element) => element.id === id);
-    dispatch(addProduct(product));
-  };
-
-  console.log(displayedProducts);
+  console.log("displayProdcuts", displayedProducts);
   return (
     <div className="flex-col text-center mt-32 ">
       <div className="flex flex-wrap h-3/4 justify-center">
-        {displayedProducts?.map((element) => {
+        {displayedProducts.map((element) => {
           return (
-            <>
-              <Filters />
-              <Card
-                clickHandler={clickHandler}
-                id={element.id}
-                images={element.images[0]}
-                model={element.model}
-              />
-            </>
+            <Card
+              totalPrice={element.totalPrice}
+              id={element.id}
+              images={element.images[0]}
+              model={element.model}
+            />
           );
         })}
       </div>

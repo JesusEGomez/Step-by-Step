@@ -66,7 +66,7 @@ module.exports = (sequelize) => {
         const price = this.getDataValue("price");
         const discountPercentage = this.getDataValue("discountPercentage");
         const total = price - (price * discountPercentage) / 100;
-        return total.toFixed(0);
+        return parseInt(total.toFixed(0));
       },
     },
     totalStock: {

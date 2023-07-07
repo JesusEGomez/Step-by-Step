@@ -52,7 +52,7 @@ const getDbProducts = async () => {
     const stock = product.stocks.map((s) => s.stockPerSize);
 
     return {
-      totalPrice: parseInt(product.totalPrice),
+      totalPrice: product.totalPrice,
       totalStock: product.totalStock,
       id: product.id,
       model: product.model,
