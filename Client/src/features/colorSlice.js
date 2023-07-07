@@ -22,7 +22,7 @@ export const fetchColors = createAsyncThunk(
     "colors/fetchColors", //
     async () => {
         try {
-            const response = await axios.get(GET_CATEGORIE);
+            const response = await axios.get(GET_COLORS);
             const end =response.data
             console.log(response.data); 
             
@@ -46,14 +46,13 @@ export const fetchColors = createAsyncThunk(
         extraReducers(builder) {
             builder
             .addCase(fetchColors.fulfilled, (state, action) => {
-                state.colors = action.payload.map((element) => element.name);
-                
-                
+                state.colors = action.payload;
             })
             .addCase(fetchColors.rejected, (state, action) => {
                 console.log(action.error.message);
             });
-        },
+        }
+        ,
     });
     
     export const getAllColors = (state) => state.colors.colors;
