@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Filtros.module.css";
+
 import { useSelector, useDispatch } from "react-redux";
 // import {
 //   getBrands,
@@ -8,9 +8,8 @@ import { useSelector, useDispatch } from "react-redux";
 //   getProducts,
 //   setFilteredProducts,
 // } from "../../../../redux/actions";//&imports actions
-import Link from "next/link";
 
-const Filtros = () => {
+const Filters = () => {
   const dispatch = useDispatch();
 
   const allProducts = useSelector((state) => state.products);
@@ -249,4 +248,4 @@ const Filtros = () => {
   );
 };
 
-export default Filtros;
+export default Filters;

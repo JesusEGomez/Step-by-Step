@@ -7,7 +7,7 @@ import { getCurrentPage } from "../../features/productsSlice";
 import PaginationControls from "../../components/PaginationControls/PaginationControls";
 import { addProduct } from "../../features/cartSlice";
 import Card from "../../components/Card/Card";
-
+import Filters from "../../components/FilterOptions/filtersOptions";
 function Tienda() {
   const dispatch = useDispatch();
   //order by price
@@ -33,12 +33,15 @@ function Tienda() {
       <div className="flex flex-wrap h-3/4 justify-center">
         {displayedProducts?.map((element) => {
           return (
-            <Card
-              clickHandler={clickHandler}
-              id={element.id}
-              images={element.images[0]}
-              model={element.model}
-            />
+            <>
+              <Filters />
+              <Card
+                clickHandler={clickHandler}
+                id={element.id}
+                images={element.images[0]}
+                model={element.model}
+              />
+            </>
           );
         })}
       </div>
