@@ -3,7 +3,9 @@ const { Color } = require("../../db.js");
 const getColors = async () => {
   const colors = await Color.findAll();
 
-  return colors;
+  const cleanColors = colors.map((c) => c.color);
+
+  return cleanColors;
 };
 
 module.exports = getColors;
