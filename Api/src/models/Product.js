@@ -24,7 +24,6 @@ module.exports = (sequelize) => {
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
- develop
       validate: {
         len: {
           args: [1],
