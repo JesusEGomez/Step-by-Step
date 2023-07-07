@@ -1,4 +1,12 @@
-const { Product, Brand, Size, Category, Color, Image, Stock } = require("../../db");
+const {
+  Product,
+  Brand,
+  Size,
+  Category,
+  Color,
+  Image,
+  Stock,
+} = require("../../db");
 const { Op } = require("sequelize");
 const { findById } = require("../../utils/findBy");
 
@@ -118,7 +126,7 @@ const createProductCtrl = async (req, res) => {
     await Promise.all(
       allSizes.map(async (size) => {
         const sizeStock = stock[size.size]; // Obtener el stock para el tamaño actual
-
+        console.log("sizeStock", sizeStock);
         // Crear el registro de stock y asociarlo al tamaño y producto correspondientes
         await Stock.create({
           sizeId: size.id,
