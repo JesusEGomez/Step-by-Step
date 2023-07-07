@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
-
-
-
+import { addProduct } from "../../features/cartSlice";
 import heartImage from './imagenes/bx-heart.svg.jpg';
+import { useDispatch } from "react-redux";
+
+
+
+
 
 const GET_URL = "http://localhost:3001/products";
-
 function Detail(clickHandler) {
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`${GET_URL}/${id}`);
         const data = await response.json();
         setProductData(data);
+        console.log("data", data)
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
       } catch (error) {
         console.error("Error fetching product data:", error);
@@ -27,15 +29,20 @@ function Detail(clickHandler) {
     fetchData();
   }, [id]);
 
+  const clickAddHandler = (product) => {
+    dispatch(addProduct(product));
+  };
+
   const handleImageClick = (imageUrl) => {
     setSelectedImage(imageUrl);
   };
 
+  const dispatch = useDispatch()
   return (
     <>
       {productData ? (
-        <div className="container mx-auto">
-          <div className="overflow-hidden bg-white flex flex-row justify-between relative w-full items-center pl-16 pr-[210px]">
+        <div className="container h-screen flex ">
+          <div className=" bg-white flex flex-row justify-between relative w-full items-center pl-16 pr-[210px]">
             <div className="min-w-[520px]  bg-cover bg-50%_50% bg-blend-normal flex flex-col justify-end relative h-[725px] w-[650px] items-center my-12 py-6 ">
               <img src={selectedImage} alt="Shoes" className="object-cover w-full h-full" style={{ objectFit: 'contain' }} />
             </div>
@@ -58,15 +65,17 @@ function Detail(clickHandler) {
                 <p>{productData.description}</p>
               </div>
               <div className="flex flex-row justify-start mb-8 relative items-center">
-  {/* Mostrar las imágenes adicionales */}
-  <div className="flex space-x-2">
-    {productData.images.slice(1).map((image, index) => (
-      <div key={index} className="border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500" onClick={() => handleImageClick(image.imageUrl)}>
-        <img src={image.imageUrl} alt="Shoes" className="min-h-0 min-w-0 relative w-20 shrink-0 cursor-pointer" />
-      </div>
-    ))}
-  </div>
-</div>
+                {/* Mostrar las imágenes adicionales */}
+                <div className="flex space-x-2">
+                  {productData.images.slice(1).map((image, index) => (
+                    <div key={index}
+                      className="border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500"
+                      onClick={() => handleImageClick(image.imageUrl)}>
+                      <img src={image.imageUrl} alt="Shoes" className="min-h-0 min-w-0 relative w-20 shrink-0 cursor-pointer" />
+                    </div>
+                  ))}
+                </div>
+              </div>
 
               <div className="text-center font-['Inter'] tracking-[-0.09600000381469727] leading-[24px] text-[#242c31] mb-1 relative w-8">
                 Size
@@ -94,11 +103,11 @@ function Detail(clickHandler) {
                 </div>
               </div>
               <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 mr-12">
-                <div className="bg-black cursor-pointer flex flex-col justify-center relative w-1/2 h-10 items-center rounded-lg">
-                  <div className="whitespace-nowrap text-sm font-['Inter'] font-semibold tracking-[-0.0840000033378601] text-white relative w-20">
-                    Add to cart
-                  </div>
-                </div>
+                <button
+                  onClick={() => clickAddHandler(productData)}
+                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 items-center rounded-lg">
+                  Comprar
+                </button>
                 <div className="border-solid border-[#0a0a0a] cursor-pointer flex flex-row justify-center gap-1 relative w-1/5 h-10 items-center border rounded-lg">
                   <div className="text-sm font-['Inter'] font-semibold tracking-[-0.0840000033378601] text-black relative w-12 shrink-0">
                     Favorite
