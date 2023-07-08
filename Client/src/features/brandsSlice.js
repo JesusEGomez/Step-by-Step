@@ -24,6 +24,7 @@ export const fetchBrands = createAsyncThunk(
         try {
             const response = await axios.get(GET_BRAND_URL);
             const end =response.data
+            console.log
             console.log(response.data); // Verificar los datos recibidos
             return end;
         } catch (error) {
@@ -44,7 +45,7 @@ export const fetchBrands = createAsyncThunk(
         extraReducers(builder) {
             builder
             .addCase(fetchBrands.fulfilled, (state, action) => {
-                state.brands = action.payload.map((element) => element.name);
+                state.brands = action.payload;
                 
             })
             .addCase(fetchBrands.rejected, (state, action) => {

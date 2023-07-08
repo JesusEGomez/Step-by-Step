@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import {createAsyncThunk} from "@reduxjs/toolkit";
-const GET_CATEGORIE = "http://localhost:3001/categories";
+const GET_SIZES = "http://localhost:3001/sizes";
 
 
 
@@ -15,14 +15,14 @@ const recorrerArray = (array, propiedad) => {
 };
 
 const initialState = {
-    categories: []
+    sizes: []
 };
 
-export const fetchCategories = createAsyncThunk(
-    "categories/fetchCategories", //
+export const fetchSizes = createAsyncThunk(
+    "size/fetchSizes", //
     async () => {
         try {
-            const response = await axios.get(GET_CATEGORIE);
+            const response = await axios.get(GET_SIZES);
             const end =response.data
             console.log(response.data); 
             
@@ -34,30 +34,30 @@ export const fetchCategories = createAsyncThunk(
     }
     );
     
-    export const categoriesSlice = createSlice({
-        name: "categories",
+    export const sizesSlice = createSlice({
+        name: "sizes",
         initialState,
         reducers: {
-            getAllCategories: (state, action) => {
+            getAllSizes: (state, action) => {
                 console.log(action.payload);
-                state.categories = action.payload;
+                state.sizes = action.payload;
             },
         },
         extraReducers(builder) {
             builder
-            .addCase(fetchCategories.fulfilled, (state, action) => {
-                state.categories = action.payload;
-                
+            .addCase(fetchSizes.fulfilled, (state, action) => {
+                state.sizes = action.payload           
+                console.log(action.payload)   
                 
             })
-            .addCase(fetchCategories.rejected, (state, action) => {
+            .addCase(fetchSizes.rejected, (state, action) => {
                 console.log(action.error.message);
             });
         },
     });
     
-    export const getAllCategories = (state) => state.categories.categories;
-    export const getCurrentPage = (state) => state.categories.currentPage;
-    export const { setCurrentPage } = categoriesSlice.actions;
-    export default categoriesSlice.reducer;
+    export const getAllSizes = (state) => state.sizes.sizes;
+    export const getCurrentPage = (state) => state.sizes.currentPage;
+    export const { setCurrentPage } = sizesSlice.actions;
+    export default sizesSlice.reducer;
     

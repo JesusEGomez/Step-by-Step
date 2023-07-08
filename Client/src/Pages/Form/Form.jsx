@@ -6,35 +6,76 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { fetchCategories, getAllCategories } from '../../features/categoriesSlice';
 import { fetchColors, getAllColors } from '../../features/colorSlice';
-
+import { addNewProduct } from '../../features/productsSlice'
+import { fetchSizes, getAllSizes } from '../../features/sizeSlice';
 
 export default function Form() {
-    
-    // const [brands, setBrands] = useState([]);
+
     const brands = useSelector(getAllBrands)
     const categories = useSelector(getAllCategories)
     const colors = useSelector(getAllColors)
-    const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
-    
+    const sizes = useSelector(getAllSizes)
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         dispatch(fetchBrands());
         dispatch(fetchCategories());
         dispatch(fetchColors());
+        dispatch(fetchSizes())
     }, [dispatch]);
-    
-    console.log(colors)
-    console.log(brands)
-    const [countImg, setCountImg] = useState(1);
-    
+
+    const [Image, setImage] = useState("");
+    // const submitImage = () => {
+    //     const data = new FormData()
+    //     data.append("file", image)
+    //     data.append("upload_preset", "dmtxokbw")
+    //     data.append("cloud_name", "dg3hl3bit")
+
+    //     fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload",
+    //     {
+    //         method: "post",
+    //         body: data
+    //     })
+    //     .then(res => res.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //     }).catch(err)
+    // }
+    //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+
+    //     const submitImage = () => {
+    //         const data = new FormData();
+    //         data.append("file", image);
+    //         data.append("upload_preset", "dmtxokbw");
+    //         data.append("cloud_name", "dg3hl3bit");
+
+    //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
+    //         method: "post",
+    //         body: data,
+    //     })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         console.log(data);
+    //         const imageUrl = data.secure_url;
+    //         setUploadedImageUrl(imageUrl);
+    //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
+    //         form.handleSubmit(); // Envía el formulario
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     });
+    // };
+
+
+
+
     const [form, setForm] = useState({
         item_number: "",
         model: "",
         description: "",
-        price: "",
-        discountPercentage: "",
-        gender: "",
+        price: 0,
+        discountPercentage: 0,
+        gender: "unisex",
         stock: {},
         isPublish: false,
         brand: "",
@@ -46,32 +87,41 @@ export default function Form() {
     console.log(form)
     function handlerChange(e) {
         const { name, value } = e.target;
-        
+
         setForm((prevState) => ({
             ...prevState,
-            
+
             [name]: value
         }));
-        
+
     }
     function handlerToF(e) {
         setForm({ ...form, isPublish: event.target.value === "true" });
     }
-    
-    
+
+    function handleSelectChange(event) {
+        const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
+        setForm((prevState) => ({
+            ...prevState,
+            categories: selectedOptions,
+        }));
+    }
+    function handlerColorChange(event) {
+        const selectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
+        setForm((prevState) => ({
+            ...prevState,
+            color: selectedOptions,
+        }));
+    }
+
     function handlerInputChange(e) {
         const { name, value, type } = e.target;
-        
+
         if (type === 'checkbox') {
             const isChecked = e.target.checked;
             const checkedValue = parseInt(value, 10);
-            const updatedColors = isChecked
-            ? [...form.colors, checkedValue]
-            : form.colors.filter((color) => color !== checkedValue);
-            
             setForm((prevState) => ({
                 ...prevState,
-                colors: updatedColors,
             }));
         } else {
             setForm((prevState) => ({
@@ -80,26 +130,27 @@ export default function Form() {
             }));
         }
     }
-    
-    
-    
-    function handleImageChange(event, index) {
+
+
+
+    function handleImageChange(event) {
         const { value } = event.target;
-        const updatedImages = [...form.images];
-        updatedImages[index] = value;
-        setForm({ ...form, images: updatedImages });
+        setForm((prevState) => ({
+            ...prevState,
+            images: [value], // Siempre asigna un array con una sola imagen
+        }));
     }
-    
+
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        
+
         if (name === "size") {
             const selectedSizes = form.size;
             const sizeValue = parseInt(value);
             const updatedSizes = selectedSizes.includes(sizeValue)
-            ? selectedSizes.filter((size) => size !== sizeValue)
-            : [...selectedSizes, sizeValue];
-            
+                ? selectedSizes.filter((size) => size !== sizeValue)
+                : [...selectedSizes, sizeValue];
+
             setForm({
                 ...form,
                 size: updatedSizes
@@ -124,155 +175,157 @@ export default function Form() {
     const handleSubmit = (e) => {
         e.preventDefault();
         {
-            dispatch(postPruduct(form))
-            .then((res) => {
-                console.log("Solicitud POST exitosa:", res);
-                alert("Zapatilla creada correctamente");
-            })
-            .catch((error) => {
-                console.log("Error en la solicitud POST:", error);
-            });
+            dispatch(addNewProduct(form))
+                .then((res) => {
+                    console.log("Solicitud POST exitosa:", res);
+                    alert("Zapatilla creada correctamente");
+                })
+                .catch((error) => {
+                    console.log("Error en la solicitud POST:", error);
+                });
         }
     };
-    
+
     return (
-        
+
         <form onSubmit={handleSubmit}>
-        
-        
-        
-        <div className="space-y-12 mt-40 ml-20">
-        <div className="border-b border-gray-900/10 pb-12">
-        <h2 className="text-base font-semibold leading-7 text-gray-900">Formulario</h2>
-        <p className="mt-1 text-sm leading-6 text-gray-600">
-        Crea una nueva zapatilla.
-        </p>
-        
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        <div className="sm:col-span-4">
-        <label htmlFor="item_number" className="block text-sm font-medium leading-6 text-gray-900">
-        Item
-        </label>
-        <div className="mt-2">
-        <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-        {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> */}
-        <input
-        type="text"
-        name="item_number"
-        id="item_number"
-        autoComplete="item_number"
-        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-        placeholder="NIDR7882-700"
-        onChange={handlerInputChange}
-        value={form.item_number}
-        />
-        </div>
-        </div>
-        </div>
-        <div className="sm:col-span-4">
-        <label htmlFor="model" className="block text-sm font-medium leading-6 text-gray-900">
-        Nombre
-        </label>
-        <div className="mt-2">
-        <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-        {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> */}
-        <input
-        type="text"
-        name="model"
-        id="model"
-        autoComplete="model"
-        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
-        placeholder="Zapatillas Urbanas Nike Court Vision Mid Winter "
-        onChange={handlerInputChange}
-        value={form.model}
-        />
-        </div>
-        </div>
-        </div>
-        
-        <div className="col-span-full">
-        <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
-        Descripción
-        </label>
-        <div className="mt-2">
-        <textarea
-        id="description"
-        name="description"
-        rows={3}
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        
-        onChange={handlerInputChange}
-        value={form.description}
-        />
-        </div>
-        <p className="mt-3 text-sm leading-6 text-gray-600">Haz una descripción detallada de la zapatilla, recorda que esto lo visulizará el cliente.</p>
-        </div>
-        
-        
-        </div>
-        </div>
-        
-        <div className="border-b border-gray-900/10 pb-12">
-        
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-        <div className="sm:col-span-3">
-        <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
-        Precio
-        </label>
-        <div className="mt-2">
-        <input
-        type="text"
-        name="price"
-        id="price"
-        autoComplete="given-name"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        onChange={handlerInputChange}
-        value={form.price}
-        />
-        </div>
-        </div>
-        
-        <div className="sm:col-span-3">
-        <label htmlFor="discountPercentage" className="block text-sm font-medium leading-6 text-gray-900">
-        Porcentaje de descuento
-        </label>
-        <div className="mt-2">
-        <input
-        type="text"
-        name="discountPercentage"
-        id="discountPercentage"
-        autoComplete="family-name"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        onChange={handlerInputChange}
-        value={form.discountPercentage}
-        />
-        </div>
-        </div>
-        
-        
-        
-        <div className="sm:col-span-3">
-        <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
-        Generos:
-        </label>
-        <div className="mt-2">
-        <select
-        id="gender"
-        name="gender"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-        onChange={handlerChange}
-        >
-        <option value={"men"}>Men</option>
-        <option value={"unisex"}>Unisex</option>
-        <option value={"women"}>Women</option>
-        </select>
-        </div>
-        <br />
-        <legend className=" text-sm font-semibold leading-6 text-gray-900">Publicado?</legend>
-        <p className="mt-1 text-sm leading-6 text-gray-600">Modifica la visibilidad de la zapatilla para los usuarios.</p>
-        
-        <div className="flex items-center gap-x-3">
-        {/* <input
+
+
+
+            <div className="space-y-12 mt-40 ml-20">
+                <div className="border-b border-gray-900/10 pb-12">
+                    <h2 className="text-base font-semibold leading-7 text-gray-900">Formulario</h2>
+                    <p className="mt-1 text-sm leading-6 text-gray-600">
+                        Crea una nueva zapatilla.
+                    </p>
+
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div className="sm:col-span-4">
+                            <label htmlFor="item_number" className="block text-sm font-medium leading-6 text-gray-900">
+                                Item
+                            </label>
+                            <div className="mt-2">
+                                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                    {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> */}
+                                    <input
+                                        type="text"
+                                        name="item_number"
+                                        id="item_number"
+                                        autoComplete="item_number"
+                                        className="block flex-1 w-1/2 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                        placeholder="NIDR7882-700"
+                                        onChange={handlerInputChange}
+                                        value={form.item_number}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="sm:col-span-4">
+                            <label htmlFor="model" className="block text-sm font-medium leading-6 text-gray-900">
+                                Nombre
+                            </label>
+                            <div className="mt-2">
+                                <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
+                                    {/* <span className="flex select-none items-center pl-3 text-gray-500 sm:text-sm">workcation.com/</span> */}
+                                    <input
+                                        type="text"
+                                        name="model"
+                                        id="model"
+                                        autoComplete="model"
+                                        className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
+                                        placeholder="Zapatillas Urbanas Nike Court Vision Mid Winter "
+                                        onChange={handlerInputChange}
+                                        value={form.model}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-span-fit">
+                            <label htmlFor="description" className="block text-sm font-medium leading-6 text-gray-900">
+                                Descripción
+                            </label>
+                            <div className="mt-2">
+                                <textarea
+                                    id="description"
+                                    name="description"
+                                    rows={3}
+                                    className="block w-3/4 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+
+                                    onChange={handlerInputChange}
+                                    value={form.description}
+                                />
+                            </div>
+                            <p className="mt-3 text-sm leading-6 text-gray-600">Haz una descripción detallada de la zapatilla, recorda que esto lo visulizará el cliente.</p>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div className="border-b border-gray-900/10 pb-12">
+
+                    <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div className="sm:col-span-3">
+                            <label htmlFor="price" className="block text-sm font-medium leading-6 text-gray-900">
+                                Precio
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    type="text"
+                                    name="price"
+                                    id="price"
+                                    autoComplete="given-name"
+                                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={handlerInputChange}
+                                    value={form.price}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="sm:col-span-3">
+                            <label htmlFor="discountPercentage" className="block text-sm font-medium leading-6 text-gray-900">
+                                Porcentaje de descuento
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    type="text"
+                                    name="discountPercentage"
+                                    id="discountPercentage"
+                                    autoComplete="family-name"
+                                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    onChange={handlerInputChange}
+                                    value={form.discountPercentage}
+                                />
+                            </div>
+                        </div>
+
+
+
+                        <div className="sm:col-span-3">
+                            <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
+                                Generos:
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="gender"
+                                    name="gender"
+                                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    onChange={handlerChange}
+                                    defaultValue={"unisex"}
+                                >
+                                    <option disabled={true} value="" >Select Gender</option>
+                                    <option value={"men"}>Men</option>
+                                    <option value={"unisex"}>Unisex</option>
+                                    <option value={"women"}>Women</option>
+                                </select>
+                            </div>
+                            <br />
+                            <legend className=" text-sm font-semibold leading-6 text-gray-900">Publicado?</legend>
+                            <p className="mt-1 text-sm leading-6 text-gray-600">Modifica la visibilidad de la zapatilla para los usuarios.</p>
+
+                            <div className="flex items-center gap-x-3">
+                                {/* <input
         id="true"
         name="isPublish"
         type="radio"
@@ -299,108 +352,110 @@ export default function Form() {
         <label htmlFor="false" className="block text-sm font-medium leading-6 text-gray-900">
         No.
     </label> */}
-    <label>
-    <input
-    type="radio"
-    name="isPublish"
-    value={true}
-    checked={form.isPublish === true}
-    onChange={handlerToF}
-    />
-    Publicado
-    </label>
-    
-    <label>
-    <input
-    type="radio"
-    name="isPublish"
-    value={false}
-    checked={form.isPublish === false}
-    onChange={handlerToF}
-    />
-    No publicado
-    </label>
-    </div>
-    
-    
-    <div className=" mt-5 sm:col-span-3">
-    <label htmlFor="brand" className="block text-sm font-medium leading-6 text-gray-900">
-    Marca:
-    
-    </label>
-    <div className="mt-2">
-    <select
-    id="brand"
-    name="brand"
-    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-    value={form.brand}
-    onChange={handlerChange}
-    >
-    {brands.map((brand, index) => (
-        <option value={brand} key={index}>{brand}</option>
-        ))}
-        </select>
-        </div>
-        </div>
-        </div>
-        
-        </div>
-        </div>
-        
-        
-        <div className="border-b border-gray-900/10 pb-12">
-        
-        
-        <div className="mt-10 space-y-10">
-        <fieldset>
-        <legend className="text-sm font-semibold leading-6 text-gray-900">Talle</legend>
-        <div className="mt-6 space-y-6">
-        <div className="relative flex gap-x-3">
-        {sizes.map((size) => (
-            <div key={size}>
-            <label>
-            Size {size}:
-            <input
-            type="checkbox"
-            name="size"
-            value={size}
-            checked={form.size.includes(size)}
-            onChange={handleInputChange}
-            />
-            <input
-            type="number"
-            name={ `${size}`}
-            value={form.stock[size] || 0}
-            onChange={handleStockChange}
-            />
-            </label>
-            </div>
-            ))}
-            </div>
-            </div>
-            <div className=" mt-5 sm:col-span-3">
-            <label htmlFor="categories" className="block text-sm font-medium leading-6 text-gray-900">
-            Categoria:
-            </label>
-            <div className="mt-2">
-            <select
-            
-            id="categories"
-            name="categories"
-            onChange={handlerChange}
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-            >{categories.map((categorie, index) => (
-                <option value={categorie} key={index}>{categorie}</option>
-                ))}
-                </select>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="isPublish"
+                                        value={true}
+                                        checked={form.isPublish === true}
+                                        onChange={handlerToF}
+                                    />
+                                    Publicado
+                                </label>
+
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="isPublish"
+                                        value={false}
+                                        checked={form.isPublish === false}
+                                        onChange={handlerToF}
+                                    />
+                                    No publicado
+                                </label>
+                            </div>
+
+
+                            <div className=" mt-5 sm:col-span-3">
+                                <label htmlFor="brand" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Marca:
+
+                                </label>
+                                <div className="mt-2">
+                                    <select
+                                        id="brand"
+                                        name="brand"
+                                        className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                        value={form.brand}
+                                        onChange={handlerChange}
+                                    >  <option disabled={true} value="" >Select a brand</option>
+                                        {brands.map((brand, index) => (
+                                            <option value={brand} key={index}>{brand}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                </div>
-                
-                </fieldset>
-                <fieldset>
-                <legend className="text-sm font-semibold leading-6 text-gray-900">Color</legend>
-                <div className="mt-6 space-y-6">
-                {/* <div className="relative flex gap-x-3">
+
+
+                <div className="border-b border-gray-900/10 pb-12">
+
+
+                    <div className="mt-10 space-y-10">
+                        <fieldset>
+                            <legend className="text-sm font-semibold leading-6 text-gray-900">Talle</legend>
+                            <div className="mt-6 space-y-6">
+                                <div className="relative flex gap-x-3">
+                                    {sizes.map(({ size }) => (
+                                        <div key={size}>
+                                            <label>
+                                                Size {size}:
+                                                <input
+                                                    type="checkbox"
+                                                    name="size"
+                                                    value={size}
+                                                    checked={form.size.includes(size)}
+                                                    onChange={handleInputChange}
+                                                />
+                                                <input
+                                                    type="number"
+                                                    name={`${size}`}
+                                                    value={form.stock[size] || 1}
+                                                    onChange={handleStockChange}
+                                                    disabled={!form.size.includes(size)}
+                                                />
+                                            </label>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                            <div className=" mt-5 sm:col-span-3">
+                                <label htmlFor="categories" className="block text-sm font-medium leading-6 text-gray-900">
+                                    Categoria:
+                                </label>
+                                <div className="mt-2">
+                                    <select
+
+                                        id="categories"
+                                        name="categories"
+                                        onChange={handleSelectChange}
+                                        className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                                    > <option disabled={true} value="" >Select a category</option>
+                                        {categories.map((categorie, index) => (
+                                            <option value={categorie} key={index}>{categorie}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+
+                        </fieldset>
+                        <fieldset>
+                            <legend className="text-sm font-semibold leading-6 text-gray-900">Color</legend>
+                            <div className="mt-6 space-y-6">
+                                {/* <div className="relative flex gap-x-3">
                 <div className="flex h-6 items-center">
                 <input
                 id="color"
@@ -461,25 +516,25 @@ export default function Form() {
                 </label>
                 </div>
             </div> */}
-            
-            <select
-            id="color"
-            name="color"
-            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
-            onChange={handlerInputChange}
-            value={form.color}
-            >
-            <option value="">Select a color</option>
-            {colors.map((color) => (
-                <option key={color.id} value={color.id}>
-                {color.color}
-                </option>
-                ))}
-                </select>
-                
-                
-                
-                {/* <div className="col-span-full">
+
+                                <select
+                                    id="color"
+                                    name="color"
+                                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
+                                    onChange={handlerColorChange}
+                                    value={form.color}
+                                >
+                                    <option disabled={true} value="" >Select a color</option>
+                                    {colors.map((color) => (
+                                        <option key={color} value={color}>
+                                            {color}
+                                        </option>
+                                    ))}
+                                </select>
+
+
+
+                                {/* <div className="col-span-fit">
                 <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
                 Photo
                 </label>
@@ -493,56 +548,37 @@ export default function Form() {
                 </div>
                 </div>
             */}
-            <div className="col-span-full">
-            <label htmlFor="images" className="block text-sm font-medium leading-6 text-gray-900">
-            Subir imagenes del producto
-            </label>
-            {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-            <div className="text-center">
-            <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
-            <div className="mt-4 flex text-sm leading-6 text-gray-600">
-            <label
-            htmlFor="file-upload"
-            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-            >
-            <span>Upload a file</span>
-            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-            </label>
-            <p className="pl-1">or drag and drop</p>
+                                <div className="col-span-fit">
+
+                                </div>
+                            </div>
+                        </fieldset>
+                        <label htmlFor="image">Imagen:</label>
+                        <input
+                            type="text"
+                            className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
+                            value={form.images}
+                            onChange={handleImageChange}
+                            name="images"
+                        />
+                    </div>
+                </div>
             </div>
-            <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+
+
+
+            <div className="mt-6 flex items-center justify-end gap-x-6">
+                <button type="button" className="text-sm mb-9 font-semibold leading-6 text-gray-900">
+                    Cancel
+                </button>
+                <button
+                    type="submit"
+                    className="rounded-md mb-9 bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    onClick={() => dispatch(addNewProduct({ title: titleValue, body: value, userId: '1' }))}
+                >
+                    Guardar
+                </button>
             </div>
-        </div> */}
-        <label htmlFor="image">Imagen:</label>
-        <input
-        type="text"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
-        value={form.images}
-        onChange={handlerInputChange}
-        name="images"
-        />
-        
-        </div>
-        </div>
-        </fieldset>
-        </div>
-        </div>
-        </div>
-        
-        
-        
-        <div className="mt-6 flex items-center justify-end gap-x-6">
-        <button type="button" className="text-sm mb-9 font-semibold leading-6 text-gray-900">
-        Cancel
-        </button>
-        <button
-        type="submit"
-        className="rounded-md mb-9 bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-        >
-        Guardar
-        </button>
-        </div>
         </form>
-        )
-    }
-    
+    )
+}
