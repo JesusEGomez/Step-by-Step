@@ -10,6 +10,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
+      console.log("product Size", current(state.cart));
       state.total += action.payload.totalPrice;
       const findProduct = state.cart.findIndex(
         (product) => product.id === action.payload.id
@@ -19,6 +20,7 @@ export const cartSlice = createSlice({
         state.cart[findProduct] = {
           ...state.cart[findProduct],
           quantity: state.cart[findProduct].quantity + 1,
+          sizes: [...state.cart[findProduct].sizes, ...action.payload.sizes],
         };
         console.log(state.cart[findProduct].quantity);
       } else {
@@ -39,6 +41,10 @@ export const cartSlice = createSlice({
         state.cart[findProduct] = {
           ...state.cart[findProduct],
           quantity: state.cart[findProduct].quantity - 1,
+          sizes: state.cart[findProduct].sizes.slice(
+            1,
+            state.cart[findProduct].sizes.length
+          ),
         };
         console.log(state.cart[findProduct].quantity);
       } else {

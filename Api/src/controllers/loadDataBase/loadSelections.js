@@ -102,18 +102,18 @@ const createAllProducts = async () => {
       );
       await createProduct.addCategories(categoryIds);
 
-      // const sizeIds = await Promise.all(
-      //   product.size.map(async (size) => {
-      //     const foundSize = await Size.findOne({
-      //       where: { size: size },
-      //     });
+      const sizeIds = await Promise.all(
+        product.size.map(async (size) => {
+          const foundSize = await Size.findOne({
+            where: { size: size },
+          });
 
-      //     if (foundSize) {
-      //       return foundSize.id;
-      //     }
-      //   })
-      // );
-      // await createProduct.addSizes(sizeIds);
+          if (foundSize) {
+            return foundSize.id;
+          }
+        })
+      );
+      await createProduct.addSizes(sizeIds);
 
       const colorIds = await Promise.all(
         product.color.map(async (color) => {

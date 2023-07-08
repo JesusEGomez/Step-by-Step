@@ -47,6 +47,11 @@ const NavBar = () => {
                                         <h6>{product.model}</h6>
                                         <h5><strong>{`Precio: ${product.totalPrice}`}</strong></h5>
                                         <h5><strong>{`Cantidad: ${product.quantity}`}</strong></h5>
+                                        <div>{product.sizes.map((size) => {
+                                            // console.log(size
+                                            return <h6 className="font-bold">{`Talle: ${size}`}</h6>
+                                        })}</div>
+
                                         <button onClick={() => handlerDelete(product.id)} className="">Quitar</button>
                                     </div>
 
