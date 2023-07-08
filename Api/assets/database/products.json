@@ -170,17 +170,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw805dd7d6/products/NI_CW4555-006/NI_CW4555-006-6.JPG"
     ],
 
-    "color": [
-      "blac",
-      "white",
-      "red",
-      "yellow",
-      "blue",
-      "green",
-      "brown",
-      "pink",
-      "gray"
-    ],
+    "color": ["white"],
     "gender": ["men"],
     "sold_count": 0
   },
@@ -1087,17 +1077,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdc684bdf/products/MG110MT150621W2/MG110MT150621W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2c2455ed/products/MG110MT150621W2/MG110MT150621W2-6.JPG"
     ],
-    "color": [
-      "blac",
-      "white",
-      "red",
-      "yellow",
-      "blue",
-      "green",
-      "brown",
-      "pink",
-      "gray"
-    ],
+    "color": ["gray"],
     "gender": ["unisex"],
     "is_active": true,
     "sold_count": 0
@@ -1167,7 +1147,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e5b1a9/products/FI_51U335X-4704/FI_51U335X-4704-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc6d1b895/products/FI_51U335X-4704/FI_51U335X-4704-6.JPG"
     ],
-    "color": ["light-pink"],
+    "color": ["pink"],
     "gender": ["women"],
     "is_active": true,
     "sold_count": 0
@@ -1516,7 +1496,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc23c8667/products/REGW5148/REGW5148-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw80dcaccb/products/REGW5148/REGW5148-6.JPG"
     ],
-    "color": ["black", "pink", "yellow"],
+    "color": ["black"],
     "gender": ["men"],
     "is_active": true,
     "sold_count": 0
@@ -1690,7 +1670,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwccff7348/products/REGW5152/REGW5152-6.JPG"
     ],
 
-    "color": ["cyan", "green", "pink", "yellow"],
+    "color": ["green"],
     "gender": ["women"],
     "is_active": true,
     "sold_count": 0
@@ -1726,7 +1706,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4e8b37f2/products/REGX8757/REGX8757-6.JPG"
     ],
 
-    "color": ["red", "black", "white"],
+    "color": ["red"],
     "gender": ["men"],
     "is_active": true,
     "sold_count": 0
@@ -2563,7 +2543,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf384288d/products/CO_166586C/CO_166586C-4.JPG"
     ],
     "color": ["red"],
-    "gender": ["men", "women", "unisex"]
+    "gender": ["women"]
   },
   {
     "item_number": "co637737-670",
@@ -2596,7 +2576,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc2d2bba4/products/CO_157004C/CO_157004C-4.JPG"
     ],
     "color": ["black"],
-    "gender": ["unisex", "men", "women"]
+    "gender": ["unisex"]
   },
   {
     "item_number": "co637737-270",

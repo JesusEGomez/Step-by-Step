@@ -1,63 +1,76 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllProducts } from "../../features/productsSlice";
-import { setFilteredProducts } from "../../features/productsSlice";
-import { getAllColors } from "../../features/colorSlice";
-import { getAllCategories } from "../../features/categoriesSlice";
-import { getAllBrands } from "../../features/brandsSlice";
-// import {getAllSizes} from "../../features/sizesSlice";//& Get all sizes
-import { fetchBrands } from "../../features/brandsSlice";
-import { fetchCategories } from "../../features/categoriesSlice";
-import { fetchColors } from "../../features/colorSlice";
-import zIndex from "@mui/material/styles/zIndex";
-const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
 const Filters = () => {
   const dispatch = useDispatch();
-  const allProducts = useSelector(getAllProducts);
+
+  //& const allProducts = useSelector((state) => state.products);
 
   const [brandSelect, setBrandSelect] = useState("");
   const [colorSelect, setColorSelect] = useState("");
-  const [categorySelect, setCategorySelect] = useState("");
+  const [categoriesSelect, setCategoriesSelect] = useState("");
   const [genderSelect, setGenderSelect] = useState("");
   const [priceSelect, setPriceSelect] = useState("");
 
-  useEffect(() => {
-    dispatch(fetchBrands());
-    dispatch(fetchCategories());
-    dispatch(fetchColors());
-  }, [dispatch]);
-
   //* Trae las listas de opciones.
-  let brandsList = useSelector(getAllBrands);
-  let categoriesList = useSelector(getAllCategories);
-  let colorsList = useSelector(getAllColors);
-  // let sizesList = useSelector(getAllSizes); //&& get all sizes
-  let genderList = ["men", "women", "unisex"];
-
-  console.log("brandsList", brandsList);
+  let brandsList = useSelector((state) => state.brands);
+  let categoriesList = useSelector((state) => state.categories);
+  let ColorsList = useSelector((state) => state.colors);
+  let SizesList = useSelector((state) => state.sizes);
+  let genderlist = useSelector((state) => state.gender);
 
   const [filterPanel, setFilterPanel] = useState({
     name: "",
     brand: "none",
-    category: "none",
+    categories: "none",
     gender: "none",
     price: "none",
     color: "none",
-    size: "none",
   });
+
+  //&esto se puede usar para hacer opciones dinamicas.
+  useEffect(() => {
+    const filterBrands = () => {
+      //&pide las brands y las filtra para que sean valores unicos. Deberia nutrise de la ruta brands
+      const brandsArr = allProducts.map((b) => b.brand);
+      const uniqueBrands = [...new Set(brandsArr)];
+      return uniqueBrands;
+    };
+
+    const filterCategory = () => {
+      const categoryArr = allProducts.map((b) => b.category);
+      const uniqueCategory = [...new Set(categoryArr)];
+      return uniqueCategory;
+    };
+
+    const filterSubCategory = () => {
+      const subCategoryArr = allProducts.map((b) => b.subCategory);
+      const uniqueSubCategory = [...new Set(subCategoryArr)];
+      return uniqueSubCategory;
+    };
+
+    dispatch(getBrands(filterBrands())); //& ver como despachar esto
+    dispatch(getSubCategories(filterSubCategory()));
+    dispatch(getCategories(filterCategory()));
+  }, [allProducts.length]);
 
   useEffect(() => {
     let productsCopy = [...allProducts];
-    console.log("productsCopy", productsCopy);
 
     if (productsCopy.length > 0) {
+      let j = 0;
+
+      for (let i = 0; i < productsCopy.length; i++) {
+        if (productsCopy[i].hasOwnProperty("category")) {
+          j++;
+        }
+      }
+
       if (filterPanel.name !== "") {
         productsCopy = productsCopy.filter((p) =>
-          p.model?.toLowerCase().includes(filterPanel.name.toLowerCase())
+          p.name?.toLowerCase().includes(filterPanel.name.toLowerCase())
         );
-        console.log("productsCopy", productsCopy);
       }
 
       if (filterPanel.brand !== "none") {
@@ -68,31 +81,24 @@ const Filters = () => {
 
       if (filterPanel.gender !== "none") {
         productsCopy = productsCopy.filter((p) =>
-          p.gender.includes(filterPanel.gender)
+          p.gender?.includes(filterPanel.gender)
         );
       }
 
       if (filterPanel.category !== "none") {
-        productsCopy = productsCopy.filter((p) => {
-          return p.categories?.includes(filterPanel.category);
-        });
+        productsCopy = productsCopy.filter((p) =>
+          p.category?.includes(filterPanel.category)
+        );
       }
 
       if (filterPanel.color !== "none") {
         productsCopy = productsCopy.filter((p) =>
-          p.colors?.includes(filterPanel.color)
+          p.color?.includes(filterPanel.color)
         );
       }
 
-      if (filterPanel.size !== "none") {
-        productsCopy = productsCopy.filter((p) =>
-          p.sizes?.includes(filterPanel.size)
-        );
-      }
-
-      // totalPrice????
       if (filterPanel.price !== "none") {
-        if (filterPanel.price === "lower") {
+        if (filterPanel.price === "higher") {
           productsCopy = productsCopy.sort((a, b) => a.price - b.price);
         } else {
           productsCopy = productsCopy.sort((a, b) => b.price - a.price);
@@ -103,8 +109,6 @@ const Filters = () => {
     }
   }, [filterPanel]);
 
-  console.log("filterPanel", filterPanel);
-
   const handleChange = (e) => {
     e.preventDefault();
     setFilterPanel(() => {
@@ -112,24 +116,10 @@ const Filters = () => {
     });
   };
 
-  const handleClickMen = (e) => {
+  const handleNameClick = (e) => {
     e.preventDefault();
     setFilterPanel(() => {
-      return { ...filterPanel, gender: "men" };
-    });
-  };
-
-  const handleClickWomen = (e) => {
-    e.preventDefault();
-    setFilterPanel(() => {
-      return { ...filterPanel, gender: "women" };
-    });
-  };
-
-  const handleClickUnisex = (e) => {
-    e.preventDefault();
-    setFilterPanel(() => {
-      return { ...filterPanel, gender: "unisex" };
+      return { ...filterPanel, name: e.target.value };
     });
   };
 
@@ -139,32 +129,25 @@ const Filters = () => {
       name: "",
       brand: "none",
       category: "none",
-      gender: "none",
+      subCategory: "none",
       price: "none",
-      color: "none",
-      size: "none",
     });
     setBrandSelect("");
     setCategorySelect("");
-    setBrandSelect("");
-    setGenderSelect("");
-    setPriceSelect("");
   };
+
+  const handleClick = () => {
+    setShowSidebar(true);
+  };
+
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
     <div>
       <div>
-        <Link to="/tienda" className="link" onClick={handleClickMen}>
-          MUJER
+        <Link href="/carrito">
+          <img src="img/carrito.png" />
         </Link>
-        <Link to="/tienda" className="link" onClick={handleClickWomen}>
-          VARON
-        </Link>
-        <Link to="/tienda" className="link" onClick={handleClickUnisex}>
-          UNISEX
-        </Link>
-      </div>
-      <div className="link">
         <div>
           <input
             name="name"
@@ -177,12 +160,12 @@ const Filters = () => {
           <select
             id="brand"
             name="brand"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             value={brandSelect}
           >
             <option value={"none"}>Brand</option>
 
-            {brandsList?.map((b, i) => (
+            {brands?.map((b, i) => (
               <option key={i} value={b}>
                 {b}
               </option>
@@ -194,9 +177,11 @@ const Filters = () => {
           <select
             id="category"
             name="category"
+            className={styles.select}
             onChange={(e) => handleChange(e)}
             value={categorySelect}
           >
+            {" "}
             <option value={"none"} defaultValue={"Filter by Category"}>
               Category
             </option>
@@ -210,39 +195,21 @@ const Filters = () => {
 
         <div>
           <select
-            id="color"
-            name="color"
+            id="subCategory"
+            name="subCategory"
+            className={styles.select}
             onChange={(e) => handleChange(e)}
-            value={colorSelect}
+            value={subCategorySelect}
           >
-            {" "}
-            <option value={"none"} defaultValue={"Filter by color"}>
-              color
-            </option>
-            {colorsList?.map((c, i) => (
-              <option key={i} value={c}>
-                {c}
+            <option value={"none"}>SubCategory</option>
+
+            {subCategories?.map((sc, i) => (
+              <option key={i} value={sc}>
+                {sc}
               </option>
             ))}
           </select>
         </div>
-
-        {/* <div>
-          <select
-            id="size"
-            name="size"
-            onChange={(e) => handleChange(e)}
-            value={sizeSelect}
-          >
-            <option value={"none"}>Sizes</option>
-
-            {sizeList?.map((s, i) => (
-              <option key={i} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </div> */}
         <div>
           <select id="price" name="price" onChange={(e) => handleChange(e)}>
             {" "}
@@ -261,6 +228,7 @@ const Filters = () => {
         <button onClick={handleResetClick}>
           <span>Reset</span>
         </button>
+        <Link href="/">Home</Link>
       </div>
     </div>
   );
