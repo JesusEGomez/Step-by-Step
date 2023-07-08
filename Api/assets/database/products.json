@@ -170,17 +170,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw805dd7d6/products/NI_CW4555-006/NI_CW4555-006-6.JPG"
     ],
 
-    "color": [
-      "blac",
-      "white",
-      "red",
-      "yellow",
-      "blue",
-      "green",
-      "brown",
-      "pink",
-      "gray"
-    ],
+    "color": ["white"],
     "gender": ["men"],
     "sold_count": 0
   },
@@ -1087,17 +1077,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwdc684bdf/products/MG110MT150621W2/MG110MT150621W2-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2c2455ed/products/MG110MT150621W2/MG110MT150621W2-6.JPG"
     ],
-    "color": [
-      "blac",
-      "white",
-      "red",
-      "yellow",
-      "blue",
-      "green",
-      "brown",
-      "pink",
-      "gray"
-    ],
+    "color": ["gray"],
     "gender": ["unisex"],
     "is_active": true,
     "sold_count": 0
@@ -1167,7 +1147,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw87e5b1a9/products/FI_51U335X-4704/FI_51U335X-4704-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc6d1b895/products/FI_51U335X-4704/FI_51U335X-4704-6.JPG"
     ],
-    "color": ["light-pink"],
+    "color": ["pink"],
     "gender": ["women"],
     "is_active": true,
     "sold_count": 0
@@ -1516,7 +1496,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc23c8667/products/REGW5148/REGW5148-4.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw80dcaccb/products/REGW5148/REGW5148-6.JPG"
     ],
-    "color": ["black", "pink", "yellow"],
+    "color": ["black"],
     "gender": ["men"],
     "is_active": true,
     "sold_count": 0
@@ -1690,7 +1670,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwccff7348/products/REGW5152/REGW5152-6.JPG"
     ],
 
-    "color": ["cyan", "green", "pink", "yellow"],
+    "color": ["green"],
     "gender": ["women"],
     "is_active": true,
     "sold_count": 0
@@ -1726,7 +1706,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4e8b37f2/products/REGX8757/REGX8757-6.JPG"
     ],
 
-    "color": ["red", "black", "white"],
+    "color": ["red"],
     "gender": ["men"],
     "is_active": true,
     "sold_count": 0
@@ -2563,7 +2543,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf384288d/products/CO_166586C/CO_166586C-4.JPG"
     ],
     "color": ["red"],
-    "gender": ["men", "women", "unisex"]
+    "gender": ["women"]
   },
   {
     "item_number": "co637737-670",
@@ -2596,7 +2576,7 @@
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc2d2bba4/products/CO_157004C/CO_157004C-4.JPG"
     ],
     "color": ["black"],
-    "gender": ["unisex", "men", "women"]
+    "gender": ["unisex"]
   },
   {
     "item_number": "co637737-270",
@@ -2696,5 +2676,73 @@
     ],
     "color": ["white"],
     "gender": ["men"]
+  },
+  {
+    "item_number": "ADGY6347",
+    "name": "Showtheway 2.0",
+    "description": "Salí a correr por tu vecindario o inyectale el estilo del running a tu look diario con las Zapatillas Adidas Showtheway 2.0. El exterior de malla liviana transpirable mantiene tus pies frescos incluso en climas cálidos, mientras que la mediasuela acolchada proporciona comodidad durante todo el día. Las clásicas 3 Tiras añaden un auténtico toque deportivo. El exterior incorpora la menos 50% de materiales reciclados.",
+    "price": 29,
+    "discount_percentage": 0,
+    "rating": [1],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["running"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-2.JPG",
+
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-4.JPG",
+
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-6.JPG"
+    ],
+    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["unisex"]
+  },
+  {
+    "item_number": "ADGV9007",
+    "name": "Startyourrun",
+    "description": "Las Zapatillas Running adidas Startyourrun Mujer están diseñadas específicamente para mujeres que quieren desafiarse en sus entrenamientos de running. Con un ajuste cómodo y ligero, ofrecen un excelente soporte y amortiguación para tus carreras diarias. Con su estilo moderno y elegante, te ayudarán a superar tus límites y comenzar tu carrera con confianza.",
+    "price": 41,
+    "discount_percentage": 0,
+    "rating": [1],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["casual"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-4.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-6.JPG"
+    ],
+    "size": [34, 35, 36, 37, 39],
+    "color": ["pink"],
+    "gender": ["women"]
   }
 ]
