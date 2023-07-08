@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const URL = "http://localhost:3001/products";
 
-const recorrerArray = (array, propiedad) => {
+export const recorrerArray = (array, propiedad) => {
   const newArray = [];
   if (array) {
     array.forEach((element) => {
@@ -39,7 +39,7 @@ export const productsSlice = createSlice({
       state.currentPage = actions.payload;
     },
     setFilteredProducts: (state, actions) => {
-      state.filteredProducts = [...actions.payload];
+      state.filteredProducts = actions.payload;
       state.currentPage = 1;
     },
   },
@@ -49,8 +49,14 @@ export const productsSlice = createSlice({
         // console.log(actions.payload);
         if (!state.products.length) {
           actions.payload.forEach((element) => {
-            state.products.push(element);
-            state.filteredProducts.push(element);
+            const sizes = recorrerArray(element.sizes, "size");
+            state.products.push({ ...element, sizes });
+          });
+        }
+        if (!state.filteredProducts.length) {
+          actions.payload.forEach((element) => {
+            const sizes = recorrerArray(element.sizes, "size");
+            state.filteredProducts.push({ ...element, sizes });
           });
         }
       })

@@ -10,11 +10,14 @@ import { getAllBrands } from "../../features/brandsSlice";
 import { fetchBrands } from "../../features/brandsSlice";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchColors } from "../../features/colorSlice";
-import zIndex from "@mui/material/styles/zIndex";
+import { useNavigate, useLocation } from "react-router-dom";
+
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
 const Filters = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
   const allProducts = useSelector(getAllProducts);
 
   const [brandSelect, setBrandSelect] = useState("");
@@ -112,11 +115,20 @@ const Filters = () => {
     });
   };
 
+  const handleClickAll = (e) => {
+    e.preventDefault();
+    setFilterPanel(() => {
+      return { ...filterPanel };
+    });
+    navigate("/tienda");
+  };
+
   const handleClickMen = (e) => {
     e.preventDefault();
     setFilterPanel(() => {
       return { ...filterPanel, gender: "men" };
     });
+    navigate("/tienda");
   };
 
   const handleClickWomen = (e) => {
@@ -124,6 +136,7 @@ const Filters = () => {
     setFilterPanel(() => {
       return { ...filterPanel, gender: "women" };
     });
+    navigate("/tienda");
   };
 
   const handleClickUnisex = (e) => {
@@ -131,6 +144,7 @@ const Filters = () => {
     setFilterPanel(() => {
       return { ...filterPanel, gender: "unisex" };
     });
+    navigate("/tienda");
   };
 
   const handleResetClick = (e) => {
@@ -154,80 +168,86 @@ const Filters = () => {
   return (
     <div>
       <div>
-        <Link to="/tienda" className="link" onClick={handleClickMen}>
-          MUJER
-        </Link>
-        <Link to="/tienda" className="link" onClick={handleClickWomen}>
-          VARON
-        </Link>
-        <Link to="/tienda" className="link" onClick={handleClickUnisex}>
-          UNISEX
-        </Link>
+        <button className="link" onClick={handleClickAll}>
+          ALL
+        </button>
+        <button className="link" onClick={handleClickWomen}>
+          MUJER{" "}
+        </button>{" "}
+        <button className="link" onClick={handleClickMen}>
+          VARON{" "}
+        </button>{" "}
+        <button className="link" onClick={handleClickUnisex}>
+          UNISEX{" "}
+        </button>
       </div>
-      <div className="link">
-        <div>
-          <input
-            name="name"
-            value={filterPanel.name}
-            onChange={handleChange}
-            placeholder="Search..."
-          ></input>
-        </div>
-        <div>
-          <select
-            id="brand"
-            name="brand"
-            onChange={handleChange}
-            value={brandSelect}
-          >
-            <option value={"none"}>Brand</option>
 
-            {brandsList?.map((b, i) => (
-              <option key={i} value={b}>
-                {b}
+      {location.pathname === "/tienda" && (
+        <div className="link">
+          <div>
+            <input
+              name="name"
+              value={filterPanel.name}
+              onChange={handleChange}
+              placeholder="Search..."
+            ></input>
+          </div>
+          <div>
+            <select
+              id="brand"
+              name="brand"
+              onChange={handleChange}
+              value={brandSelect}
+              defaultValue={brandSelect}
+            >
+              <option value={"none"}>Brand</option>
+
+              {brandsList?.map((b, i) => (
+                <option key={i} value={b}>
+                  {b}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <select
+              id="category"
+              name="category"
+              onChange={(e) => handleChange(e)}
+              value={categorySelect}
+            >
+              <option value={"none"} defaultValue={"Filter by Category"}>
+                Category
               </option>
-            ))}
-          </select>
-        </div>
+              {categoriesList?.map((c, i) => (
+                <option key={i} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div>
-          <select
-            id="category"
-            name="category"
-            onChange={(e) => handleChange(e)}
-            value={categorySelect}
-          >
-            <option value={"none"} defaultValue={"Filter by Category"}>
-              Category
-            </option>
-            {categories?.map((c, i) => (
-              <option key={i} value={c}>
-                {c}
+          <div>
+            <select
+              id="color"
+              name="color"
+              onChange={(e) => handleChange(e)}
+              value={colorSelect}
+            >
+              {" "}
+              <option value={"none"} defaultValue={"Filter by color"}>
+                color
               </option>
-            ))}
-          </select>
-        </div>
+              {colorsList?.map((c, i) => (
+                <option key={i} value={c}>
+                  {c}
+                </option>
+              ))}
+            </select>
+          </div>
 
-        <div>
-          <select
-            id="color"
-            name="color"
-            onChange={(e) => handleChange(e)}
-            value={colorSelect}
-          >
-            {" "}
-            <option value={"none"} defaultValue={"Filter by color"}>
-              color
-            </option>
-            {colorsList?.map((c, i) => (
-              <option key={i} value={c}>
-                {c}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* <div>
+          {/* <div>
           <select
             id="size"
             name="size"
@@ -243,25 +263,26 @@ const Filters = () => {
             ))}
           </select>
         </div> */}
-        <div>
-          <select id="price" name="price" onChange={(e) => handleChange(e)}>
-            {" "}
-            <option key="none" value="none">
-              Price
-            </option>
-            <option key="higher" value="higher">
-              Higher
-            </option>
-            <option key="lower" value="lower">
-              Lower
-            </option>
-          </select>
-        </div>
+          <div>
+            <select id="price" name="price" onChange={(e) => handleChange(e)}>
+              {" "}
+              <option key="none" value="none">
+                Price
+              </option>
+              <option key="higher" value="higher">
+                Higher
+              </option>
+              <option key="lower" value="lower">
+                Lower
+              </option>
+            </select>
+          </div>
 
-        <button onClick={handleResetClick}>
-          <span>Reset</span>
-        </button>
-      </div>
+          <button onClick={handleResetClick}>
+            <span>Reset</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 };

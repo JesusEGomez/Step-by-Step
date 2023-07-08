@@ -2676,5 +2676,73 @@
     ],
     "color": ["white"],
     "gender": ["men"]
+  },
+  {
+    "item_number": "ADGY6347",
+    "name": "Showtheway 2.0",
+    "description": "Salí a correr por tu vecindario o inyectale el estilo del running a tu look diario con las Zapatillas Adidas Showtheway 2.0. El exterior de malla liviana transpirable mantiene tus pies frescos incluso en climas cálidos, mientras que la mediasuela acolchada proporciona comodidad durante todo el día. Las clásicas 3 Tiras añaden un auténtico toque deportivo. El exterior incorpora la menos 50% de materiales reciclados.",
+    "price": 29,
+    "discount_percentage": 0,
+    "rating": [1],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["running"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-2.JPG",
+
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-4.JPG",
+
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-6.JPG"
+    ],
+    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["unisex"]
+  },
+  {
+    "item_number": "ADGV9007",
+    "name": "Startyourrun",
+    "description": "Las Zapatillas Running adidas Startyourrun Mujer están diseñadas específicamente para mujeres que quieren desafiarse en sus entrenamientos de running. Con un ajuste cómodo y ligero, ofrecen un excelente soporte y amortiguación para tus carreras diarias. Con su estilo moderno y elegante, te ayudarán a superar tus límites y comenzar tu carrera con confianza.",
+    "price": 41,
+    "discount_percentage": 0,
+    "rating": [1],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["casual"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-4.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-6.JPG"
+    ],
+    "size": [34, 35, 36, 37, 39],
+    "color": ["pink"],
+    "gender": ["women"]
   }
 ]
