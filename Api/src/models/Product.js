@@ -66,7 +66,7 @@ module.exports = (sequelize) => {
         const price = this.getDataValue("price");
         const discountPercentage = this.getDataValue("discountPercentage");
         const total = price - (price * discountPercentage) / 100;
-        return total.toFixed(0);
+        return parseInt(total.toFixed(0));
       },
     },
     totalStock: {
@@ -83,9 +83,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      // validate: {
-      //   min: 0,
-      // },
+      validate: {
+        min: 0,
+      },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,

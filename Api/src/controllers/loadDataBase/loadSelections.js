@@ -8,6 +8,7 @@ const {
   Color,
   Gender,
   Order,
+  Stock,
 } = require("../../db.js");
 const axios = require("axios");
 
@@ -19,6 +20,7 @@ const gender = require("../../../assets/database/gender.json");
 
 const colors = require("../../../assets/database/colors.json");
 const products = require("../../../assets/database/products.json");
+const createProduct = require("../products/createProductController.js");
 
 const bulkCreateBrands = async () => {
   try {
@@ -70,6 +72,7 @@ const bulkCreateGender = async () => {
 
 const createAllProducts = async () => {
   try {
+    // for (let i = 0; i < 10; i++) {
     for (let i = 0; i < products.length; i++) {
       const product = products[i];
 
@@ -99,18 +102,18 @@ const createAllProducts = async () => {
       );
       await createProduct.addCategories(categoryIds);
 
-      const sizeIds = await Promise.all(
-        product.size.map(async (size) => {
-          const foundSize = await Size.findOne({
-            where: { size: size },
-          });
+      // const sizeIds = await Promise.all(
+      //   product.size.map(async (size) => {
+      //     const foundSize = await Size.findOne({
+      //       where: { size: size },
+      //     });
 
-          if (foundSize) {
-            return foundSize.id;
-          }
-        })
-      );
-      await createProduct.addSizes(sizeIds);
+      //     if (foundSize) {
+      //       return foundSize.id;
+      //     }
+      //   })
+      // );
+      // await createProduct.addSizes(sizeIds);
 
       const colorIds = await Promise.all(
         product.color.map(async (color) => {
@@ -148,7 +151,26 @@ const createAllProducts = async () => {
           image.setProduct(createProduct);
         })
       );
+
+      await Promise.all(
+        sizes.map(async (size, i) => {
+          const sizeStock = productData.stock[size.size];
+          // Obtener el stock para el tamaño actual
+          //
+
+          // Crear el registro de stock y asociarlo al tamaño y producto correspondientes
+
+          await Stock.create({
+            sizeId: i + 1,
+            productId: createProduct.id,
+            stockPerSize: sizeStock,
+          });
+        })
+      );
+      // console.log(productData.stock);
+      // await createProduct.setSizes(productData.stock);
     }
+
     console.log("base de datos cargada");
   } catch (error) {
     console.log("error en la carga base de datos");

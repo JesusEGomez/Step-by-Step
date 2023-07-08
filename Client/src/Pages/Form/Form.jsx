@@ -1,11 +1,147 @@
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import React from 'react';
+import { fetchBrands, getAllBrands } from '../../features/brandsSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { fetchCategories, getAllCategories } from '../../features/categoriesSlice';
+import { fetchColors, getAllColors } from '../../features/colorSlice';
+
 
 export default function Form() {
+    
+    // const [brands, setBrands] = useState([]);
+    const brands = useSelector(getAllBrands)
+    const categories = useSelector(getAllCategories)
+    const colors = useSelector(getAllColors)
+    const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
+    
+    const dispatch = useDispatch();
+    
+    useEffect(() => {
+        dispatch(fetchBrands());
+        dispatch(fetchCategories());
+        dispatch(fetchColors());
+    }, [dispatch]);
+    
+    console.log(colors)
+    console.log(brands)
+    const [countImg, setCountImg] = useState(1);
+    
+    const [form, setForm] = useState({
+        item_number: "",
+        model: "",
+        description: "",
+        price: "",
+        discountPercentage: "",
+        gender: "",
+        stock: {},
+        isPublish: false,
+        brand: "",
+        size: [],
+        images: [],// libreria de iamgenes
+        categories: [],//// revisar para guardar multiple
+        color: []//revisar el checked 
+    })
+    console.log(form)
+    function handlerChange(e) {
+        const { name, value } = e.target;
+        
+        setForm((prevState) => ({
+            ...prevState,
+            
+            [name]: value
+        }));
+        
+    }
+    function handlerToF(e) {
+        setForm({ ...form, isPublish: event.target.value === "true" });
+    }
+    
+    
+    function handlerInputChange(e) {
+        const { name, value, type } = e.target;
+        
+        if (type === 'checkbox') {
+            const isChecked = e.target.checked;
+            const checkedValue = parseInt(value, 10);
+            const updatedColors = isChecked
+            ? [...form.colors, checkedValue]
+            : form.colors.filter((color) => color !== checkedValue);
+            
+            setForm((prevState) => ({
+                ...prevState,
+                colors: updatedColors,
+            }));
+        } else {
+            setForm((prevState) => ({
+                ...prevState,
+                [name]: value,
+            }));
+        }
+    }
+    
+    
+    
+    function handleImageChange(event, index) {
+        const { value } = event.target;
+        const updatedImages = [...form.images];
+        updatedImages[index] = value;
+        setForm({ ...form, images: updatedImages });
+    }
+    
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        
+        if (name === "size") {
+            const selectedSizes = form.size;
+            const sizeValue = parseInt(value);
+            const updatedSizes = selectedSizes.includes(sizeValue)
+            ? selectedSizes.filter((size) => size !== sizeValue)
+            : [...selectedSizes, sizeValue];
+            
+            setForm({
+                ...form,
+                size: updatedSizes
+            });
+        } else {
+            setForm({
+                ...form,
+                [name]: value
+            });
+        }
+    };
+    const handleStockChange = (e) => {
+        const { name, value } = e.target;
+        setForm({
+            ...form,
+            stock: {
+                ...form.stock,
+                [name]: parseInt(value)
+            }
+        });
+    };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        {
+            dispatch(postPruduct(form))
+            .then((res) => {
+                console.log("Solicitud POST exitosa:", res);
+                alert("Zapatilla creada correctamente");
+            })
+            .catch((error) => {
+                console.log("Error en la solicitud POST:", error);
+            });
+        }
+    };
+    
     return (
-        <form>
+        
+        <form onSubmit={handleSubmit}>
         
         
-        <div className="space-y-12 mt-40 ml-10">
+        
+        <div className="space-y-12 mt-40 ml-20">
         <div className="border-b border-gray-900/10 pb-12">
         <h2 className="text-base font-semibold leading-7 text-gray-900">Formulario</h2>
         <p className="mt-1 text-sm leading-6 text-gray-600">
@@ -27,6 +163,8 @@ export default function Form() {
         autoComplete="item_number"
         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
         placeholder="NIDR7882-700"
+        onChange={handlerInputChange}
+        value={form.item_number}
         />
         </div>
         </div>
@@ -45,6 +183,8 @@ export default function Form() {
         autoComplete="model"
         className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
         placeholder="Zapatillas Urbanas Nike Court Vision Mid Winter "
+        onChange={handlerInputChange}
+        value={form.model}
         />
         </div>
         </div>
@@ -60,7 +200,9 @@ export default function Form() {
         name="description"
         rows={3}
         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        defaultValue={''}
+        
+        onChange={handlerInputChange}
+        value={form.description}
         />
         </div>
         <p className="mt-3 text-sm leading-6 text-gray-600">Haz una descripción detallada de la zapatilla, recorda que esto lo visulizará el cliente.</p>
@@ -84,6 +226,8 @@ export default function Form() {
         id="price"
         autoComplete="given-name"
         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        onChange={handlerInputChange}
+        value={form.price}
         />
         </div>
         </div>
@@ -99,23 +243,13 @@ export default function Form() {
         id="discountPercentage"
         autoComplete="family-name"
         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        onChange={handlerInputChange}
+        value={form.discountPercentage}
         />
         </div>
         </div>
         
-        <div className="sm:col-span-4">
-        <label htmlFor="stock" className="block text-sm font-medium leading-6 text-gray-900">
-        Cantidad
-        </label>
-        <div className="mt-2">
-        <input
-        id="stock"
-        name="stock"
-        autoComplete="stock"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-        />
-        </div>
-        </div>
+        
         
         <div className="sm:col-span-3">
         <label htmlFor="gender" className="block text-sm font-medium leading-6 text-gray-900">
@@ -126,10 +260,11 @@ export default function Form() {
         id="gender"
         name="gender"
         className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+        onChange={handlerChange}
         >
-        <option>Men</option>
-        <option>Unisex</option>
-        <option>Women</option>
+        <option value={"men"}>Men</option>
+        <option value={"unisex"}>Unisex</option>
+        <option value={"women"}>Women</option>
         </select>
         </div>
         <br />
@@ -137,43 +272,73 @@ export default function Form() {
         <p className="mt-1 text-sm leading-6 text-gray-600">Modifica la visibilidad de la zapatilla para los usuarios.</p>
         
         <div className="flex items-center gap-x-3">
-        <input
+        {/* <input
         id="true"
-        name="true"
+        name="isPublish"
         type="radio"
+        value={true}
+        checked={selectedOption === true}
+        onChange={handlerToF}
         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
         />
         <label htmlFor="true" className="block text-sm font-medium leading-6 text-gray-900">
         Si.
         </label>
         </div>
+        
         <div className="flex items-center gap-x-3">
         <input
         id="false"
-        name="false"
+        name="isPublish"
         type="radio"
+        value={false}
+        checked={selectedOption === false}
+        onChange={handlerToF}
         className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
         />
-        <label htmlFor="push-stock" className="block text-sm font-medium leading-6 text-gray-900">
+        <label htmlFor="false" className="block text-sm font-medium leading-6 text-gray-900">
         No.
-        </label>
-        
-        
-        </div>
-        
-        <div className=" mt-5 sm:col-span-3">
-        <label htmlFor="brand" className="block text-sm font-medium leading-6 text-gray-900">
-        Marca:
-        </label>
-        <div className="mt-2">
-        <select
-        id="brand"
-        name="brand"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-        >
-        <option>Men</option>
-        <option>Unisex</option>
-        <option>Women</option>
+    </label> */}
+    <label>
+    <input
+    type="radio"
+    name="isPublish"
+    value={true}
+    checked={form.isPublish === true}
+    onChange={handlerToF}
+    />
+    Publicado
+    </label>
+    
+    <label>
+    <input
+    type="radio"
+    name="isPublish"
+    value={false}
+    checked={form.isPublish === false}
+    onChange={handlerToF}
+    />
+    No publicado
+    </label>
+    </div>
+    
+    
+    <div className=" mt-5 sm:col-span-3">
+    <label htmlFor="brand" className="block text-sm font-medium leading-6 text-gray-900">
+    Marca:
+    
+    </label>
+    <div className="mt-2">
+    <select
+    id="brand"
+    name="brand"
+    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+    value={form.brand}
+    onChange={handlerChange}
+    >
+    {brands.map((brand, index) => (
+        <option value={brand} key={index}>{brand}</option>
+        ))}
         </select>
         </div>
         </div>
@@ -191,186 +356,172 @@ export default function Form() {
         <legend className="text-sm font-semibold leading-6 text-gray-900">Talle</legend>
         <div className="mt-6 space-y-6">
         <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
+        {sizes.map((size) => (
+            <div key={size}>
+            <label>
+            Size {size}:
+            <input
+            type="checkbox"
+            name="size"
+            value={size}
+            checked={form.size.includes(size)}
+            onChange={handleInputChange}
+            />
+            <input
+            type="number"
+            name={ `${size}`}
+            value={form.stock[size] || 0}
+            onChange={handleStockChange}
+            />
+            </label>
+            </div>
+            ))}
+            </div>
+            </div>
+            <div className=" mt-5 sm:col-span-3">
+            <label htmlFor="categories" className="block text-sm font-medium leading-6 text-gray-900">
+            Categoria:
+            </label>
+            <div className="mt-2">
+            <select
+            
+            id="categories"
+            name="categories"
+            onChange={handlerChange}
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+            >{categories.map((categorie, index) => (
+                <option value={categorie} key={index}>{categorie}</option>
+                ))}
+                </select>
+                </div>
+                </div>
+                
+                </fieldset>
+                <fieldset>
+                <legend className="text-sm font-semibold leading-6 text-gray-900">Color</legend>
+                <div className="mt-6 space-y-6">
+                {/* <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                <input
+                id="color"
+                name="color"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                </div>
+                <div className="text-sm leading-6">
+                <label htmlFor="comments" className="font-medium text-gray-900">
+                negro
+                </label>
+                </div>
+                </div>
+                
+                <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                <input
+                id="color"
+                name="color"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                </div>
+                <div className="text-sm leading-6">
+                <label htmlFor="comments" className="font-medium text-gray-900">
+                blanco
+                </label>
+                </div>
+                </div>
+                <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                <input
+                id="color"
+                name="color"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                </div>
+                <div className="text-sm leading-6">
+                <label htmlFor="comments" className="font-medium text-gray-900">
+                rosa
+                </label>
+                </div>
+                </div>
+                <div className="relative flex gap-x-3">
+                <div className="flex h-6 items-center">
+                <input
+                id="color"
+                name="color"
+                type="checkbox"
+                className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                />
+                </div>
+                <div className="text-sm leading-6">
+                <label htmlFor="comments" className="font-medium text-gray-900">
+                gris
+                </label>
+                </div>
+            </div> */}
+            
+            <select
+            id="color"
+            name="color"
+            className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
+            onChange={handlerInputChange}
+            value={form.color}
+            >
+            <option value="">Select a color</option>
+            {colors.map((color) => (
+                <option key={color.id} value={color.id}>
+                {color.color}
+                </option>
+                ))}
+                </select>
+                
+                
+                
+                {/* <div className="col-span-full">
+                <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
+                Photo
+                </label>
+                <div className="mt-2 flex items-center gap-x-3">
+                <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
+                <button
+                type="button"
+                className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                >
+                Cambiar                                        </button>
+                </div>
+                </div>
+            */}
+            <div className="col-span-full">
+            <label htmlFor="images" className="block text-sm font-medium leading-6 text-gray-900">
+            Subir imagenes del producto
+            </label>
+            {/* <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div className="text-center">
+            <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
+            <div className="mt-4 flex text-sm leading-6 text-gray-600">
+            <label
+            htmlFor="file-upload"
+            className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
+            >
+            <span>Upload a file</span>
+            <input id="file-upload" name="file-upload" type="file" className="sr-only" />
+            </label>
+            <p className="pl-1">or drag and drop</p>
+            </div>
+            <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            </div>
+        </div> */}
+        <label htmlFor="image">Imagen:</label>
         <input
-        id="size"
-        name="size"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+        type="text"
+        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
+        value={form.images}
+        onChange={handlerInputChange}
+        name="images"
         />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        35
-        </label>
-        </div>
-        </div>
         
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="size"
-        name="size"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        35
-        </label>
-        </div>
-        </div>
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="size"
-        name="size"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        35
-        </label>
-        </div>
-        </div>
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="size"
-        name="size"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        35
-        </label>
-        </div>
-        </div>
-        
-        </div>
-        <div className=" mt-5 sm:col-span-3">
-        <label htmlFor="categories" className="block text-sm font-medium leading-6 text-gray-900">
-        Categoria:
-        </label>
-        <div className="mt-2">
-        <select
-        id="categories"
-        name="categories"
-        className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-        >
-        <option>Running</option>
-        <option>Training</option>
-        <option>Allday</option>
-        </select>
-        </div>
-        </div>
-        
-        </fieldset>
-        <fieldset>
-        <legend className="text-sm font-semibold leading-6 text-gray-900">Color</legend>
-        <div className="mt-6 space-y-6">
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="color"
-        name="color"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        negro
-        </label>
-        </div>
-        </div>
-        
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="color"
-        name="color"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        blanco
-        </label>
-        </div>
-        </div>
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="color"
-        name="color"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        rosa
-        </label>
-        </div>
-        </div>
-        <div className="relative flex gap-x-3">
-        <div className="flex h-6 items-center">
-        <input
-        id="color"
-        name="color"
-        type="checkbox"
-        className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-        />
-        </div>
-        <div className="text-sm leading-6">
-        <label htmlFor="comments" className="font-medium text-gray-900">
-        gris
-        </label>
-        </div>
-        </div>
-        
-        
-        <div className="col-span-full">
-        <label htmlFor="photo" className="block text-sm font-medium leading-6 text-gray-900">
-        Photo
-        </label>
-        <div className="mt-2 flex items-center gap-x-3">
-        <UserCircleIcon className="h-12 w-12 text-gray-300" aria-hidden="true" />
-        <button
-        type="button"
-        className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        >
-        Cambiar                                        </button>
-        </div>
-        </div>
-        
-        <div className="col-span-full">
-        <label htmlFor="images" className="block text-sm font-medium leading-6 text-gray-900">
-        Subir imagenes del producto
-        </label>
-        <div className="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
-        <div className="text-center">
-        <PhotoIcon className="mx-auto h-12 w-12 text-gray-300" aria-hidden="true" />
-        <div className="mt-4 flex text-sm leading-6 text-gray-600">
-        <label
-        htmlFor="file-upload"
-        className="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500"
-        >
-        <span>Upload a file</span>
-        <input id="file-upload" name="file-upload" type="file" className="sr-only" />
-        </label>
-        <p className="pl-1">or drag and drop</p>
-        </div>
-        <p className="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
-        </div>
-        </div>
         </div>
         </div>
         </fieldset>

@@ -9,7 +9,6 @@ import heartImage from './imagenes/bx-heart.svg.jpg';
 const GET_URL = "http://localhost:3001/products";
 
 
-
 function Detail(clickHandler) {
     const { id } = useParams();
     const [productData, setProductData] = useState(null);
