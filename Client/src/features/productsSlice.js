@@ -13,6 +13,7 @@ const recorrerArray = (array, propiedad) => {
 };
 
 const initialState = {
+  filteredProducts: [],
   products: [],
   currentPage: 1,
 };
@@ -34,28 +35,40 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     setCurrentPage: (state, actions) => {
-      console.log(actions);
+      // console.log(actions);
       state.currentPage = actions.payload;
+    },
+    setFilteredProducts: (state, actions) => {
+      state.filteredProducts = actions.payload;
+      state.currentPage = 1;
     },
   },
   extraReducers(builder) {
     builder
       .addCase(fetchProducts.fulfilled, (state, actions) => {
-        console.log(actions.payload);
+        // console.log(actions.payload);
         if (!state.products.length) {
           actions.payload.forEach((element) => {
             const sizes = recorrerArray(element.sizes, "size");
             state.products.push({ ...element, sizes });
           });
         }
+        if (!state.filteredProducts.length) {
+          actions.payload.forEach((element) => {
+            const sizes = recorrerArray(element.sizes, "size");
+            state.filteredProducts.push({ ...element, sizes });
+          });
+        }
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
-        console.log(actions.error.message);
+        // console.log(actions.error.message);
       });
   },
 });
 
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
-export const { setCurrentPage } = productsSlice.actions;
+export const getfilteredProducts = (state) => state.products.filteredProducts;
+
+export const { setCurrentPage, setFilteredProducts } = productsSlice.actions;
 export default productsSlice.reducer;
