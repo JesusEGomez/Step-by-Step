@@ -2,8 +2,8 @@ import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import productsReducer from "../features/productsSlice";
 import brandsReducer from "../features/brandsSlice";
-import categoriesReducer from '../features/categoriesSlice';
-import colorsReducer from '../features/colorSlice';
+import categoriesReducer from "../features/categoriesSlice";
+import colorsReducer from "../features/colorSlice";
 import cartReducer from "../features/cartSlice";
 import sizesReducer from '../features/sizeSlice'
 

@@ -62,9 +62,11 @@ const getDbProducts = async () => {
       discountPercentage: product.discountPercentage,
       sold_count: product.sold_count,
       isPublish: product.isPublish,
+      gender: product.gender,
       images: images,
       brand: brand,
       colors: colors,
+
       categories: categories,
       sizes: sizes,
       stocks: stock,
