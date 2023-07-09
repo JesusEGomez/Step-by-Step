@@ -5,7 +5,8 @@ import brandsReducer from "../features/brandsSlice";
 import categoriesReducer from "../features/categoriesSlice";
 import colorsReducer from "../features/colorSlice";
 import cartReducer from "../features/cartSlice";
-import sizesReducer from "../features/sizeSlice";
+import sizesReducer from '../features/sizeSlice'
+
 const store = configureStore({
   reducer: {
     products: productsReducer,
@@ -13,7 +14,7 @@ const store = configureStore({
     categories: categoriesReducer,
     colors: colorsReducer,
     cart: cartReducer,
-    sizes: sizesReducer,
+    sizes:sizesReducer,
   },
   middleware: [thunk],
 });
