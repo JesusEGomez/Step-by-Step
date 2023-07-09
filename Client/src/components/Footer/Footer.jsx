@@ -6,7 +6,7 @@ import {SiMercadopago} from 'react-icons/si'
 const Footer = () => {
     return (
         <div>
-        <footer className="footer p-12 w-full bg-gray-100 text-gray-600">
+        <footer className="footer p-12 w-screen bg-gray-100 text-gray-600">
         <div>
         <FaRegFileCode
         size={56}
