@@ -2744,5 +2744,39 @@
     "size": [34, 35, 36, 37, 39],
     "color": ["pink"],
     "gender": ["women"]
+  },
+  {
+    "item_number": "NIDC29-502",
+    "name": "Zapatillas Pruebajson Revolution 6 Next Nature",
+    "description": "Las Zapatillas Nike Revolution 6 Next Nature son el calzado de running del futuro. La malla extra aporta comodidad a tus pies y los materiales adicionales brindan durabilidad a la capellada. La mediasuela de espuma te da una sensación de confort y suavidad únicas en cada pisada. Para una mayor flexibilidad, la suela está diseñada en computadora y optimiza la tracción para que disfrutes de todas tus carreras.",
+    "price": 54,
+    "discount_percentage": 0,
+    "rating": [4],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "size": [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45],
+    "brand": ["nike"],
+    "category": ["training"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw61742a4b/products/NI_DC3729-502/NI_DC3729-502-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw74974026/products/NI_DC3729-502/NI_DC3729-502-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw22512755/products/NI_DC3729-502/NI_DC3729-502-4.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw6ac9f231/products/NI_DC3729-502/NI_DC3729-502-6.JPG"
+    ],
+    "color": ["pink"],
+    "gender": ["men"],
+    "sold_count": 0
   }
 ]
