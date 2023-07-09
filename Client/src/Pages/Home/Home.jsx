@@ -6,62 +6,100 @@ import { CgAdidas } from 'react-icons/cg';
 import axios from 'axios';
 
 const GET_URL = 'http://localhost:3001/products';
+const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [carouselImages, setCarouselImages] = useState([]);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     fetchCarouselImages();
   }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [carouselImages]);
-
   const fetchCarouselImages = async () => {
     try {
-      const response = await axios.get(GET_URL);
-      const products = response.data;
-      const firstImages = products.map((product) => product.images[0]);
-      setCarouselImages(firstImages);
-    } catch (error) {
-      console.error('Error fetching carousel images:', error);
+        const response = await axios.get(GET_URL);
+        const data = response.data;
+        setProducts(data); // Guardar la matriz de productos en el estado
+        const images = data.map((product) => product.images[1]);
+        setCarouselImages(images);
+      } catch (error) {
+        console.error('Error fetching carousel data:', error);
+      }
+    };
+
+  const handleSlideChange = (slideIndex) => {
+    setCurrentSlideIndex(slideIndex);
+  };
+
+  const renderCarouselItems = () => {
+    const startIndex = currentSlideIndex * IMAGES_PER_SLIDE;
+    const endIndex = startIndex + IMAGES_PER_SLIDE;
+
+    return carouselImages.slice(startIndex, endIndex).map((image, index) => {
+      const productIndex = startIndex + index ; // Asignar el ID del producto
+      const product = products[productIndex]; // Obtener el objeto de producto correspondiente
+      const productId = product ? product.id : null;
+
+      return (
+        <Link
+          key={index}
+          to={productId ? `/home/${productId}` : '#'} // finalmente, en el componente Link se  verifica si el 'productId' exista antes de establecer el atributo 'to'del enlace. si el 'productId' no existe (es 'null' ) se establece el atributo 'to' como '#' para evitar que el enlace sea valido.
+          className="carousel-item max-w-xs max-h-96 object-cover"
+        >
+          <img src={image} alt="Product" />
+        </Link>
+      );
+    });
+  };
+
+  const renderSlideButtons = () => {
+    const totalSlides = Math.ceil(carouselImages.length / IMAGES_PER_SLIDE);
+    const buttons = [];
+
+    for (let i = 0; i < totalSlides; i++) {
+      buttons.push(
+        <button
+          key={i}
+          className={`carousel-button ${
+            i === currentSlideIndex ? 'active' : 'bg-gray-300'
+          }`}
+          onClick={() => handleSlideChange(i)}
+        style={{ width: '15px',
+        height: '15px',
+        borderRadius: '50%',
+        margin: '0 5px',
+        padding: '0',
+        border: 'none',
+        outline: 'none'}}
+        />
+      );
     }
+
+    return buttons;
   };
 
   return (
     <div>
-      <div className="carousel rounded-box mt-16">
-        {carouselImages.map((image, index) => {
-          const productId = index + 1; // Asignar el ID del producto
-          return (
-            <Link
-              key={index}
-              to={`/home/${productId}`}
-              className={`carousel-item max-w-xs max-h-96 object-cover ${index === currentImageIndex ? 'active' : ''}`}
-            >
-              <img src={image} alt="Product" />
-            </Link>
-          );
-        })}
+      <div className="carousel rounded-box mt-16" >
+        {renderCarouselItems()}
+      </div>
+
+      {/* Botones de cambio de slide */}
+      <div className="flex justify-center mt-4 ">
+        {renderSlideButtons()}
       </div>
 
       {/* Resto del código del componente Home */}
-      <div className="m-6 mt-9 mb-9 text-center">
-        <h1>STEP-BY-STEP</h1>
-        <p style={{ display: 'inline-flex', alignItems: 'center' }}>
-          todo lo que buscas en zapas <GiRunningShoe className="ml-1" />
+      <div className="m-6 mt-9 mb-9 text-center ">
+        <h1 className="text-4xl">STEP-BY-STEP</h1>
+        <p className="flex items-center justify-center">
+          todo lo que buscas en zapas <GiRunningShoe className="ml-1 text-2xl" />
         </p>
         <div className="flex justify-center mt-4">
           <Link to="/tienda">
-            <button className="bg-black text-white py-2 px-4 rounded hover:border-gray-500 hover:bg-gray-500">
+            <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-500">
               COMPRAR
             </button>
           </Link>
