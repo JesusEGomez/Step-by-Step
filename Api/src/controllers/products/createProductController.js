@@ -7,40 +7,67 @@ const gender = require("../../../assets/database/gender.json");
 
 const colors = require("../../../assets/database/colors.json");
 
-const createProduct = async () =>
-  // item_number,
-  // model,
-  // description,
-  // price,
-  // discountPercentage,
-  // stock,
-  // isPublish,
-  // sold_count
-  {
-    // const newProduct = await Product.create({
-    //   item_number,
-    //   model,
-    //   description,
-    //   price,
-    //   discountPercentage,
-    //   stock,
-    //   isPublish,
-    //   sold_count,
-    // });
-    // categories.forEach(async (c) => {
-    //   const dbCategories = await Category.findOne({ where: { name: c } });
-    //   await newProduct.addCategory(dbCategories);
-    // });
-    // return newProduct;
-    // });
-    // colors.forEach(async (e) => {
-    //   const dbColors = await Color.findOne({ where: { name: e } });
-    //   await newProduct.addBrand(dbColors);
-    // });
-    // sizes.forEach(async (e) => {
-    //   const dbSizes = await Size.findOne({ where: { name: e } });
-    //   await newProduct.addBrand(dbSizes);
-    // });
-  };
+const createProductController = async ({
+  item_number,
+  name,
+  description,
+  price,
+  discountPercentage,
+  gender,
+  stock,
+  brand,
+  size,
+  categories,
+  color,
 
-module.exports = createProduct;
+  images,
+}) => {
+  console.log(gender, brand);
+  const newProduct = await Product.create({
+    item_number,
+    model,
+    description,
+    gender,
+    price,
+    discountPercentage,
+    isPublish,
+    // stock,
+    brand,
+    // size,
+    // categories,
+    // color,
+    // images,
+  });
+  console.log("newProductController", newProduct);
+  // const colorIds = await Promise.all(
+  //   color.map(async (color) => {
+  //     const foundColor = await Color.findOne({
+  //       where: { color: color },
+  //     });
+
+  //     if (foundColor) {
+  //       return foundColor.id;
+  //     }
+  //   })
+  // );
+  // await newProduct.addColors(colorIds);
+
+  // const imagesArr = images;
+  // const mappedImages = imagesArr.map((url) => {
+  //   return {
+  //     imageUrl: url,
+  //   };
+  // });
+
+  // await Promise.all(
+  //   mappedImages.map(async (url) => {
+  //     const image = await Image.create(url);
+
+  //     image.setProduct(newProduct);
+  //   })
+  // );
+
+  return newProduct;
+};
+
+module.exports = createProductController;

@@ -14,22 +14,22 @@ module.exports = (sequelize) => {
     model: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: {
-          args: [2],
-          msg: "El modelo debe tener al menos 2 caracteres",
-        },
-      },
+      // validate: {
+      //   len: {
+      //     args: [2],
+      //     msg: "El modelo debe tener al menos 2 caracteres",
+      //   },
+      // },
     },
     description: {
       type: DataTypes.TEXT,
       allowNull: false,
-      validate: {
-        len: {
-          args: [1],
-          msg: "El eslogan debe tener al menos 10 caracteres",
-        },
-      },
+      // validate: {
+      //   len: {
+      //     args: [1],
+      //     msg: "El eslogan debe tener al menos 10 caracteres",
+      //   },
+      // },
     },
     gender: {
       type: DataTypes.ENUM("men", "women", "unisex"),
@@ -52,13 +52,13 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       defaultValue: 0.0,
       allowNull: true,
-      validate: {
-        min: 0.0,
-        max: {
-          args: 100.0,
-          msg: "El porcentaje de descuento no puede ser mayor a 100",
-        },
-      },
+      // validate: {
+      //   min: 0.0,
+      //   max: {
+      //     args: 100.0,
+      //     msg: "El porcentaje de descuento no puede ser mayor a 100",
+      //   },
+      // },
     },
     totalPrice: {
       type: DataTypes.VIRTUAL,
