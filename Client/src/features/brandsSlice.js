@@ -50,6 +50,4 @@ export const brandsSlice = createSlice({
 });
 
 export const getAllBrands = (state) => state.brands.brands;
-export const getCurrentPage = (state) => state.brands.currentPage;
-export const { setCurrentPage } = brandsSlice.actions;
 export default brandsSlice.reducer;
