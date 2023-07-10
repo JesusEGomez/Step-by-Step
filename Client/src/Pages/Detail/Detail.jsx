@@ -143,7 +143,7 @@ function Detail(clickHandler) {
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
                 Shipping*
                 <br />
-                  <Carousel />
+                  {/* <Carousel /> */}
                 
               </div>
             </div>
