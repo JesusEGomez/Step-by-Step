@@ -9,11 +9,11 @@ module.exports = (sequelize) => {
     },
     item_number: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     model: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
       // validate: {
       //   len: {
       //     args: [2],
@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      // allowNull: false,
       // validate: {
       //   len: {
       //     args: [1],
@@ -44,9 +44,9 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: true,
       defaultValue: 0.0,
-      validate: {
-        min: 0.0,
-      },
+      // validate: {
+      //   min: 0.0,
+      // },
     },
     discountPercentage: {
       type: DataTypes.FLOAT,
@@ -83,14 +83,14 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      validate: {
-        min: 0,
-      },
+      // validate: {
+      //   min: 0,
+      // },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-      allowNull: false,
+      // allowNull: false,
     },
   });
 };

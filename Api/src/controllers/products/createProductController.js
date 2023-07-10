@@ -1,15 +1,22 @@
-const { Product, Size, Color, Category } = require("../../db.js");
+const {
+  Product,
+  Color,
+  Image,
+  Category,
+  Brand,
+  Stock,
+  Size,
+} = require("../../db.js");
 
 const brands = require("../../../assets/database/brands.json");
 const categories = require("../../../assets/database/categories.json");
 const sizes = require("../../../assets/database/sizes.json");
 const gender = require("../../../assets/database/gender.json");
-
 const colors = require("../../../assets/database/colors.json");
 
 const createProductController = async ({
   item_number,
-  name,
+  model,
   description,
   price,
   discountPercentage,
@@ -19,10 +26,9 @@ const createProductController = async ({
   size,
   categories,
   color,
-
+  isPublish,
   images,
 }) => {
-  console.log(gender, brand);
   const newProduct = await Product.create({
     item_number,
     model,
@@ -38,35 +44,69 @@ const createProductController = async ({
     // color,
     // images,
   });
-  console.log("newProductController", newProduct);
-  // const colorIds = await Promise.all(
-  //   color.map(async (color) => {
-  //     const foundColor = await Color.findOne({
-  //       where: { color: color },
-  //     });
+  //
 
-  //     if (foundColor) {
-  //       return foundColor.id;
-  //     }
-  //   })
-  // );
-  // await newProduct.addColors(colorIds);
+  const sizeIds = await Promise.all(
+    size.map(async (s) => {
+      const foundSize = await Size.findOne({
+        where: { size: s },
+      });
 
-  // const imagesArr = images;
-  // const mappedImages = imagesArr.map((url) => {
-  //   return {
-  //     imageUrl: url,
-  //   };
-  // });
+      if (foundSize) {
+        return foundSize.id;
+      }
+    })
+  );
+  await newProduct.addSizes(sizeIds);
 
-  // await Promise.all(
-  //   mappedImages.map(async (url) => {
-  //     const image = await Image.create(url);
+  const foundBrand = await Brand.findOne({
+    where: { name: brand },
+  });
+  console.log("foundBrand", foundBrand.id);
+  if (foundBrand) {
+    await newProduct.setBrand(foundBrand.id);
+  }
+  console.log(categories);
+  const categoryIds = await Promise.all(
+    categories.map(async (category) => {
+      const foundCategories = await Category.findOne({
+        where: { name: category },
+      });
 
-  //     image.setProduct(newProduct);
-  //   })
-  // );
+      if (foundCategories) {
+        return foundCategories.id;
+      }
+    })
+  );
+  await newProduct.addCategories(categoryIds);
 
+  const colorIds = await Promise.all(
+    color.map(async (color) => {
+      const foundColor = await Color.findOne({
+        where: { color: color },
+      });
+
+      if (foundColor) {
+        return foundColor.id;
+      }
+    })
+  );
+  await newProduct.addColors(colorIds);
+
+  const imagesArr = images;
+  const mappedImages = imagesArr.map((url) => {
+    return {
+      imageUrl: url,
+    };
+  });
+
+  await Promise.all(
+    mappedImages.map(async (url) => {
+      const image = await Image.create(url);
+
+      image.setProduct(newProduct);
+    })
+  );
   return newProduct;
 };
 
