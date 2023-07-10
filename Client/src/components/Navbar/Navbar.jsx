@@ -76,7 +76,7 @@ const NavBar = () => {
           </label>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card max-h-80 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
+            className="mt-3 z-[1] card max-h-96 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
           >
             <div className="card-body">
               <span className="font-bold text-lg">{`${CartProducts.length} items`}</span>
@@ -88,6 +88,7 @@ const NavBar = () => {
                       key={i}
                       className="flex-col justify-center items-center p-5 m-5"
                     >
+                      <img width="100px" src={product.images[0].imageUrl} alt={product.model} />
                       <h6>{product.model}</h6>
                       <h5>
                         <strong>{`Precio: ${product.totalPrice}`}</strong>
@@ -95,6 +96,9 @@ const NavBar = () => {
                       <h5>
                         <strong>{`Cantidad: ${product.quantity}`}</strong>
                       </h5>
+                      {product.sizes.map((size) => {
+                        return <p>{`Talle: ${size}`}</p>
+                      })}
                       <button
                         onClick={() => handlerDelete(product.id)}
                         className=""

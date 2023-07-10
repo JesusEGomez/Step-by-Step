@@ -19,15 +19,15 @@ const Home = () => {
 
   const fetchCarouselImages = async () => {
     try {
-        const response = await axios.get(GET_URL);
-        const data = response.data;
-        setProducts(data); // Guardar la matriz de productos en el estado
-        const images = data.map((product) => product.images[1]);
-        setCarouselImages(images);
-      } catch (error) {
-        console.error('Error fetching carousel data:', error);
-      }
-    };
+      const response = await axios.get(GET_URL);
+      const data = response.data;
+      setProducts(data); // Guardar la matriz de productos en el estado
+      const images = data.map((product) => product.images[1]);
+      setCarouselImages(images);
+    } catch (error) {
+      console.error('Error fetching carousel data:', error);
+    }
+  };
 
   const handleSlideChange = (slideIndex) => {
     setCurrentSlideIndex(slideIndex);
@@ -38,7 +38,7 @@ const Home = () => {
     const endIndex = startIndex + IMAGES_PER_SLIDE;
 
     return carouselImages.slice(startIndex, endIndex).map((image, index) => {
-      const productIndex = startIndex + index ; // Asignar el ID del producto
+      const productIndex = startIndex + index; // Asignar el ID del producto
       const product = products[productIndex]; // Obtener el objeto de producto correspondiente
       const productId = product ? product.id : null;
 
@@ -62,17 +62,18 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? 'active' : 'bg-gray-300'
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? 'active' : 'bg-gray-300'
+            }`}
           onClick={() => handleSlideChange(i)}
-        style={{ width: '15px',
-        height: '15px',
-        borderRadius: '50%',
-        margin: '0 5px',
-        padding: '0',
-        border: 'none',
-        outline: 'none'}}
+          style={{
+            width: '15px',
+            height: '15px',
+            borderRadius: '50%',
+            margin: '0 5px',
+            padding: '0',
+            border: 'none',
+            outline: 'none'
+          }}
         />
       );
     }
@@ -81,7 +82,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='mt-20'>
       <div className="carousel rounded-box mt-16" >
         {renderCarouselItems()}
       </div>

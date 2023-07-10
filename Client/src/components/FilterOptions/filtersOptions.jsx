@@ -171,7 +171,7 @@ const Filters = () => {
         <button className="link" onClick={handleClickAll}>
           ALL
         </button>
-        <button className="link" onClick={handleClickWomen}>
+        <button className="link " onClick={handleClickWomen}>
           MUJER{" "}
         </button>{" "}
         <button className="link" onClick={handleClickMen}>
