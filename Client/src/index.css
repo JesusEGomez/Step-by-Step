@@ -20,6 +20,7 @@
  
   @apply text-black border-none bg-transparent hover:text-gray-500 no-underline hover:underline transition-all p-2;
 }
+
 a {
   font-weight: 500;
   color: #646cff;

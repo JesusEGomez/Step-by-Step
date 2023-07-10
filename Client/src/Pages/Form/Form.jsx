@@ -17,7 +17,7 @@ export default function Form() {
     const colors = useSelector(getAllColors)
     const sizes = useSelector(getAllSizes)
     const dispatch = useDispatch();
-    
+
     useEffect(() => {
         dispatch(fetchBrands());
         dispatch(fetchCategories());
