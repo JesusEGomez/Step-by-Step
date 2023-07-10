@@ -37,7 +37,7 @@ const createUserCtrl = async (req, res) => {
     return res.status(201).json({ message: `Usuario creado exitosamente: `, usuario: newUser });
   } catch (error) {
     console.error(error.message);
-    return res.status(500).json({ message: `Usuario no pudo ser creado` });
+    return res.status(500).json({ message: `Usuario no pudo ser creado`, error: error.message });
   }
 };
 

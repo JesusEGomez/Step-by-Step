@@ -13,225 +13,106 @@ import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 
 export default function Form() {
-  const brands = useSelector(getAllBrands);
-  const categories = useSelector(getAllCategories);
-  const colors = useSelector(getAllColors);
-  const sizes = useSelector(getAllSizes);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
-  useEffect(() => {
-    dispatch(fetchBrands());
-    dispatch(fetchCategories());
-    dispatch(fetchColors());
-    dispatch(fetchSizes());
-  }, [dispatch]);
+    
+    const brands = useSelector(getAllBrands)
+    const categories = useSelector(getAllCategories)
+    const colors = useSelector(getAllColors)
+    const sizes = useSelector(getAllSizes)
+    const dispatch = useDispatch();
 
-  const [Image, setImage] = useState("");
-  const [countImg, setCountImg] = useState(1);
-
-  const renderInputImg = () => {
-    const inputs = [];
-    for (let i = 1; i <= countImg; i++) {
-      inputs.push(
-        <input
-          key={i}
-          type="text"
-          placeholder={`imagen numero #${i}`}
-          onChange={handleImageChange}
-          id="inputImg"
-        />
-      );
-    }
-    return inputs;
-  };
-  const addInputImg = () => {
-    setCountImg(countImg + 1);
-  };
-  const lastInputImg = () => {
-    if (countImg > 1) {
-      setCountImg(countImg - 1);
-    }
-  };
-
-  const submitImage = () => {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "dmtxokbw");
-    data.append("cloud_name", "dg3hl3bit");
-
-    fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch(err);
-  };
-
-  //////////////////////////
-  //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-
-  //     const submitImage = () => {
-  //         const data = new FormData();
-  //         data.append("file", image);
-  //         data.append("upload_preset", "dmtxokbw");
-  //         data.append("cloud_name", "dg3hl3bit");
-
-  //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
-  //         method: "post",
-  //         body: data,
-  //     })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //         const imageUrl = data.secure_url;
-  //         setUploadedImageUrl(imageUrl);
-  //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
-  //         form.handleSubmit(); // Envía el formulario
-  //     })
-  //     .catch((err) => {
-  //         console.log(err);
-  //     });
-  // };
-  ///////////////////////////////////////
-
-  const [form, setForm] = useState({
-    item_number: "",
-    model: "",
-    description: "",
-    price: 0,
-    discountPercentage: 0,
-    gender: "unisex",
-    stock: {},
-    isPublish: false,
-    brand: "",
-    size: [],
-    images: [], // libreria de iamgenes
-    categories: [],
-    color: [],
-  });
-  console.log(form);
-  function handlerChange(e) {
-    const { name, value } = e.target;
-
-    setForm((prevState) => ({
-      ...prevState,
-
-      [name]: value,
-    }));
-  }
-  function handlerToF(e) {
-    setForm({ ...form, isPublish: event.target.value === "true" });
-  }
-
-  function handleSelectChange(event) {
-    const { value } = event.target;
-    setForm((prevState) => ({
-      ...prevState,
-      categories: [...prevState.categories, value],
-    }));
-  }
-
-  const [input, setInput] = useState({ categories: [] });
-
-  const handleDelete = (index) => {
-    setForm((prevState) => {
-      const updatedCategories = [...prevState.categories];
-      updatedCategories.splice(index, 1);
-      return {
-        ...prevState,
-        categories: updatedCategories,
-      };
-    });
-  };
-
-  function handlerColorChange(event) {
-    const { value } = event.target;
-    setForm((prevState) => ({
-      ...prevState,
-      color: [...prevState.color, value],
-    }));
-  }
-
-  const handleColorDelete = (index) => {
-    setForm((prevState) => {
-      const updatedColor = [...prevState.color];
-      updatedColor.splice(index, 1);
-      return {
-        ...prevState,
-        color: updatedColor,
-      };
-    });
-  };
-
-  function handlerInputChange(e) {
-    const { name, value, type } = e.target;
-
-    if (type === "checkbox") {
-      const isChecked = e.target.checked;
-      const checkedValue = parseInt(value, 10);
-      setForm((prevState) => ({
-        ...prevState,
-      }));
-    } else {
-      setForm((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    }
-  }
-
-  function handleImageChange(event) {
-    const { value } = event.target;
-    setForm((prevState) => ({
-      ...prevState,
-      images: [...prevState.images, value],
-    }));
-  }
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === "size") {
-      const selectedSizes = form.size;
-      const sizeValue = parseInt(value);
-      const updatedSizes = selectedSizes.includes(sizeValue)
-        ? selectedSizes.filter((size) => size !== sizeValue)
-        : [...selectedSizes, sizeValue];
-
-      setForm({
-        ...form,
-        size: updatedSizes,
-      });
-    } else {
-      setForm({
-        ...form,
-        [name]: value,
-      });
-    }
-  };
-  const handleStockChange = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      stock: {
-        ...form.stock,
-        [name]: parseInt(value),
-      },
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    {
-      dispatch(addNewProduct(form))
-        .then((res) => {
-          console.log("Solicitud POST exitosa:", res);
-          alert("Zapatilla creada correctamente");
+    useEffect(() => {
+        dispatch(fetchBrands());
+        dispatch(fetchCategories());
+        dispatch(fetchColors());
+        dispatch(fetchSizes());
+    }, [dispatch]);
+    
+    const [Image, setImage] = useState("");
+    const [countImg, setCountImg] = useState(1);
+    
+    const renderInputImg = () => {
+        const inputs = [];
+        for (let i = 1; i <= countImg; i++) {
+            inputs.push(
+                <input
+                key={i}
+                type="text"
+                placeholder={`imagen numero #${i}`}
+                onChange={handleImageChange}
+                id="inputImg"
+                />
+                );
+            }
+            return inputs;
+        };
+        const addInputImg = () => {
+            setCountImg(countImg + 1);
+            
+        };
+        const lastInputImg = () => {
+            if (countImg > 1) {
+                setCountImg(countImg - 1);
+            }
+        };
+        
+        // const submitImage = () => {
+        //     const data = new FormData()
+        //     data.append("file", image)
+        //     data.append("upload_preset", "dmtxokbw")
+        //     data.append("cloud_name", "dg3hl3bit")
+        
+        //     fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload",
+        //     {
+        //         method: "post",
+        //         body: data
+        //     })
+        //     .then(res => res.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //     }).catch(err)
+        // }
+        //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+        
+        //     const submitImage = () => {
+        //         const data = new FormData();
+        //         data.append("file", image);
+        //         data.append("upload_preset", "dmtxokbw");
+        //         data.append("cloud_name", "dg3hl3bit");
+        
+        //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
+        //         method: "post",
+        //         body: data,
+        //     })
+        //     .then((res) => res.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //         const imageUrl = data.secure_url;
+        //         setUploadedImageUrl(imageUrl);
+        //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
+        //         form.handleSubmit(); // Envía el formulario
+        //     })
+        //     .catch((err) => {
+        //         console.log(err);
+        //     });
+        // };
+        
+        
+        
+        
+        const [form, setForm] = useState({
+            item_number: "",
+            model: "",
+            description: "",
+            price: 0,
+            discountPercentage: 0,
+            gender: "unisex",
+            stock: {},
+            isPublish: false,
+            brand: "",
+            size: [],
+            images: [],// libreria de iamgenes
+            categories: [],
+            color: []
         })
         .catch((error) => {
           console.log("Error en la solicitud POST:", error);
