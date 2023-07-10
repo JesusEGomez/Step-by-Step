@@ -54,6 +54,9 @@ export const productsSlice = createSlice({
   },
 });
 
+
+
+
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
 export const { setCurrentPage } = productsSlice.actions;

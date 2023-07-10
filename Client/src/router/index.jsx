@@ -1,5 +1,6 @@
+import ViewLoginRegister from "../components/Login/ViewLoginRegister.jsx";
 import LayoutPublic from "../layout/LayoutPublic";
-import { Home, Landing, Tienda, ErrorPage, Form, Detail } from "../pages";
+import { Home, Landing, Tienda, ErrorPage, Form, Detail } from "../Pages";
 import {
     createBrowserRouter,
 } from "react-router-dom";
@@ -33,6 +34,9 @@ const router = createBrowserRouter([
             {
                 path: '/form',
                 element: <Form />
+            }, {
+                path: '/login',
+                element: <ViewLoginRegister />
             }
         ]
     }
