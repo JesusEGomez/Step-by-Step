@@ -1,8 +1,8 @@
 import { FaRegFileCode } from 'react-icons/fa';
-import { BiLogoPostgresql, BiLogoTailwindCss } from 'react-icons/bi';
+import { BiLogoPostgresql,BiLogoTailwindCss } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs'
 import { LiaReact } from 'react-icons/lia'
-import { SiMercadopago } from 'react-icons/si'
+import {SiMercadopago} from 'react-icons/si'
 const Footer = () => {
     return (
         <div>
@@ -49,7 +49,9 @@ const Footer = () => {
         </div>
         </div>
         </footer>
-    );
-};
-
-export default Footer;
+        </div>
+        );
+    };
+    
+    export default Footer;
+    
