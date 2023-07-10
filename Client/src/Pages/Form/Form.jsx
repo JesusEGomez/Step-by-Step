@@ -13,112 +13,104 @@ import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 
 export default function Form() {
-    
-    const brands = useSelector(getAllBrands)
-    const categories = useSelector(getAllCategories)
-    const colors = useSelector(getAllColors)
-    const sizes = useSelector(getAllSizes)
-    const dispatch = useDispatch();
+  const brands = useSelector(getAllBrands);
+  const categories = useSelector(getAllCategories);
+  const colors = useSelector(getAllColors);
+  const sizes = useSelector(getAllSizes);
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(fetchBrands());
-        dispatch(fetchCategories());
-        dispatch(fetchColors());
-        dispatch(fetchSizes());
-    }, [dispatch]);
-    
-    const [Image, setImage] = useState("");
-    const [countImg, setCountImg] = useState(1);
-    
-    const renderInputImg = () => {
-        const inputs = [];
-        for (let i = 1; i <= countImg; i++) {
-            inputs.push(
-                <input
-                key={i}
-                type="text"
-                placeholder={`imagen numero #${i}`}
-                onChange={handleImageChange}
-                id="inputImg"
-                />
-                );
-            }
-            return inputs;
-        };
-        const addInputImg = () => {
-            setCountImg(countImg + 1);
-            
-        };
-        const lastInputImg = () => {
-            if (countImg > 1) {
-                setCountImg(countImg - 1);
-            }
-        };
-        
-        // const submitImage = () => {
-        //     const data = new FormData()
-        //     data.append("file", image)
-        //     data.append("upload_preset", "dmtxokbw")
-        //     data.append("cloud_name", "dg3hl3bit")
-        
-        //     fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload",
-        //     {
-        //         method: "post",
-        //         body: data
-        //     })
-        //     .then(res => res.json())
-        //     .then((data) => {
-        //         console.log(data);
-        //     }).catch(err)
-        // }
-        //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
-        
-        //     const submitImage = () => {
-        //         const data = new FormData();
-        //         data.append("file", image);
-        //         data.append("upload_preset", "dmtxokbw");
-        //         data.append("cloud_name", "dg3hl3bit");
-        
-        //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
-        //         method: "post",
-        //         body: data,
-        //     })
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log(data);
-        //         const imageUrl = data.secure_url;
-        //         setUploadedImageUrl(imageUrl);
-        //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
-        //         form.handleSubmit(); // Envía el formulario
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     });
-        // };
-        
-        
-        
-        
-        const [form, setForm] = useState({
-            item_number: "",
-            model: "",
-            description: "",
-            price: 0,
-            discountPercentage: 0,
-            gender: "unisex",
-            stock: {},
-            isPublish: false,
-            brand: "",
-            size: [],
-            images: [],// libreria de iamgenes
-            categories: [],
-            color: []
-        })
-        .catch((error) => {
-          console.log("Error en la solicitud POST:", error);
-        });
+  useEffect(() => {
+    dispatch(fetchBrands());
+    dispatch(fetchCategories());
+    dispatch(fetchColors());
+    dispatch(fetchSizes());
+  }, [dispatch]);
+
+  const [Image, setImage] = useState("");
+  const [countImg, setCountImg] = useState(1);
+
+  const renderInputImg = () => {
+    const inputs = [];
+    for (let i = 1; i <= countImg; i++) {
+      inputs.push(
+        <input
+          key={i}
+          type="text"
+          placeholder={`imagen numero #${i}`}
+          onChange={handleImageChange}
+          id="inputImg"
+        />
+      );
+    }
+    return inputs;
+  };
+  const addInputImg = () => {
+    setCountImg(countImg + 1);
+  };
+  const lastInputImg = () => {
+    if (countImg > 1) {
+      setCountImg(countImg - 1);
     }
   };
+
+  // const submitImage = () => {
+  //     const data = new FormData()
+  //     data.append("file", image)
+  //     data.append("upload_preset", "dmtxokbw")
+  //     data.append("cloud_name", "dg3hl3bit")
+
+  //     fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload",
+  //     {
+  //         method: "post",
+  //         body: data
+  //     })
+  //     .then(res => res.json())
+  //     .then((data) => {
+  //         console.log(data);
+  //     }).catch(err)
+  // }
+  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+
+  const submitImage = () => {
+    const data = new FormData();
+    data.append("file", image);
+    data.append("upload_preset", "dmtxokbw");
+    data.append("cloud_name", "dg3hl3bit");
+
+    fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
+      method: "post",
+      body: data,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        const imageUrl = data.secure_url;
+        setUploadedImageUrl(imageUrl);
+        form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
+        form.handleSubmit(); // Envía el formulario
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const [form, setForm] = useState({
+    item_number: "",
+    model: "",
+    description: "",
+    price: 0,
+    discountPercentage: 0,
+    gender: "unisex",
+    stock: {},
+    isPublish: false,
+    brand: "",
+    size: [],
+    images: [], // libreria de iamgenes
+    categories: [],
+    color: [],
+  }).catch((error) => {
+    console.log("Error en la solicitud POST:", error);
+  });
 
   // const handleSubmit = async (e) => {
   //   e.preventDefault();
