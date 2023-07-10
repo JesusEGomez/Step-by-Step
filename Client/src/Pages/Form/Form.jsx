@@ -24,7 +24,7 @@ export default function Form() {
     dispatch(fetchCategories());
     dispatch(fetchColors());
     dispatch(fetchSizes());
-  }, [dispatch]);
+  }, []);
 
   const [Image, setImage] = useState("");
   const [countImg, setCountImg] = useState(1);
@@ -39,6 +39,7 @@ export default function Form() {
           placeholder={`imagen numero #${i}`}
           onChange={handleImageChange}
           id="inputImg"
+          className="p-1 mr-2"
         />
       );
     }
@@ -69,30 +70,30 @@ export default function Form() {
   //         console.log(data);
   //     }).catch(err)
   // }
-  const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+  //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
 
-  const submitImage = () => {
-    const data = new FormData();
-    data.append("file", image);
-    data.append("upload_preset", "dmtxokbw");
-    data.append("cloud_name", "dg3hl3bit");
+  //     const submitImage = () => {
+  //         const data = new FormData();
+  //         data.append("file", image);
+  //         data.append("upload_preset", "dmtxokbw");
+  //         data.append("cloud_name", "dg3hl3bit");
 
-    fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        const imageUrl = data.secure_url;
-        setUploadedImageUrl(imageUrl);
-        form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
-        form.handleSubmit(); // Envía el formulario
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
+  //         method: "post",
+  //         body: data,
+  //     })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //         console.log(data);
+  //         const imageUrl = data.secure_url;
+  //         setUploadedImageUrl(imageUrl);
+  //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
+  //         form.handleSubmit(); // Envía el formulario
+  //     })
+  //     .catch((err) => {
+  //         console.log(err);
+  //     });
+  // };
 
   const [form, setForm] = useState({
     item_number: "",
@@ -108,36 +109,195 @@ export default function Form() {
     images: [], // libreria de iamgenes
     categories: [],
     color: [],
-  }).catch((error) => {
-    console.log("Error en la solicitud POST:", error);
   });
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+  const [errors, setErrors] = useState({
+    // item_number: "", //
+    // model: "",//
+    // description: "",
+    // price: 0,
+    // discountPercentage: 0,
+    // gender: "unisex",
+    // stock: {},
+    // isPublish: false,
+    // brand: "",
+    // size: [],
+    // images: [],
+    // categories: [],
+    // color: []
+  });
 
-  //   try {
-  //     const res = await dispatch(addNewProduct(form));
-  //     console.log("Solicitud POST exitosa:", res);
-  //     alert("Zapatilla creada correctamente");
-  //   } catch (error) {
-  //     console.log("Error en la solicitud POST:", error);
-  //   }
-  // };
+  const validate = (form) => {
+    const errors = {};
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
+    if (!/^[a-zA-Z0-9]{3,20}$/.test(form.item_number)) {
+      errors.item_number =
+        "Debe contener entre 3 y 20 caracteres alfanuméricos";
+    }
 
-  //   try {
-  //     console.log(form);
-  //     await axios.post("http://localhost:3001/", form);
+    if (!/.+/.test(form.model)) {
+      errors.model = "Nombre no puede estar vacio";
+    }
+    if (!/^[a-zA-Z\s]+$/.test(form.description)) {
+      errors.description = "Descripcion obligatoria";
+    }
+    if (!/^[1-9]\d*(\.\d{1,2})?$/.test(form.price)) {
+      errors.price = "Precio obligatorio mayor a 0";
+    }
+    if (!/^(?:100|\d{1,2})$/.test(form.discountPercentage)) {
+      errors.discountPercentage = "Solo nuemeros positivos del 1 al 100";
+    }
 
-  //     alert("form created!!");
-  //     // return response;
-  //   } catch (error) {
-  //     alert("recipe fail", error);
-  //   }
+    setErrors(errors);
 
-  // };
+    return Object.keys(errors).length === 0;
+  };
+
+  console.log(form);
+  function handlerChange(e) {
+    const { name, value } = e.target;
+
+    setForm((prevState) => ({
+      ...prevState,
+
+      [name]: value,
+    }));
+    validate({
+      ...form,
+      [name]: value,
+    });
+  }
+  function handlerToF(e) {
+    setForm({ ...form, isPublish: event.target.value === "true" });
+  }
+
+  function handleSelectChange(event) {
+    const { value } = event.target;
+    setForm((prevState) => ({
+      ...prevState,
+      categories: [...prevState.categories, value],
+    }));
+  }
+
+  const handleDelete = (index) => {
+    setForm((prevState) => {
+      const updatedCategories = [...prevState.categories];
+      updatedCategories.splice(index, 1);
+      return {
+        ...prevState,
+        categories: updatedCategories,
+      };
+    });
+  };
+
+  function handlerColorChange(event) {
+    const { value } = event.target;
+    setForm((prevState) => ({
+      ...prevState,
+      color: [...prevState.color, value],
+    }));
+  }
+
+  const handleColorDelete = (index) => {
+    setForm((prevState) => {
+      const updatedColor = [...prevState.color];
+      updatedColor.splice(index, 1);
+      return {
+        ...prevState,
+        color: updatedColor,
+      };
+    });
+  };
+
+  function handlerInputChange(e) {
+    const { name, value, type } = e.target;
+
+    if (type === "checkbox") {
+      const isChecked = e.target.checked;
+      const checkedValue = parseInt(value, 10);
+      setForm((prevState) => ({
+        ...prevState,
+      }));
+    } else {
+      setForm((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
+    validate({
+      ...form,
+      [name]: value,
+    });
+  }
+
+  function handleImageChange(event) {
+    const { value } = event.target;
+    const updatedImages = [...form.images, value];
+
+    if (!updatedImages.every((image) => /\.(jpg|png)$/.test(image))) {
+      setErrors((errors) => ({
+        ...errors,
+        images: "Las imágenes deben tener extensión .jpg o .png",
+      }));
+    } else {
+      setErrors((errors) => ({
+        ...errors,
+        images: "", // Limpiar el mensaje de error si todas las imágenes son válidas
+      }));
+    }
+
+    setForm((prevState) => ({
+      ...prevState,
+      images: updatedImages,
+    }));
+  }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+
+    if (name === "size") {
+      const selectedSizes = form.size;
+      const sizeValue = parseInt(value);
+      const updatedSizes = selectedSizes.includes(sizeValue)
+        ? selectedSizes.filter((size) => size !== sizeValue)
+        : [...selectedSizes, sizeValue];
+
+      setForm({
+        ...form,
+        size: updatedSizes,
+      });
+    } else {
+      setForm({
+        ...form,
+        [name]: value,
+      });
+    }
+    validate(form);
+  };
+  const handleStockChange = (e) => {
+    const { name, value } = e.target;
+    setForm({
+      ...form,
+      stock: {
+        ...form.stock,
+        [name]: parseInt(value),
+      },
+    });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate(form)) {
+      dispatch(addNewProduct(form))
+        .then((res) => {
+          console.log("Solicitud POST exitosa:", res);
+          alert("Zapatilla creada correctamente");
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.log("Error en la solicitud POST:", error);
+        });
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -156,7 +316,7 @@ export default function Form() {
                 htmlFor="item_number"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Item
+                Codigo del producto
               </label>
               <div className="mt-2">
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
@@ -171,6 +331,11 @@ export default function Form() {
                     value={form.item_number}
                   />
                 </div>
+                {errors.item_number && (
+                  <span className="text-red-500 text-sm">
+                    {errors.item_number}
+                  </span>
+                )}{" "}
               </div>
             </div>
             <div className="sm:col-span-4">
@@ -193,30 +358,38 @@ export default function Form() {
                     value={form.model}
                   />
                 </div>
+                {errors.model && (
+                  <span className="text-red-500 text-sm">{errors.model}</span>
+                )}
               </div>
-            </div>
+              <div className="col-span-2 my-6 ">
+                <label
+                  htmlFor="description"
+                  className=" my-2  text-sm font-medium leading-6 text-gray-900"
+                >
+                  Descripción
+                </label>
+                <div className="mt-2 ">
+                  <textarea
+                    id="description"
+                    name="description"
+                    rows={3}
+                    className="block w-4/5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    onChange={handlerInputChange}
+                    value={form.description}
+                  />
+                </div>
+                {errors.description && (
+                  <span className="text-red-500 text-sm">
+                    {errors.description}
+                  </span>
+                )}
 
-            <div className="col-span-fit">
-              <label
-                htmlFor="description"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Descripción
-              </label>
-              <div className="mt-2">
-                <textarea
-                  id="description"
-                  name="description"
-                  rows={3}
-                  className="block w-screen  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  onChange={handlerInputChange}
-                  value={form.description}
-                />
+                <p className="mt-3 text-sm leading-6 text-gray-600">
+                  Haz una descripción detallada de la zapatilla, recorda que
+                  esto lo visulizará el cliente.
+                </p>
               </div>
-              <p className="mt-3 text-sm leading-6 text-gray-600">
-                Haz una descripción detallada de la zapatilla, recorda que esto
-                lo visulizará el cliente.
-              </p>
             </div>
           </div>
         </div>
@@ -236,11 +409,14 @@ export default function Form() {
                   name="price"
                   id="price"
                   autoComplete="given-name"
-                  className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handlerInputChange}
                   value={form.price}
                 />
               </div>
+              {errors.price && (
+                <span className="text-red-500 text-sm">{errors.price}</span>
+              )}
             </div>
 
             <div className="sm:col-span-3">
@@ -256,11 +432,16 @@ export default function Form() {
                   name="discountPercentage"
                   id="discountPercentage"
                   autoComplete="family-name"
-                  className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                   onChange={handlerInputChange}
                   value={form.discountPercentage}
                 />
               </div>
+              {errors.discountPercentage && (
+                <span className="text-red-500 text-sm">
+                  {errors.discountPercentage}
+                </span>
+              )}
             </div>
 
             <div className="sm:col-span-3">
@@ -274,7 +455,7 @@ export default function Form() {
                 <select
                   id="gender"
                   name="gender"
-                  className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   onChange={handlerChange}
                   defaultValue={"unisex"}
                 >
@@ -287,14 +468,13 @@ export default function Form() {
                 </select>
               </div>
               <br />
-              <legend className=" text-sm font-semibold leading-6 text-gray-900">
+              <legend className=" text-m  my-2 font-semibold leading-6 text-gray-900">
                 Publicado?
               </legend>
               <p className="mt-1 text-sm leading-6 text-gray-600">
                 Modifica la visibilidad de la zapatilla para los usuarios.
               </p>
-
-              <div className="flex items-center gap-x-3">
+              <div className=" m-3 text-sm flex items-center gap-x-3">
                 <label>
                   <input
                     type="radio"
@@ -302,6 +482,7 @@ export default function Form() {
                     value={true}
                     checked={form.isPublish === true}
                     onChange={handlerToF}
+                    className="p-2 m-2 "
                   />
                   Publicado
                 </label>
@@ -313,6 +494,7 @@ export default function Form() {
                     value={false}
                     checked={form.isPublish === false}
                     onChange={handlerToF}
+                    className="p-2 m-2"
                   />
                   No publicado
                 </label>
@@ -329,7 +511,7 @@ export default function Form() {
                   <select
                     id="brand"
                     name="brand"
-                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     value={form.brand}
                     onChange={handlerChange}
                   >
@@ -355,30 +537,30 @@ export default function Form() {
               <legend className="text-sm font-semibold leading-6 text-gray-900">
                 Talle
               </legend>
-              <div className="mt-6 space-y-6">
-                <div className="relative flex gap-x-3">
-                  {sizes.map(({ size }) => (
-                    <div key={size}>
-                      <label>
-                        Size {size}:
-                        <input
-                          type="checkbox"
-                          name="size"
-                          value={size}
-                          checked={form.size.includes(size)}
-                          onChange={handleInputChange}
-                        />
-                        <input
-                          type="number"
-                          name={`${size}`}
-                          value={form.stock[size] || 1}
-                          onChange={handleStockChange}
-                          disabled={!form.size.includes(size)}
-                        />
-                      </label>
-                    </div>
-                  ))}
-                </div>
+              <div className="mt-6 grid grid-cols-4 gap-4">
+                {sizes.map(({ size }) => (
+                  <div key={size}>
+                    <label className="m">
+                      Nro {size}:
+                      <input
+                        type="checkbox"
+                        name="size"
+                        value={size}
+                        checked={form.size.includes(size)}
+                        onChange={handleInputChange}
+                        className="px-2 py-2 m-1 w-5 text-sm"
+                      />
+                      <input
+                        type="number"
+                        name={`${size}`}
+                        value={form.stock[size] || 1}
+                        onChange={handleStockChange}
+                        disabled={!form.size.includes(size)}
+                        className="py-1 px-1 text-m w-16 m-2"
+                      />
+                    </label>
+                  </div>
+                ))}
               </div>
               <div className=" mt-5 sm:col-span-3">
                 <label
@@ -408,11 +590,12 @@ export default function Form() {
                 </div>
                 {form.categories.map((categories, index) => (
                   <button
+                    className="bg-gray-400  text-white py-1 px-2 m-2  rounded-full shadow-lg  hover:border-gray-500 hover:bg-gray-500"
                     onClick={() => handleDelete(index)}
                     type="button"
                     key={index}
                   >
-                    {categories} X
+                    {categories} x
                   </button>
                 ))}
               </div>
@@ -429,7 +612,7 @@ export default function Form() {
                   onChange={handlerColorChange}
                   value={form.color}
                 >
-                  <option disabled={true} value="">
+                  <option disabled={true} value="" className="p-1">
                     Select a color
                   </option>
                   {colors.map((color) => (
@@ -442,26 +625,41 @@ export default function Form() {
               <div>
                 {form.color.map((color, index) => (
                   <button
+                    className="bg-gray-400  text-white py-1 px-2 m-2  rounded-full shadow-lg  hover:border-gray-500 hover:bg-gray-500"
                     onClick={() => handleColorDelete(index)}
                     type="button"
                     key={index}
                   >
-                    {color} X
+                    {color} x
                   </button>
                 ))}
 
                 <div className="col-span-fit"></div>
               </div>
             </fieldset>
-            <label htmlFor="image">Imagen:</label>
+            <label htmlFor="image" className="mr-2 p-1">
+              Imagen:
+            </label>
 
             {renderInputImg()}
-            <button onClick={addInputImg} value={form.images} type="button">
+            <button
+              className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
+              onClick={addInputImg}
+              value={form.images}
+              type="button"
+            >
               Agregar img
             </button>
-            <button onClick={lastInputImg} type="button">
-              Restar img
+            <button
+              className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
+              onClick={lastInputImg}
+              type="button"
+            >
+              Eliminar img
             </button>
+            {errors.images && (
+              <span className="text-red-500 text-sm">{errors.images}</span>
+            )}
           </div>
         </div>
       </div>
@@ -469,13 +667,13 @@ export default function Form() {
       <div className="mt-6 flex items-center justify-end gap-x-6">
         <button
           type="button"
-          className="text-sm mb-9 font-semibold leading-6 text-gray-900"
+          className=" py-2 px-4 mr-3 mb-4 rounded   hover:border-gray-500  text-gray-900"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="rounded-md mb-9 bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="bg-black text-white py-2 px-4 mr-3 mb-4 rounded hover:border-gray-500 hover:bg-gray-500"
           onClick={() => dispatch(addNewProduct())}
         >
           Guardar
