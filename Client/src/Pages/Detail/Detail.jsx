@@ -59,7 +59,7 @@ function Detail(clickHandler) {
   return (
     <>
       {productData ? (
-        <div className="container h-screen flex ">
+        <div className="container h-screen flex mt-28 mb-60">
           <div className="bg-white flex flex-row justify-between relative w-full items-center pl-16 pr-[210px]">
             <div className="min-w-[520px]  bg-cover bg-50%_50% bg-blend-normal flex flex-col justify-end relative h-[725px] w-[650px] items-center my-12 py-6 ">
               <img
@@ -141,9 +141,9 @@ function Detail(clickHandler) {
                 </button>
               </div>
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
-                Shipping*
+                {/* Shipping* */}
                 <br />
-                  <Carousel />
+                  {/* <Carousel /> */}
                 
               </div>
             </div>

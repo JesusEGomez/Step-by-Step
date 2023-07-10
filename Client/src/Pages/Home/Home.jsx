@@ -71,7 +71,7 @@ const Home = () => {
         borderRadius: '50%',
         margin: '0 5px',
         padding: '0',
-        border: 'none',
+        border: 'grey 2px ',
         outline: 'none'}}
         />
       );
@@ -81,7 +81,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className='mt-20'>
       <div className="carousel rounded-box mt-16" >
         {renderCarouselItems()}
       </div>
