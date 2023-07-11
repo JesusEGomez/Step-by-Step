@@ -21,7 +21,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 fixed top-0 shadow-md  z-10">
+    <div className="navbar bg-base-100 fixed top-0 shadow-md py-3 z-10">
       <div className="flex-1">
         <Link to="/home" className="text-black hover:text-gray-500">
           <img
@@ -33,24 +33,14 @@ const NavBar = () => {
       </div>
       <div className="flex-auto justify-between">
         <div className="">
-          {/* <Link to="/tienda" className="link">
-            MUJER
-          </Link>
-          <Link to="/tienda" className="link">
-            VARON
-          </Link>
-          <Link to="/tienda" className="link">
-            UNISEX
-          </Link> */}
-          {/* <Link to="/tienda" className="link">
-            ALL
-          </Link> */}
-          <Link to="/form" className="link">
-            CREATE
-          </Link>
-        </div>
-        <div>
-          <Filters />
+          <div className="flex space-x-2 fixed top-9 left-[45%] text-sm ">
+            <Filters />
+            <Link to="/form" className="link  space-x-2 fixed top-9 left-[72%] text-sm ">
+              CREAR
+            </Link>
+          </div>
+
+
         </div>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -101,7 +91,7 @@ const NavBar = () => {
                       })}
                       <button
                         onClick={() => handlerDelete(product.id)}
-                        className=""
+
                       >
                         Quitar
                       </button>
@@ -109,9 +99,9 @@ const NavBar = () => {
                   );
                 })}
               </div>
-              <div className="card-actions">
-                <button className="btn btn-primary btn-block">View cart</button>
-              </div>
+              {/* <div className="card-actions">
+  <button className="btn btn-primary btn-block">View cart</button>
+</div> */}
             </div>
           </div>
         </div>

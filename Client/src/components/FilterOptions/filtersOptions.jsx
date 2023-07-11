@@ -11,6 +11,7 @@ import { fetchBrands } from "../../features/brandsSlice";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
+import { BiSearchAlt2 } from "react-icons/bi"
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
@@ -166,39 +167,46 @@ const Filters = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div >
+      <div className="flex space-x-2">
         <button className="link" onClick={handleClickAll}>
-          ALL
+          TIENDA
         </button>
-        <button className="link " onClick={handleClickWomen}>
-          MUJER{" "}
-        </button>{" "}
+        <button className="link" onClick={handleClickWomen}>
+          MUJER
+        </button>
         <button className="link" onClick={handleClickMen}>
-          VARON{" "}
-        </button>{" "}
+          VARON
+        </button>
         <button className="link" onClick={handleClickUnisex}>
-          UNISEX{" "}
+          UNISEX
         </button>
       </div>
 
+
       {location.pathname === "/tienda" && (
-        <div className="link">
-          <div>
+        <div className="link flex justify-center -ml-80 mb-6s">
+          <div className="relative">
             <input
               name="name"
               value={filterPanel.name}
               onChange={handleChange}
               placeholder="Search..."
+              className="p-2 pl-8 mx-2"
             ></input>
+            <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
+              <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
+            </span>
           </div>
-          <div>
+
+          <div className="flex items-center">
             <select
               id="brand"
               name="brand"
               onChange={handleChange}
               value={brandSelect}
               defaultValue={brandSelect}
+              className="p-2 mx-2"
             >
               <option value={"none"}>Brand</option>
 
@@ -210,12 +218,13 @@ const Filters = () => {
             </select>
           </div>
 
-          <div>
+          <div className="flex items-center">
             <select
               id="category"
               name="category"
               onChange={(e) => handleChange(e)}
               value={categorySelect}
+              className="p-2 mx-2"
             >
               <option value={"none"} defaultValue={"Filter by Category"}>
                 Category
@@ -228,60 +237,44 @@ const Filters = () => {
             </select>
           </div>
 
-          <div>
+          <div className="flex items-center">
             <select
               id="color"
               name="color"
               onChange={(e) => handleChange(e)}
               value={colorSelect}
+              className="p-2 mx-2"
             >
               {" "}
               <option value={"none"} defaultValue={"Filter by color"}>
-                color
+                Color
               </option>
               {colorsList?.map((c, i) => (
-                <option key={i} value={c}>
-                  {c}
-                </option>
+                <option key={i} value={c}>{c}</option>
               ))}
             </select>
           </div>
 
-          {/* <div>
-          <select
-            id="size"
-            name="size"
-            onChange={(e) => handleChange(e)}
-            value={sizeSelect}
-          >
-            <option value={"none"}>Sizes</option>
-
-            {sizeList?.map((s, i) => (
-              <option key={i} value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </div> */}
-          <div>
-            <select id="price" name="price" onChange={(e) => handleChange(e)}>
-              {" "}
+          <div className="flex items-center">
+            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mx-2 ">
               <option key="none" value="none">
-                Price
+                Precio
               </option>
               <option key="higher" value="higher">
-                Higher
+                Mayor a menor
               </option>
               <option key="lower" value="lower">
-                Lower
+                Menor a mayor
               </option>
             </select>
           </div>
 
-          <button onClick={handleResetClick}>
+          <button onClick={handleResetClick} className="p-2 mx-2 hover:border-2 hover:border-gray-500 ">
             <span>Reset</span>
           </button>
         </div>
+
+
       )}
     </div>
   );

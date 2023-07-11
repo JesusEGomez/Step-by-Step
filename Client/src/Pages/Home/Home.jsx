@@ -71,7 +71,7 @@ const Home = () => {
             borderRadius: '50%',
             margin: '0 5px',
             padding: '0',
-            border: 'none',
+            border: 'grey 2px ',
             outline: 'none'
           }}
         />

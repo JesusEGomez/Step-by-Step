@@ -17,8 +17,9 @@
   -webkit-text-size-adjust: 100%;
 }
 .link {
-  @apply text-black hover:text-gray-500 no-underline hover:underline transition-all border-none bg-transparent p-2;
+  @apply text-black border-none bg-transparent hover:text-gray-500 no-underline hover:underline transition-all p-2;
 }
+
 a {
   font-weight: 500;
   color: #646cff;

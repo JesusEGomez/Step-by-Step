@@ -18,5 +18,4 @@ router.use("/brands", brandsRoutes);
 router.use("/categories", categoriesRouter);
 router.use("/sizes", sizesRouter);
 router.use("/colors", colorsRouter);
-
 module.exports = router;

@@ -1,12 +1,4 @@
-const {
-  Product,
-  Color,
-  Size,
-  Category,
-  Brand,
-  Image,
-  Stock,
-} = require("../../db");
+const { Product, Color, Size, Category, Brand, Image, Stock } = require("../../db");
 
 const productsByIdCtrl = async (req, res) => {
   const { id } = req.params;
