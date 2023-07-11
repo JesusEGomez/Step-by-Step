@@ -143,7 +143,7 @@ const createProductCtrl = async (req, res) => {
     res
       .status(201)
       // .json({ message: "Producto creado exitosamente", product: newProduct });
-      .json( newProduct );
+      .json(newProduct);
   } catch (error) {
     console.error(error);
     res

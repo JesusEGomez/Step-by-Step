@@ -1,5 +1,4 @@
 [
-  { "color": "brown" },
   { "color": "black" },
   { "color": "pink" },
   { "color": "white" },
@@ -11,7 +10,7 @@
   { "color": "gray" },
 
   { "color": "grey" },
-
+  { "color": "brown" },
   { "color": "orange" },
   { "color": "violet" }
 ]
