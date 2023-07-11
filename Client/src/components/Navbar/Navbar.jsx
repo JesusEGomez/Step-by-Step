@@ -14,8 +14,8 @@ const NavBar = () => {
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
 
-  const handlerDelete = (id) => {
-    const product = CartProducts.find((element) => element.id === id);
+  const handlerDelete = (size) => {
+    const product = CartProducts.find((element) => element.sizes[0] === size);
     console.log(product);
     dispatch(deleteProduct(product));
   };
@@ -90,7 +90,7 @@ const NavBar = () => {
                         return <p>{`Talle: ${size}`}</p>
                       })}
                       <button
-                        onClick={() => handlerDelete(product.id)}
+                        onClick={() => handlerDelete(product.sizes[0])}
 
                       >
                         Quitar
