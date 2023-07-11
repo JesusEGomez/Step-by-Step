@@ -8,8 +8,13 @@ import {
 } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
 import Filters from "../FilterOptions/filtersOptions";
+import LoginButton from "../Login/auth0/LoginButton";
+import LogoutButton from "../Login/auth0/LogoutButton";
+import Profile from "../Login/auth0/Profile";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
+  const { isLoading, error } = useAuth0();
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
@@ -35,14 +40,27 @@ const NavBar = () => {
         <div className="">
           <div className="flex space-x-2 fixed top-9 left-[45%] text-sm ">
             <Filters />
-            <Link to="/form" className="link  space-x-2 fixed top-9 left-[72%] text-sm ">
+            <Link
+              to="/form"
+              className="link  space-x-2 fixed top-9 left-[72%] text-sm "
+            >
               CREAR
             </Link>
           </div>
-
-
         </div>
         <div className="dropdown dropdown-end">
+          <main>
+            {error && <p> Authentication Error </p>}
+            {!error && isLoading && <p> Loading...</p>}
+            {!error && !isLoading && (
+              <>
+                {" "}
+                <LoginButton />
+                <LogoutButton />
+                <Profile />{" "}
+              </>
+            )}
+          </main>
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -78,7 +96,11 @@ const NavBar = () => {
                       key={i}
                       className="flex-col justify-center items-center p-5 m-5"
                     >
-                      <img width="100px" src={product.images[0].imageUrl} alt={product.model} />
+                      <img
+                        width="100px"
+                        src={product.images[0].imageUrl}
+                        alt={product.model}
+                      />
                       <h6>{product.model}</h6>
                       <h5>
                         <strong>{`Precio: ${product.totalPrice}`}</strong>
@@ -87,12 +109,9 @@ const NavBar = () => {
                         <strong>{`Cantidad: ${product.quantity}`}</strong>
                       </h5>
                       {product.sizes.map((size) => {
-                        return <p>{`Talle: ${size}`}</p>
+                        return <p>{`Talle: ${size}`}</p>;
                       })}
-                      <button
-                        onClick={() => handlerDelete(product.sizes[0])}
-
-                      >
+                      <button onClick={() => handlerDelete(product.sizes[0])}>
                         Quitar
                       </button>
                     </div>

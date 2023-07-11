@@ -28,23 +28,23 @@ export const fetchProducts = createAsyncThunk(
       return error.message;
     }
   }
-  );
-  
-  export const productsSlice = createSlice({
-    name: "products",
-    initialState,
-    reducers: {
-      setCurrentPage: (state, actions) => {
-        // console.log(actions);
-        state.currentPage = actions.payload;
-      },
-      setFilteredProducts: (state, actions) => {
-        state.filteredProducts = actions.payload;
-        state.currentPage = 1;
-      },
+);
+
+export const productsSlice = createSlice({
+  name: "products",
+  initialState,
+  reducers: {
+    setCurrentPage: (state, actions) => {
+      // console.log(actions);
+      state.currentPage = actions.payload;
     },
-    extraReducers(builder) {
-      builder
+    setFilteredProducts: (state, actions) => {
+      state.filteredProducts = actions.payload;
+      state.currentPage = 1;
+    },
+  },
+  extraReducers(builder) {
+    builder
       .addCase(fetchProducts.fulfilled, (state, actions) => {
         // console.log(actions.payload);
         if (!state.products.length) {
@@ -62,35 +62,30 @@ export const fetchProducts = createAsyncThunk(
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
         console.log(actions.error.message);
-      })
-    },
-  });
+      });
+  },
+});
 
-  export const addNewProduct=createAsyncThunk(
-    'products/addNewProduct', 
-    async (data)=>{
-      
-      // const response= await axios.post(URL,obj)
-      // return response.data
-      // .then((response) => response.json())
-      // .then((json) => console.log(json));
-      try {
-        const response = await axios.post(URL, data);
-      
-        return response.data;
-      } catch (error) {
-        throw new Error(error.message);
-      }
-      
-    })
-    
-    
-    
-    
-    export const getAllProducts = (state) => state.products.products;
-    export const getCurrentPage = (state) => state.products.currentPage;
-    export const getfilteredProducts = (state) => state.products.filteredProducts;
-    
-    export const { setCurrentPage, setFilteredProducts } = productsSlice.actions;
-    export default productsSlice.reducer;
-    
+export const addNewProduct = createAsyncThunk(
+  "products/addNewProduct",
+  async (data) => {
+    // const response= await axios.post(URL,obj)
+    // return response.data
+    // .then((response) => response.json())
+    // .then((json) => console.log(json));
+    try {
+      const response = await axios.post(URL, data);
+
+      return response.data;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+);
+
+export const getAllProducts = (state) => state.products.products;
+export const getCurrentPage = (state) => state.products.currentPage;
+export const getfilteredProducts = (state) => state.products.filteredProducts;
+
+export const { setCurrentPage, setFilteredProducts } = productsSlice.actions;
+export default productsSlice.reducer;

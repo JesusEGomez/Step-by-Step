@@ -118,9 +118,10 @@ const Filters = () => {
 
   const handleClickAll = (e) => {
     e.preventDefault();
-    setFilterPanel(() => {
-      return { ...filterPanel };
-    });
+    // setFilterPanel(() => {
+    //   return { ...filterPanel };
+    // });
+    // handleResetClick();
     navigate("/tienda");
   };
 
