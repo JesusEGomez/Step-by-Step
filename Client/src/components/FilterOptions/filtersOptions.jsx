@@ -257,7 +257,7 @@ const Filters = () => {
           </div>
 
           <div className="flex items-center">
-            <select id="price" name="price" onChange={(e) => handleChange(e)}  className="p-2 mx-2 ">
+            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mx-2 ">
               <option key="none" value="none">
                 Precio
               </option>
@@ -270,11 +270,11 @@ const Filters = () => {
             </select>
           </div>
 
-            <button onClick={handleResetClick} className="p-2 mx-2 hover:border-2 hover:border-gray-500 ">
-              <span>Reset</span>
-            </button>
-          </div>
-        
+          <button onClick={handleResetClick} className="p-2 mx-2 hover:border-2 hover:border-gray-500 ">
+            <span>Reset</span>
+          </button>
+        </div>
+
 
       )}
     </div>

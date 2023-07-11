@@ -15,7 +15,7 @@ function Detail(clickHandler) {
   const [carouselImages, setCarouselImages] = useState([]);
   const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
 
-  
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,7 +23,7 @@ function Detail(clickHandler) {
         const data = await response.json();
         setProductData(data);
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
-        const carouselImages =data.images.map((image) => image.imageUrl);
+        const carouselImages = data.images.map((image) => image.imageUrl);
         setCarouselImages(carouselImages);
         setCarouselSelectedImage(data.images[0]?.imageUrl); // Establecer la primera imagen como seleccionada inicialmente en el carrusel
       } catch (error) {
@@ -114,9 +114,8 @@ function Detail(clickHandler) {
                   {productData.sizes.map((size, index) => (
                     <div
                       key={index}
-                      className={`border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500 ${
-                        selectedSize === size.size ? "bg-blue-200" : ""
-                      }`}
+                      className={`border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500 ${selectedSize === size.size ? "bg-blue-200" : ""
+                        }`}
                       onClick={() => handleImageSize(size.size)}
                     >
                       <h3 className="cursor-pointer font-bold hover:bg-red-200 overflow-hidden bg-[#f6f7f8] flex flex-col justify-start relative w-12 shrink-0 h-10 items-center py-2 rounded-tr-lg rounded-br-lg border border-gray-300">
@@ -143,8 +142,8 @@ function Detail(clickHandler) {
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
                 {/* Shipping* */}
                 <br />
-                  {/* <Carousel /> */}
-                
+                {/* <Carousel /> */}
+
               </div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 const URL = "http://localhost:3001/products";
 
-export const recorrerArray = (array, propiedad) => {
+const recorrerArray = (array, propiedad) => {
   const newArray = [];
   if (array) {
     array.forEach((element) => {
