@@ -1,0 +1,17 @@
+[
+  { "color": "brown" },
+  { "color": "black" },
+  { "color": "pink" },
+  { "color": "white" },
+
+  { "color": "red" },
+  { "color": "yellow" },
+  { "color": "blue" },
+  { "color": "green" },
+  { "color": "gray" },
+
+  { "color": "grey" },
+
+  { "color": "orange" },
+  { "color": "violet" }
+]
