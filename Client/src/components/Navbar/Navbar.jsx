@@ -9,7 +9,6 @@ import {
 import { useDispatch } from "react-redux";
 import Filters from "../FilterOptions/filtersOptions";
 import LoginButton from "../Login/auth0/LoginButton";
-import LogoutButton from "../Login/auth0/LogoutButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import MercadoPagoButton from "../MercadoPagoButton/mercadoPagoButton";
@@ -49,17 +48,18 @@ const NavBar = () => {
             </Link>
           </div>
         </div>
-        <div className="dropdown dropdown-end">
+
+        <div className="dropdown dropdown-end flex ">
           <main>
             {error && <p> Authentication Error </p>}
             {!error && isLoading && <span className="loading loading-spinner loading-md"></span>}
             {!error && !isLoading && (
-              <>
+              <div className="flex gap-x-1">
                 {" "}
                 <LoginButton />
-                <LogoutButton />
-                <Profile />{" "}
-              </>
+                <Profile />
+                {" "}
+              </div>
             )}
           </main>
           <label tabIndex={0} className="btn btn-ghost btn-circle">
