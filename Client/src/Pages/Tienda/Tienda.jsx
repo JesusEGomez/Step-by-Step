@@ -25,7 +25,7 @@ function Tienda() {
 
   console.log("displayProdcuts", displayedProducts);
   return (
-    <div className="flex-col text-center mt-32 ">
+    <div className=" flex-col text-center mt-40 ">
       <div className="flex flex-wrap h-3/4 justify-center">
         {displayedProducts.map((element, i) => {
           return (
