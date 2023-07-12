@@ -4,16 +4,57 @@ import { addProduct } from "../../features/cartSlice";
 import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
+import {BsChevronCompactLeft, BsChevronCompactRight} from 'react-icons/bs'
+import {RxDotFilled} from 'react-icons/rx'
+import axios from "axios";
+
 
 const GET_URL = "http://localhost:3001/products";
 
 function Detail(clickHandler) {
   const { id } = useParams();
+  const [slides, setSlides] = useState([]);
+  const [selectedImageId, setSelectedImageId] = useState(null);
+
+useEffect(() => {
+  const fetchSlides = async () => {
+    try {
+      const response = await fetch(`${GET_URL}/${id}`);
+      const data = await response.json();
+      const slideImages = data.images.map((image) => ({ url: image.imageUrl }));
+      setSlides(slideImages);
+      setSelectedImage(data.images[0].id) //Establecer el ID de la priemra imagen como seleccionada incialmente 
+    } catch (error) {
+      console.error("Error fetching slide images:", error);
+    }
+  };
+
+  fetchSlides();
+}, [id]);
+const [currentIndex,setCurrentIndex] =useState(0)
+
+const prevSlide =() =>{
+    const isFirstSlide = currentIndex === 0;
+    const newIndex = isFirstSlide ? slides.length -1: currentIndex -1;
+    setCurrentIndex(newIndex);
+};
+
+const nextSlide = () =>{
+    const isLastSlide = currentIndex === slides.length -1;
+    const newIndex = isLastSlide ? 0: currentIndex +1;
+setCurrentIndex(newIndex);
+};
+
+const goToSlide = (slideIndex) =>{
+setCurrentIndex(slideIndex);
+setSelectedImageId(productData.images[slideIndex].id);
+};
+
   const [productData, setProductData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState("Ninguno seleccionado");
-  const [carouselImages, setCarouselImages] = useState([]);
-  const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
+//   const [carouselImages, setCarouselImages] = useState([]);
+//   const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
 
   
   useEffect(() => {
@@ -24,9 +65,7 @@ function Detail(clickHandler) {
         setProductData(data);
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
         const carouselImages =data.images.map((image) => image.imageUrl);
-        setCarouselImages(carouselImages);
-        setCarouselSelectedImage(data.images[0]?.imageUrl); // Establecer la primera imagen como seleccionada inicialmente en el carrusel
-      } catch (error) {
+            } catch (error) {
         console.error("Error fetching product data:", error);
       }
     };
@@ -42,17 +81,19 @@ function Detail(clickHandler) {
     }
   };
 
-  const handleImageClick = (imageUrl) => {
+  const handleImageClick = (imageUrl,imageId) => {
     setSelectedImage(imageUrl);
+    setSelectedImageId(imageId);
   };
 
   const handleImageSize = (size) => {
     setSelectedSize(size);
   };
 
-  const handleCarouselImageClick = (imageUrl) => {
-    setCarouselSelectedImage(imageUrl);
-  };
+//   const handleCarouselImageClick = (imageUrl) => {
+    // setCarouselSelectedImage(imageUrl);
+//   };
+
 
   const dispatch = useDispatch();
 
@@ -61,7 +102,7 @@ function Detail(clickHandler) {
       {productData ? (
         <div className="container h-screen flex ">
           <div className="bg-white flex flex-row justify-between relative w-full items-center pl-16 pr-[210px]">
-            <div className="min-w-[520px]  bg-cover bg-50%_50% bg-blend-normal flex flex-col justify-end relative h-[725px] w-[650px] items-center my-12 py-6 ">
+            <div className="min-w-[520px] bg-cover bg-center bg-no-repeat  flex flex-col justify-end relative h-[725px] w-[650px] items-center my-12 py-6">
               <img
                 src={selectedImage}
                 alt="Shoes"
@@ -99,7 +140,7 @@ function Detail(clickHandler) {
                       <img
                         src={image.imageUrl}
                         alt="Shoes"
-                        className="min-h-0 min-w-0 relative w-20 shrink-0 cursor-pointer"
+                        className=" w-20 h-20 bg-center bg-cover cursor-pointer"
                       />
                     </div>
                   ))}
@@ -141,10 +182,36 @@ function Detail(clickHandler) {
                 </button>
               </div>
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
-                Shipping*
-                <br />
-                  {/* <Carousel /> */}
-                
+             
+              <div className="max-w-[1400px] h-[200px] w-full m-9 py-16  px-4 relative group shadow-xl"  >
+                <div style={{
+                    backgroundImage: ``,
+                backgroundSize:"contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                }}  
+                className=" w-full h-full rounded-2xl bg-center bg-no-repeat bg-contain duration-500">
+                    <span className='font-bold text-xl bg-center'> {`$${productData.totalPrice}`}</span>
+{}
+<div className=" absolute top-[50%] -translate-x-0 translate-y-[50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+    <BsChevronCompactLeft onClick={prevSlide} size={30}/>
+</div>
+{}
+<div className="absolute top-[50%] -translate-x-0 translate-y-[50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer">
+<BsChevronCompactRight onClick={nextSlide} size={30}/>
+
+</div>
+<div className="flex top-4 justify-center py-2">
+{slides.map((slide, slideIndex) =>(
+    <div  key={slideIndex}  onClick={() => goToSlide(slideIndex)} 
+    className="text-2x1 cursor-pointer"> 
+        <RxDotFilled />
+    </div>
+))}
+</div>
+                dfgdg
+                </div>
+              </div>
               </div>
             </div>
           </div>
