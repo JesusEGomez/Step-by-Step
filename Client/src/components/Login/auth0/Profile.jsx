@@ -8,10 +8,10 @@ function Profile() {
   const { user, isAuthenticated } = useAuth0();
   return (
     isAuthenticated && (
-      <article>
+      <article className="w-6">
         {/* {JSON.stringify(user)} */}
 
-        {user?.picture && <img src={user.picture} />}
+        {user?.picture && <img className=" mask mask-squircle" src={user.picture} />}
         <h2>{user?.name}</h2>
 
         {/* <ul>

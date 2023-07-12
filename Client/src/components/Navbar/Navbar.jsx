@@ -52,7 +52,7 @@ const NavBar = () => {
         <div className="dropdown dropdown-end">
           <main>
             {error && <p> Authentication Error </p>}
-            {!error && isLoading && <p> Loading...</p>}
+            {!error && isLoading && <span className="loading loading-spinner loading-md"></span>}
             {!error && !isLoading && (
               <>
                 {" "}
@@ -119,8 +119,10 @@ const NavBar = () => {
                   );
                 })}
               </div>
+
+
               <div className="card-actions">
-                <MercadoPagoButton carrito={CartProducts} />
+                <Link to="/checkout"><button className="bg-black text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
               </div>
             </div>
           </div>
