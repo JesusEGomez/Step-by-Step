@@ -11,6 +11,7 @@ import Filters from "../FilterOptions/filtersOptions";
 import LoginButton from "../Login/auth0/LoginButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
+import MercadoPagoButton from "../MercadoPagoButton/mercadoPagoButton";
 
 const NavBar = () => {
   const { isLoading, error } = useAuth0();
@@ -51,7 +52,7 @@ const NavBar = () => {
         <div className="dropdown dropdown-end flex ">
           <main>
             {error && <p> Authentication Error </p>}
-            {!error && isLoading && <p> Loading...</p>}
+            {!error && isLoading && <span className="loading loading-spinner loading-md"></span>}
             {!error && !isLoading && (
               <div className="flex gap-x-1">
                 {" "}
@@ -118,9 +119,11 @@ const NavBar = () => {
                   );
                 })}
               </div>
-              {/* <div className="card-actions">
-  <button className="btn btn-primary btn-block">View cart</button>
-</div> */}
+
+
+              <div className="card-actions">
+                <Link to="/checkout"><button className="bg-black text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
+              </div>
             </div>
           </div>
         </div>

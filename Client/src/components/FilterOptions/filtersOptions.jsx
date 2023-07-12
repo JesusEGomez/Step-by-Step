@@ -205,8 +205,6 @@ const Filters = () => {
               id="brand"
               name="brand"
               onChange={handleChange}
-              value={brandSelect}
-              defaultValue={brandSelect}
               className="p-2 mx-2"
             >
               <option value={"none"}>Brand</option>
@@ -224,10 +222,10 @@ const Filters = () => {
               id="category"
               name="category"
               onChange={(e) => handleChange(e)}
-              value={categorySelect}
+              // value={categorySelect}
               className="p-2 mx-2"
             >
-              <option value={"none"} defaultValue={"Filter by Category"}>
+              <option value={"none"} >
                 Category
               </option>
               {categoriesList?.map((c, i) => (
@@ -243,11 +241,11 @@ const Filters = () => {
               id="color"
               name="color"
               onChange={(e) => handleChange(e)}
-              value={colorSelect}
+              // value={colorSelect}
               className="p-2 mx-2"
             >
               {" "}
-              <option value={"none"} defaultValue={"Filter by color"}>
+              <option value={"none"}  >
                 Color
               </option>
               {colorsList?.map((c, i) => (
