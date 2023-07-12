@@ -40,7 +40,7 @@ const Filters = () => {
   // let sizesList = useSelector(getAllSizes); //&& get all sizes
   let genderList = ["men", "women", "unisex"];
 
-  console.log("brandsList", brandsList);
+  // console.log("brandsList", brandsList);
 
   const [filterPanel, setFilterPanel] = useState({
     name: "",
@@ -54,14 +54,14 @@ const Filters = () => {
 
   useEffect(() => {
     let productsCopy = [...allProducts];
-    console.log("productsCopy", productsCopy);
+    // console.log("productsCopy", productsCopy);
 
     if (productsCopy.length > 0) {
       if (filterPanel.name !== "") {
         productsCopy = productsCopy.filter((p) =>
           p.model?.toLowerCase().includes(filterPanel.name.toLowerCase())
         );
-        console.log("productsCopy", productsCopy);
+        // console.log("productsCopy", productsCopy);
       }
 
       if (filterPanel.brand !== "none") {
@@ -107,7 +107,7 @@ const Filters = () => {
     }
   }, [filterPanel]);
 
-  console.log("filterPanel", filterPanel);
+  // console.log("filterPanel", filterPanel);
 
   const handleChange = (e) => {
     e.preventDefault();
