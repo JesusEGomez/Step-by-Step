@@ -7,7 +7,7 @@ mercadopago.configure({
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "http://localhost:5173";
+  const URL = "https://02bf-190-30-177-199.ngrok-free.app";
   try {
     const preference = {
       items: carrito.map((product) => ({
@@ -22,7 +22,8 @@ const mercadoPagoCheckout = async (req, res) => {
         success: `${URL}`,
         failure: `${URL}`,
       },
-      notification_url: `${URL}/checkout/notify`,
+      // notification_url: `${URL}/checkout/notify`,
+      // notification_url: `http://localhost:3001/checkout/notify`,
     };
     const response = await mercadopago.preferences.create(preference);
     return res.status(200).json({ url: response.body.init_point });
