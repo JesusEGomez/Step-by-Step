@@ -120,7 +120,7 @@ const NavBar = () => {
                 })}
               </div>
               <div className="card-actions">
-                {/* <MercadoPagoButton carrito={CartProducts} /> */}
+                <MercadoPagoButton carrito={CartProducts} />
               </div>
             </div>
           </div>
