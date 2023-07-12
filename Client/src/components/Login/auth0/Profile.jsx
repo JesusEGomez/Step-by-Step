@@ -25,11 +25,10 @@ function Profile() {
 
   return (
     isAuthenticated && (
-<<<<<<< HEAD
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="cursor-pointer m-1 flex items-center">
           <strong>{user?.nickname}</strong>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-0 ml-1" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M6 8l4 4 4-4H6z" />
           </svg>
         </label>
@@ -41,20 +40,6 @@ function Profile() {
           <li onClick={() => logout()}><a>Cerrar sesión</a></li>
         </ul>
       </div>
-=======
-      <article className="w-6">
-        {/* {JSON.stringify(user)} */}
-
-        {user?.picture && <img className=" mask mask-squircle" src={user.picture} />}
-        <h2>{user?.name}</h2>
-
-        {/* <ul>
-          {Object.values(user).map((objVal, i) => (
-            <li key={i}>{objVal}</li>
-          ))}
-        </ul> */}
-      </article>
->>>>>>> fb157f242713404449660e75dc7579a6024eee90
     )
   )
 }

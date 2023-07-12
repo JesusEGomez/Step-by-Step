@@ -48,12 +48,11 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="dropdown dropdown-end flex ">
           <main>
             {error && <p> Authentication Error </p>}
-            {!error && isLoading && <span className="loading loading-spinner loading-md"></span>}
+            {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
             {!error && !isLoading && (
-              <div className="flex gap-x-1">
+              <div className="fixed top-0 rigth-0">
                 {" "}
                 <LoginButton />
                 <Profile />
@@ -61,6 +60,7 @@ const NavBar = () => {
               </div>
             )}
           </main>
+        <div className="dropdown dropdown-end flex ">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
