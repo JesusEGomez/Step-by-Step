@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Card as MaterialUICard, CardContent, CardMedia, Typography, Button } from '@mui/material';
-import 'tailwindcss/tailwind.css';
+import { Link } from "react-router-dom";
 
-function Card({ name, price, brand, model, images }) {
-
+function Card({ model, images, totalPrice, id }) {
+  // console.log(model)
   return (
-    <div className="w-72 bg-base-100 shadow-xl m-5">
-      <MaterialUICard>
-        <CardMedia component="img" height="140" image={images} alt={name} />
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {price}, {brand}, {model}
-          </Typography>
-        </CardContent>
-        <div className="card-actions justify-end">
-          <Button variant="contained" color="primary">
-            Añadir al Carrito
-          </Button>
+    <div className="card  w-96 bg-base-100  shadow-xl m-5">
+      <Link to={`/home/${id}`}>
+        <figure className="cursor-pointer">
+          <img src={images} alt="Shoes" />
+        </figure>
+      </Link>
+      <div className="card-body">
+        <h2 className="card-title min-h-16">{model}</h2>
+        <div className="card-actions">
+          <span className="font-bold text-xl">{`$${totalPrice}`}</span>
         </div>
-      </MaterialUICard>
+      </div>
     </div>
   );
 }

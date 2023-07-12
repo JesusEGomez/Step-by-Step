@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       //       throw new Error("La URL de la imagen debe terminar en .png o .jpg");
       //     }
       //   },
-      // }
+      // },
     },
   });
 };

@@ -3,6 +3,7 @@ const { config } = require("dotenv");
 const pg = require("pg");
 const { conn } = require("./src/db.js");
 const loadDb = require("./src/controllers/loadDataBase/loadSelections.js");
+const createUsers = require('./src/controllers/loadDataBase/loadUsers.js')
 
 config();
 
@@ -19,6 +20,8 @@ conn.sync({ force: true }).then(async () => {
   await loadDb.bulkCreateColors();
   await loadDb.bulkCreateGender();
   await loadDb.createAllProducts();
+  await createUsers()
+
   server.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console
   });

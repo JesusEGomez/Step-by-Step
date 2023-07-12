@@ -19,7 +19,7 @@ const PaginationControls = ({ arrayLength }) => {
 
 
     return (
-        <div className="join">
+        <div className="join m-4">
             <button className="join-item btn" onClick={handlePreviousClick}>«</button>
             <button className="join-item btn">Página {currentPage} de {totalPages}</button>
             <button className="join-item btn" onClick={handleNextClick}>»</button>

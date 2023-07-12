@@ -1,4 +1,12 @@
-const { Product, Brand, Size, Category, Color, Image } = require("../../db");
+const {
+  Product,
+  Brand,
+  Size,
+  Category,
+  Color,
+  Image,
+  Stock,
+} = require("../../db");
 const { Op } = require("sequelize");
 const { findById } = require("../../utils/findBy");
 
@@ -83,7 +91,6 @@ const createProductCtrl = async (req, res) => {
       price,
       discountPercentage,
       gender,
-      stock,
       isPublish,
       brandId: existingBrand.id,
     });
@@ -116,13 +123,27 @@ const createProductCtrl = async (req, res) => {
       })
     );
 
+    await Promise.all(
+      allSizes.map(async (size) => {
+        const sizeStock = stock[size.size]; // Obtener el stock para el tamaño actual
+        console.log("sizeStock", sizeStock);
+        // Crear el registro de stock y asociarlo al tamaño y producto correspondientes
+        await Stock.create({
+          sizeId: size.id,
+          productId: newProduct.id,
+          stockPerSize: sizeStock,
+        });
+      })
+    );
+
     await newProduct.setSizes(allSizes);
     await newProduct.setCategories(allCategories);
-    // await newProduct.setColors(allColors);
+    await newProduct.setColors(allColors);
 
     res
       .status(201)
-      .json({ message: "Producto creado exitosamente", product: newProduct });
+      // .json({ message: "Producto creado exitosamente", product: newProduct });
+      .json(newProduct);
   } catch (error) {
     console.error(error);
     res

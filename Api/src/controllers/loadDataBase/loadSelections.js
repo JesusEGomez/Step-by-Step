@@ -8,6 +8,7 @@ const {
   Color,
   Gender,
   Order,
+  Stock,
 } = require("../../db.js");
 const axios = require("axios");
 
@@ -19,6 +20,7 @@ const gender = require("../../../assets/database/gender.json");
 
 const colors = require("../../../assets/database/colors.json");
 const products = require("../../../assets/database/products.json");
+const createProduct = require("../products/createProductController.js");
 
 const bulkCreateBrands = async () => {
   try {
@@ -70,6 +72,7 @@ const bulkCreateGender = async () => {
 
 const createAllProducts = async () => {
   try {
+    // for (let i = 0; i < 10; i++) {
     for (let i = 0; i < products.length; i++) {
       const product = products[i];
 
@@ -80,7 +83,7 @@ const createAllProducts = async () => {
         price: product.price,
         discountPercentage: product.discount_percentage,
         gender: product.gender[0],
-        brand: product.brand[0],
+        // brand: product.brand[0],
         stock: product.stock,
         sold_count: product.sold_count,
       };
@@ -125,18 +128,13 @@ const createAllProducts = async () => {
       );
       await createProduct.addColors(colorIds);
 
-      // const imageIds = await Promise.all(
-      //   product.images.map(async (image) => {
-      //     const foundImage = await Image.findOne({
-      //       where: { imageUrl: image },
-      //     });
+      const foundBrand = await Brand.findOne({
+        where: { name: product.brand[0] },
+      });
 
-      //     if (foundImage) {
-      //       return foundImage.id;
-      //     }
-      //   })
-      // );
-      // await createProduct.addImages(imageIds);
+      if (foundBrand) {
+        await createProduct.setBrand(foundBrand.id);
+      }
 
       const imagesArr = product.images;
 
@@ -153,7 +151,26 @@ const createAllProducts = async () => {
           image.setProduct(createProduct);
         })
       );
+
+      await Promise.all(
+        sizes.map(async (size, i) => {
+          const sizeStock = productData.stock[size.size];
+          // Obtener el stock para el tamaño actual
+          //
+
+          // Crear el registro de stock y asociarlo al tamaño y producto correspondientes
+
+          await Stock.create({
+            sizeId: i + 1,
+            productId: createProduct.id,
+            stockPerSize: sizeStock,
+          });
+        })
+      );
+      // console.log(productData.stock);
+      // await createProduct.setSizes(productData.stock);
     }
+
     console.log("base de datos cargada");
   } catch (error) {
     console.log("error en la carga base de datos");

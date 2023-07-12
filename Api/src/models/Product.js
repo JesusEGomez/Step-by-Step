@@ -9,12 +9,11 @@ module.exports = (sequelize) => {
     },
     item_number: {
       type: DataTypes.STRING,
-
-      allowNull: false,
+      // allowNull: false,
     },
     model: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
       // validate: {
       //   len: {
       //     args: [2],
@@ -22,13 +21,12 @@ module.exports = (sequelize) => {
       //   },
       // },
     },
-
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      // allowNull: false,
       // validate: {
       //   len: {
-      //     args: [10],
+      //     args: [1],
       //     msg: "El eslogan debe tener al menos 10 caracteres",
       //   },
       // },
@@ -62,22 +60,24 @@ module.exports = (sequelize) => {
       //   },
       // },
     },
-    total: {
-      type: DataTypes.VIRTUAL, // Columna virtual (no se almacena en la base de datos)
+    totalPrice: {
+      type: DataTypes.VIRTUAL,
       get() {
         const price = this.getDataValue("price");
         const discountPercentage = this.getDataValue("discountPercentage");
-        const total = price - price * (discountPercentage / 100);
-        return total;
+        const total = price - (price * discountPercentage) / 100;
+        return parseInt(total.toFixed(0));
       },
     },
-    stock: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0,
-      allowNull: true,
-      // validate: {
-      //   min: 0,
-      // },
+    totalStock: {
+      type: DataTypes.VIRTUAL,
+      get() {
+        const stocks = this.getDataValue("stocks");
+        if (Array.isArray(stocks)) {
+          return stocks.reduce((total, stock) => total + stock.stockPerSize, 0);
+        }
+        return 0;
+      },
     },
     sold_count: {
       type: DataTypes.INTEGER,
@@ -90,7 +90,7 @@ module.exports = (sequelize) => {
     isPublish: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
-      allowNull: false,
+      // allowNull: false,
     },
   });
 };

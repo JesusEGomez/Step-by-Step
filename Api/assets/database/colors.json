@@ -1,17 +1,16 @@
 [
-  { "color": "brown" },
   { "color": "black" },
   { "color": "pink" },
   { "color": "white" },
-  { "color": "blac" },
+
   { "color": "red" },
   { "color": "yellow" },
   { "color": "blue" },
   { "color": "green" },
   { "color": "gray" },
-  { "color": "light-pink" },
+
   { "color": "grey" },
-  { "color": "cyan" },
+  { "color": "brown" },
   { "color": "orange" },
   { "color": "violet" }
 ]
