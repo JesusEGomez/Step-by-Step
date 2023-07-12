@@ -1,25 +1,15 @@
-//                       _oo0oo_
-//                      o8888888o
-//                      88" . "88
-//                      (| -_- |)
-//                      0\  =  /0
-//                    ___/`---'\___
-//                  .' \\|     |// '.
-//                 / \\|||  :  |||// \
-//                / _||||| -:- |||||- \
-//               |   | \\\  -  /// |   |
-//               | \_|  ''\---/''  |_/ |
-//               \  .-\__  '-'  ___/-. /
-//             ___'. .'  /--.--\  `. .'___
-//          ."" '<  `.___\_<|>_/___.' >' "".
-//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
-//         \  \ `_.   \_ __\ /__ _/   .-` /  /
-//     =====`-.____`.___ \_____/___.-`___.-'=====
-//                       `=---='
-//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require("./src/app.js");
+const express = require("express");
+const { config } = require("dotenv");
+const pg = require("pg");
 const { conn } = require("./src/db.js");
 const loadDb = require("./src/controllers/loadDataBase/loadSelections.js");
+
+config();
+
+const server = express();
+const pool = new pg.Pool({
+  connectionString: process.env.DATEBASE_URL,
+});
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
