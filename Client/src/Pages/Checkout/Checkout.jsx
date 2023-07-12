@@ -1,5 +1,5 @@
 import React from "react";
-import { HiMiniArrowLongRight } from 'react-icons/hi2';
+import { FaTrashCan } from 'react-icons/fa6';
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux/es/hooks/useSelector";
 import {
@@ -7,23 +7,22 @@ import {
     getCartProducts,
     getTotalCartProducts,
 } from "../../features/cartSlice";
+import MercadoPagoButton from "../../components/MercadoPagoButton/mercadoPagoButton";
 
 const Checkout = () => {
-    
-    
     const dispatch = useDispatch();
     const total = useSelector(getTotalCartProducts);
     const CartProducts = useSelector(getCartProducts);
     
     const handlerDelete = (size) => {
         const product = CartProducts.find((element) => element.sizes[0] === size);
-        console.log(product);
         dispatch(deleteProduct(product));
     };
     return (
         <div className="flex items-center justify-center w-full h-screen mt-80 mb-40 bg-gray-100">
         <div className="bg-white rounded-lg shadow-lg p-8 w-[90%] mx-4 md:mx-auto md:flex">
-        {/*  <div className="md:w-2/3 md:mr-8">
+        {/* ///Form posible
+        <div className="md:w-2/3 md:mr-8">
         <div className="flex flex-col w-full border-opacity-50">
         <div className="grid h-[20%] card bg-gray-50 p-6 rounded-box place-items-center">
         <h2 className="text-2xl font-medium not-italic  font-sans text-gray-700	mb-4">Información de Envío</h2>
@@ -81,51 +80,60 @@ const Checkout = () => {
         </div> 
     </div>*/}
     
-    <div className="md:w-1/3">
+    <div className="md:w-full">
     <h2 className="text-2xl font-bold mb-4 m-3">Carrito</h2>
     <div className="bg-white rounded-lg shadow-md p-4 mb-4">
     <div className="mb-4 m-6">
-    <div className="flex items-center mb-2">
-    <img
-    className="w-12 h-12 object-cover rounded"
-    src="ruta-imagen-producto-1.jpg"
-    alt="Producto 1"
-    />
-    <div className="ml-4">
-    <h3 className="font-bold">Producto 1</h3>
-    <p className="text-gray-600">$29.99</p>
-    </div>
-    </div>
-    <hr className="my-2" />
-    <div className="flex items-center mb-2">
-    <img
-    className="w-12 h-12 object-cover rounded"
-    src="ruta-imagen-producto-2.jpg"
-    alt="Producto 2"
-    />
-    <div className="ml-4">
-    <h3 className="font-bold">Producto 2</h3>
-    <p className="text-gray-600">$39.99</p>
-    </div>
-    </div>
-    </div>
-    <hr className="my-2" />
-    <div className="flex justify-between font-bold">
-    <p>Subtotal:</p>
-    <p>$69.98</p>
-    </div>
-    <div className="flex justify-between font-bold">
-    <p>Total:</p>
-    <p>$69.98</p>
-    </div>
-    </div>
-    <button className="bg-black text-white font-bold py-2 px-4 mt-4 rounded w-full">
-    Finalizar Compra
-    </button>
-    </div>
-    </div>
-    </div>
-    );
-};
-
-export default Checkout;
+    
+    <div className="flex flex-col place-items-center mb-2">
+    {CartProducts.map((product, i) => {
+        return (
+            <div key={i} className="relative ml-4 w-full mb-6">
+            <img
+            className="w-24 h-24 object-cover rounded absolute top-0 left-0"
+            src={product.images[0].imageUrl}
+            alt={product.model}
+            />
+            <h6 className="font-bold ml-28">{product.model}</h6>
+            <p className="text-gray-600 ml-28">{`$ ${product.totalPrice}`}</p>
+            <h5 className="text-gray-600 ml-28">{`Cantidad: ${product.quantity}`}</h5>
+            {product.sizes.map((size) => {
+                return <p className="text-gray-600 ml-28" key={size}>{`Talle: ${size}`}</p>;
+            })}
+            <button
+            className="absolute top-0 right-0 mt-2 mr-2"
+            onClick={() => handlerDelete(product.sizes[0])}
+            >
+            <FaTrashCan />
+            </button>
+            <hr className="mb-4 mt-6" />
+            </div>
+            );
+        })}
+        </div>
+        
+        
+        </div>
+        <hr className="my-2" />
+        <div className="flex justify-start p-3 font-bold">
+        <p className="mr-2">Cantidad de productos:</p>
+        {`${CartProducts.length} items`}
+        </div>
+        <div className="flex justify-start p-3 font-bold">
+        <p className="mr-2">Total:</p>
+        <p>{` $${total}`}</p>
+        
+        </div>
+        </div>
+        <button className="bg-black text-white  font-bold py-2 px-4  rounded w-5/6 content-center mx-20 my-2 mt-4 hover:bg-gray-800 ">
+        
+        <MercadoPagoButton carrito={CartProducts} />
+        </button>
+        </div>
+        </div>
+        </div>
+        );
+    };
+    
+    export default Checkout;
+    

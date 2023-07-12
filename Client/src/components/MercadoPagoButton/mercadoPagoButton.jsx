@@ -29,12 +29,12 @@ const MercadoPagoButton = ({ carrito }) => {
     return (
         <div>
             {loading ? (
-                <button disabled>
-                    <span className="loading loading-dots loading-sm"></span>
+                <button disabled className="bg-black h-1" >
+                    <span className="loading loading-spinner loading-md text-white"></span>
                 </button>
             ) : (
-                <a href={url}>
-                    Pagar ahora
+                <a href={url} className="no-underline text-white visited:text-white">
+                    Finalizar compra 
                 </a>
             )}
         </div>
