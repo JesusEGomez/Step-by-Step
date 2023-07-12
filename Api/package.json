@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         
-        "start": "nodemon -L ",
+        "start": "nodemon -L && npm start",
         "test": "mocha -w ./tests/**/*.spec.js"
     },
     "author": "Luciano Gramajo",
