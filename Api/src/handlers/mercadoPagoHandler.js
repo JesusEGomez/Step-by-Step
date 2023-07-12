@@ -7,15 +7,15 @@ mercadopago.configure({
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "http://127.0.0.1:5173";
+  const URL = "http://localhost:5173";
   try {
     const preference = {
       items: carrito.map((product) => ({
-        id: product.id,
         title: product.model,
         unit_price: product.totalPrice,
         quantity: product.quantity,
         picture_url: product.images[0].imageUrl,
+        id: product.id,
       })),
       auto_return: "approved",
       back_urls: {
