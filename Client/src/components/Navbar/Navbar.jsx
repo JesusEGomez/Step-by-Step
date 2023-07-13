@@ -17,13 +17,13 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
-
+  
   const handlerDelete = (size) => {
     const product = CartProducts.find((element) => element.sizes[0] === size);
     console.log(product);
     dispatch(deleteProduct(product));
   };
-
+  
   return (
     <div className="navbar bg-base-100 fixed top-0 shadow-md w-full py-3 z-10 p-10">
       <div >
@@ -76,9 +76,10 @@ const NavBar = () => {
               </span>
             </div>
           </label>
+
           <div
-            tabIndex={0}
-            className="mt-1 z-[1] card max-h-96 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
+          key={i}
+          className=" bg-gray-50 pb-2 m-2 border-2 border-gray-200 box-border px-4 rounded-xl  "
           >
             <div className="card-body">
               <div className="">
@@ -119,11 +120,26 @@ const NavBar = () => {
                 <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
-export default NavBar;
+          </div>
+          );
+        })}<div className="flex flex-col bg-gray-50 rounded-md p-2">
+        <span className="text-sm font-medium ml-1 mb-2">{`${CartProducts.length} items`}</span>
+        <span className="" ><p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p></span>
+        </div>
+        </div>
+        
+        
+        <div className="card-actions">
+        <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        );
+      };
+      
+      export default NavBar;
+      
