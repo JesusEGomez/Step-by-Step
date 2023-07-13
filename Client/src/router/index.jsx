@@ -4,6 +4,18 @@ import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout } from "../Pag
 import {
     createBrowserRouter,
 } from "react-router-dom";
+import { verifyAdmin } from "../hooks/verifyAdmin.js";
+
+const ProtectedRoute = ({ element: Element, adminRequired, ...rest }) => {
+    const isAdmin = verifyAdmin();
+    if (adminRequired && !isAdmin) {
+        // Redireccionar a otra página o mostrar un mensaje de error
+        return <ErrorPage />;
+    }
+    return <Route element={Element} {...rest} />;
+};
+
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -33,21 +45,21 @@ const router = createBrowserRouter([
             },
             {
                 path: '/administracion',
-                element: <Form />
+                element: (
+                    <ProtectedRoute
+                        element={<Form />}
+                        adminRequired={true}
+                    />
+                )
             },
             {
                 path: '/login',
                 element: <ViewLoginRegister />
             },
             {
-                path: '/administracion',
-                element: <Form />
-            },
-            {
                 path: '/checkout',
                 element: <Checkout />
             },
-            
         ]
     }
 
