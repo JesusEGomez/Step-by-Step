@@ -9,6 +9,8 @@ const GET_URL = 'http://localhost:3001/products';
 const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
+  const [loading, setLoading] = useState(true);
+
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
@@ -24,10 +26,13 @@ const Home = () => {
       setProducts(data); // Guardar la matriz de productos en el estado
       const images = data.map((product) => product.images[1]);
       setCarouselImages(images);
+      setLoading(false); // Establecer el estado de carga a false cuando las imágenes se carguen
     } catch (error) {
       console.error('Error fetching carousel data:', error);
+      setLoading(false); // En caso de error, también debes establecer el estado de carga a false
     }
   };
+  
 
   const handleSlideChange = (slideIndex) => {
     setCurrentSlideIndex(slideIndex);
@@ -83,9 +88,16 @@ const Home = () => {
 
   return (
     <div className='mt-20'>
-      <div className="carousel rounded-box mt-16" >
-        {renderCarouselItems()}
-      </div>
+    {loading ? (
+                <button disabled className="bg-white w-24 h-20 ml-[600px] mb-10" >
+                    <span className="loading loading-spinner loading-3xl text-black"></span>
+                </button>
+            ): (
+      <>
+        <div className="carousel rounded-box mt-16">
+          {renderCarouselItems()}
+        </div>
+
 
       {/* Botones de cambio de slide */}
       <div className="flex justify-center mt-4 ">
@@ -145,7 +157,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </div>
+      </>
+    )}
+  </div>
   );
 };
 
