@@ -28,7 +28,7 @@ function Profile() {
       <div className="dropdown dropdown-end">
         <label tabIndex={0} className="cursor-pointer m-1 flex items-center">
           <strong>{user?.nickname}</strong>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-1" viewBox="0 0 20 20" fill="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-0 ml-1" viewBox="0 0 20 20" fill="currentColor">
             <path fillRule="evenodd" d="M6 8l4 4 4-4H6z" />
           </svg>
         </label>

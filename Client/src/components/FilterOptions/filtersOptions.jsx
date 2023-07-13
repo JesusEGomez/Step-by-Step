@@ -168,7 +168,7 @@ const Filters = () => {
   };
 
   return (
-    <div >
+    <div className="w-full" >
       <div className="flex space-x-2">
         <button className="link" onClick={handleClickAll}>
           TIENDA
@@ -182,11 +182,17 @@ const Filters = () => {
         <button className="link" onClick={handleClickUnisex}>
           UNISEX
         </button>
+        <Link
+          to="/form"
+          className="link  top-9 left-[72%] text-sm "
+        >
+          CREAR
+        </Link>
       </div>
 
 
       {location.pathname === "/tienda" && (
-        <div className="link flex justify-center -ml-80 mb-6s">
+        <div className=" flex items-center w-full jus">
           <div className="relative">
             <input
               name="name"
@@ -200,7 +206,7 @@ const Filters = () => {
             </span>
           </div>
 
-          <div className="flex items-center">
+          <div className="link">
             <select
               id="brand"
               name="brand"
@@ -217,7 +223,7 @@ const Filters = () => {
             </select>
           </div>
 
-          <div className="flex items-center">
+          <div className="link">
             <select
               id="category"
               name="category"
@@ -236,7 +242,7 @@ const Filters = () => {
             </select>
           </div>
 
-          <div className="flex items-center">
+          <div className=" link ">
             <select
               id="color"
               name="color"
@@ -254,7 +260,7 @@ const Filters = () => {
             </select>
           </div>
 
-          <div className="flex items-center">
+          <div className="link ">
             <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mx-2 ">
               <option key="none" value="none">
                 Precio
@@ -268,7 +274,7 @@ const Filters = () => {
             </select>
           </div>
 
-          <button onClick={handleResetClick} className="p-2 mx-2 hover:border-2 hover:border-gray-500 ">
+          <button onClick={handleResetClick} className="p-2 mx-2  ">
             <span>Reset</span>
           </button>
         </div>
