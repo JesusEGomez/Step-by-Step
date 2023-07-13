@@ -40,7 +40,7 @@ const Filters = () => {
   // let sizesList = useSelector(getAllSizes); //&& get all sizes
   let genderList = ["men", "women", "unisex"];
 
-  console.log("brandsList", brandsList);
+  // console.log("brandsList", brandsList);
 
   const [filterPanel, setFilterPanel] = useState({
     name: "",
@@ -54,14 +54,14 @@ const Filters = () => {
 
   useEffect(() => {
     let productsCopy = [...allProducts];
-    console.log("productsCopy", productsCopy);
+    // console.log("productsCopy", productsCopy);
 
     if (productsCopy.length > 0) {
       if (filterPanel.name !== "") {
         productsCopy = productsCopy.filter((p) =>
           p.model?.toLowerCase().includes(filterPanel.name.toLowerCase())
         );
-        console.log("productsCopy", productsCopy);
+        // console.log("productsCopy", productsCopy);
       }
 
       if (filterPanel.brand !== "none") {
@@ -107,7 +107,7 @@ const Filters = () => {
     }
   }, [filterPanel]);
 
-  console.log("filterPanel", filterPanel);
+  // console.log("filterPanel", filterPanel);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -205,8 +205,6 @@ const Filters = () => {
               id="brand"
               name="brand"
               onChange={handleChange}
-              value={brandSelect}
-              defaultValue={brandSelect}
               className="p-2 mx-2"
             >
               <option value={"none"}>Brand</option>
@@ -224,10 +222,10 @@ const Filters = () => {
               id="category"
               name="category"
               onChange={(e) => handleChange(e)}
-              value={categorySelect}
+              // value={categorySelect}
               className="p-2 mx-2"
             >
-              <option value={"none"} defaultValue={"Filter by Category"}>
+              <option value={"none"} >
                 Category
               </option>
               {categoriesList?.map((c, i) => (
@@ -243,11 +241,11 @@ const Filters = () => {
               id="color"
               name="color"
               onChange={(e) => handleChange(e)}
-              value={colorSelect}
+              // value={colorSelect}
               className="p-2 mx-2"
             >
               {" "}
-              <option value={"none"} defaultValue={"Filter by color"}>
+              <option value={"none"}  >
                 Color
               </option>
               {colorsList?.map((c, i) => (

@@ -13,7 +13,7 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers',
         try {
             const response = await axios.get(URL_USERS);
             const data = response.data;
-            console.log(data);
+            // console.log(data);
 
             return data;
         } catch (error) {

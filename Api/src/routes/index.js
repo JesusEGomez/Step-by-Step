@@ -11,6 +11,7 @@ const categoriesRouter = require("./categories.routes.js");
 const colorsRouter = require("./colors.routes.js");
 const sizesRouter = require("./sizes.routes.js");
 const ordersRouter = require("./orders.routes.js");
+const mercadoPagoRouter = require("./mercadoPago.routes.js");
 
 router.use("/users", usersRouter);
 router.use("/address", addressRoutes);
@@ -21,4 +22,5 @@ router.use("/sizes", sizesRouter);
 router.use("/colors", colorsRouter);
 router.use("/orders", ordersRouter);
 
+router.use("/checkout", mercadoPagoRouter);
 module.exports = router;
