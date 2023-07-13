@@ -37,14 +37,9 @@ const NavBar = () => {
       </div>
       <div className="flex-auto justify-between">
         <div className="">
-          <div className="flex space-x-2 fixed top-9 left-[45%] text-sm ">
+          <div className="flex space-x-2 fixed top-9 left-40 text-sm ">
             <Filters />
-            <Link
-              to="/form"
-              className="link  space-x-2 fixed top-9 left-[72%] text-sm "
-            >
-              CREAR
-            </Link>
+            
           </div>
         </div>
 
@@ -52,7 +47,7 @@ const NavBar = () => {
           {error && <p> Authentication Error </p>}
           {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
           {!error && !isLoading && (
-            <div className="fixed top-0 rigth-0">
+            <div className="fixed top-0 rigth-42">
               {" "}
               <LoginButton />
               <Profile />
