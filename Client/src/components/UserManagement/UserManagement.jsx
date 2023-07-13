@@ -1,48 +1,40 @@
+import { useEffect } from 'react';
+import { getAllUsers, fetchUsers } from '../../features/users.slice.js';
+import { useDispatch, useSelector } from 'react-redux';
+
 function UserManagement() {
+    const dispatch = useDispatch();
+    const users = useSelector(getAllUsers);
+
+    useEffect(() => { dispatch(fetchUsers) }, [])
+
+    console.log(users);
+
     return (
-        <table>
+        <table className="table table-zebra w-[70%] mx-auto border border-black">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">E-Mail</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">isAdmin</th>
+                    <th>ID</th>
+                    <th>Usuario</th>
+                    <th>E-Mail</th>
+                    <th>Administrador</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>luciano@gmail.com</td>
-                    <td>lucianogramajo</td>
-                    <td><label htmlFor="isadmin">Adminitrador</label>
-                        <input type="checkbox" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>lucho@gmail.com</td>
-                    <td>lucho</td>
-                    <td><label htmlFor="isadmin">Adminitrador</label>
-                        <input type="checkbox" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>gramajo@gmail.com</td>
-                    <td>gramajo</td>
-                    <td><label htmlFor="isadmin">Adminitrador</label>
-                        <input type="checkbox" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>nahuel@gmail.com</td>
-                    <td>nahuel</td>
-                    <td>
-                        <label htmlFor="isadmin">Adminitrador</label>
-                        <input type="checkbox" />
-                    </td>
-                </tr>
+
+            <tbody className='text-center'>
+                {users?.map(user => (
+                    <tr key={user.id}>
+                        <td>{user.id}</td>
+                        <td>{user.user}</td>
+                        <td>{user.mail}</td>
+                        <td>
+                            <label>
+                                <input type="checkbox" className="checkbox" />
+                            </label>
+                        </td>
+                    </tr>
+                ))}
+
             </tbody>
         </table>
     )
