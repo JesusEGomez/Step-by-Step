@@ -169,7 +169,7 @@ const Filters = () => {
 
   return (
     <div className="w-full" >
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 ml-52">
         <button className="link" onClick={handleClickAll}>
           TIENDA
         </button>
@@ -182,24 +182,18 @@ const Filters = () => {
         <button className="link" onClick={handleClickUnisex}>
           UNISEX
         </button>
-        <Link
-          to="/form"
-          className="link  top-9 left-[72%] text-sm "
-        >
-          CREAR
-        </Link>
       </div>
 
 
       {location.pathname === "/tienda" && (
-        <div className=" flex items-center w-full jus">
+        <div className=" flex items-center w-full">
           <div className="relative">
             <input
               name="name"
               value={filterPanel.name}
               onChange={handleChange}
               placeholder="Search..."
-              className="p-2 pl-8 mx-2"
+              className="p-2 pl-8 mr-1"
             ></input>
             <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
               <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
@@ -211,7 +205,7 @@ const Filters = () => {
               id="brand"
               name="brand"
               onChange={handleChange}
-              className="p-2 mx-2"
+              className="p-2 mr-1"
             >
               <option value={"none"}>Brand</option>
 
@@ -229,7 +223,7 @@ const Filters = () => {
               name="category"
               onChange={(e) => handleChange(e)}
               // value={categorySelect}
-              className="p-2 mx-2"
+              className="p-2 mr-1"
             >
               <option value={"none"} >
                 Category
@@ -248,7 +242,7 @@ const Filters = () => {
               name="color"
               onChange={(e) => handleChange(e)}
               // value={colorSelect}
-              className="p-2 mx-2"
+              className="p-2 mr-1"
             >
               {" "}
               <option value={"none"}  >
@@ -261,7 +255,7 @@ const Filters = () => {
           </div>
 
           <div className="link ">
-            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mx-2 ">
+            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mr-1 ">
               <option key="none" value="none">
                 Precio
               </option>
@@ -274,7 +268,7 @@ const Filters = () => {
             </select>
           </div>
 
-          <button onClick={handleResetClick} className="p-2 mx-2  ">
+          <button onClick={handleResetClick} className="p-2 border-gray-500 hover:border-gray-700   ">
             <span>Reset</span>
           </button>
         </div>

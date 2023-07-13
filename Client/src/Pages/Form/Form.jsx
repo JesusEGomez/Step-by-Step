@@ -11,7 +11,7 @@ import {
 import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
-
+import Swal from 'sweetalert2'
 export default function Form() {
   const brands = useSelector(getAllBrands);
   const categories = useSelector(getAllCategories);
@@ -153,7 +153,6 @@ export default function Form() {
     return Object.keys(errors).length === 0;
   };
 
-  console.log(form);
   function handlerChange(e) {
     const { name, value } = e.target;
 
@@ -290,8 +289,17 @@ export default function Form() {
       dispatch(addNewProduct(form))
         .then((res) => {
           console.log("Solicitud POST exitosa:", res);
-          alert("Zapatilla creada correctamente");
-          window.location.reload();
+          // alert("Zapatilla creada correctamente");
+
+          Swal.fire(
+            'Felicitaciones!',
+            'La zapatilla ha sido creado exitosamente!',
+            'success'
+          )
+          
+          setTimeout(function(){
+            window.location.reload();
+        }, 5000);
         })
         .catch((error) => {
           console.log("Error en la solicitud POST:", error);
