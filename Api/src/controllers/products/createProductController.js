@@ -8,11 +8,11 @@ const {
   Size,
 } = require("../../db.js");
 
-const brands = require("../../../assets/database/brands.json");
-const categories = require("../../../assets/database/categories.json");
-const sizes = require("../../../assets/database/sizes.json");
-const gender = require("../../../assets/database/gender.json");
-const colors = require("../../../assets/database/colors.json");
+// const brands = require("../../../assets/database/brands.json");
+// const categories = require("../../../assets/database/categories.json");
+// const sizes = require("../../../assets/database/sizes.json");
+// const gender = require("../../../assets/database/gender.json");
+// const colors = require("../../../assets/database/colors.json");
 
 const createProductController = async ({
   item_number,
@@ -66,6 +66,7 @@ const createProductController = async ({
   if (foundBrand) {
     await newProduct.setBrand(foundBrand.id);
   }
+
   console.log(categories);
   const categoryIds = await Promise.all(
     categories.map(async (category) => {

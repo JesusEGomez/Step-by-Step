@@ -10,6 +10,7 @@ const productsRouter = require("./productsRoutes.js");
 const categoriesRouter = require("./categories.routes.js");
 const colorsRouter = require("./colors.routes.js");
 const sizesRouter = require("./sizes.routes.js");
+const ordersRouter = require("./orders.routes.js");
 
 router.use("/users", usersRouter);
 router.use("/address", addressRoutes);
@@ -18,4 +19,6 @@ router.use("/brands", brandsRoutes);
 router.use("/categories", categoriesRouter);
 router.use("/sizes", sizesRouter);
 router.use("/colors", colorsRouter);
+router.use("/orders", ordersRouter);
+
 module.exports = router;

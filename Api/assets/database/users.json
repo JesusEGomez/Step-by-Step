@@ -1,0 +1,34 @@
+[
+  {
+    "name": "lucho",
+    "lastname": "gramajo",
+    "user": "luchog",
+    "mail": "lucianongramajo@gmail.com",
+
+    "isAdmin": true
+  },
+  {
+    "name": "tomas",
+    "lastname": "hast",
+    "user": "tomasg",
+    "mail": "thastrup@gmail.com",
+
+    "isAdmin": true
+  },
+  {
+    "name": "regi",
+    "lastname": "fogio",
+    "user": "regig",
+    "mail": "marisafenogliomnf@gmail.com",
+
+    "isAdmin": true
+  },
+  {
+    "name": "jechu",
+    "lastname": "christ",
+    "user": "jechug",
+    "mail": "jechu@jechumail.com",
+
+    "isAdmin": true
+  }
+]

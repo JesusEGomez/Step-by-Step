@@ -14,11 +14,11 @@ function Profile() {
         {user?.picture && <img src={user.picture} />}
         <h2>{user?.name}</h2>
 
-        {/* <ul>
+        <ul>
           {Object.values(user).map((objVal, i) => (
             <li key={i}>{objVal}</li>
           ))}
-        </ul> */}
+        </ul>
       </article>
     )
   );
