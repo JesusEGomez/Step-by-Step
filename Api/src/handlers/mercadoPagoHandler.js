@@ -22,7 +22,7 @@ const mercadoPagoCheckout = async (req, res) => {
         success: `${URL}`,
         failure: `${URL}`,
       },
-      notification_url: `${URL}/checkout/notify`,
+      //notification_url: `${URL}/checkout/notify`,
     };
     const response = await mercadopago.preferences.create(preference);
     return res.status(200).json({ url: response.body.init_point });

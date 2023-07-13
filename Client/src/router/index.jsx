@@ -32,7 +32,7 @@ const router = createBrowserRouter([
                 element: <ErrorPage />
             },
             {
-                path: '/form',
+                path: '/administracion',
                 element: <Form />
             },
             {
@@ -46,7 +46,8 @@ const router = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <Checkout />
-            }
+            },
+            
         ]
     }
 

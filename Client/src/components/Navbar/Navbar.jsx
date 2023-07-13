@@ -11,8 +11,7 @@ import Filters from "../FilterOptions/filtersOptions";
 import LoginButton from "../Login/auth0/LoginButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import MercadoPagoButton from "../MercadoPagoButton/mercadoPagoButton";
-
+import {IoMdCloseCircleOutline} from "react-icons/io"
 const NavBar = () => {
   const { isLoading, error } = useAuth0();
   const dispatch = useDispatch();
@@ -49,12 +48,11 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="dropdown dropdown-end flex ">
           <main>
             {error && <p> Authentication Error </p>}
-            {!error && isLoading && <span className="loading loading-spinner loading-md"></span>}
+            {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
             {!error && !isLoading && (
-              <div className="flex gap-x-1">
+              <div className="fixed top-0 rigth-0">
                 {" "}
                 <LoginButton />
                 <Profile />
@@ -62,6 +60,7 @@ const NavBar = () => {
               </div>
             )}
           </main>
+        <div className="dropdown dropdown-end flex ">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -85,20 +84,19 @@ const NavBar = () => {
           </label>
           <div
             tabIndex={0}
-            className="mt-3 z-[1] card max-h-96 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
+            className="mt-1 z-[1] card max-h-96 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">{`${CartProducts.length} items`}</span>
-              <span className="text-info">{`Precio $${total}`}</span>
-              <div>
+              <div className="">
                 {CartProducts.map((product, i) => {
                   return (
                     <div
-                      key={i}
-                      className="flex-col justify-center items-center p-5 m-5"
+                    key={i}
+                      className="flex-col justify-center items-center bg-gray-50 p-3 m-5 border-2 border-gray-200 box-border px-8 rounded-xl  "
                     >
                       <img
-                        width="100px"
+                        
+                        className="rounded-3xl w-20"
                         src={product.images[0].imageUrl}
                         alt={product.model}
                       />
@@ -112,17 +110,19 @@ const NavBar = () => {
                       {product.sizes.map((size) => {
                         return <p>{`Talle: ${size}`}</p>;
                       })}
-                      <button onClick={() => handlerDelete(product.sizes[0])}>
-                        Quitar
+                      <button className="border-2 border-gray-200 hover:border-gray-500 ml-10 my-3 w-18 px-6 text-xs" onClick={() => handlerDelete(product.sizes[0])}>
+                        <IoMdCloseCircleOutline/>
                       </button>
                     </div>
                   );
                 })}
+                <span className="font-bold text-lg">{`${CartProducts.length} items`}</span>
+                <span className="text-gray-700 mx-4">{`Monto total $${total}`}</span>
               </div>
 
 
               <div className="card-actions">
-                <Link to="/checkout"><button className="bg-black text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
+                <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
               </div>
             </div>
           </div>
