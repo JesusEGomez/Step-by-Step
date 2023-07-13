@@ -21,7 +21,7 @@ const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const loadDb = require("./src/controllers/loadDataBase/loadSelections.js");
 const loadDbUsers = require("./src/controllers/loadDataBase/loadUsers.js");
-const { PORT } = process.env;
+const port = process.env.PORT || 3001;
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {
   await loadDb.bulkCreateBrands();
@@ -31,7 +31,7 @@ conn.sync({ force: true }).then(async () => {
   await loadDb.bulkCreateGender();
   await loadDb.createAllProducts();
   await loadDbUsers.createUsers();
-  server.listen(PORT || 3000, () => {
-    console.log("%s listening at 3001"); // eslint-disable-line no-console
+  server.listen(port, () => {
+    console.log(`%s listening at ${port}`); // eslint-disable-line no-console
   });
 });
