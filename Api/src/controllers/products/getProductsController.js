@@ -40,7 +40,7 @@ const getDbProducts = async () => {
       },
     ],
   });
-  const products = [];
+
   const newResult = result.map((product) => {
     const images = product.images.map((i) => i.imageUrl);
     const brand = product.brand.name;

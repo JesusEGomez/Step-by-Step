@@ -47,7 +47,7 @@ const NavBar = () => {
           {error && <p> Authentication Error </p>}
           {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
           {!error && !isLoading && (
-            <div className="fixed top-0 rigth-42">
+            <div className="fixed top-0 rigth-0">
               {" "}
               <LoginButton />
               <Profile />

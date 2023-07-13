@@ -26,7 +26,7 @@ function Tienda() {
     <div className="flex-col text-center mt-40">
     {isLoading ? (
       
-      <button disabled className="bg-white w-24 h-20 ml-20 mb-10" >
+      <button disabled className="bg-white w-24 h-20 ml-16 mt-20 mb-96 hover:border-none border-none" >
       <span className="loading loading-spinner loading-3xl text-black"></span>
       </button>
       ) : (

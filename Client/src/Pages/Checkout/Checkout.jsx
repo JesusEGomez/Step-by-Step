@@ -19,9 +19,8 @@ const Checkout = () => {
         dispatch(deleteProduct(product));
     };
 
-    console.log("Carrito", CartProducts)
     return (
-        <div className="flex items-center justify-center w-full h-screen mt-80 mb-40 bg-gray-100">
+        <div className="flex items-center justify-center w-full h-full mt-32 bg-gray-100">
             <div className="bg-white rounded-lg shadow-lg p-8 w-[90%] mx-4 md:mx-auto md:flex">
                 {/* ///Form posible
         <div className="md:w-2/3 md:mr-8">
@@ -103,7 +102,7 @@ const Checkout = () => {
                                                 return <p className="text-gray-600 ml-28" key={size}>{`Talle: ${size}`}</p>;
                                             })}
                                             <button
-                                                className="absolute top-0 right-0 mt-2 mr-2"
+                                                className="absolute top-0 right-0 mt-2 mr-2 border-none bg-white hover:bg-gray-100"
                                                 onClick={() => handlerDelete(product.sizes[0])}
                                             >
                                                 <FaTrashCan />

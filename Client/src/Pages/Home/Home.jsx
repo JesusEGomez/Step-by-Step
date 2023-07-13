@@ -89,7 +89,7 @@ const Home = () => {
   return (
     <div className='mt-20'>
     {loading ? (
-                <button disabled className="bg-white w-24 h-20 ml-[600px] mb-10" >
+                <button disabled className="bg-white w-64 h-48 mt-36   ml-96 mb-32 hover:border-none border-none" >
                     <span className="loading loading-spinner loading-3xl text-black"></span>
                 </button>
             ): (
