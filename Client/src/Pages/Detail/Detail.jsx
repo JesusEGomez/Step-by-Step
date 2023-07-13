@@ -40,6 +40,7 @@ function Detail(clickHandler) {
     } else {
       alert("Seleccione un talle para comprar.");
     }
+
   };
 
   const handleImageClick = (imageUrl) => {

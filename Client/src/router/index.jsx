@@ -38,12 +38,14 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <ViewLoginRegister />
+            }, {
+                path: '/administracion',
+                element: <Form />
             },
             {
                 path: '/checkout',
                 element: <Checkout />
-            },
-            
+            }
         ]
     }
 

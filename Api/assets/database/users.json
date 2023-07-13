@@ -5,6 +5,8 @@
     "user": "luchog",
     "mail": "lucianongramajo@gmail.com",
 
+    "pass": "Asd123$",
+
     "isAdmin": true
   },
   {
@@ -12,6 +14,8 @@
     "lastname": "hast",
     "user": "tomasg",
     "mail": "thastrup@gmail.com",
+
+    "pass": "Asd123$",
 
     "isAdmin": true
   },
@@ -21,13 +25,17 @@
     "user": "regig",
     "mail": "marisafenogliomnf@gmail.com",
 
+    "pass": "Asd123$",
+
     "isAdmin": true
   },
   {
     "name": "jechu",
     "lastname": "christ",
     "user": "jechug",
-    "mail": "jechu@jechumail.com",
+
+    "mail": "jesus.emanuel.gomez77@gmail.com",
+    "pass": "Asd123$",
 
     "isAdmin": true
   }
