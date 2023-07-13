@@ -17,16 +17,16 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
-  
+
   const handlerDelete = (size) => {
     const product = CartProducts.find((element) => element.sizes[0] === size);
     console.log(product);
     dispatch(deleteProduct(product));
   };
-  
+
   return (
-    <div className="navbar bg-base-100 fixed top-0 shadow-md w-full py-3 z-10 p-10">
-      <div >
+    <div className="navbar bg-base-100 fixed top-0 shadow-md py-3 z-10">
+      <div className="flex-1">
         <Link to="/home" className="text-black hover:text-gray-500">
           <img
             src={logo}
@@ -35,14 +35,20 @@ const NavBar = () => {
           />
         </Link>
       </div>
-      <div className="flex-auto  justify-end">
+      <div className="flex-auto justify-between">
         <div className="">
-          <div className="flex fixed  top-9 left-[45%] text-sm ">
+          <div className="flex space-x-2 fixed top-9 left-[45%] text-sm ">
             <Filters />
+            <Link
+              to="/form"
+              className="link  space-x-2 fixed top-9 left-[72%] text-sm "
+            >
+              CREAR
+            </Link>
           </div>
         </div>
 
-        <main className="m-5">
+        <main>
           {error && <p> Authentication Error </p>}
           {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
           {!error && !isLoading && (
@@ -76,10 +82,9 @@ const NavBar = () => {
               </span>
             </div>
           </label>
-
           <div
-          key={i}
-          className=" bg-gray-50 pb-2 m-2 border-2 border-gray-200 box-border px-4 rounded-xl  "
+            tabIndex={0}
+            className="mt-1 z-[1] card max-h-96 overflow-auto card-compact dropdown-content w-64 bg-base-100 shadow"
           >
             <div className="card-body">
               <div className="">
@@ -87,32 +92,33 @@ const NavBar = () => {
                   return (
                     <div
                       key={i}
-                      className="flex-col justify-center items-center bg-gray-50 p-3 m-5 border-2 border-gray-200 box-border px-8 rounded-xl  "
+                      className=" bg-gray-50 pb-2 m-2 border-2 border-gray-200 box-border px-4 rounded-xl  "
                     >
-                      <button className="hover:bg-white ml-24 w-5 border-none rounded-full text-" onClick={() => handlerDelete(product.sizes[0])}>
-                        <IoMdCloseCircleOutline />
+                      <button className="hover:bg-white hover:text-black text-gray-500 ml-40 mt-1 mr-1 pl-1 py-1 w-2 border-none rounded-full text-lg" onClick={() => handlerDelete(product.sizes[0])}>
+                        <IoMdCloseCircleOutline className="align-center" />
                       </button>
                       <img
 
-                        className="rounded-3xl w-20"
+                        className="rounded-3xl w-32 hover:border-2 hover:border-white "
                         src={product.images[0].imageUrl}
                         alt={product.model}
                       />
-                      <h6>{product.model}</h6>
-                      <h5>
-                        <strong>{`Precio: ${product.totalPrice}`}</strong>
+                      <h6 className=" text-base font-light py-2">{product.model}</h6>
+                      <h5 className="font-medium text-xs">
+                        <strong>Precio:</strong> ${`${product.totalPrice}`}
                       </h5>
-                      <h5>
-                        <strong>{`Cantidad: ${product.quantity}`}</strong>
+                      <h5 className="font-medium text-xs">
+                        <strong>Cantidad:</strong>{` ${product.quantity}`}
                       </h5>
                       {product.sizes.map((size) => {
-                        return <p>{`Talle: ${size}`}</p>;
+                        return <p className="font-medium text-xs mb-2"> <strong>Talle: </strong> {` ${size}`}</p>;
                       })}
                     </div>
                   );
-                })}
-                <span className="text-lg">{`${CartProducts.length} items`}</span>
-                <span className="text-gray-700 mx-4">{`Monto total $${total}`}</span>
+                })}<div className="flex flex-col bg-gray-50 rounded-md p-2">
+                  <span className="text-sm font-medium ml-1 mb-2">{`${CartProducts.length} items`}</span>
+                  <span className="" ><p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p></span>
+                </div>
               </div>
 
 
@@ -120,26 +126,11 @@ const NavBar = () => {
                 <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
               </div>
             </div>
-
           </div>
-          );
-        })}<div className="flex flex-col bg-gray-50 rounded-md p-2">
-        <span className="text-sm font-medium ml-1 mb-2">{`${CartProducts.length} items`}</span>
-        <span className="" ><p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p></span>
         </div>
-        </div>
-        
-        
-        <div className="card-actions">
-        <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
-        );
-      };
-      
-      export default NavBar;
-      
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;

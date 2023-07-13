@@ -7,6 +7,7 @@ import Carousel from "./Carousel.jsx";
 
 const GET_URL = "http://localhost:3001/products";
 
+
 function Detail(clickHandler) {
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
@@ -40,7 +41,7 @@ function Detail(clickHandler) {
     } else {
       alert("Seleccione un talle para comprar.");
     }
-
+    console.log("product Data", productData)
   };
 
   const handleImageClick = (imageUrl) => {
@@ -56,6 +57,52 @@ function Detail(clickHandler) {
   };
 
   const dispatch = useDispatch();
+  const stock = [
+    {
+      size: 34,
+      stockPerSize: 10
+    },
+    {
+      size: 33,
+      stockPerSize: 10
+    },
+    {
+      size: 32,
+      stockPerSize: 10
+    },
+    {
+      size: 40,
+      stockPerSize: 10
+    },
+    {
+      size: 46,
+      stockPerSize: 10
+    },
+    {
+      size: 47,
+      stockPerSize: 10
+    },
+    {
+      size: 45,
+      stockPerSize: 10
+    },
+    {
+      size: 38,
+      stockPerSize: 10
+    },
+    {
+      size: 39,
+      stockPerSize: 10
+    },
+    {
+      size: 41,
+      stockPerSize: 10
+    },
+    {
+      size: 31,
+      stockPerSize: 10
+    },
+  ]
 
   return (
     <>
@@ -112,16 +159,17 @@ function Detail(clickHandler) {
               <div className="flex flex-row justify-start mb-8 relative items-center">
                 {/* Mostrar las imágenes adicionales */}
                 <div className="flex space-x-2">
-                  {productData.sizes.map((size, index) => (
+                  {stock.map((size, index) => (
                     <div
                       key={index}
-                      className={`border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500 ${selectedSize === size.size ? "bg-blue-200" : ""
+                      className={`border border-gray-300 p-1 ${selectedSize === size.size ? "bg-blue-200" : ""
                         }`}
                       onClick={() => handleImageSize(size.size)}
                     >
                       <h3 className="cursor-pointer font-bold hover:bg-red-200 overflow-hidden bg-[#f6f7f8] flex flex-col justify-start relative w-12 shrink-0 h-10 items-center py-2 rounded-tr-lg rounded-br-lg border border-gray-300">
                         {size.size}
                       </h3>
+                      <p>{size.stockPerSize}</p>
                     </div>
                   ))}
                 </div>
