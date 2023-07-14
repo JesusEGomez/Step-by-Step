@@ -44,41 +44,42 @@ module.exports = (sequelize) => {
         },
       },
     },
-    phone: {
-      type: DataTypes.STRING,
-      allowNull: true,
-      unique: true,
-      validate: {
-        is: /^[0-9+]+$/,
-        validateEmailOrCellphone: function () {
-          if (!this.mail && !this.phone) {
-            throw new Error("Debe proporcionar al menos un email o un celular");
-          }
-        },
-        len: {
-          args: [8, 12],
-          msg: "La longitud del número de celular debe estar entre 8 y 12 caracteres",
-        },
-      },
-    },
     isAdmin: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    pass: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        is: {
-          args: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W_])/,
-          msg: "La contraseña debe contener al menos una letra mayúscula, un número, letras en general y un carácter especial",
-        },
-        len: {
-          args: [6],
-          msg: "La contraseña debe tener al menos 6 caracteres",
-        },
-      },
-    },
+    // phone: {
+    //   type: DataTypes.STRING,
+    //   allowNull: true,
+    //   unique: true,
+    //   validate: {
+    //     is: /^[0-9+]+$/,
+    //     validateEmailOrCellphone: function () {
+    //       if (!this.mail && !this.phone) {
+    //         throw new Error("Debe proporcionar al menos un email o un celular");
+    //       }
+    //     },
+    //     len: {
+    //       args: [8, 12],
+    //       msg: "La longitud del número de celular debe estar entre 8 y 12 caracteres",
+    //     },
+    //   },
+    // },
+
+    // password: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    //   validate: {
+    //     is: {
+    //       args: /^(?=.*[A-Z])(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W_])/,
+    //       msg: "La contraseña debe contener al menos una letra mayúscula, un número, letras en general y un carácter especial",
+    //     },
+    //     len: {
+    //       args: [6],
+    //       msg: "La contraseña debe tener al menos 6 caracteres",
+    //     },
+    //   },
+    // },
     // Aqui se puede agregar mas.
   });
 };

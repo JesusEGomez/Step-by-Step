@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const GET_BRAND_URL = "http://localhost:3001/brands";
+// const GET_BRAND_URL = "http://localhost:3001/brands";
+const GET_BRAND_URL = "https://step-by-step-production.up.railway.app/brands";
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];

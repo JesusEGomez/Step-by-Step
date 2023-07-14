@@ -11,6 +11,7 @@ import {
 import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
+import Swal from 'sweetalert2';
 
 export default function Form() {
   const brands = useSelector(getAllBrands);
@@ -153,7 +154,6 @@ export default function Form() {
     return Object.keys(errors).length === 0;
   };
 
-  console.log(form);
   function handlerChange(e) {
     const { name, value } = e.target;
 
@@ -290,8 +290,17 @@ export default function Form() {
       dispatch(addNewProduct(form))
         .then((res) => {
           console.log("Solicitud POST exitosa:", res);
-          alert("Zapatilla creada correctamente");
-          window.location.reload();
+          // alert("Zapatilla creada correctamente");
+
+          Swal.fire(
+            'Felicitaciones!',
+            'La zapatilla ha sido creado exitosamente!',
+            'success'
+          )
+          
+          setTimeout(function(){
+            window.location.reload();
+        }, 5000);
         })
         .catch((error) => {
           console.log("Error en la solicitud POST:", error);
@@ -458,6 +467,7 @@ export default function Form() {
                   className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                   onChange={handlerChange}
                   defaultValue={"unisex"}
+                  class="select select-bordered w-full max-w-xs"
                 >
                   <option disabled={true} value="">
                     Select Gender
@@ -514,6 +524,7 @@ export default function Form() {
                     className="block w-fit rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     value={form.brand}
                     onChange={handlerChange}
+                    class="select select-bordered w-full max-w-xs"
                   >
                     {" "}
                     <option disabled={true} value="">
@@ -575,7 +586,8 @@ export default function Form() {
                     id="categories"
                     name="categories"
                     onChange={handleSelectChange}
-                    className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    className="block w-fit  border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                    class="select select-bordered w-full max-w-xs"
                   >
                     {" "}
                     <option disabled={true} value="">
@@ -611,6 +623,7 @@ export default function Form() {
                   className="block w-fit rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-..."
                   onChange={handlerColorChange}
                   value={form.color}
+                  class="select select-bordered w-full max-w-xs"
                 >
                   <option disabled={true} value="" className="p-1">
                     Select a color

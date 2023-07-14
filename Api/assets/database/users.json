@@ -30,7 +30,7 @@
         "mail": "jechu@jechumail.com",
         "pass": "Asd123$",
         "isAdmin": true
-    },
+    }
     {
         "name": "Dany",
         "lastname": "Blizzard",
@@ -39,6 +39,4 @@
         "pass": "Asd123$",
         "isAdmin": true
     }
-
-
 ]

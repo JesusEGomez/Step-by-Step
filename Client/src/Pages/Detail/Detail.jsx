@@ -5,15 +5,19 @@ import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
 
-const GET_URL = "http://localhost:3001/products";
+// const GET_URL = "http://localhost:3001/products";
+const GET_URL = "https://step-by-step-production.up.railway.app/products";
+
 
 function Detail(clickHandler) {
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState("Ninguno seleccionado");
-  const [carouselImages, setCarouselImages] = useState([]);
-  const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
+  // const [carouselImages, setCarouselImages] = useState([]);
+  // const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
+  const [addedToCart, setAddedToCart] = useState(false);
+
 
 
   useEffect(() => {
@@ -35,8 +39,10 @@ function Detail(clickHandler) {
   }, [id]);
 
   const clickAddHandler = (product) => {
+    console.log("Producto", productData)
     if (selectedSize !== "Ninguno seleccionado") {
-      dispatch(addProduct({ ...product, sizes: [selectedSize] }));
+      dispatch(addProduct({ ...product, sizes: [selectedSize.size] }));
+      setAddedToCart(true);
     } else {
       alert("Seleccione un talle para comprar.");
     }
@@ -50,14 +56,14 @@ function Detail(clickHandler) {
     setSelectedSize(size);
   };
 
-  const handleCarouselImageClick = (imageUrl) => {
-    setCarouselSelectedImage(imageUrl);
-  };
+  // const handleCarouselImageClick = (imageUrl) => {
+  //   setCarouselSelectedImage(imageUrl);
+  // };
 
   const dispatch = useDispatch();
 
   return (
-    <>
+    <div className="mb-96">
       {productData ? (
         <div className="container h-screen flex mt-28 mb-60">
           <div className="bg-white flex flex-row justify-between relative w-full items-center pl-16 pr-[210px]">
@@ -75,7 +81,7 @@ function Detail(clickHandler) {
                   New!
                 </div>
               </div>
-              <div className="mt-4 whitespace-nowrap text-4xl font-['Inter'] font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31] self-stretch mr-20 relative">
+              <div className="mt-4 whitespace-nowrap text-3xl font-['Inter'] font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31] self-stretch mr-20 relative">
                 {productData.model}
               </div>
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-5 relative w-20">
@@ -85,7 +91,7 @@ function Detail(clickHandler) {
                 ${productData.totalPrice}
               </div>
               <div>
-                <p>{productData.description}</p>
+                <p className="font-extralight">{productData.description}</p>
               </div>
               <div className="flex flex-row justify-start mb-8 relative items-center">
                 {/* Mostrar las imágenes adicionales */}
@@ -93,7 +99,7 @@ function Detail(clickHandler) {
                   {productData.images.slice(1).map((image, index) => (
                     <div
                       key={index}
-                      className="border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500"
+                      className="border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-gray-500"
                       onClick={() => handleImageClick(image.imageUrl)}
                     >
                       <img
@@ -105,40 +111,50 @@ function Detail(clickHandler) {
                   ))}
                 </div>
               </div>
-              <div className="text-center font-['Inter'] tracking-[-0.09600000381469727] leading-[24px] text-[#242c31] mb-1 relative w-8">
-                Size
+              <div className="whitespace-nowrap text-xs font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-gray-600  mb-5 relative w-20 font-semibold">
+                Stock: {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
+              </div>
+              <div className=" inline  text-gray-800  text-sm font-light mb-1 w-52">
+                SELECCIONA UN TALLE
               </div>
               <div className="flex flex-row justify-start mb-8 relative items-center">
                 {/* Mostrar las imágenes adicionales */}
-                <div className="flex space-x-2">
-                  {productData.sizes.map((size, index) => (
+                <div className="grid grid-cols-5 gap-2">
+                  {productData.stock.map((size, index) => (
                     <div
                       key={index}
-                      className={`border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-blue-500 ${selectedSize === size.size ? "bg-blue-200" : ""
+                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size ? "bg-gray-200 border-solid rounded  border-sm" : ""
                         }`}
-                      onClick={() => handleImageSize(size.size)}
+                      onClick={() => handleImageSize(size)}
                     >
-                      <h3 className="cursor-pointer font-bold hover:bg-red-200 overflow-hidden bg-[#f6f7f8] flex flex-col justify-start relative w-12 shrink-0 h-10 items-center py-2 rounded-tr-lg rounded-br-lg border border-gray-300">
-                        {size.size}
-                      </h3>
+                      <label class="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
+                        <input type="radio" name="size-choice" value="3XL" class="sr-only" aria-labelledby="size-choice-7-label" />
+                        <span id="size-choice-7-label">{size.size}</span>
+
+                        <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                      </label>
                     </div>
                   ))}
                 </div>
               </div>
-              <p>{`Talle seleccionado: ${selectedSize}`}</p>
-              <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-5 relative w-20 font-bold">
-                Stock: {productData.totalStock}
-              </div>
+              <p className="font-semibold text-sm">{`Talle seleccionado: ${selectedSize.size}`}</p>
               <div>
               </div>
+              {addedToCart && (
+                <div className="text-green-600 text-base font-normal mb-1">Producto agregado al carrito</div>
+              )}
+
               <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 mr-12">
+
                 <button
                   onClick={() => clickAddHandler(productData)}
-                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 items-center rounded-lg"
+                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
                 >
                   Comprar
+
                 </button>
               </div>
+
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
                 {/* Shipping* */}
                 <br />
@@ -149,9 +165,11 @@ function Detail(clickHandler) {
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        <button disabled className="bg-white w-96 h-96 ml-80 mt-20  mb-96" >
+          <span className="loading loading-spinner loading-3xl text-black"></span>
+        </button>
       )}
-    </>
+    </div>
   );
 }
 
