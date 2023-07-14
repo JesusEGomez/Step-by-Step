@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const GET_COLORS = "http://localhost:3001/colors";
+// const GET_COLORS = "http://localhost:3001/colors";
+const GET_COLORS = "https://step-by-step-production.up.railway.app/colors";
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];

@@ -5,7 +5,8 @@ import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
 
-const GET_URL = "http://localhost:3001/products";
+// const GET_URL = "http://localhost:3001/products";
+const GET_URL = "https://step-by-step-production.up.railway.app/products";
 
 
 function Detail(clickHandler) {

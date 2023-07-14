@@ -41,7 +41,6 @@ function Profile() {
         <ul
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
-          className="dropdown-content  z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li >
             <Link className="text-gray-500" to={"/cuenta"}>Mi cuenta</Link>
@@ -54,7 +53,7 @@ function Profile() {
               <Link className="text-gray-500" to={"/administracion"}>Administracion</Link>
             </li>
           )}
-          <li  onClick={() => logout()}>
+          <li onClick={() => logout()}>
             <a className="text-gray-500"> Cerrar sesión</a>
           </li>
         </ul>
