@@ -11,7 +11,8 @@ import {
 import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+
 export default function Form() {
   const brands = useSelector(getAllBrands);
   const categories = useSelector(getAllCategories);
