@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const URL = "http://localhost:3001/products";
+// const URL = "http://localhost:3001/products";
+const URL = "https://step-by-step-production.up.railway.app/products";
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];

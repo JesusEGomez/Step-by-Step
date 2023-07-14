@@ -36,11 +36,11 @@ const getDbProducts = async () => {
       },
       {
         model: Stock,
-        attributes: ["stockPerSize"],
+        // attributes: ["stockPerSize"],
       },
     ],
   });
-  const products = [];
+
   const newResult = result.map((product) => {
     const images = product.images.map((i) => i.imageUrl);
     const brand = product.brand.name;
@@ -49,7 +49,20 @@ const getDbProducts = async () => {
 
     const categories = product.categories.map((i) => i.name);
     const sizes = product.sizes.map((s) => s.size);
-    const stock = product.stocks.map((s) => s.stockPerSize);
+    // {
+    //   "id": 7,
+    //   "stockPerSize": 10,
+    //   "createdAt": "2023-07-13T03:36:17.311Z",
+    //   "updatedAt": "2023-07-13T03:36:17.311Z",
+    //   "sizeId": 7,
+    //   "productId": 1
+    // },
+    const stock = product.stocks.map((s) => {
+      return {
+        size: s.sizeId + 34,
+        stockPerSize: s.stockPerSize,
+      };
+    });
 
     return {
       totalPrice: product.totalPrice,
@@ -69,7 +82,7 @@ const getDbProducts = async () => {
 
       categories: categories,
       sizes: sizes,
-      stocks: stock,
+      stock: stock,
     };
 
     // console.log("images", images);//funciona

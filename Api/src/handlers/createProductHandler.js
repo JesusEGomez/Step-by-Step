@@ -29,6 +29,8 @@ const postProduct = async (req, res) => {
 
     console.log("req.body", req.body);
     const newProduct = await createProductController(req.body);
+
+    //&reemplazar esta funcion y ponerla en controllers
     const response = await Product.findOne({
       where: { model: model },
       include: [
