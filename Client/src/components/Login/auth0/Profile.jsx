@@ -1,27 +1,10 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { getAllUsers, fetchUsers } from "../../../features/users.slice";
-import { useSelector, useDispatch } from "react-redux";
+import { verifyAdmin } from "../../../hooks/verifyAdmin.js";
 
 function Profile() {
-  const { user, isAuthenticated, logout } = useAuth0();
-  const dbUser = useSelector(getAllUsers);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, []);
-
-  const validateAdmin = (dbUser, userEmail) => {
-    for (let i = 0; i < dbUser.length; i++) {
-      if (dbUser[i].mail === userEmail) {
-        return true;
-      }
-    }
-    return false;
-  };
-  const isAdmin = validateAdmin(dbUser, user?.email);
+  const { user, logout, isAuthenticated } = useAuth0();
+  const isAdmin = verifyAdmin();
 
   return (
     isAuthenticated && (
@@ -63,3 +46,20 @@ function Profile() {
 }
 
 export default Profile;
+
+
+
+  // const dbUser = useSelector(getAllUsers);
+  // const dispatch = useDispatch()
+
+  // useEffect(() => { dispatch(fetchUsers()) }, [])
+
+  // const validateAdmin = (dbUser, userEmail) => {
+  //   for (let i = 0; i < dbUser.length; i++) {
+  //     if (dbUser[i].mail === userEmail) {
+  //       return true;
+  //     }
+  //   }
+  //   return false;
+  // }
+  // const isAdmin = validateAdmin(dbUser, user?.email);
