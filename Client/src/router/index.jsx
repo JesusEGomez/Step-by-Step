@@ -38,6 +38,9 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <ViewLoginRegister />
+            }, {
+                path: '/administracion',
+                element: <Form />
             },
             {
                 path: '/administracion',
@@ -46,8 +49,7 @@ const router = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <Checkout />
-            },
-            
+            }
         ]
     }
 
