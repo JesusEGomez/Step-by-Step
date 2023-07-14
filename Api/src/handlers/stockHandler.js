@@ -1,4 +1,5 @@
 const getStockByProductId = require("../controllers/stock/getStockByProductIdController.js");
+const updateStockPerSize = require("../controllers/stock/updateStockController.js");
 
 const getStockHandler = async (req, res) => {
   const { productId } = req.body;
@@ -12,16 +13,18 @@ const getStockHandler = async (req, res) => {
   }
 };
 
-//updata
-// const getOrdersHandler = async (req, res) => {
-//     try {
-//       const orders = await getAllOrders();
-//       res.status(200).json(orders);
-//     } catch (error) {
-//       res
-//         .status(500)
-//         .json({ error: "Error getting orders", message: error.message });
-//     }
-//   };
+// updata
+const updateStockPerSizeHandler = async (req, res) => {
+  const order = req.body;
 
-module.exports = getStockHandler;
+  try {
+    const newStock = await updateStockPerSize(order);
+    res.status(200).json(order);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Error setting stock", message: error.message });
+  }
+};
+
+module.exports = { getStockHandler, updateStockPerSizeHandler };
