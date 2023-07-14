@@ -30,5 +30,15 @@
         "mail": "jechu@jechumail.com",
         "pass": "Asd123$",
         "isAdmin": true
+    },
+    {
+        "name": "Dany",
+        "lastname": "Blizzard",
+        "user": "Dany",
+        "mail": "danosblizzard@hotmail.com",
+        "pass": "Asd123$",
+        "isAdmin": true
     }
+
+
 ]
