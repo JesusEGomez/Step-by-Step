@@ -12,6 +12,7 @@ import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 import Swal from 'sweetalert2';
+import axios from "axios";
 
 export default function Form() {
   const brands = useSelector(getAllBrands);
@@ -111,7 +112,7 @@ export default function Form() {
     categories: [],
     color: [],
   });
-
+  console.log('formulario: ', form)
   const [errors, setErrors] = useState({
     // item_number: "", //
     // model: "",//
@@ -170,6 +171,30 @@ export default function Form() {
   function handlerToF(e) {
     setForm({ ...form, isPublish: event.target.value === "true" });
   }
+
+  const submitImage = async (event) => {
+    try {
+      const file = event.target.files[0];
+      const data = new FormData();
+      data.append("file", file);
+      data.append("upload_preset", "prueba");
+      data.append("cloud_name", "Step_By_Step");
+
+      const response = await axios.post(
+        "https://api.cloudinary.com/v1_1/dldahkp7e/image/upload",
+        data
+      );
+
+      console.log(response.data);
+      setForm((prevForm) => ({
+        ...prevForm,
+        images: [...prevForm.images, response.data.url],
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 
   function handleSelectChange(event) {
     const { value } = event.target;
@@ -297,10 +322,10 @@ export default function Form() {
             'La zapatilla ha sido creado exitosamente!',
             'success'
           )
-          
-          setTimeout(function(){
+
+          setTimeout(function () {
             window.location.reload();
-        }, 5000);
+          }, 5000);
         })
         .catch((error) => {
           console.log("Error en la solicitud POST:", error);
@@ -654,7 +679,7 @@ export default function Form() {
               Imagen:
             </label>
 
-            {renderInputImg()}
+            {/* {renderInputImg()}
             <button
               className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
               onClick={addInputImg}
@@ -662,7 +687,12 @@ export default function Form() {
               type="button"
             >
               Agregar img
-            </button>
+            </button> */}
+            <input type="file" onChange={submitImage} />
+            {form.images.map((image, index) => (
+              <img src={image} key={index} alt={`Image ${index}`} />
+            ))}
+
             <button
               className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
               onClick={lastInputImg}
