@@ -11,7 +11,7 @@ import Filters from "../FilterOptions/filtersOptions";
 import LoginButton from "../Login/auth0/LoginButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
-import { IoMdCloseCircleOutline } from "react-icons/io"
+import { IoMdCloseCircleOutline } from "react-icons/io";
 const NavBar = () => {
   const { isLoading, error } = useAuth0();
   const dispatch = useDispatch();
@@ -39,19 +39,19 @@ const NavBar = () => {
         <div className="">
           <div className="flex space-x-2 fixed top-9 left-40 text-sm ">
             <Filters />
-
           </div>
         </div>
 
         <main>
           {error && <p> Authentication Error </p>}
-          {!error && isLoading && <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>}
+          {!error && isLoading && (
+            <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>
+          )}
           {!error && !isLoading && (
             <div className="fixed top-0 rigth-0">
               {" "}
               <LoginButton />
-              <Profile />
-              {" "}
+              <Profile />{" "}
             </div>
           )}
         </main>
@@ -89,36 +89,52 @@ const NavBar = () => {
                       key={i}
                       className=" bg-gray-50 pb-2 m-2 border-2 border-gray-200 box-border px-4 rounded-xl  "
                     >
-                      <button className="hover:bg-white hover:text-black text-gray-500 ml-40 mt-1 mr-1 pl-1 py-1 w-2 border-none rounded-full text-lg" onClick={() => handlerDelete(product.sizes[0])}>
+                      <button
+                        className="hover:bg-white hover:text-black text-gray-500 ml-40 mt-1 mr-1 pl-1 py-1 w-2 border-none rounded-full text-lg"
+                        onClick={() => handlerDelete(product.sizes[0])}
+                      >
                         <IoMdCloseCircleOutline className="align-center" />
                       </button>
                       <img
-
                         className="rounded-3xl w-32 hover:border-2 hover:border-white "
                         src={product.images[0].imageUrl}
                         alt={product.model}
                       />
-                      <h6 className=" text-base font-light py-2">{product.model}</h6>
+                      <h6 className=" text-base font-light py-2">
+                        {product.model}
+                      </h6>
                       <h5 className="font-medium text-xs">
                         <strong>Precio:</strong> ${`${product.totalPrice}`}
                       </h5>
                       <h5 className="font-medium text-xs">
-                        <strong>Cantidad:</strong>{` ${product.quantity}`}
+                        <strong>Cantidad:</strong>
+                        {` ${product.quantity}`}
                       </h5>
                       {product.sizes.map((size) => {
-                        return <p className="font-medium text-xs mb-2"> <strong>Talle: </strong> {` ${size}`}</p>;
+                        return (
+                          <p className="font-medium text-xs mb-2">
+                            {" "}
+                            <strong>Talle: </strong> {` ${size}`}
+                          </p>
+                        );
                       })}
                     </div>
                   );
-                })}<div className="flex flex-col bg-gray-50 rounded-md p-2">
+                })}
+                <div className="flex flex-col bg-gray-50 rounded-md p-2">
                   <span className="text-sm font-medium ml-1 mb-2">{`${CartProducts.length} items`}</span>
-                  <span className="" ><p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p></span>
+                  <span className="">
+                    <p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p>
+                  </span>
                 </div>
               </div>
 
-
               <div className="card-actions">
-                <Link to="/checkout"><button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">Ir a pagar</button></Link>
+                <Link to="/checkout">
+                  <button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">
+                    Ir a pagar
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -42,7 +42,7 @@ const createOrder = async (orderData) => {
 
       const product = await Product.findByPk(productId);
       const user = await User.findByPk(userId);
-
+      console.log("orderNumber", orderData);
       const data = {
         orderNumber: orderNumber,
         paymentStatus: paymentStatus,

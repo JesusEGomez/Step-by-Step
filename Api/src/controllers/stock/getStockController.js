@@ -1,8 +1,9 @@
-// const { Stock } = require("../../db");
+const { Stock } = require("../../db");
 
-// const getStock = async () => {
-//   const stock = await Stock.findAll();
-//   return stock;
-// };
+const getStock = async () => {
+  const stock = await Stock.findAll();
 
-// module.exports = { getStock };
+  return stock;
+};
+
+module.exports = getStock;

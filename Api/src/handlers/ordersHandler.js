@@ -1,12 +1,17 @@
 const createOrder = require("../controllers/orders/createOrder");
 const getAllOrders = require("../controllers/orders/getAllOrders");
 const getOrderById = require("../controllers/orders/getOrderById");
-const getOrdersByUser = require("../controllers/orders/getOrdersByUser");
+const updateStockPerSize = require("../controllers/stock/updateStockController");
 
 const createOrderHandler = async (req, res) => {
   try {
+    const { order } = req.body;
+    console.log(order);
     const newOrder = await createOrder(req.body);
+    const updateStock = await updateStockPerSize(req.body);
+
     res.status(200).json(newOrder);
+    return updateStock;
   } catch (error) {
     res
       .status(500)
@@ -37,21 +42,8 @@ const getOrderByIdHandler = async (req, res) => {
   }
 };
 
-const getOrdersByUserHandler = async (req, res) => {
-  const { email } = req.body;
-  try {
-    const orders = await getOrdersByUser(email);
-    res.status(200).json(orders);
-  } catch (error) {
-    res
-      .status(500)
-      .json({ error: "Error getting order by user", message: error.message });
-  }
-};
-
 module.exports = {
   getOrdersHandler,
   createOrderHandler,
   getOrderByIdHandler,
-  getOrdersByUserHandler,
 };

@@ -1,9 +1,13 @@
 const { Router } = require("express");
 
-const { updateStockPerSizeHandler } = require("../handlers/stockHandler");
+const {
+  updateStockPerSizeHandler,
+  getStockHandler,
+} = require("../handlers/stockHandler");
 
 const stockRouter = Router();
 
 stockRouter.put("/update", updateStockPerSizeHandler);
+stockRouter.get("/", getStockHandler);
 
 module.exports = stockRouter;
