@@ -7,7 +7,7 @@ mercadopago.configure({
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "https://02bf-190-30-177-199.ngrok-free.app";
+  const URL = "https://6af5-181-228-25-160.ngrok-free.app";
   try {
     const preference = {
       items: carrito.map((product) => ({

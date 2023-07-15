@@ -59,9 +59,8 @@ const Carousel = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? 'active' : 'bg-gray-300'
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? 'active' : 'bg-gray-300'
+            }`}
           onClick={() => handleSlideChange(i)}
         />
       );

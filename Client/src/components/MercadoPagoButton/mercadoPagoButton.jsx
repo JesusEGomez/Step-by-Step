@@ -12,12 +12,12 @@ const MercadoPagoButton = ({ carrito }) => {
         const generateLink = async () => {
             setLoading(true)
             try {
-                // const { data: preference } = await axios.post("http://localhost:3001/checkout", {
-                //     carrito
-                // });
-                const { data: preference } = await axios.post("https://step-by-step-production.up.railway.app/checkout", {
+                const { data: preference } = await axios.post("http://localhost:3001/checkout", {
                     carrito
                 });
+                // const { data: preference } = await axios.post("https://step-by-step-production.up.railway.app/checkout", {
+                //     carrito
+                // });
 
                 setUrl(preference.url);
             } catch (error) {

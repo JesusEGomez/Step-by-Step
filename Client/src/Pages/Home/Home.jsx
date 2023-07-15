@@ -5,8 +5,9 @@ import { SiReebok, SiNike } from 'react-icons/si';
 import { CgAdidas } from 'react-icons/cg';
 import axios from 'axios';
 
-// const GET_URL = 'http://localhost:3001/products';
-const GET_URL = 'https://step-by-step-production.up.railway.app/products';
+const GET_URL = 'http://localhost:3001/products';
+// const GET_URL = 'https://step-by-step-production.up.railway.app/products';
+
 const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
