@@ -13,7 +13,6 @@ import LoginButton from "../Login/auth0/LoginButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
-
 const NavBar = () => {
   const { isLoading, error } = useAuth0();
   const dispatch = useDispatch();
@@ -89,7 +88,10 @@ const NavBar = () => {
                       key={i}
                       className=" bg-gray-50 pb-2 m-2 border-2 border-gray-200 box-border px-4 rounded-xl  "
                     >
-                      <button className="hover:bg-white hover:text-black text-gray-500 ml-40 mt-1 mr-1 pl-1 py-1 w-2 border-none rounded-full text-lg" onClick={() => handlerDelete(product.sizes[0])}>
+                      <button
+                        className="hover:bg-white hover:text-black text-gray-500 ml-40 mt-1 mr-1 pl-1 py-1 w-2 border-none rounded-full text-lg"
+                        onClick={() => handlerDelete(product.sizes[0])}
+                      >
                         <IoMdCloseCircleOutline className="align-center" />
                       </button>
                       <img
