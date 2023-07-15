@@ -33,16 +33,16 @@ const createOrder = async (orderData) => {
     for (const order of orderData) {
       const {
         productId,
-        email,
+        userId,
         orderNumber,
         paymentStatus,
         fullFillmentStatus,
       } = order;
-      console.log("orderNumber", email);
+      console.log("orderNumber", productId);
 
       const product = await Product.findByPk(productId);
-      const user = await User.findOne({ where: { mail: email } });
-      console.log("orderNumber", orderData);
+      const user = await User.findByPk(userId);
+      // console.log("orderNumber", orderData);
       const data = {
         orderNumber: orderNumber,
         paymentStatus: paymentStatus,
@@ -54,8 +54,10 @@ const createOrder = async (orderData) => {
       await createdOrder.setUser(user);
     }
 
-    const response = await Order.findAll({ where: { orderNumber } });
-    return response;
+    // const response = await Order.findAll({
+    //   where: { orderNumber: orderNumber },
+    // });
+    // return response;
   } catch (error) {
     console.error("Error creating orders:", error);
   }

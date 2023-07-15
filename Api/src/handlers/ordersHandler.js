@@ -5,10 +5,10 @@ const updateStockPerSize = require("../controllers/stock/updateStockController")
 
 const createOrderHandler = async (req, res) => {
   try {
-    const { order } = req.body;
-    // console.log(order);
-    const newOrder = await createOrder(req.body);
-    const updateStock = await updateStockPerSize(req.body);
+    const order = req.body;
+    console.log("orderhandler", order);
+    const newOrder = await createOrder(order);
+    const updateStock = await updateStockPerSize(order);
 
     res.status(200).json(newOrder);
     return updateStock;
