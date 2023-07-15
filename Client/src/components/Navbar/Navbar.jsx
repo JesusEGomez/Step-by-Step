@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.png";
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -41,17 +42,15 @@ const NavBar = () => {
             <Filters />
           </div>
         </div>
-
         <main>
           {error && <p> Authentication Error </p>}
           {!error && isLoading && (
-            <span className="loading loading-spinner loading-md  fixed top-0 rigth-0"></span>
+            <span className="loading loading-spinner loading-md fixed top-0 rigth-0"></span>
           )}
           {!error && !isLoading && (
             <div className="fixed top-0 rigth-0">
-              {" "}
               <LoginButton />
-              <Profile />{" "}
+              <Profile />
             </div>
           )}
         </main>
@@ -100,35 +99,32 @@ const NavBar = () => {
                         src={product.images[0].imageUrl}
                         alt={product.model}
                       />
-                      <h6 className=" text-base font-light py-2">
+                      <h6 className="text-base font-light py-2">
                         {product.model}
                       </h6>
                       <h5 className="font-medium text-xs">
                         <strong>Precio:</strong> ${`${product.totalPrice}`}
                       </h5>
                       <h5 className="font-medium text-xs">
-                        <strong>Cantidad:</strong>
-                        {` ${product.quantity}`}
+                        <strong>Cantidad:</strong> {` ${product.quantity}`}
                       </h5>
-                      {product.sizes.map((size) => {
-                        return (
-                          <p className="font-medium text-xs mb-2">
-                            {" "}
-                            <strong>Talle: </strong> {` ${size}`}
-                          </p>
-                        );
-                      })}
+                      {product.sizes.map((size, index) => (
+                        <p key={index} className="font-medium text-xs mb-2">
+                          <strong>Talle: </strong> {` ${size}`}
+                        </p>
+                      ))}
                     </div>
                   );
                 })}
                 <div className="flex flex-col bg-gray-50 rounded-md p-2">
-                  <span className="text-sm font-medium ml-1 mb-2">{`${CartProducts.length} items`}</span>
+                  <span className="text-sm font-medium ml-1 mb-2">
+                    {`${CartProducts.length} items`}
+                  </span>
                   <span className="">
-                    <p className="text-gray-700  font-bold ml-1 ">{`Monto total $${total}`}</p>
+                    <p className="text-gray-700 font-bold ml-1">{`Monto total $${total}`}</p>
                   </span>
                 </div>
               </div>
-
               <div className="card-actions">
                 <Link to="/checkout">
                   <button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">

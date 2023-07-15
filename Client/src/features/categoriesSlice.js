@@ -4,6 +4,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 const GET_CATEGORIE = "http://localhost:3001/categories";
 // const GET_CATEGORIE =
 //   "https://step-by-step-production.up.railway.app/categories";
+// const GET_CATEGORIE = "https://step-by-step-production.up.railway.app/categories";
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
