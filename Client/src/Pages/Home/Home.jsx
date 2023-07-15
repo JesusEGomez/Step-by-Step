@@ -5,8 +5,8 @@ import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 
-const GET_URL = "http://localhost:3001/products";
-// const GET_URL = 'https://step-by-step-production.up.railway.app/products';
+
+const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
 
   const fetchCarouselImages = async () => {
     try {
-      const response = await axios.get(GET_URL);
+      const response = await axios.get(`${URL}/products`);
       const data = response.data;
       setProducts(data); // Guardar la matriz de productos en el estado
       const images = data.map((product) => product.images[1]);
@@ -67,9 +67,8 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? "active" : "bg-gray-300"
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
+            }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",

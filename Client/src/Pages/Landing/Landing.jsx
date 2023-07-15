@@ -2,11 +2,10 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import landingvideo from '../../assets/zapatillas.mp4_Trim.mp4';
 import styles from "./Landing.module.css";
-import { useSelector } from "react-redux/es/hooks/useSelector";
-import { getCartProducts, clearCart } from '../../features/cartSlice';
+const URL = import.meta.env.VITE_URL;
+import { clearCart } from '../../features/cartSlice';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
-import { useAuth0 } from '@auth0/auth0-react';
 
 function Landing() {
   const navigate = useNavigate();
@@ -14,24 +13,28 @@ function Landing() {
   const handleExploreClick = () => {
     navigate('/home');
   };
-  // const { user } = useAuth0()
+
   const cart = JSON.parse(localStorage.getItem("cart"))
   const dispatch = useDispatch();
   useEffect(() => {
-    const sendOrder = async () => {
-      const urlParams = new URLSearchParams(window.location.search)
-      const status = urlParams.get("status")
-      const orderId = urlParams.get("payment_id")
-      const order = cart.map((product) => {
-        const { id, sizes, quantity } = product
-        const newOrden = { productId: id, size: sizes[0], quantity, ordenNumber: orderId, paymentStatus: status, email: "jesus.emauel.gomez77@gmail.com" }
-        return newOrden
-      })
-      response = await axios.post("http://localhost:3001/orders/create", order)
+    const urlParams = new URLSearchParams(window.location.search)
+    const status = urlParams.get("status")
+    const orderId = urlParams.get("payment_id")
+    if (status === "approved") {
+      const user = JSON.parse(localStorage.getItem("user"))
+      const sendOrder = async () => {
+        const order = cart.map((product) => {
+          const { id, sizes, quantity } = product
+          const newOrden = { productId: id, size: sizes[0], quantity, ordenNumber: orderId, paymentStatus: status, email: user.email }
+          return newOrden
+        })
+        response = await axios.post(`${URL}/orders/create`, order)
+      }
+      sendOrder()
+      console.log("orden", cart)
+      dispatch(clearCart())
     }
-    sendOrder()
-    console.log("orden", cart)
-    dispatch(clearCart())
+
   }, [])
 
   return (
