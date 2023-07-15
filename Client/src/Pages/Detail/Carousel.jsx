@@ -1,80 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import imagen18 from "../Detail/imagenes/image 18.png";
+import imagen26 from "../Detail/imagenes/image 26.png";
+import imagen27 from "../Detail/imagenes/image 27.png";
+import imagen28 from "../Detail/imagenes/image 28.png";
+import imagen29 from "../Detail/imagenes/image 29.png";
 
-const GET_URL = 'http://localhost:3001/products';
-const IMAGES_PER_SLIDE = 5;
+const GET_URL = "http://localhost:3001/products";
 
 const Carousel = () => {
-  const [carouselImages, setCarouselImages] = useState([]);
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-  const [products, setProducts] = useState([]);
+  const [firstImage, setFirstImage] = useState(null);
 
   useEffect(() => {
-    fetchCarouselImages();
+    const fetchFirstImage = async () => {
+      try {
+        const response = await fetch(GET_URL);
+        const data = await response.json();
+        const firstImageData = data[0].images[0].imageUrl; // Obtener la URL de la primera imagen
+        setFirstImage(firstImageData);
+      } catch (error) {
+        console.error("Error fetching first image data:", error);
+      }
+    };
+
+    fetchFirstImage();
   }, []);
 
-  const fetchCarouselImages = async () => {
-    try {
-      const response = await axios.get(GET_URL);
-      const data = response.data;
-      setProducts(data); // Guardar la matriz de productos en el estado
-      const images = data.map((product) => product.images[0].imageUrl);
-      setCarouselImages(images);
-    } catch (error) {
-      console.error('Error fetching carousel data:', error);
-    }
-  };
-
-  const handleSlideChange = (slideIndex) => {
-    setCurrentSlideIndex(slideIndex);
-  };
-
-  const renderCarouselItems = () => {
-    const startIndex = currentSlideIndex * IMAGES_PER_SLIDE;
-    const endIndex = startIndex + IMAGES_PER_SLIDE;
-
-    return carouselImages.slice(startIndex, endIndex).map((image, index) => {
-      const productIndex = startIndex + index; // Asignar el índice del producto
-      const product = products[productIndex]; // Obtener el objeto de producto correspondiente
-      const productId = product ? product.id : null;
-
-      return (
-        <Link
-          key={index}
-          to={productId ? `/home/${productId}` : '#'} // Verificar si productId existe antes de establecer el atributo 'to' del enlace
-          className="carousel-item max-w-xs max-h-96 object-cover"
-        >
-          <img src={image} alt="Product" />
-        </Link>
-      );
-    });
-  };
-
-  const renderSlideButtons = () => {
-    const totalSlides = Math.ceil(carouselImages.length / IMAGES_PER_SLIDE);
-    const buttons = [];
-
-    for (let i = 0; i < totalSlides; i++) {
-      buttons.push(
-        <button
-          key={i}
-          className={`carousel-button ${i === currentSlideIndex ? 'active' : 'bg-gray-300'
-            }`}
-          onClick={() => handleSlideChange(i)}
-        />
-      );
-    }
-
-    return buttons;
-  };
-
   return (
-    <div className="carousel rounded-box mt-16">
-      {renderCarouselItems()}
-      <div className="flex justify-center mt-4">{renderSlideButtons()}</div>
+    <div className="carousel w-full">
+      <div id="slide1" className="carousel-item relative w-full">
+        <img src={firstImage || imagen26} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide4" className="btn btn-circle">❮</a>
+          <a href="#slide2" className="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide2" className="carousel-item opacity-0 absolute w-full">
+        <img src={imagen27} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide1" className="btn btn-circle">❮</a>
+          <a href="#slide3" className="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide3" className="carousel-item opacity-0 absolute w-full">
+        <img src={imagen28} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide2" className="btn btn-circle">❮</a>
+          <a href="#slide4" className="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide4" className="carousel-item opacity-0 absolute w-full">
+        <img src={imagen18} className="w-full" />
+        <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+          <a href="#slide3" className="btn btn-circle">❮</a>
+          <a href="#slide1" className="btn btn-circle">❯</a>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default Carousel;
+

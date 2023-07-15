@@ -14,8 +14,8 @@ function Detail(clickHandler) {
   const [productData, setProductData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState("Ninguno seleccionado");
-  // const [carouselImages, setCarouselImages] = useState([]);
-  // const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
+  const [carouselImages, setCarouselImages] = useState([]);
+  const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
   const [addedToCart, setAddedToCart] = useState(false);
 
 

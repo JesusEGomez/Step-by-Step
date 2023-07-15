@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
 // const products = require("../productos");
-const { DB_USER, DB_PASSWORD, DB_HOST, URL } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
 // const sequelize = new Sequelize(URL, {
 //   logging: false, // set to console.log to see the raw SQL queries
