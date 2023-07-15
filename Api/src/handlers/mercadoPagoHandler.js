@@ -4,7 +4,7 @@ const { ACCESS_TOKEN } = process.env;
 mercadopago.configure({
   access_token: ACCESS_TOKEN,
 });
-const URL = "https://step-by-step-git-develop-jesusegomez.vercel.app";
+const URL = "https://step-by-step-pi.vercel.app";
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
