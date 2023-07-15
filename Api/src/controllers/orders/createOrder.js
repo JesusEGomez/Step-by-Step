@@ -33,15 +33,15 @@ const createOrder = async (orderData) => {
     for (const order of orderData) {
       const {
         productId,
-        userId,
+        email,
         orderNumber,
         paymentStatus,
         fullFillmentStatus,
       } = order;
-      // console.log("orderNumber", orderData);
+      console.log("orderNumber", email);
 
       const product = await Product.findByPk(productId);
-      const user = await User.findByPk(userId);
+      const user = await User.findOne({ where: { mail: email } });
       console.log("orderNumber", orderData);
       const data = {
         orderNumber: orderNumber,
