@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useAuth0 } from '@auth0/auth0-react';
 
+
 const URL = import.meta.env.VITE_URL;
 
 const MercadoPagoButton = ({ carrito }) => {
-    const { user } = useAuth0()
+    const { user, isAuthenticated } = useAuth0()
     const [url, setUrl] = useState(null);
     const [loading, setLoading] = useState(true);
     console.log("este es el carrtio", carrito);
@@ -14,14 +15,17 @@ const MercadoPagoButton = ({ carrito }) => {
         const generateLink = async () => {
             setLoading(true)
             try {
-                const { data: preference } = await axios.post(`${URL}/checkout`, {
-                    carrito
-                });
-                // const { data: preference } = await axios.post("https://step-by-step-production.up.railway.app/checkout", {
-                //     carrito
-                // });
+                if (isAuthenticated) {
 
-                setUrl(preference.url);
+                    const { data: preference } = await axios.post(`${URL}/checkout`, {
+                        carrito
+                    });
+                    // const { data: preference } = await axios.post("https://step-by-step-production.up.railway.app/checkout", {
+                    //     carrito
+                    // });
+
+                    setUrl(preference.url);
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -38,9 +42,10 @@ const MercadoPagoButton = ({ carrito }) => {
                     <span className="loading loading-spinner loading-md text-white"></span>
                 </button>
             ) : (
-                <a href={url} className="no-underline text-white visited:text-white">
+                isAuthenticated ? <a href={url} className="no-underline text-white visited:text-white">
                     Finalizar compra
-                </a>
+                </a> : <p className="no-underline text-white visited:text-white">Debes estar Registrado para comprar</p>
+
             )}
         </div>
     );
