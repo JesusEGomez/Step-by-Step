@@ -13,7 +13,7 @@ import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 import Swal from 'sweetalert2';
 import axios from "axios";
-
+import { FaTrashAlt } from "react-icons/fa"
 export default function Form() {
   const brands = useSelector(getAllBrands);
   const categories = useSelector(getAllCategories);
@@ -29,73 +29,37 @@ export default function Form() {
   }, []);
 
   const [Image, setImage] = useState("");
-  const [countImg, setCountImg] = useState(1);
+  const [isFormValid, setIsFormValid] = useState(false);
 
-  const renderInputImg = () => {
-    const inputs = [];
-    for (let i = 1; i <= countImg; i++) {
-      inputs.push(
-        <input
-          key={i}
-          type="text"
-          placeholder={`imagen numero #${i}`}
-          onChange={handleImageChange}
-          id="inputImg"
-          className="p-1 mr-2"
-        />
-      );
-    }
-    return inputs;
-  };
-  const addInputImg = () => {
-    setCountImg(countImg + 1);
-  };
-  const lastInputImg = () => {
-    if (countImg > 1) {
-      setCountImg(countImg - 1);
-    }
-  };
 
-  // const submitImage = () => {
-  //     const data = new FormData()
-  //     data.append("file", image)
-  //     data.append("upload_preset", "dmtxokbw")
-  //     data.append("cloud_name", "dg3hl3bit")
+  // const [countImg, setCountImg] = useState(1);
 
-  //     fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload",
-  //     {
-  //         method: "post",
-  //         body: data
-  //     })
-  //     .then(res => res.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //     }).catch(err)
-  // }
-  //     const [uploadedImageUrl, setUploadedImageUrl] = useState("");
+  // const renderInputImg = () => {
+  //   const inputs = [];
+  //   for (let i = 1; i <= countImg; i++) {
+  //     inputs.push(
+  //       <input
+  //       key={i}
+  //       type="text"
+  //       placeholder={`imagen numero #${i}`}
+  //       onChange={handleImageChange}
+  //       id="inputImg"
+  //       className="p-1 mr-2"
+  //       />
+  //       );
+  //     }
+  //     return inputs;
+  //   };
+  //   const addInputImg = () => {
+  //     setCountImg(countImg + 1);
+  //   };
+  //   const lastInputImg = () => {
+  //     if (countImg > 1) {
+  //       setCountImg(countImg - 1);
+  //     }
+  //   };
 
-  //     const submitImage = () => {
-  //         const data = new FormData();
-  //         data.append("file", image);
-  //         data.append("upload_preset", "dmtxokbw");
-  //         data.append("cloud_name", "dg3hl3bit");
 
-  //         fetch("https://api.cloudinary.com/v1_1/dg3hl3bit/image/upload", {
-  //         method: "post",
-  //         body: data,
-  //     })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //         console.log(data);
-  //         const imageUrl = data.secure_url;
-  //         setUploadedImageUrl(imageUrl);
-  //         form.setFieldValue("image", imageUrl); // Setea la URL en el campo "image" del formulario
-  //         form.handleSubmit(); // Envía el formulario
-  //     })
-  //     .catch((err) => {
-  //         console.log(err);
-  //     });
-  // };
 
   const [form, setForm] = useState({
     item_number: "",
@@ -114,19 +78,7 @@ export default function Form() {
   });
   console.log('formulario: ', form)
   const [errors, setErrors] = useState({
-    // item_number: "", //
-    // model: "",//
-    // description: "",
-    // price: 0,
-    // discountPercentage: 0,
-    // gender: "unisex",
-    // stock: {},
-    // isPublish: false,
-    // brand: "",
-    // size: [],
-    // images: [],
-    // categories: [],
-    // color: []
+
   });
 
   const validate = (form) => {
@@ -190,10 +142,12 @@ export default function Form() {
         ...prevForm,
         images: [...prevForm.images, response.data.url],
       }));
+      setIsFormValid(true); // Actualizar el estado de isFormValid a true cuando se cargue una imagen
     } catch (error) {
       console.log(error);
     }
   };
+
 
 
   function handleSelectChange(event) {
@@ -233,6 +187,17 @@ export default function Form() {
       };
     });
   };
+  const handleDeleteImg = (index) => {
+    setForm((prevState) => {
+      const updatedImages = [...prevState.images];
+      updatedImages.splice(index, 1);
+      return {
+        ...prevState,
+        images: updatedImages,
+      };
+    });
+  };
+
 
   function handlerInputChange(e) {
     const { name, value, type } = e.target;
@@ -255,27 +220,27 @@ export default function Form() {
     });
   }
 
-  function handleImageChange(event) {
-    const { value } = event.target;
-    const updatedImages = [...form.images, value];
+  // function handleImageChange(event) {
+  //   const { value } = event.target;
+  //   const updatedImages = [...form.images, value];
 
-    if (!updatedImages.every((image) => /\.(jpg|png)$/.test(image))) {
-      setErrors((errors) => ({
-        ...errors,
-        images: "Las imágenes deben tener extensión .jpg o .png",
-      }));
-    } else {
-      setErrors((errors) => ({
-        ...errors,
-        images: "", // Limpiar el mensaje de error si todas las imágenes son válidas
-      }));
-    }
+  //   if (!updatedImages.every((image) => /\.(jpg|png)$/.test(image))) {
+  //     setErrors((errors) => ({
+  //       ...errors,
+  //       images: "Las imágenes deben tener extensión .jpg o .png",
+  //     }));
+  //   } else {
+  //     setErrors((errors) => ({
+  //       ...errors,
+  //       images: "", // Limpiar el mensaje de error si todas las imágenes son válidas
+  //     }));
+  //   }
 
-    setForm((prevState) => ({
-      ...prevState,
-      images: updatedImages,
-    }));
-  }
+  //   setForm((prevState) => ({
+  //     ...prevState,
+  //     images: updatedImages,
+  //   }));
+  // }
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -312,11 +277,18 @@ export default function Form() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate(form)) {
+      if (form.images.length === 0) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Faltaron las imagenes',
+          text: 'esto se va a renderizar en la tienda, es necesario que tenga una imagen que muestre el producto'
+        })
+        return;
+      }
+
       dispatch(addNewProduct(form))
         .then((res) => {
           console.log("Solicitud POST exitosa:", res);
-          // alert("Zapatilla creada correctamente");
-
           Swal.fire(
             'Felicitaciones!',
             'La zapatilla ha sido creado exitosamente!',
@@ -332,6 +304,7 @@ export default function Form() {
         });
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -408,7 +381,7 @@ export default function Form() {
                     id="description"
                     name="description"
                     rows={3}
-                    className="block w-4/5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    className="block w-4/5 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     onChange={handlerInputChange}
                     value={form.description}
                   />
@@ -675,34 +648,39 @@ export default function Form() {
                 <div className="col-span-fit"></div>
               </div>
             </fieldset>
-            <label htmlFor="image" className="mr-2 p-1">
-              Imagen:
-            </label>
+            <div className="flex flex-col">
+              <label htmlFor="image" className="text-md font-semibold m-2 leading-6 text-gray-900 mb-2">
+                Elige una Imagen:
+              </label>
+              <input type="file" className="file-input file-input-bordered w-full max-w-xl m-2" onChange={submitImage} />
+              {/* <div className="flex space-x-4">
+                              {form.images.map((image, index) => (
+                                <img className="flex-shrink-0 w-1/4 m-3" src={image} key={index} alt={`Image ${index}`} />
+                                ))}
+                              </div> */}
 
-            {/* {renderInputImg()}
-            <button
-              className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
-              onClick={addInputImg}
-              value={form.images}
-              type="button"
-            >
-              Agregar img
-            </button> */}
-            <input type="file" onChange={submitImage} />
-            {form.images.map((image, index) => (
-              <img src={image} key={index} alt={`Image ${index}`} />
-            ))}
+              <div className="flex space-x-4">
+                {form.images.map((image, index) => (
+                  <div className="relative" key={index}>
+                    <img className="w-48 h-48 object-cover m-3" src={image} alt={`Image ${index}`} />
+                    <button
+                      onClick={() => handleDeleteImg(index)}
+                      className="absolute top-0 right-0 w-6 h-6 bg-red-800 border-none text-white px-2 py-1 rounded-full"
+                    >
+                      <FaTrashAlt className="pr-2" />
+                    </button>
 
-            <button
-              className="py-1 px-2 m3 mb-4 rounded   hover:border-gray-400 hover:border-2 hover:bg-gray-100 text-gray-500"
-              onClick={lastInputImg}
-              type="button"
-            >
-              Eliminar img
-            </button>
+                  </div>
+                ))}
+              </div>
+
+
+            </div>
+
             {errors.images && (
               <span className="text-red-500 text-sm">{errors.images}</span>
             )}
+
           </div>
         </div>
       </div>
