@@ -59,7 +59,7 @@ const getDbProducts = async () => {
     // },
     const stock = product.stocks.map((s) => {
       return {
-        size: s.sizeId + 34,
+        size: s.sizeId + 33,
         stockPerSize: s.stockPerSize,
       };
     });
