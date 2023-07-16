@@ -9,7 +9,7 @@ const updateStockPerSize = async (order) => {
       const stock = await Stock.findOne({
         where: {
           productId: e.productId,
-          sizeId: e.size - 33,
+          sizeId: e.size - 34,
         },
       });
 
