@@ -30,9 +30,37 @@ export default function Form() {
   
   const [Image, setImage] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
-
-
-
+  
+  
+  // const [countImg, setCountImg] = useState(1);
+  
+  // const renderInputImg = () => {
+  //   const inputs = [];
+  //   for (let i = 1; i <= countImg; i++) {
+  //     inputs.push(
+  //       <input
+  //       key={i}
+  //       type="text"
+  //       placeholder={`imagen numero #${i}`}
+  //       onChange={handleImageChange}
+  //       id="inputImg"
+  //       className="p-1 mr-2"
+  //       />
+  //       );
+  //     }
+  //     return inputs;
+  //   };
+  //   const addInputImg = () => {
+  //     setCountImg(countImg + 1);
+  //   };
+  //   const lastInputImg = () => {
+  //     if (countImg > 1) {
+  //       setCountImg(countImg - 1);
+  //     }
+  //   };
+  
+  
+  
   const [form, setForm] = useState({
     item_number: "",
     model: "",
@@ -50,7 +78,7 @@ export default function Form() {
   });
   console.log('formulario: ', form)
   const [errors, setErrors] = useState({
-
+    
   });
   
   const validate = (form) => {
@@ -95,7 +123,7 @@ export default function Form() {
   function handlerToF(e) {
     setForm({ ...form, isPublish: event.target.value === "true" });
   }
-
+  
   const submitImage = async (event) => {
     try {
       const file = event.target.files[0];
@@ -103,81 +131,27 @@ export default function Form() {
       data.append("file", file);
       data.append("upload_preset", "prueba");
       data.append("cloud_name", "Step_By_Step");
-
-
+      
       const response = await axios.post(
         "https://api.cloudinary.com/v1_1/dldahkp7e/image/upload",
         data
-      );
-
-      console.log(response.data);
-      setForm((prevForm) => ({
-        ...prevForm,
-        images: [...prevForm.images, response.data.url],
-      }));
-      setIsFormValid(true); // Actualizar el estado de isFormValid a true cuando se cargue una imagen
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-
-
-  function handleSelectChange(event) {
-    const { value } = event.target;
-    setForm((prevState) => ({
-      ...prevState,
-      categories: [...prevState.categories, value],
-    }));
-  }
-
-  const handleDelete = (index) => {
-    setForm((prevState) => {
-      const updatedCategories = [...prevState.categories];
-      updatedCategories.splice(index, 1);
-      return {
-        ...prevState,
-        categories: updatedCategories,
-      };
-    });
-  };
-
-  function handlerColorChange(event) {
-    const { value } = event.target;
-    setForm((prevState) => ({
-      ...prevState,
-      color: [...prevState.color, value],
-    }));
-  }
-
-  const handleColorDelete = (index) => {
-    setForm((prevState) => {
-      const updatedColor = [...prevState.color];
-      updatedColor.splice(index, 1);
-      return {
-        ...prevState,
-        color: updatedColor,
-      };
-    });
-  };
-  const handleDeleteImg = (index) => {
-    setForm((prevState) => {
-      const updatedImages = [...prevState.images];
-      updatedImages.splice(index, 1);
-      return {
-        ...prevState,
-        images: updatedImages,
-      };
-    });
-  };
-
-
-  function handlerInputChange(e) {
-    const { name, value, type } = e.target;
-
-    if (type === "checkbox") {
-      const isChecked = e.target.checked;
-      const checkedValue = parseInt(value, 10);
+        );
+        
+        console.log(response.data);
+        setForm((prevForm) => ({
+          ...prevForm,
+          images: [...prevForm.images, response.data.url],
+        }));
+        setIsFormValid(true); // Actualizar el estado de isFormValid a true cuando se cargue una imagen
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
+    
+    
+    function handleSelectChange(event) {
+      const { value } = event.target;
       setForm((prevState) => ({
         ...prevState,
         categories: [...prevState.categories, value],
@@ -202,7 +176,6 @@ export default function Form() {
         color: [...prevState.color, value],
       }));
     }
-
     
     const handleColorDelete = (index) => {
       setForm((prevState) => {
@@ -247,7 +220,27 @@ export default function Form() {
       });
     }
     
+    // function handleImageChange(event) {
+    //   const { value } = event.target;
+    //   const updatedImages = [...form.images, value];
     
+    //   if (!updatedImages.every((image) => /\.(jpg|png)$/.test(image))) {
+    //     setErrors((errors) => ({
+    //       ...errors,
+    //       images: "Las imágenes deben tener extensión .jpg o .png",
+    //     }));
+    //   } else {
+    //     setErrors((errors) => ({
+    //       ...errors,
+    //       images: "", // Limpiar el mensaje de error si todas las imágenes son válidas
+    //     }));
+    //   }
+    
+    //   setForm((prevState) => ({
+    //     ...prevState,
+    //     images: updatedImages,
+    //   }));
+    // }
     
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -256,7 +249,6 @@ export default function Form() {
         const selectedSizes = form.size;
         const sizeValue = parseInt(value);
         const updatedSizes = selectedSizes.includes(sizeValue)
-
         ? selectedSizes.filter((size) => size !== sizeValue)
         : [...selectedSizes, sizeValue];
         
@@ -281,58 +273,42 @@ export default function Form() {
           [name]: parseInt(value),
         },
       });
-
-    }
-    validate(form);
-  };
-  const handleStockChange = (e) => {
-    const { name, value } = e.target;
-    setForm({
-      ...form,
-      stock: {
-        ...form.stock,
-        [name]: parseInt(value),
-      },
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate(form)) {
-      if (form.images.length === 0) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Faltaron las imagenes',
-          text: 'esto se va a mostrar en la tienda, es necesario que tenga una imagen del producto'
-        })
-        return;
-      }
-
-      dispatch(addNewProduct(form))
-
+    };
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (validate(form)) {
+        if (form.images.length === 0) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Faltaron las imagenes',
+            text: 'esto se va a renderizar en la tienda, es necesario que tenga una imagen que muestre el producto'
+          })
+          return;
+        }
+        
+        dispatch(addNewProduct(form))
         .then((res) => {
           console.log("Solicitud POST exitosa:", res);
           Swal.fire(
             'Felicitaciones!',
             'La zapatilla ha sido creado exitosamente!',
             'success'
-
-          )
-
-          setTimeout(function () {
-            window.location.reload();
-          }, 5000);
-        })
-        .catch((error) => {
-          console.log("Error en la solicitud POST:", error);
-        });
-    }
-  };
-
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <div className="space-y-12 mt-40 ml-20">
-
+            )
+            
+            setTimeout(function () {
+              window.location.reload();
+            }, 5000);
+          })
+          .catch((error) => {
+            console.log("Error en la solicitud POST:", error);
+          });
+        }
+      };
+      
+      
+      return (
+        <form onSubmit={handleSubmit}>
+        <div className="space-y-12 mt-40 ml-20">
         <div className="border-b border-gray-900/10 pb-12">
         <h2 className="text-base font-semibold leading-7 text-gray-900">
         Formulario
@@ -421,34 +397,6 @@ export default function Form() {
               esto lo visulizará el cliente.
               </p>
               </div>
-            <div className="col-span-2 my-6 ">
-                <label
-                  htmlFor="description"
-                  className=" my-2  text-sm font-medium leading-6 text-gray-900"
-                >
-                  Descripción
-                </label>
-                <div className="mt-2 ">
-                  <textarea
-                    id="description"
-                    name="description"
-                    rows={3}
-                    className="block w-4/5 rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    onChange={handlerInputChange}
-                    value={form.description}
-                  />
-                </div>
-                {errors.description && (
-                  <span className="text-red-500 text-sm">
-                    {errors.description}
-                  </span>
-                )}
-
-                <p className="mt-3 text-sm leading-6 text-gray-600">
-                  Haz una descripción detallada de la zapatilla, recorda que
-                  esto lo visulizará el cliente.
-                </p>
-
               </div>
               </div>
               </div>
@@ -643,7 +591,6 @@ export default function Form() {
                       <option disabled={true} value="">
                       Select a category
                       </option>
-
                       {categories.map((categorie, index) => (
                         <option value={categorie} key={index}>
                         {categorie}
@@ -707,12 +654,10 @@ export default function Form() {
                               </label>
                               <input type="file" className="file-input file-input-bordered w-full max-w-xl m-2" onChange={submitImage} />
                               {/* <div className="flex space-x-4">
-
                               {form.images.map((image, index) => (
                                 <img className="flex-shrink-0 w-1/4 m-3" src={image} key={index} alt={`Image ${index}`} />
                                 ))}
                               </div> */}
-
                               
                               <div className="flex space-x-4">
                               {form.images.map((image, index) => (
