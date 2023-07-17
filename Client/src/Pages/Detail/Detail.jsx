@@ -6,25 +6,22 @@ import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
 import Swal from 'sweetalert2'
 
-const GET_URL = "http://localhost:3001/products";
-// const GET_URL = "https://step-by-step-production.up.railway.app/products";
 
+const URL = import.meta.env.VITE_URL;
 
 function Detail(clickHandler) {
   const { id } = useParams();
   const [productData, setProductData] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedSize, setSelectedSize] = useState("Ninguno seleccionado");
-  // const [carouselImages, setCarouselImages] = useState([]);
-  // const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
+  const [carouselImages, setCarouselImages] = useState([]);
+  const [carouselSelectedImage, setCarouselSelectedImage] = useState(null);
   const [addedToCart, setAddedToCart] = useState(false);
-
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${GET_URL}/${id}`);
+        const response = await fetch(`${URL}/products/${id}`);
         const data = await response.json();
         setProductData(data);
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
@@ -114,7 +111,9 @@ function Detail(clickHandler) {
                 </div>
               </div>
               <div className="whitespace-nowrap text-xs font-sans  tracking-[-0.0840000033378601] leading-[24px] text-gray-600  mb-2 relative w-20 font-semibold">
-                Stock: {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
+  Stock:{" "}
+                {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
+
               </div>
               <div className=" inline  text-gray-800  text-xs font-light mb-1 w-52">
                 SELECCIONA UN TALLE:
@@ -125,35 +124,46 @@ function Detail(clickHandler) {
                   {productData.stock.map((size, index) => (
                     <div
                       key={index}
-                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size ? "bg-gray-200 border-solid rounded  border-sm" : ""
+                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size
+                        ? "bg-gray-200 border-solid rounded  border-sm"
+                        : ""
                         }`}
                       onClick={() => handleImageSize(size)}
                     >
                       <label class="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
-                        <input type="radio" name="size-choice" value="3XL" class="sr-only" aria-labelledby="size-choice-7-label" />
+                        <input
+                          type="radio"
+                          name="size-choice"
+                          value="3XL"
+                          class="sr-only"
+                          aria-labelledby="size-choice-7-label"
+                        />
                         <span id="size-choice-7-label">{size.size}</span>
 
-                        <span class="pointer-events-none absolute -inset-px rounded-md" aria-hidden="true"></span>
+                        <span
+                          class="pointer-events-none absolute -inset-px rounded-md"
+                          aria-hidden="true"
+                        ></span>
                       </label>
                     </div>
                   ))}
                 </div>
               </div>
-              <p className="font-semibold text-sm">{`Talle seleccionado: ${selectedSize.size}`}</p>
-              <div>
-              </div>
+              <p className="font-semibold text-sm">{`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""}`}</p>
+              <div></div>
               {addedToCart && (
-                <div className="text-green-500 text-lg font-normal mb-1">Producto agregado al carrito</div>
+
+                <div className="text-green-600 text-base font-normal mb-1">
+                  Producto agregado al carrito
+                </div>
               )}
 
-              <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-2 mr-12">
-
+              <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 mr-12">
                 <button
                   onClick={() => clickAddHandler(productData)}
                   className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
                 >
                   Comprar
-
                 </button>
               </div>
 
@@ -161,13 +171,14 @@ function Detail(clickHandler) {
                 {/* Shipping* */}
                 <br />
                 {/* <Carousel /> */}
-
               </div>
             </div>
           </div>
         </div>
       ) : (
-        <button disabled className="bg-white w-96 h-96 ml-80 mt-20  mb-20" >
+
+        <button disabled className="bg-white w-96 h-96 ml-80 mt-20  mb-96">
+
           <span className="loading loading-spinner loading-3xl text-black"></span>
         </button>
       )}

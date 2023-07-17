@@ -4,10 +4,11 @@ const { ACCESS_TOKEN } = process.env;
 mercadopago.configure({
   access_token: ACCESS_TOKEN,
 });
+const URL = "https://step-by-step-pi.vercel.app";
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "https://02bf-190-30-177-199.ngrok-free.app";
+
   try {
     const preference = {
       items: carrito.map((product) => ({
