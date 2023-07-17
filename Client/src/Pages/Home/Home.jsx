@@ -4,8 +4,6 @@ import { GiRunningShoe } from "react-icons/gi";
 import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
-import { clearCart } from '../../features/cartSlice';
-import { useDispatch } from 'react-redux';
 
 
 const URL = import.meta.env.VITE_URL;
@@ -20,28 +18,6 @@ const Home = () => {
 
   useEffect(() => {
     fetchCarouselImages();
-    const cart = JSON.parse(localStorage.getItem("cart"))
-    const dispatch = useDispatch();
-
-    const urlParams = new URLSearchParams(window.location.search)
-    const status = urlParams.get("status")
-    const orderId = urlParams.get("payment_id")
-    if (status === "approved") {
-      const user = JSON.parse(localStorage.getItem("user"))
-      const sendOrder = async () => {
-        const order = cart.map((product) => {
-          const { id, sizes, quantity } = product
-          const newOrden = { productId: id, size: sizes[0], quantity, ordenNumber: orderId, paymentStatus: status, email: user.email }
-          return newOrden
-        })
-        response = await axios.post(`${URL}/orders/create`, order)
-      }
-      sendOrder()
-      console.log("orden", cart)
-      dispatch(clearCart())
-    }
-
-
   }, []);
 
   const fetchCarouselImages = async () => {

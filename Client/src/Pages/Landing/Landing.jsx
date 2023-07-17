@@ -1,8 +1,11 @@
-
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import landingvideo from '../../assets/zapatillas.mp4_Trim.mp4';
 import styles from "./Landing.module.css";
-
+const URL = import.meta.env.VITE_URL;
+import { clearCart } from '../../features/cartSlice';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 function Landing() {
   const navigate = useNavigate();
@@ -11,7 +14,28 @@ function Landing() {
     navigate('/home');
   };
 
+  const cart = JSON.parse(localStorage.getItem("cart"))
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search)
+    const status = urlParams.get("status")
+    const orderId = urlParams.get("payment_id")
+    if (status === "approved") {
+      const user = JSON.parse(localStorage.getItem("user"))
+      const sendOrder = async () => {
+        const order = cart.map((product) => {
+          const { id, sizes, quantity } = product
+          const newOrden = { productId: id, size: sizes[0], quantity, ordenNumber: orderId, paymentStatus: status, email: user.email }
+          return newOrden
+        })
+        response = await axios.post(`${URL}/orders/create`, order)
+      }
+      sendOrder()
+      console.log("orden", cart)
+      dispatch(clearCart())
+    }
 
+  }, [])
 
   return (
     <div className={`relative ${styles.container}`}>
