@@ -13,9 +13,10 @@ import LoginButton from "../Login/auth0/LoginButton";
 import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
-  const { isLoading, error } = useAuth0();
+  const { isAuthenticated, isLoading, error, user } = useAuth0();
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
@@ -124,17 +125,27 @@ const NavBar = () => {
                 </div>
               </div>
               <div className="card-actions">
-                <Link to="/checkout">
-                  <button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">
+
+                {(isAuthenticated && user?.email_verified) ?
+                  <Link to="/checkout">
+                    <button className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">
+                      Ir a pagar
+                    </button>
+                  </Link> :
+                  <button onClick={() => {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops... No puedes realizar la compra sin antes iniciar sesion con una cuenta verificada.',
+                    })
+                  }} className="bg-black mx-10 px-8 text-white hover:border-gray-200  hover:bg-gray-800">
                     Ir a pagar
-                  </button>
-                </Link>
+                  </button>}
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
