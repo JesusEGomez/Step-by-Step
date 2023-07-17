@@ -13,7 +13,7 @@ import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { FaTrashAlt } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa"
 export default function Form() {
   const brands = useSelector(getAllBrands);
   const categories = useSelector(getAllCategories);
@@ -30,6 +30,7 @@ export default function Form() {
 
   const [Image, setImage] = useState("");
   const [isFormValid, setIsFormValid] = useState(false);
+
 
   // const [countImg, setCountImg] = useState(1);
 
@@ -58,6 +59,8 @@ export default function Form() {
   //     }
   //   };
 
+
+
   const [form, setForm] = useState({
     item_number: "",
     model: "",
@@ -73,8 +76,10 @@ export default function Form() {
     categories: [],
     color: [],
   });
-  console.log("formulario: ", form);
-  const [errors, setErrors] = useState({});
+  console.log('formulario: ', form)
+  const [errors, setErrors] = useState({
+
+  });
 
   const validate = (form) => {
     const errors = {};
@@ -142,6 +147,8 @@ export default function Form() {
       console.log(error);
     }
   };
+
+
 
   function handleSelectChange(event) {
     const { value } = event.target;
@@ -271,10 +278,10 @@ export default function Form() {
     if (validate(form)) {
       if (form.images.length === 0) {
         Swal.fire({
-          icon: "error",
-          title: "Faltaron las imagenes",
-          text: "esto se va a renderizar en la tienda, es necesario que tenga una imagen que muestre el producto",
-        });
+          icon: 'error',
+          title: 'Faltaron las imagenes',
+          text: 'esto se va a renderizar en la tienda, es necesario que tenga una imagen que muestre el producto'
+        })
         return;
       }
 
@@ -296,6 +303,7 @@ export default function Form() {
         });
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit}>
@@ -640,17 +648,10 @@ export default function Form() {
               </div>
             </fieldset>
             <div className="flex flex-col">
-              <label
-                htmlFor="image"
-                className="text-md font-semibold m-2 leading-6 text-gray-900 mb-2"
-              >
+              <label htmlFor="image" className="text-md font-semibold m-2 leading-6 text-gray-900 mb-2">
                 Elige una Imagen:
               </label>
-              <input
-                type="file"
-                className="file-input file-input-bordered w-full max-w-xl m-2"
-                onChange={submitImage}
-              />
+              <input type="file" className="file-input file-input-bordered w-full max-w-xl m-2" onChange={submitImage} />
               {/* <div className="flex space-x-4">
                               {form.images.map((image, index) => (
                                 <img className="flex-shrink-0 w-1/4 m-3" src={image} key={index} alt={`Image ${index}`} />
@@ -660,25 +661,25 @@ export default function Form() {
               <div className="flex space-x-4">
                 {form.images.map((image, index) => (
                   <div className="relative" key={index}>
-                    <img
-                      className="w-48 h-48 object-cover m-3"
-                      src={image}
-                      alt={`Image ${index}`}
-                    />
+                    <img className="w-48 h-48 object-cover m-3" src={image} alt={`Image ${index}`} />
                     <button
                       onClick={() => handleDeleteImg(index)}
                       className="absolute top-0 right-0 w-6 h-6 bg-red-800 border-none text-white px-2 py-1 rounded-full"
                     >
                       <FaTrashAlt className="pr-2" />
                     </button>
+
                   </div>
                 ))}
               </div>
+
+
             </div>
 
             {errors.images && (
               <span className="text-red-500 text-sm">{errors.images}</span>
             )}
+
           </div>
         </div>
       </div>

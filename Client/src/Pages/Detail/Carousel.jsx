@@ -5,7 +5,8 @@ import imagen27 from "../Detail/imagenes/image 27.png";
 import imagen28 from "../Detail/imagenes/image 28.png";
 import imagen29 from "../Detail/imagenes/image 29.png";
 
-const GET_URL = "http://localhost:3001/products";
+
+const URL = import.meta.env.VITE_URL;
 
 const Carousel = () => {
   const [firstImage, setFirstImage] = useState(null);
@@ -13,7 +14,7 @@ const Carousel = () => {
   useEffect(() => {
     const fetchFirstImage = async () => {
       try {
-        const response = await fetch(GET_URL);
+        const response = await fetch(`${URL}/products`);
         const data = await response.json();
         const firstImageData = data[0].images[0].imageUrl; // Obtener la URL de la primera imagen
         setFirstImage(firstImageData);
