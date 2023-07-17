@@ -1,27 +1,29 @@
 require('dotenv').config();
 
 const {
-    welcomeEmail,
-    successPurchase,
-    failPurchase
-  } = require('./src/config/mailling/handlerMail.js');
-  
-  async function test() {
-    try {
-      // Llama a la función de bienvenida (welcomeEmail)
-      await welcomeEmail('cabreraclaudiof@gmail.com', 'Usuario');
-  
-      // Llama a la función de compra exitosa (successPurchase)
-      await successPurchase('cabreraclaudiof@gmail.com', 'Usuario');
-  
-      // Llama a la función de compra fallida (failPurchase)
-      await failPurchase('cabreraclaudiof@gmail.com', 'Usuario');
-  
-      console.log('Correos electrónicos enviados correctamente');
-    } catch (error) {
-      console.error('Error al enviar los correos electrónicos:', error);
-    }
+  welcomeEmail,
+  successPurchase,
+  failPurchase
+} = require('./src/config/mailling/handlerMail.js');
+
+// Obtén la dirección de correo electrónico del usuario registrado desde tu sistema de almacenamiento de datos
+const registeredUserEmail = 'cabreraclaudiof@gmail.com'; // Reemplaza esto con la lógica para obtener el correo electrónico del usuario registrado
+
+async function sendEmailsToRegisteredUser(email) {
+  try {
+    // Llama a la función de bienvenida (welcomeEmail) y pasa el correo electrónico del usuario registrado
+    await welcomeEmail(email, 'Usuario');
+
+    // Llama a la función de compra exitosa (successPurchase) y pasa el correo electrónico del usuario registrado
+    await successPurchase(email, 'Usuario');
+
+    // Llama a la función de compra fallida (failPurchase) y pasa el correo electrónico del usuario registrado
+    await failPurchase(email, 'Usuario');
+
+    console.log('Correos electrónicos enviados correctamente');
+  } catch (error) {
+    console.error('Error al enviar los correos electrónicos:', error);
   }
-  
-  test();
-  
+}
+
+sendEmailsToRegisteredUser();

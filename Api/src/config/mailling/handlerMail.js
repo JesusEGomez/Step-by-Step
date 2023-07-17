@@ -2,6 +2,8 @@ const nodemailer = require("nodemailer");
 const homeURL = "http://localhost:5173/tienda";
 const MAIL = process.env.NEXT_MAIL;
 const MAIL_PASSWORD = process.env.NEXT_MAIL_PASSWORD;
+const { userByIdCtrl } = require("../../controllers/users/userByIdCtrl");
+
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -17,27 +19,27 @@ const transporter = nodemailer.createTransport({
   
 });
 
-async function welcomeEmail(email, displayName) {
-  console.log(process.env.NEXT_MAIL);
-console.log(process.env.NEXT_MAIL_PASSWORD);
+ async function welcomeEmail(email, displayName) {
+   console.log(process.env.NEXT_MAIL);
+ console.log(process.env.NEXT_MAIL_PASSWORD);
 
-  try {
-    const info = await transporter.sendMail({
-      from: `Bienvenido usuario ${MAIL}`, // sender address
-      to: email, // list of receivers
-      subject: "Bienvenido a Step-by-Step", // Subject line
-      // text: "Hello world?", // plain text body
-      html: `
-			<h2> Bienvenido a Step-by-Step ${displayName} </h2>
-			<h3> Estamos muy felices que nos hayas escogidos para tus futuras compras. </h3>
-			<h4> Ir a Step-by-Step clickeando aquí ${homeURL}</h4>
-			`,
-    });
+   try {
+     const info = await transporter.sendMail({
+       from: `Bienvenido usuario ${MAIL}`, // sender address
+       to: email, // list of receivers
+       subject: "Bienvenido a Step-by-Step", // Subject line
+       // text: "Hello world?", // plain text body
+       html: `
+ 			<h2> Bienvenido a Step-by-Step ${displayName} </h2>
+ 			<h3> Estamos muy felices que nos hayas escogidos para tus futuras compras. </h3>
+ 			<h4> Ir a Step-by-Step clickeando aquí ${homeURL}</h4>
+ 			`,
+     });
 
-    return info;
-  } catch (error) {
-    throw new Error(error.message);
-  }
+     return info;
+   } catch (error) {
+     throw new Error(error.message);
+   }
 }
 
 async function successPurchase(email, displayName) {
