@@ -17,11 +17,12 @@ const Home = () => {
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetchCarouselImages();
     const cart = JSON.parse(localStorage.getItem("cart"))
-    const dispatch = useDispatch();
+    
 
     const urlParams = new URLSearchParams(window.location.search)
     const status = urlParams.get("status")
