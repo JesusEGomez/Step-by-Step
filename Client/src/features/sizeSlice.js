@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-// const GET_SIZES = "http://localhost:3001/sizes";
-const GET_SIZES = "https://step-by-step-production.up.railway.app/sizes";
+
+const URL = import.meta.env.VITE_URL;
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
@@ -20,7 +20,7 @@ export const fetchSizes = createAsyncThunk(
   "size/fetchSizes", //
   async () => {
     try {
-      const response = await axios.get(GET_SIZES);
+      const response = await axios.get(`${URL}/sizes`);
       const end = response.data;
       console.log(response.data);
 
