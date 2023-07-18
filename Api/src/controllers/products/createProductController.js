@@ -108,6 +108,7 @@ const createProductController = async ({
       image.setProduct(newProduct);
     })
   );
+  console.log(newProduct);
   return newProduct;
 };
 

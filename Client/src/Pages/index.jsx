@@ -6,4 +6,4 @@ import Tienda from "./Tienda/Tienda";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import Checkout from "./Checkout/Checkout";
 
-export { Home, Landing, Form, Detail, Tienda, ErrorPage,Checkout };
+export { Home, Landing, Form, Detail, Tienda, ErrorPage, Checkout };
