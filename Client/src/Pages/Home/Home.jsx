@@ -4,6 +4,7 @@ import { GiRunningShoe } from "react-icons/gi";
 import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 
 
 const URL = import.meta.env.VITE_URL;

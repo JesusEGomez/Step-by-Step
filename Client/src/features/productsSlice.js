@@ -19,6 +19,22 @@ const initialState = {
   currentPage: 1,
 };
 
+export const addNewProduct = createAsyncThunk(
+  "products/addNewProduct",
+  async (data) => {
+    // const response= await axios.post(URL,obj)
+    // return response.data
+    // .then((response) => response.json())
+    // .then((json) => console.log(json));
+    try {
+      const response = await axios.post(`${URL}/products`, data);
+
+      return response.data;
+    } catch (error) {
+      console.error(error.message);
+    }
+  }
+);
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
@@ -63,26 +79,15 @@ export const productsSlice = createSlice({
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
         console.log(actions.error.message);
+      })
+      .addCase(addNewProduct.fulfilled, (state, actions) => {
+        console.log(actions.payload);
+      })
+      .addCase(addNewProduct.rejected, (state, actions) => {
+        console.error(actions.error.message);
       });
   },
 });
-
-export const addNewProduct = createAsyncThunk(
-  "products/addNewProduct",
-  async (data) => {
-    // const response= await axios.post(URL,obj)
-    // return response.data
-    // .then((response) => response.json())
-    // .then((json) => console.log(json));
-    try {
-      const response = await axios.post(URL, data);
-
-      return response.data;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-);
 
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
