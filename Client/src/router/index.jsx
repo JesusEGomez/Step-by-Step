@@ -1,5 +1,5 @@
 import ViewLoginRegister from "../components/Login/ViewLoginRegister.jsx";
-import LayoutPublic from "../layout/LayoutPublic";
+import LayoutPublic from "../layout/LayoutPublic.jsx";
 import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout } from "../Pages";
 import { createBrowserRouter, Route } from "react-router-dom";
 import { verifyAdmin, verifyLoged } from "../hooks/verifierForRoutes.js";

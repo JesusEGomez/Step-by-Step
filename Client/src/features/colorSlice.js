@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const GET_COLORS = "http://localhost:3001/colors";
-// const GET_COLORS = "https://step-by-step-production.up.railway.app/colors";
+
+const URL = import.meta.env.VITE_URL;
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
@@ -20,7 +20,7 @@ export const fetchColors = createAsyncThunk(
   "colors/fetchColors", //
   async () => {
     try {
-      const response = await axios.get(GET_COLORS);
+      const response = await axios.get(`${URL}/colors`);
       const end = response.data;
       //   console.log(response.data);
 

@@ -1,16 +1,15 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL_USERS = 'http://localhost:3001/users';
-// const URL_USERS = "https://step-by-step-production.up.railway.app/users";
+const URL = import.meta.env.VITE_URL;
 
 const initialState = {
-    users: [],
-}
+  users: [],
+};
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   try {
-    const response = await axios.get(URL_USERS);
+    const response = await axios.get(`${URL}/users`);
     const data = response.data;
     return data;
 

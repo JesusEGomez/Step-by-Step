@@ -1,16 +1,14 @@
 const mercadopago = require("mercadopago");
 const { ACCESS_TOKEN } = process.env;
 
-
-
-
 mercadopago.configure({
   access_token: ACCESS_TOKEN,
 });
+const URL = "https://step-by-step-pi.vercel.app";
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "https://02bf-190-30-177-199.ngrok-free.app";
+
   try {
     const preference = {
       items: carrito.map((product) => ({
@@ -22,8 +20,8 @@ const mercadoPagoCheckout = async (req, res) => {
       })),
       auto_return: "approved",
       back_urls: {
-        success: `${URL}`,
-        failure: `${URL}`,
+        success: `${URL}/home`,
+        failure: `${URL}/home`,
       },
       // notification_url: `${URL}/checkout/notify`,
       // notification_url: `http://localhost:3001/checkout/notify`,

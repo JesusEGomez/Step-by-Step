@@ -9,18 +9,19 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import axios from 'axios';
 
 // axios.defaults.baseURL ='http://localhost:3001';
-axios.defaults.baseURL ='https://step-by-step-production.up.railway.app/products'; //si queremos trabajar de forma local hay que comentar esto 
+axios.defaults.baseURL = 'https://step-by-step-production.up.railway.app/products'; //si queremos trabajar de forma local hay que comentar esto 
 
 const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 
+console.log(window.location.origin)
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <React.StrictMode>
       <Auth0Provider
         domain={domain}
         clientId={clientId}
-        redirectUri={window.location.origin}
+        redirectUri={`${window.location.origin}/home`}
       >
         <RouterProvider router={router} />
       </Auth0Provider>

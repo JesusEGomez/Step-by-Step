@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-const URL = "http://localhost:3001/products";
-// const URL = "https://step-by-step-production.up.railway.app/products";
+
+const URL = import.meta.env.VITE_URL;
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
@@ -23,7 +23,7 @@ export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
     try {
-      const response = await axios.get(URL);
+      const response = await axios.get(`${URL}/products`);
       return [...response.data];
     } catch (error) {
       return error.message;
