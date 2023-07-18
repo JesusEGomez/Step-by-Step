@@ -5,7 +5,6 @@ import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
 
-
 const URL = import.meta.env.VITE_URL;
 
 function Detail(clickHandler) {
@@ -121,10 +120,11 @@ function Detail(clickHandler) {
                   {productData.stock.map((size, index) => (
                     <div
                       key={index}
-                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size
-                        ? "bg-gray-200 border-solid rounded  border-sm"
-                        : ""
-                        }`}
+                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
+                        selectedSize === size.size
+                          ? "bg-gray-200 border-solid rounded  border-sm"
+                          : ""
+                      }`}
                       onClick={() => handleImageSize(size)}
                     >
                       <label class="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
@@ -146,7 +146,9 @@ function Detail(clickHandler) {
                   ))}
                 </div>
               </div>
-              <p className="font-semibold text-sm">{`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""}`}</p>
+              <p className="font-semibold text-sm">{`Talle seleccionado: ${
+                selectedSize.size ? selectedSize.size : ""
+              }`}</p>
               <div></div>
               {addedToCart && (
                 <div className="text-green-600 text-base font-normal mb-1">

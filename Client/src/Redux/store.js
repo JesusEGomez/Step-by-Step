@@ -6,8 +6,8 @@ import categoriesReducer from "../features/categoriesSlice";
 import colorsReducer from "../features/colorSlice";
 import cartReducer from "../features/cartSlice";
 import usersReducer from "../features/users.slice";
-import sizesReducer from '../features/sizeSlice'
-
+import sizesReducer from "../features/sizeSlice";
+import commentsReducer from "../features/commentsSlice";
 
 const store = configureStore({
   reducer: {
@@ -17,7 +17,8 @@ const store = configureStore({
     colors: colorsReducer,
     cart: cartReducer,
     users: usersReducer,
-    sizes:sizesReducer,
+    sizes: sizesReducer,
+    comments: commentsReducer,
   },
   middleware: [thunk],
 });

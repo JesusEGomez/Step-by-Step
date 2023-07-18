@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { GiRunningShoe } from "react-icons/gi";
 import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
-import axios from "axios";
 
+import axios from "axios";
+import Comments from "../../components/comments/Comments";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -67,8 +68,9 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
-            }`}
+          className={`carousel-button ${
+            i === currentSlideIndex ? "active" : "bg-gray-300"
+          }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -100,12 +102,10 @@ const Home = () => {
           <div className="carousel rounded-box mt-16">
             {renderCarouselItems()}
           </div>
-
           {/* Botones de cambio de slide */}
           <div className="flex justify-center mt-4 ">
             {renderSlideButtons()}
           </div>
-
           {/* Resto del código del componente Home */}
           <div className="m-6 mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
@@ -121,7 +121,6 @@ const Home = () => {
               </Link>
             </div>
           </div>
-
           <div className="flex justify-center">
             <div className="w-1/3 h-96 overflow-hidden relative">
               <img
@@ -168,7 +167,8 @@ const Home = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div>{" "}
+          <Comments />
         </>
       )}
     </div>

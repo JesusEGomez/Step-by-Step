@@ -2,20 +2,21 @@ require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+const comment = require("./models/comment");
 // const products = require("../productos");
 const { DB_USER, DB_PASSWORD, DB_HOST, URL } = process.env;
 
-const sequelize = new Sequelize(URL, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-});
-// const sequelize = new Sequelize(
-//   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`,
-//   {
-//     logging: false, // set to console.log to see the raw SQL queries
-//     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-//   }
-// );
+// const sequelize = new Sequelize(URL, {
+//   logging: false, // set to console.log to see the raw SQL queries
+//   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+// });
+const sequelize = new Sequelize(
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`,
+  {
+    logging: false, // set to console.log to see the raw SQL queries
+    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+  }
+);
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -56,20 +57,16 @@ const {
   Order,
   Address,
   Stock,
+  Comment,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
+User.hasOne(Comment), Comment.belongsTo(User);
+
 Address.hasMany(User, { foreignKey: "addressId" });
 User.belongsTo(Address, { foreignKey: "addressId" });
-
-// Order.hasMany(Product, {
-//   foreignKey: {
-//     type: DataTypes.INTEGER,
-//     // allowNull: false,
-//   },
-// });
-// Product.belongsTo(Order)
 
 //ORIGINAL
 Product.hasOne(Order, {
