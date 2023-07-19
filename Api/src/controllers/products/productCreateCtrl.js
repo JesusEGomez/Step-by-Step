@@ -27,6 +27,7 @@ const createProductCtrl = async (req, res) => {
       color,
       images,
     } = req.body;
+    console.log("size", size);
 
     // Verificar y crear la marca si no existe
     let existingBrand = await Brand.findOne({

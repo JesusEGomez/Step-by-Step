@@ -20,7 +20,7 @@
 const server = require("./src/app.js");
 const { conn } = require("./src/db.js");
 const loadDb = require("./src/controllers/loadDataBase/loadSelections.js");
-const { createUsers } = require('./src/controllers/loadDataBase/loadUsers.js')
+const { createUsers } = require('./src/controllers/loadDataBase/loadUsers.js');
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(async () => {

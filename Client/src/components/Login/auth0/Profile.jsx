@@ -1,6 +1,6 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
-import { verifyAdmin } from "../../../hooks/verifyAdmin.js";
+import { verifyAdmin } from "../../../hooks/verifierForRoutes.js";
 
 function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
@@ -37,7 +37,7 @@ function Profile() {
             </li>
           )}
           <li onClick={() => logout()}>
-            <a className="text-gray-500"> Cerrar sesión</a>
+            <a className="text-gray-500">Cerrar sesión</a>
           </li>
         </ul>
       </div>
