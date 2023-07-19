@@ -75,7 +75,11 @@ export const addNewProduct = createAsyncThunk(
     // .then((response) => response.json())
     // .then((json) => console.log(json));
     try {
-      const response = await axios.post(URL, data);
+      const response = await axios.post(
+        `${URL}/products
+      `,
+        data
+      );
 
       return response.data;
     } catch (error) {

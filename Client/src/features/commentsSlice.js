@@ -8,12 +8,12 @@ const initialState = {
 };
 
 export const fetchComments = createAsyncThunk(
-  "comments/fetchcomments",
+  "comments/fetchComments",
   async () => {
     try {
       const response = await axios.get(`${URL}/comments`);
       const data = response.data;
-      // console.log(data);
+      console.log(data);
 
       return data;
     } catch (error) {
@@ -41,19 +41,6 @@ export const commentsSlices = createSlice({
       });
   },
 });
-
-export const addNewComments = createAsyncThunk(
-  "comments/addNewComments",
-  async (data) => {
-    try {
-      const response = await axios.post(`${URL}/comments`, data);
-      const end = response.data;
-      return end;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-);
 
 export const getComments = (state) => state.comments.comments;
 export default commentsSlices.reducer;

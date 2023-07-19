@@ -8,6 +8,8 @@ import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
 
 import Comments from "../../components/comments/Comments";
+import { fetchComments, getComments } from "../../features/commentsSlice";
+import { fetchOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -47,6 +49,8 @@ const Home = () => {
       console.log("orden", cart);
       dispatch(clearCart());
     }
+    dispatch(fetchComments());
+    dispatch(fetchOrders());
   }, []);
 
   const fetchCarouselImages = async () => {

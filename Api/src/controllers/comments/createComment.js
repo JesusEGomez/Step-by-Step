@@ -1,9 +1,10 @@
 const { Comment } = require("../../db.js");
 
-const createComment = async (content) => {
+const createComment = async ({ content, email }) => {
   try {
-    console.log(content);
-    const createdComment = await Comment.create({ content });
+    console.log(content, email);
+    const createComment = await Comment.create({ content });
+    await createComment.setUser(email);
   } catch (error) {
     console.error("Error creating orders:", error);
   }

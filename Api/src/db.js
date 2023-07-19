@@ -63,7 +63,14 @@ const {
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-User.hasOne(Comment), Comment.belongsTo(User);
+User.hasOne(Comment, {
+  foreignKey: "mail",
+  sourceKey: "mail",
+}),
+  Comment.belongsTo(User, {
+    foreignKey: "mail",
+    targetKey: "mail",
+  });
 
 Address.hasMany(User, { foreignKey: "addressId" });
 User.belongsTo(Address, { foreignKey: "addressId" });
