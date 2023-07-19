@@ -1,9 +1,10 @@
 import ViewLoginRegister from "../components/Login/ViewLoginRegister.jsx";
 import LayoutPublic from "../layout/LayoutPublic.jsx";
-import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout } from "../Pages";
+import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout, Dashboard } from "../Pages";
 import { createBrowserRouter, Route } from "react-router-dom";
 import { verifyAdmin } from "../hooks/verifyAdmin.js";
 import UserManagement from "../components/UserManagement/UserManagement.jsx";
+
 
 const ProtectedRoute = ({ element }) => {
     const isAdmin = verifyAdmin();
@@ -43,26 +44,29 @@ const router = createBrowserRouter([
             {
                 path: '/administracion',
                 element: (
-                    <ProtectedRoute element={<Form />} />
-                )
-            },
-            {
-                path: '/login',
-                element: <ViewLoginRegister />
-            }, {
-                path: '/administracion',
-                element: <Form />
-            },
-            {
-                path: '/checkout',
-                element: <Checkout />
-            },
-            {
-                path: '/prueba',
-                element: <UserManagement />
-            }
-        ]
-    }
-]);
-
-export default router;
+                    // <ProtectedRoute element={<Form />} />
+                    <Dashboard/>
+                    )
+                },
+                {
+                    path: '/login',
+                    element: <ViewLoginRegister />
+                },
+                {
+                    path: '/form',
+                    element: <Form />
+                },
+                {
+                    path: '/checkout',
+                    element: <Checkout />
+                },
+                {
+                    path: '/prueba',
+                    element: <UserManagement />
+                }
+            ]
+        }
+    ]);
+    
+    export default router;
+    

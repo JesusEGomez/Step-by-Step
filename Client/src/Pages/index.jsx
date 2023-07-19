@@ -5,5 +5,6 @@ import Detail from "./Detail/Detail";
 import Tienda from "./Tienda/Tienda";
 import ErrorPage from "./ErrorPage/ErrorPage";
 import Checkout from "./Checkout/Checkout";
+import Dashboard from "./Dashboard/Dashboard"
 
-export { Home, Landing, Form, Detail, Tienda, ErrorPage,Checkout };
+export { Home, Landing, Form, Detail, Tienda, ErrorPage,Checkout, Dashboard };
