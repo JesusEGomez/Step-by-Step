@@ -67,23 +67,6 @@ export const productsSlice = createSlice({
   },
 });
 
-export const addNewProduct = createAsyncThunk(
-  "products/addNewProduct",
-  async (data) => {
-    // const response= await axios.post(URL,obj)
-    // return response.data
-    // .then((response) => response.json())
-    // .then((json) => console.log(json));
-    try {
-      const response = await axios.post(URL, data);
-
-      return response.data;
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-);
-
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
 export const getfilteredProducts = (state) => state.products.filteredProducts;

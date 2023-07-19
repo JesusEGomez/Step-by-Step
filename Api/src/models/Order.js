@@ -23,6 +23,9 @@ module.exports = (sequelize) => {
         defaultValue: "pending",
         // allowNull: false,
       },
+      email: {
+        type: DataTypes.STRING,
+      },
       // totalAmount: {
       //   type: DataTypes.DECIMAL(10, 2),
       //   // allowNull: false,
