@@ -4,8 +4,12 @@ import { GiRunningShoe } from "react-icons/gi";
 import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
+import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
 
+import Comments from "../../components/comments/Comments";
+import { fetchComments, getComments } from "../../features/commentsSlice";
+import { fetchOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -17,29 +21,36 @@ const Home = () => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const cart = JSON.parse(localStorage.getItem("cart"))
+  const cart = JSON.parse(localStorage.getItem("cart"));
 
   useEffect(() => {
     fetchCarouselImages();
-    const urlParams = new URLSearchParams(window.location.search)
-    const status = urlParams.get("status")
-    const orderId = urlParams.get("payment_id")
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get("status");
+    const orderId = urlParams.get("payment_id");
     if (status === "approved") {
-      const user = JSON.parse(localStorage.getItem("user"))
+      const user = JSON.parse(localStorage.getItem("user"));
       const sendOrder = async () => {
         const order = cart.map((product) => {
-          const { id, sizes, quantity } = product
-          const newOrden = { productId: id, size: sizes[0], quantity, ordenNumber: orderId, paymentStatus: status, email: user.email }
-          return newOrden
-        })
-        response = await axios.post(`${URL}/orders/create`, order)
-      }
-      sendOrder()
-      console.log("orden", cart)
-      dispatch(clearCart())
+          const { id, sizes, quantity } = product;
+          const newOrden = {
+            productId: id,
+            size: sizes[0],
+            quantity,
+            ordenNumber: orderId,
+            paymentStatus: status,
+            email: user?.email,
+          };
+          return newOrden;
+        });
+        response = await axios.post(`${URL}/orders/create`, order);
+      };
+      sendOrder();
+      console.log("orden", cart);
+      dispatch(clearCart());
     }
-
-
+    dispatch(fetchComments());
+    dispatch(fetchOrders());
   }, []);
 
   const fetchCarouselImages = async () => {
@@ -89,8 +100,9 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
-            }`}
+          className={`carousel-button ${
+            i === currentSlideIndex ? "active" : "bg-gray-300"
+          }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -122,12 +134,10 @@ const Home = () => {
           <div className="carousel rounded-box mt-16">
             {renderCarouselItems()}
           </div>
-
           {/* Botones de cambio de slide */}
           <div className="flex justify-center mt-4 ">
             {renderSlideButtons()}
           </div>
-
           {/* Resto del código del componente Home */}
           <div className="m-6 mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
@@ -143,7 +153,6 @@ const Home = () => {
               </Link>
             </div>
           </div>
-
           <div className="flex justify-center">
             <div className="w-1/3 h-96 overflow-hidden relative">
               <img
@@ -190,7 +199,8 @@ const Home = () => {
                 </button>
               </div>
             </div>
-          </div>
+          </div>{" "}
+          <Comments />
         </>
       )}
     </div>

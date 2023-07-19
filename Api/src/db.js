@@ -56,20 +56,23 @@ const {
   Order,
   Address,
   Stock,
+  Comment,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
+User.hasOne(Comment, {
+  foreignKey: "mail",
+  sourceKey: "mail",
+}),
+  Comment.belongsTo(User, {
+    foreignKey: "mail",
+    targetKey: "mail",
+  });
+
 Address.hasMany(User, { foreignKey: "addressId" });
 User.belongsTo(Address, { foreignKey: "addressId" });
-
-// Order.hasMany(Product, {
-//   foreignKey: {
-//     type: DataTypes.INTEGER,
-//     // allowNull: false,
-//   },
-// });
-// Product.belongsTo(Order)
 
 //ORIGINAL
 Product.hasOne(Order, {
