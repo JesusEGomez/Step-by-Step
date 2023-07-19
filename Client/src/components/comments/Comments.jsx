@@ -11,8 +11,6 @@ function Comments() {
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
 
-  console.log(user.email);
-
   const handleButtonClick = () => {
     if (isAuthenticated && hasOrder) {
       setShowModal(true);
