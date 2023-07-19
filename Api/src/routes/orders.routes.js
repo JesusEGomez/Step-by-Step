@@ -2,7 +2,7 @@ const { Router } = require("express");
 
 const {
   createOrderHandler,
-  getOrderByIdHandler,
+  getOrdersByEmailHandler,
   getOrdersHandler,
 } = require("../handlers/ordersHandler");
 
@@ -10,6 +10,6 @@ const ordersRouter = Router();
 
 ordersRouter.post("/create", createOrderHandler);
 ordersRouter.get("/", getOrdersHandler);
-ordersRouter.get("/:id", getOrderByIdHandler);
+ordersRouter.get("/email", getOrdersByEmailHandler);
 
 module.exports = ordersRouter;

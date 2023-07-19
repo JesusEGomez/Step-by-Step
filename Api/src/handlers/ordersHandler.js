@@ -1,6 +1,6 @@
 const createOrder = require("../controllers/orders/createOrder");
 const getAllOrders = require("../controllers/orders/getAllOrders");
-const getOrderById = require("../controllers/orders/getOrderById");
+const getOrdersByEmail = require("../controllers/orders/getOrdersByEmail");
 const updateStockPerSize = require("../controllers/stock/updateStockController");
 
 const createOrderHandler = async (req, res) => {
@@ -30,10 +30,10 @@ const getOrdersHandler = async (req, res) => {
   }
 };
 
-const getOrderByIdHandler = async (req, res) => {
-  const { id } = req.params;
+const getOrdersByEmailHandler = async (req, res) => {
+  const { email } = req.params;
   try {
-    const orders = await getOrderById(id);
+    const orders = await getOrdersByEmail(email);
     res.status(200).json(orders);
   } catch (error) {
     res
@@ -45,5 +45,5 @@ const getOrderByIdHandler = async (req, res) => {
 module.exports = {
   getOrdersHandler,
   createOrderHandler,
-  getOrderByIdHandler,
+  getOrdersByEmailHandler,
 };

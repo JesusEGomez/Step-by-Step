@@ -11,7 +11,7 @@ import {
 import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa"
 export default function Form() {
@@ -198,7 +198,6 @@ export default function Form() {
     });
   };
 
-
   function handlerInputChange(e) {
     const { name, value, type } = e.target;
 
@@ -290,10 +289,10 @@ export default function Form() {
         .then((res) => {
           console.log("Solicitud POST exitosa:", res);
           Swal.fire(
-            'Felicitaciones!',
-            'La zapatilla ha sido creado exitosamente!',
-            'success'
-          )
+            "Felicitaciones!",
+            "La zapatilla ha sido creado exitosamente!",
+            "success"
+          );
 
           // setTimeout(function () {
           //   window.location.reload();
