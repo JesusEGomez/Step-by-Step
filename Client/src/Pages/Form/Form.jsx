@@ -295,9 +295,9 @@ export default function Form() {
             'success'
           )
 
-          setTimeout(function () {
-            window.location.reload();
-          }, 5000);
+          // setTimeout(function () {
+          //   window.location.reload();
+          // }, 5000);
         })
         .catch((error) => {
           console.log("Error en la solicitud POST:", error);
