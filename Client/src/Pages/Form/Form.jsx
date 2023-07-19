@@ -1,4 +1,4 @@
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+
 import React from "react";
 import { fetchBrands, getAllBrands } from "../../features/brandsSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,6 @@ import {
   getAllCategories,
 } from "../../features/categoriesSlice";
 import { fetchColors, getAllColors } from "../../features/colorSlice";
-import { addNewProduct, fetchProducts } from "../../features/productsSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 import Swal from 'sweetalert2';
 import axios from "axios";
@@ -19,7 +18,10 @@ export default function Form() {
   const categories = useSelector(getAllCategories);
   const colors = useSelector(getAllColors);
   const sizes = useSelector(getAllSizes);
+  const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
+  const URL = import.meta.env.VITE_URL;
+
 
   useEffect(() => {
     dispatch(fetchBrands());
@@ -101,6 +103,9 @@ export default function Form() {
     if (!/^(?:100|\d{1,2})$/.test(form.discountPercentage)) {
       errors.discountPercentage = "Solo nuemeros positivos del 1 al 100";
     }
+    if (!checked) {
+      errors.checked = "Debes seleccionar al menos un Talle"
+    }
 
     setErrors(errors);
 
@@ -147,6 +152,7 @@ export default function Form() {
       console.log(error);
     }
   };
+
 
 
 
@@ -243,11 +249,12 @@ export default function Form() {
   // }
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    if (name === "size") {
-      const selectedSizes = form.size;
-      const sizeValue = parseInt(value);
+    setChecked(e.target.checked);
+    const { value } = e.target;
+    console.log("input formulario", value)
+    const selectedSizes = form.size;
+    const sizeValue = parseInt(value);
+    if (selectedSizes.includes(sizeValue)) {
       const updatedSizes = selectedSizes.includes(sizeValue)
         ? selectedSizes.filter((size) => size !== sizeValue)
         : [...selectedSizes, sizeValue];
@@ -259,13 +266,20 @@ export default function Form() {
     } else {
       setForm({
         ...form,
-        [name]: value,
+        size: [...form.size, sizeValue],
+        stock: {
+          ...form.stock,
+          [value]: 1
+        }
+
       });
     }
     validate(form);
   };
   const handleStockChange = (e) => {
     const { name, value } = e.target;
+    console.log("valor size", value)
+
     setForm({
       ...form,
       stock: {
@@ -273,9 +287,11 @@ export default function Form() {
         [name]: parseInt(value),
       },
     });
+
   };
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("formulario submit", form)
     if (validate(form)) {
       if (form.images.length === 0) {
         Swal.fire({
@@ -286,25 +302,41 @@ export default function Form() {
         return;
       }
 
-      dispatch(addNewProduct(form))
-        .then((res) => {
-          console.log("Solicitud POST exitosa:", res);
-          Swal.fire(
-            'Felicitaciones!',
-            'La zapatilla ha sido creado exitosamente!',
-            'success'
-          )
+      try {
+        const response = await axios.post(`${URL}/products`, form);
+        Swal.fire(
+          'Felicitaciones!',
+          'La zapatilla ha sido creado exitosamente!',
+          'success'
+        )
 
-          setTimeout(function () {
-            window.location.reload();
-          }, 5000);
+        // return response.data;
+        console.log("Solicitud POST exitosa:", response);
+
+        setForm({
+          item_number: "",
+          model: "",
+          description: "",
+          price: 0,
+          discountPercentage: 0,
+          gender: "unisex",
+          stock: {},
+          isPublish: false,
+          brand: "",
+          size: [],
+          images: [],
+          categories: [],
+          color: [],
         })
-        .catch((error) => {
-          console.log("Error en la solicitud POST:", error);
-        });
+
+      } catch (error) {
+        console.error(error.message);
+      }
+
     }
   };
 
+  console.log("estas son las brands", brands)
 
   return (
     <form onSubmit={handleSubmit}>
@@ -546,6 +578,11 @@ export default function Form() {
               <legend className="text-sm font-semibold leading-6 text-gray-900">
                 Talle
               </legend>
+              {errors.checked && (
+                <span className="text-red-500 text-sm">
+                  {errors.checked}
+                </span>
+              )}
               <div className="mt-6 grid grid-cols-4 gap-4">
                 {sizes.map(({ size }) => (
                   <div key={size}>
@@ -557,8 +594,11 @@ export default function Form() {
                         value={size}
                         checked={form.size.includes(size)}
                         onChange={handleInputChange}
+
                         className="px-2 py-2 m-1 w-5 text-sm"
+
                       />
+
                       <input
                         type="number"
                         name={`${size}`}
@@ -695,7 +735,7 @@ export default function Form() {
         <button
           type="submit"
           className="bg-black text-white py-2 px-4 mr-3 mb-4 rounded hover:border-gray-500 hover:bg-gray-500"
-          onClick={() => dispatch(addNewProduct())}
+
         >
           Guardar
         </button>
