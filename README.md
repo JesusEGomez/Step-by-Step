@@ -29,15 +29,16 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 
 - **Autenticación y autorización:** Implementamos la autenticación basada en tokens utilizando Auth0 para permitir a los usuarios registrados acceder a características exclusivas y garantizar la seguridad de las transacciones.
 
-- **Deploy:** El deploy de este proyecto fue realizado atravez de vercel. 
-
-
 ## Equipo
 
 - [Regina Fenoglio ](https://www.linkedin.com/in/regi-fenoglio-bb2499209/)
 - [Jesus Emanuel Gomez](https://www.linkedin.com/in/jesus-emanuel-gomez-33a0ba244/)
 - [Tomas Hastrup](https://www.linkedin.com/in/tomas-hastrup-1a28a413/)
+- [Luciano Gramajo]()
+- [Facundo Moreno]()
+- [Daniel Blizzard]()
 - [Claudio Cabrera](https://www.linkedin.com/in/claudio-fabio-cabrera-363222258/)
+
 
 Si tienes alguna pregunta o problema relacionado con el proyecto, no dudes en crear un issue en este repositorio. ¡Estaremos encantados de ayudarte!
 
