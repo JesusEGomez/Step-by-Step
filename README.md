@@ -24,8 +24,6 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 
 ## Tecnologías utilizadas
 
-## Tecnologías utilizadas
-
 - **Frontend:** 
   - HTML5 <i class="fab fa-html5"></i>
   - CSS3 <i class="fab fa-css3-alt"></i>
