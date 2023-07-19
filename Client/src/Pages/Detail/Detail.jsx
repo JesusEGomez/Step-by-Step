@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
 import Swal from 'sweetalert2'
 
-
 const URL = import.meta.env.VITE_URL;
 
 function Detail(clickHandler) {
@@ -111,7 +110,7 @@ function Detail(clickHandler) {
                 </div>
               </div>
               <div className="whitespace-nowrap text-xs font-sans  tracking-[-0.0840000033378601] leading-[24px] text-gray-600  mb-2 relative w-20 font-semibold">
-  Stock:{" "}
+                Stock:{" "}
                 {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
 
               </div>
@@ -124,10 +123,11 @@ function Detail(clickHandler) {
                   {productData.stock.map((size, index) => (
                     <div
                       key={index}
-                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size
-                        ? "bg-gray-200 border-solid rounded  border-sm"
-                        : ""
-                        }`}
+                      className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
+                        selectedSize === size.size
+                          ? "bg-gray-200 border-solid rounded  border-sm"
+                          : ""
+                      }`}
                       onClick={() => handleImageSize(size)}
                     >
                       <label class="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
@@ -149,7 +149,9 @@ function Detail(clickHandler) {
                   ))}
                 </div>
               </div>
-              <p className="font-semibold text-sm">{`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""}`}</p>
+              <p className="font-semibold text-sm">{`Talle seleccionado: ${
+                selectedSize.size ? selectedSize.size : ""
+              }`}</p>
               <div></div>
               {addedToCart && (
 
@@ -159,12 +161,18 @@ function Detail(clickHandler) {
               )}
 
               <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 mr-12">
-                <button
-                  onClick={() => clickAddHandler(productData)}
-                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
-                >
-                  Comprar
-                </button>
+                {selectedSize.stockPerSize > 0 ?
+                  <button
+                    onClick={() => clickAddHandler(productData)}
+                    className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
+                  >
+                    Comprar
+                  </button>
+                  :
+                  <button className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md">
+                    Sin Stock
+                  </button>
+                }
               </div>
 
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
