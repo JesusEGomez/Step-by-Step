@@ -1,9 +1,10 @@
 import ViewLoginRegister from "../components/Login/ViewLoginRegister.jsx";
 import LayoutPublic from "../layout/LayoutPublic.jsx";
-import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout } from "../Pages";
+import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout, About } from "../Pages";
 import { createBrowserRouter, Route } from "react-router-dom";
 import { verifyAdmin, verifyLoged } from "../hooks/verifierForRoutes.js";
 import UserManagement from "../components/UserManagement/UserManagement.jsx";
+
 
 const ProtectedRoute = ({ element, verify }) => {
     const thisIs = verify();
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
             {
                 path: '/prueba',
                 element: <UserManagement />
+            },
+            {
+                path: '/about',
+                element: <About />
             }
         ]
     }
