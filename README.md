@@ -24,36 +24,6 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 
 ## Tecnologías utilizadas
 
-- **Frontend:** 
-  - HTML5 <i class="fab fa-html5"></i>
-  - CSS3 <i class="fab fa-css3-alt"></i>
-  - JavaScript <i class="fab fa-js"></i>
-  - React <i class="fab fa-react"></i>
-  - Redux <i class="fab fa-react"></i>
-  - Tailwind CSS <i class="fab fa-css3-alt"></i>
-
-- **Backend:**
-  - Express <i class="fab fa-node-js"></i>
-  - Webpack <i class="fab fa-node-js"></i>
-  - Node.js <i class="fab fa-node-js"></i>
-  - NPM <i class="fab fa-npm"></i>
-
-- **Base de datos:**
-  - PostgreSQL <i class="fas fa-database"></i>
-
-- **Despliegue:**
-  - Render <i class="fas fa-server"></i>
-  - Vercel <i class="fas fa-server"></i>
-
-- **Herramientas de diseño y gestión de proyectos:**
-  - Figma <i class="fab fa-figma"></i>
-  - Trello <i class="fab fa-trello"></i>
-
-- **Control de versiones:**
-  - Git <i class="fab fa-git"></i>
-  - GitHub <i class="fab fa-github"></i>
-
-
 - **Frontend:** El frontend de Step-By-Step fue desarrollado utilizando HTML, CSS y JavaScript. También utilizamos el framework de React.js para crear una interfaz de usuario dinámica y receptiva.
 
 - **Backend:** El backend está construido en Node.js, utilizando el framework de Express.js para crear una API RESTful que gestiona la lógica del negocio y se comunica con la base de datos.
