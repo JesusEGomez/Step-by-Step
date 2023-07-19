@@ -22,10 +22,6 @@ const initialState = {
 export const addNewProduct = createAsyncThunk(
   "products/addNewProduct",
   async (data) => {
-    // const response= await axios.post(URL,obj)
-    // return response.data
-    // .then((response) => response.json())
-    // .then((json) => console.log(json));
     try {
       const response = await axios.post(`${URL}/products`, data);
 
@@ -40,9 +36,12 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(`${URL}/products`);
-      return [...response.data];
+      const data = response.data;
+      const filteredIsPublished = data.filter((p) => p.isPublish === false)
+      return filteredIsPublished;
+      // return [...response.data];
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
     }
   }
 );
