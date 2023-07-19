@@ -47,6 +47,7 @@ const createOrder = async (orderData) => {
         orderNumber: orderNumber,
         paymentStatus: paymentStatus,
         fullFillmentStatus: fullFillmentStatus,
+        email: email,
       };
 
       const createdOrder = await Order.create(data);

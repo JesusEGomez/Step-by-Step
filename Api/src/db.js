@@ -2,6 +2,7 @@ require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
+const comment = require("./models/comment");
 // const products = require("../productos");
 const { DB_USER, DB_PASSWORD, DB_HOST, URL } = process.env;
 
@@ -56,20 +57,23 @@ const {
   Order,
   Address,
   Stock,
+  Comment,
 } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
+User.hasOne(Comment, {
+  foreignKey: "mail",
+  sourceKey: "mail",
+}),
+  Comment.belongsTo(User, {
+    foreignKey: "mail",
+    targetKey: "mail",
+  });
+
 Address.hasMany(User, { foreignKey: "addressId" });
 User.belongsTo(Address, { foreignKey: "addressId" });
-
-// Order.hasMany(Product, {
-//   foreignKey: {
-//     type: DataTypes.INTEGER,
-//     // allowNull: false,
-//   },
-// });
-// Product.belongsTo(Order)
 
 //ORIGINAL
 Product.hasOne(Order, {

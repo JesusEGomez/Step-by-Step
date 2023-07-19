@@ -10,7 +10,7 @@ import {
 } from "../../features/categoriesSlice";
 import { fetchColors, getAllColors } from "../../features/colorSlice";
 import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa"
 export default function Form() {
@@ -203,7 +203,6 @@ export default function Form() {
       };
     });
   };
-
 
   function handlerInputChange(e) {
     const { name, value, type } = e.target;
