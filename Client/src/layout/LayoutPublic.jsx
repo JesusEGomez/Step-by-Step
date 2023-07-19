@@ -7,20 +7,22 @@ import { updateState } from "../features/cartSlice";
 import { Outlet, useLocation } from "react-router-dom";
 
 export default function LayoutPublic() {
-
+  
   const location = useLocation();
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(updateState());
-
+    
   }, []);
   return (
     <>
-      {location.pathname !== "/" && <NavBar />}
-      <main>
-        <Outlet />
-      </main>
-      {location.pathname !== "/" && <Footer />}
+    {(location.pathname !== "/" && location.pathname  !=="/administracion")  && <NavBar />}
+    
+    <main>
+    <Outlet />
+    </main>
+    {location.pathname !== "/" && <Footer />}
     </>
-  );
-}
+    );
+  }
+  
