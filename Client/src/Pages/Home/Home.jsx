@@ -200,7 +200,7 @@ const Home = () => {
               </div>
             </div>
           </div>{" "}
-          <Comments />
+          {/* <Comments /> */}
         </>
       )}
     </div>

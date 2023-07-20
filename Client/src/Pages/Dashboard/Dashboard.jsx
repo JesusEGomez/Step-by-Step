@@ -17,12 +17,10 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
-// import Chart from './Chart';
-// import Deposits from './Deposits';
 import Orders from './Orders';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Profile from '../../components/Login/auth0/Profile';
-import UserManagement from '../../components/UserManagement/UserManagement';
+import UserManagement from './UserManagement';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import Form from '../Form/Form';
@@ -122,7 +120,7 @@ function Copyright(props) {
             const renderComponents = () => {
                 switch (component) {
                     case "index":
-                    return <Users/>
+                    return <UserManagement/>
                     case "form":
                     return <Form />;
                     case "orders":
@@ -193,7 +191,7 @@ function Copyright(props) {
                 
                 <IconButton color="primary.contrastText">
                 <AccountCircleIcon />
-                <Profile></Profile>
+                <Profile sx={{ fontSize: 10, mr: 4 }}></Profile>
                 </IconButton>
                 </Toolbar>
                 </AppBar>
