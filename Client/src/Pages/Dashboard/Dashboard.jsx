@@ -18,7 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
 // import Chart from './Chart';
-// import Deposits from './Deposits';
+import Deposits from './Deposits';
 import Orders from './Orders';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Profile from '../../components/Login/auth0/Profile';
@@ -45,15 +45,7 @@ function Copyright(props) {
         </Typography>
     );
 }
-const UsersContainer = styled(Paper)(({ theme }) => ({
-    p: 2,
-    display: 'flex',
-    flexDirection: 'column',
-    height: 240, // Set the desired height for the container
-    width: 980,
-    overflow: 'auto',
-    padding: 10
-}));
+
 
 const drawerWidth = 240;
 
@@ -125,19 +117,25 @@ export default function Dashboard() {
     const toggleDrawer = () => {
         setOpen(!open);
     };
-    const [isModalOpen, setModalOpen] = useState(false);
-    const [modalTitle, setModalTitle] = useState('');
-    const [modalContent, setModalContent] = useState('');
 
-    const handleOpenModal = (title, content) => {
-        setModalTitle(title);
-        setModalContent(content);
-        setModalOpen(true);
+    const { component } = useParams()
+    const renderComponents = () => {
+        switch (component) {
+            case "index":
+                return <Deposits/>
+            case "form":
+                return <Form />;
+            case "orders":
+                return <Orders />;
+            case "products":
+                return <Products />;
+            case "users":
+                return <UserManagement />;
+            default:
+                return <ErrorPage />;
+        }
     };
 
-    const handleCloseModal = () => {
-        setModalOpen(false);
-    };
     return (
         <ThemeProvider theme={defaultTheme}>
 
@@ -188,9 +186,7 @@ export default function Dashboard() {
                             noWrap
                             sx={{ fontSize: 20, mr: 4 }}
                         >
-                            <Link href="/form" color="inherit" underline="none" sx={{ color: 'inherit', '&:hover': { color: '#e0e0e0' } }}>
-                                Crear producto
-                            </Link>
+
                         </Typography>
 
                         <IconButton color="primary.contrastText">
@@ -234,6 +230,7 @@ export default function Dashboard() {
                     <Toolbar />
                     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                         <Grid container spacing={4}>
+
                             {/* Chart */}
                             <Grid item xs={12} md={8} lg={9}>
                                 <Paper
@@ -241,15 +238,13 @@ export default function Dashboard() {
                                         p: 2,
                                         display: 'flex',
                                         flexDirection: 'column',
-                                        height: 240,
+                                        height: 2040,
                                         width: 1000,
 
                                     }}
                                 >
 
-                                    <UsersContainer>
-                                        <Users />
-                                    </UsersContainer>
+                                    {renderComponents()}
                                 </Paper>
                             </Grid>
                             {/* Recent Deposits */}
@@ -266,11 +261,11 @@ export default function Dashboard() {
                 </Paper>
             </Grid> */}
                             {/* Recent Orders */}
-                            <Grid item xs={12}>
-                                <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                                    <Orders />
-                                </Paper>
-                            </Grid>
+                            {/* <Grid item xs={12}>
+            <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+            <Orders />
+            </Paper>
+        </Grid> */}
                         </Grid>
                         <Copyright sx={{ pt: 4 }} />
                     </Container>

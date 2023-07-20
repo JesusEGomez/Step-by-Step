@@ -18,7 +18,6 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
   }
 });
 
-
 export const addNewUsers = createAsyncThunk(
   "users/addNewUsers",
   async (data) => {
@@ -32,7 +31,7 @@ export const addNewUsers = createAsyncThunk(
   }
 );
 
-export const usersSlices = createSlice({
+export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
@@ -49,13 +48,16 @@ export const usersSlices = createSlice({
         state.users = action.payload;
       })
       .addCase(fetchUsers.rejected, (state, action) => {
-        console.log(action.error.message);
+        throw new Error(action.error.message);
       });
   },
 });
-// 
 
+export const { toggleOrderBy } = usersSlice.actions;
 
-export const getAllUsers = (state) => state.users.users;
+export const getAllUsers = (state) => {
+  const sortedUsers = [...state.users.users].sort((a, b) => a.id - b.id);
+  return state.users.orderBy === "desc" ? sortedUsers.reverse() : sortedUsers;
+}
 
-export default usersSlices.reducer;
+export default usersSlice.reducer;

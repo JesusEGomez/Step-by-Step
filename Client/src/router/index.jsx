@@ -10,7 +10,7 @@ import UserManagement from "../components/UserManagement/UserManagement.jsx";
 
 const ProtectedRoute = ({ element, verify }) => {
     const thisIs = verify();
-    
+
     if (!thisIs) {
         // Redireccionar a otra página o mostrar un mensaje de error
         return <ErrorPage />;
@@ -67,30 +67,29 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About />
-
+            },
+            {
                 path: '/administracion/:component',
-                element:(
-                    <ProtectedRoute element={<Dashboard/>} verify={verifyAdmin} />
-                    )
-                },
-                {
-                    path: '/login',
-                    element: <ViewLoginRegister />
-                },
-                {
-                    path: '/checkout',
-                    element: (
-                        <ProtectedRoute element={<Checkout />} verify={verifyLoged} />
-                        )
-                    },
-                    // {
-                    //     path: '/prueba',
-                    //     element: <UserManagement />
-                    // }
-                ]
+                element: <ProtectedRoute element={<Dashboard />} verify={verifyAdmin} />
 
-            }
-        ]);
-        
-        export default router;
-        
+            },
+            {
+                path: '/login',
+                element: <ViewLoginRegister />
+            },
+            {
+                path: '/checkout',
+                element: (
+                    <ProtectedRoute element={<Checkout />} verify={verifyLoged} />
+                )
+            },
+            // {
+            //     path: '/prueba',
+            //     element: <UserManagement />
+            // }
+        ]
+
+    }
+]);
+
+export default router;
