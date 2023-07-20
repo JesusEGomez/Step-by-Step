@@ -23,8 +23,9 @@ export const addNewUsers = createAsyncThunk(
   async (data) => {
     try {
       const response = await axios.post(`${URL}/users`, data);
-      const end = response.data;
-      return end;
+      const newUserData = response.data;
+      return newUserData;
+
     } catch (error) {
       throw new Error(error.message);
     }
@@ -59,5 +60,4 @@ export const getAllUsers = (state) => {
   const sortedUsers = [...state.users.users].sort((a, b) => a.id - b.id);
   return state.users.orderBy === "desc" ? sortedUsers.reverse() : sortedUsers;
 }
-
 export default usersSlice.reducer;
