@@ -122,7 +122,7 @@ function Copyright(props) {
             const renderComponents = () => {
                 switch (component) {
                     case "index":
-                    return <Users/>
+                    return <UserManagement/>
                     case "form":
                     return <Form />;
                     case "orders":
