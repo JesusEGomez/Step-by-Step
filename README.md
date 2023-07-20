@@ -10,7 +10,14 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 
 - **Catálogo de productos:** Ofrecemos una amplia gama de zapatillas de diferentes marcas, estilos y tallas. Los usuarios pueden filtrar y buscar productos según sus preferencias y necesidades.
 
-- **Detalles del producto:** [Proporcionamos descripciones detalladas de cada producto, incluyendo imágenes, características, precios y disponibilidad.]()
+![Home](./Client/src/assets/Home.png)
+
+
+- **Detalles del producto:** Proporcionamos descripciones detalladas de cada producto, incluyendo imágenes, características, precios y disponibilidad.
+![Detalle](./Client/src/assets/Detalle.png)
+
+
+
 
 
 - **Carrito de compras:** Los usuarios pueden agregar productos al carrito de compras, editar las cantidades y eliminar elementos antes de proceder al pago.
@@ -34,7 +41,13 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 - [Regina Fenoglio ](https://www.linkedin.com/in/regi-fenoglio-bb2499209/)
 - [Jesus Emanuel Gomez](https://www.linkedin.com/in/jesus-emanuel-gomez-33a0ba244/)
 - [Tomas Hastrup](https://www.linkedin.com/in/tomas-hastrup-1a28a413/)
+
+- [Luciano Gramajo]()
+- [Facundo Moreno]()
+- [Daniel Blizzard]()
 - [Claudio Cabrera](https://www.linkedin.com/in/claudio-fabio-cabrera-363222258/)
+
+
 
 Si tienes alguna pregunta o problema relacionado con el proyecto, no dudes en crear un issue en este repositorio. ¡Estaremos encantados de ayudarte!
 
