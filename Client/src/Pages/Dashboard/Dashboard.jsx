@@ -22,10 +22,15 @@ import { mainListItems } from './listItems';
 import Orders from './Orders';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Profile from '../../components/Login/auth0/Profile';
-import Users from './Users';
-import ReusableModal from './Modal';
+import UserManagement from '../../components/UserManagement/UserManagement';
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import { Button } from '@mui/material';
+import Form from '../Form/Form';
+import ErrorPage from '../ErrorPage/ErrorPage';
+import Products from './Products'
+
+
+
 
 
 function Copyright(props) {
@@ -40,15 +45,7 @@ function Copyright(props) {
         </Typography>
         );
     }
-    const UsersContainer = styled(Paper)(({ theme }) => ({
-        p: 2,
-        display: 'flex',
-        flexDirection: 'column',
-        height: 240, // Set the desired height for the container
-        width: 980,
-        overflow: 'auto',
-        padding:10
-    }));
+    
     
     const drawerWidth = 240;
     
@@ -120,33 +117,30 @@ function Copyright(props) {
             const toggleDrawer = () => {
                 setOpen(!open);
             };
-            const [isModalOpen, setModalOpen] = useState(false);
-            const [modalTitle, setModalTitle] = useState('');
-            const [modalContent, setModalContent] = useState('');
             
-            const handleOpenModal = (title, content) => {
-                setModalTitle(title);
-                setModalContent(content);
-                setModalOpen(true);
+            const {component}=useParams()
+            const renderComponents = () => {
+                switch (component) {
+                    case "index":
+                    return <Users/>
+                    case "form":
+                    return <Form />;
+                    case "orders":
+                    return <Orders/>;
+                    case "products":
+                    return <Products/>;
+                    case "users":
+                    return <UserManagement/>;
+                    default:
+                    return <ErrorPage />;
+                }
             };
             
-            const handleCloseModal = () => {
-                setModalOpen(false);
-            };
             return (
                 <ThemeProvider theme={defaultTheme}>
                 
                 
-                <div>
-                <Button onClick={() => handleOpenModal('Título del Modal 1', 'Contenido del Modal 1')}>
-                Abrir Modal 1
-                </Button>
-                <Button onClick={() => handleOpenModal('Título del Modal 2', 'Contenido del Modal 2')}>
-                Abrir Modal 2
-                </Button>
                 
-                <ReusableModal open={isModalOpen} onClose={handleCloseModal} title={modalTitle} content={modalContent} />
-                </div>
                 <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
@@ -194,13 +188,11 @@ function Copyright(props) {
                 noWrap
                 sx={{ fontSize: 20, mr: 4 }}
                 >
-                <Link href="/form" color="inherit" underline="none" sx={{ color: 'inherit', '&:hover': { color: '#e0e0e0' } }}>
-                Crear producto
-                </Link>
+                
                 </Typography>
                 
                 <IconButton color="primary.contrastText">
-                <AccountCircleIcon/>
+                <AccountCircleIcon />
                 <Profile></Profile>
                 </IconButton>
                 </Toolbar>
@@ -240,6 +232,7 @@ function Copyright(props) {
                 <Toolbar />
                 <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                 <Grid container spacing={4}>
+                
                 {/* Chart */}
                 <Grid item xs={12} md={8} lg={9}>
                 <Paper
@@ -247,15 +240,13 @@ function Copyright(props) {
                     p: 2,
                     display: 'flex',
                     flexDirection: 'column',
-                    height: 240,
-                    width:1000,
+                    height: 2040,
+                    width: 1000,
                     
                 }}
                 >
                 
-                <UsersContainer>
-                <Users />
-                </UsersContainer>
+                {renderComponents()}
                 </Paper>
                 </Grid>
                 {/* Recent Deposits */}
@@ -272,16 +263,16 @@ function Copyright(props) {
                 </Paper>
             </Grid> */}
             {/* Recent Orders */}
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
             <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
             <Orders />
             </Paper>
-            </Grid>
-            </Grid>
-            <Copyright sx={{ pt: 4 }} />
-            </Container>
-            </Box>
-            </Box>
-            </ThemeProvider>
-            );
-        }
+        </Grid> */}
+        </Grid>
+        <Copyright sx={{ pt: 4 }} />
+        </Container>
+        </Box>
+        </Box>
+        </ThemeProvider>
+        );
+    }

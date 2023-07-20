@@ -5,7 +5,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 function Comments() {
   const { user, isAuthenticated } = useAuth0();
-  const comments = useSelector(getComments);
+  // const comments = useSelector(getComments || []);
+const comments= [];
 
   const [hasOrder, setHasOrder] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -32,8 +33,8 @@ function Comments() {
       <ul>
         {comments?.map((c, i) => (
           <li key={i}>
-            <h2 className="text-black">{`"${c.content}"`}</h2>{" "}
-            <h3 className="text-gray-400">{` - ${c.user.user} `}</h3>
+            <h2 className="text-black">{`"${c?.content}"`}</h2>{" "}
+            <h3 className="text-gray-400">{` - ${c?.user.user} `}</h3>
           </li>
         ))}
       </ul>

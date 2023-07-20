@@ -16,7 +16,7 @@ export default function LayoutPublic() {
   }, []);
   return (
     <>
-    {(location.pathname !== "/" && location.pathname  !=="/administracion")  && <NavBar />}
+    {(location.pathname !== "/" && location.pathname  !=="/administracion" &&  location.pathname  !=="/administracion/form"&&  location.pathname  !=="/administracion/users" &&  location.pathname  !=="/administracion/products" &&  location.pathname  !=="/administracion/index" &&  location.pathname  !=="/administracion/orders" )  && <NavBar />}
     
     <main>
     <Outlet />
