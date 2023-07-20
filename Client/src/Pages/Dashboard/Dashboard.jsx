@@ -18,7 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { mainListItems } from './listItems';
 // import Chart from './Chart';
-// import Deposits from './Deposits';
+import Deposits from './Deposits';
 import Orders from './Orders';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Profile from '../../components/Login/auth0/Profile';
@@ -139,9 +139,8 @@ export default function Dashboard() {
     return (
         <ThemeProvider theme={defaultTheme}>
 
-
-
             <Box sx={{ display: 'flex' }}>
+
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
                     <Toolbar
@@ -276,3 +275,4 @@ export default function Dashboard() {
         </ThemeProvider>
     );
 }
+

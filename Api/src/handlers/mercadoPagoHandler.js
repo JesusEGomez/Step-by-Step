@@ -9,7 +9,6 @@ const URL = "https://step-by-step-pi.vercel.app";
 
 const mercadoPagoCheckout = async (req, res) => {
   const carrito = req.body.carrito;
-  const URL = "https://02bf-190-30-177-199.ngrok-free.app";
   try {
     const preference = {
       items: carrito.map((product) => ({
@@ -29,10 +28,8 @@ const mercadoPagoCheckout = async (req, res) => {
     };
     const response = await mercadopago.preferences.create(preference);
 
-    successPurchase(user.mail, user.name);
     return res.status(200).json({ url: response.body.init_point });
   } catch (error) {
-    failPurchase(user.mail, user.name);
     res.status(500).json({ error: error.message });
   }
 };
