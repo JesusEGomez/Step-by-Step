@@ -70,9 +70,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/administracion/:component',
-                element: (
-                    <ProtectedRoute element={<Dashboard />} verify={verifyAdmin} />
-                )
+                element: <ProtectedRoute element={<Dashboard />} verify={verifyAdmin} />
+
+
             },
             {
                 path: '/login',

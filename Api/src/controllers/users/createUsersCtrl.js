@@ -1,6 +1,7 @@
 const { User } = require("../../db");
 const { Op } = require("sequelize");
 
+
 const createUserCtrl = async (req, res) => {
   const { name, lastname, user, mail, phone, isAdmin, pass } = req.body;
 
@@ -14,25 +15,26 @@ const createUserCtrl = async (req, res) => {
       },
     });
 
-    if (existsUserOrMail) {
-      return res.status(409).json({
-        message: `No se puede crear el usuario debido a que hay un conflicto con un dato único existente`,
-      });
-    }
+    // if (existsUserOrMail) {
+    //   return res.status(409).json({
+    //     message: `No se puede crear el usuario debido a que hay un conflicto con un dato único existente`,
+    //   });
+    //   // return;
+    // }
 
     const newUser = await User.create({
       name,
       lastname,
       user,
       mail,
-      phone,
       isAdmin,
-      pass,
     });
+
 
     return res
       .status(201)
       .json({ message: "Usuario creado exitosamente", usuario: newUser });
+
   } catch (error) {
     console.error("Error al crear el usuario:", error.message);
     return res
