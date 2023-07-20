@@ -39,7 +39,7 @@ const Home = () => {
             quantity,
             ordenNumber: orderId,
             paymentStatus: status,
-            email: user.email,
+            email: user?.email,
           };
           return newOrden;
         });
