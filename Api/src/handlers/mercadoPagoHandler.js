@@ -29,10 +29,8 @@ const mercadoPagoCheckout = async (req, res) => {
     };
     const response = await mercadopago.preferences.create(preference);
 
-    successPurchase(user.mail, user.name);
     return res.status(200).json({ url: response.body.init_point });
   } catch (error) {
-    failPurchase(user.mail, user.name);
     res.status(500).json({ error: error.message });
   }
 };
