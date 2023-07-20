@@ -33,7 +33,7 @@ function Profile() {
           </li>
           {isAdmin && (
             <li>
-              <Link className="text-gray-500" to={"/administracion/"}>Administracion</Link>
+              <Link className="text-gray-500" to={"/administracion/index"}>Administracion</Link>
             </li>
           )}
           <li onClick={() => logout()}>
