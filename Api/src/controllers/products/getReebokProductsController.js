@@ -83,4 +83,4 @@ const getReebokProducts = async () => {
   return newResult;
 };
 
-module.exports = { getReebokProducts };
+module.exports = getReebokProducts;

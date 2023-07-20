@@ -16,6 +16,10 @@ const recorrerArray = (array, propiedad) => {
 const initialState = {
   filteredProducts: [],
   products: [],
+  nikeProducts: [],
+  reebokProducts: [],
+  adidasProducts: [],
+
   currentPage: 1,
 };
 
@@ -24,6 +28,20 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(`${URL}/products`);
+      return [...response.data];
+    } catch (error) {
+      return error.message;
+    }
+  }
+);
+
+export const fetchNikeProducts = createAsyncThunk(
+  "products/fetchNikeProducts",
+  async () => {
+    try {
+      const response = await axios.get(`${URL}/products`, {
+        params: { brand: "nike" }, // Send the "brand" parameter to filter Nike products
+      });
       return [...response.data];
     } catch (error) {
       return error.message;
@@ -41,6 +59,14 @@ export const productsSlice = createSlice({
     },
     setFilteredProducts: (state, actions) => {
       state.filteredProducts = actions.payload;
+      state.currentPage = 1;
+    },
+    setFilteredProducts: (state, actions) => {
+      const { payload } = actions;
+      const brand = "nike";
+      state.filteredProducts = payload.filter(
+        (product) => product.brand === brand
+      );
       state.currentPage = 1;
     },
   },
@@ -62,6 +88,15 @@ export const productsSlice = createSlice({
         }
       })
       .addCase(fetchProducts.rejected, (state, actions) => {
+        console.log(actions.error.message);
+      })
+      .addCase(fetchNikeProducts.fulfilled, (state, actions) => {
+        state.nikeProducts = actions.payload.map((element) => {
+          const sizes = recorrerArray(element.sizes, "size");
+          return { ...element, sizes };
+        });
+      })
+      .addCase(fetchNikeProducts.rejected, (state, actions) => {
         console.log(actions.error.message);
       });
   },

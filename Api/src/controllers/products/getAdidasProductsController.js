@@ -83,4 +83,4 @@ const getAdidasProducts = async () => {
   return newResult;
 };
 
-module.exports = { getAdidasProducts };
+module.exports = getAdidasProducts;

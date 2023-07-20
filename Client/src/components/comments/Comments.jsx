@@ -7,6 +7,7 @@ import { getOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
 const INTERVAL_DELAY = 5000;
+
 function Comments() {
   const orders = useSelector(getOrders);
   const comments = useSelector(getComments);
@@ -86,7 +87,6 @@ function Comments() {
     return (
       <ul>
         <li>
-          //& condicional para cuando el comments esta vacio
           <h2 className="text-black text-xl font-bold">{`"${comments[currentCommentIndex]?.content}"`}</h2>{" "}
           <h3 className="text-gray-400">{` - ${comments[currentCommentIndex]?.user.user} `}</h3>
         </li>

@@ -83,4 +83,4 @@ const getNikeProducts = async () => {
   return newResult;
 };
 
-module.exports = { getNikeProducts };
+module.exports = getNikeProducts;
