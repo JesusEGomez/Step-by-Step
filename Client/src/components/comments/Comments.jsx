@@ -32,16 +32,15 @@ function Comments() {
       <ul>
         {comments?.map((c, i) => (
           <li key={i}>
-            <h2 className="text-black">{`"${c.content}"`}</h2>{" "}
-            <h3 className="text-gray-400">{` - ${c.user.user} `}</h3>
+            <h2 className="text-black">{`"${c?.content}"`}</h2>
+            <h3 className="text-gray-400">{` - ${c?.user?.user} `}</h3>
           </li>
         ))}
       </ul>
 
       <button
-        className={`rounded-xl mt-6 text-white ${
-          !isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
-        }`}
+        className={`rounded-xl mt-6 text-white ${!isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
+          }`}
         onClick={handleButtonClick}
         disabled={!isAuthenticated && !hasOrder}
       >

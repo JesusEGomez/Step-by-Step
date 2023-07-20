@@ -41,10 +41,15 @@ const router = createBrowserRouter([
                 element: <ErrorPage />
             },
             {
-                path: '/administracion',
+                path: '/administracion/*',
                 element: (
-                    <ProtectedRoute element={<Form />} verify={verifyAdmin} />
+                    // <ProtectedRoute element={<Form />} verify={verifyAdmin} />
+                    <Dashboard />
                 )
+            },
+            {
+                path: '/form',
+                element: <Form />
             },
             {
                 path: '/login',
