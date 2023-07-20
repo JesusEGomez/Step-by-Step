@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 function Comments() {
   const { user, isAuthenticated } = useAuth0();
   // const comments = useSelector(getComments || []);
-const comments= [];
+  const comments = [];
 
   const [hasOrder, setHasOrder] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -40,9 +40,8 @@ const comments= [];
       </ul>
 
       <button
-        className={`rounded-xl mt-6 text-white ${
-          !isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
-        }`}
+        className={`rounded-xl mt-6 text-white ${!isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
+          }`}
         onClick={handleButtonClick}
         disabled={!isAuthenticated && !hasOrder}
       >

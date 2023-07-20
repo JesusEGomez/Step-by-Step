@@ -1,57 +1,38 @@
+import React from 'react';
 import { FaRegFileCode } from 'react-icons/fa';
-import { BiLogoPostgresql,BiLogoTailwindCss } from 'react-icons/bi';
-import { BsGithub } from 'react-icons/bs'
-import { LiaReact } from 'react-icons/lia'
-import {SiMercadopago} from 'react-icons/si'
+import { BiLogoPostgresql, BiLogoTailwindCss } from 'react-icons/bi';
+import { BsGithub } from 'react-icons/bs';
+import { LiaReact } from 'react-icons/lia';
+import { SiMercadopago } from 'react-icons/si';
+
 const Footer = () => {
-    return (
+  return (
+    <div>
+      <footer className="footer p-12 w-screen bg-gray-100 text-gray-600">
         <div>
-        <footer className="footer p-12 w-screen bg-gray-100 text-gray-600">
-        <div>
-        <FaRegFileCode
-        size={56}
-        className="fill-current"
-        >
-        </FaRegFileCode>
-        <p>HENRY proyecto final <br />julio 2023</p>
+          <FaRegFileCode size={56} className="fill-current" />
+          <p>HENRY proyecto final<br />julio 2023</p>
         </div>
+
+        <div >
+            <button onClick={() => window.location.href = "/about"}>
+              Conocenos 
+            </button>
+          </div>
+
         <div className='ml-[50%]'>
-        <span className="footer-title">TECNOLOGIAS</span>
-        <div className="grid grid-flow-col gap-6">
-        
-        <LiaReact
-        size={30}
-        className="fill-current"
-        >
-        </LiaReact>
-        
-        
-        <BsGithub
-        size={30}
-        className="fill-current"
-        >
-        </BsGithub>
-        <BiLogoPostgresql
-        size={30}
-        className="fill-current">
-        </BiLogoPostgresql>
-        
-        <BiLogoTailwindCss
-        size={30}
-        className="fill-current">
-        </BiLogoTailwindCss>
-        
-        <SiMercadopago
-        size={30}
-        className="fill-current">
-        </SiMercadopago>
-        
+          <span className="footer-title">TECNOLOGIAS</span>
+          <div className="grid grid-flow-col gap-6">
+            <LiaReact size={30} className="fill-current" />
+            <BsGithub size={30} className="fill-current" />
+            <BiLogoPostgresql size={30} className="fill-current" />
+            <BiLogoTailwindCss size={30} className="fill-current" />
+            <SiMercadopago size={30} className="fill-current" />
+          </div>
         </div>
-        </div>
-        </footer>
-        </div>
-        );
-    };
-    
-    export default Footer;
-    
+      </footer>
+    </div>
+  );
+};
+
+export default Footer;
