@@ -6,7 +6,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 function Comments() {
   const { user, isAuthenticated } = useAuth0();
   // const comments = useSelector(getComments || []);
-const comments= [];
+  const comments = [];
 
   const [hasOrder, setHasOrder] = useState(false);
   const [showModal, setShowModal] = useState(false);

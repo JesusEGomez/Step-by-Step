@@ -88,6 +88,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
                 [theme.breakpoints.up('sm')]: {
                     width: theme.spacing(9),
                 },
+
             }),
         },
     }),
@@ -122,7 +123,7 @@ export default function Dashboard() {
     const renderComponents = () => {
         switch (component) {
             case "index":
-                return <Deposits/>
+                return <UserManagement/>
             case "form":
                 return <Form />;
             case "orders":
@@ -140,6 +141,7 @@ export default function Dashboard() {
         <ThemeProvider theme={defaultTheme}>
 
             <Box sx={{ display: 'flex' }}>
+
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
                     <Toolbar
@@ -274,3 +276,4 @@ export default function Dashboard() {
         </ThemeProvider>
     );
 }
+
