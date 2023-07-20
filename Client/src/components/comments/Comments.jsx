@@ -11,7 +11,7 @@ function Comments() {
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
 
-  console.log(user.email);
+
 
   const handleButtonClick = () => {
     if (isAuthenticated && hasOrder) {
@@ -41,9 +41,8 @@ function Comments() {
       </ul>
 
       <button
-        className={`rounded-xl mt-6 text-white ${
-          !isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
-        }`}
+        className={`rounded-xl mt-6 text-white ${!isAuthenticated || !hasOrder ? "bg-gray-200" : "bg-black"
+          }`}
         onClick={handleButtonClick}
         disabled={!isAuthenticated && !hasOrder}
       >
