@@ -5,7 +5,6 @@ import { addNewUsers } from "../../../features/users.slice.js";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
-
 function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
   const isAdmin = verifyAdmin();
@@ -18,6 +17,11 @@ function Profile() {
     mail: user?.email ?? "",
     isAdmin: false,
   })
+
+  useEffect(() => {
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
+  }, [user, isAuthenticated]);
 
   useEffect(() => {
     if (newUser.mail !== "" || newUser !== "") {
