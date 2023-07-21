@@ -29,9 +29,9 @@ export const fetchProducts = createAsyncThunk(
     try {
       const response = await axios.get(`${URL}/products`);
       const data = response.data;
-      const filteredIsPublished = data.filter((p) => p.isPublish === false);
-      return filteredIsPublished;
-      // return [...response.data];
+      // const filteredIsPublished = data.filter((p) => p.isPublish === false)
+      // return filteredIsPublished;
+      return [...response.data];
     } catch (error) {
       throw new Error(error.message);
     }
