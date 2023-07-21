@@ -7,10 +7,12 @@ import { getOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
 const INTERVAL_DELAY = 5000;
+
 function Comments() {
+  const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
   const comments = useSelector(getComments);
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);
   const [showModal, setShowModal] = useState(false);

@@ -10,9 +10,11 @@ const {
   getAdidasProductsHandler,
   getReebokProductsHandler,
   updateProductHandler,
+  getPublishedProductsHandler,
 } = require("../handlers/getProductsHandler");
 
 const productsRouter = Router();
+productsRouter.get("/published", getPublishedProductsHandler);
 productsRouter.put("/update", updateProductHandler);
 productsRouter.get("/reebok", getReebokProductsHandler);
 productsRouter.get("/nike", getNikeProductsHandler);
