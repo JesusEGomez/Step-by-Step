@@ -2,6 +2,7 @@ const { Stock } = require("../../db");
 
 const updateStockPerSize = async (order) => {
   try {
+    console.log(order);
     for (const e of order) {
       const quantityToDecrement = e.quantity;
       // console.log(e.size, e.productId, e.quantity);
