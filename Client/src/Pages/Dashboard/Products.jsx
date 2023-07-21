@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DataGrid } from '@mui/x-data-grid';
 import Switch from '@mui/material/Switch';
 import IconButton from '@mui/material/IconButton';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+//import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import Title from './Title';
 import axios from 'axios';
 
@@ -50,7 +50,7 @@ function renderImageCell(params) {
                         console.log(params.row.id)
                         
                         axios
-                        .put(`http://localhost:3001/products/${params.row.id}`, updateData)
+                        .put(`http://localhost:3001/products/update`, updateData)
                         .then((response) => {
                             console.log('Update successful:', response.data);
                             setProductRows(updatedRows);
@@ -65,17 +65,17 @@ function renderImageCell(params) {
                     return <Switch checked={isPublish} onChange={handleChange} />;
                 }
                 
-                function renderDeleteCell(params) {
-                    const handleDelete = () => {
-                        console.log('Eliminar producto con ID:', params.row.id);
-                    };
+                // function renderDeleteCell(params) {
+                //     const handleDelete = () => {
+                //         console.log('Eliminar producto con ID:', params.row.id);
+                //     };
                     
-                    return (
-                        <IconButton onClick={handleDelete} color="primary">
-                        <DeleteForeverIcon />
-                        </IconButton>
-                        );
-                    }
+                //     return (
+                //         <IconButton onClick={handleDelete} color="primary">
+                //         <DeleteForeverIcon />
+                //         </IconButton>
+                //         );
+                //     }
                     
                     function Products() {
                         const dispatch = useDispatch();
@@ -110,7 +110,7 @@ function renderImageCell(params) {
                             col12: product.categories.join(', '),
                             col13: product.stock.map((size) => size.size).join(', '),
                             col14: product.stock.reduce((totalStock, size) => totalStock + size.stockPerSize, 0),
-                            col15: <DeleteForeverIcon />
+                            //col15: <DeleteForeverIcon />
                         }));
                         
                         const columns = [
@@ -131,7 +131,7 @@ function renderImageCell(params) {
                             { field: 'col12', headerName: 'Categorias', width: 150 },
                             { field: 'col13', headerName: 'Talles', width: 400 },
                             { field: 'col14', headerName: 'Stock', width: 150 },
-                            { field: 'col15', headerName: 'Eliminar', width: 150, renderCell: renderDeleteCell },
+                           // { field: 'col15', headerName: 'Eliminar', width: 150, renderCell: renderDeleteCell },
                         ];
                         
                         return (

@@ -34,7 +34,7 @@ import Products from './Products'
 function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
-        {'Copyright © '}
+        {'Copyright Â© '}
         <Link color="primary" href="https://step-by-step-pi.vercel.app/">
         Step By Step
         </Link>{' '}
@@ -101,61 +101,45 @@ function Copyright(props) {
                     darker: '#424242',
                     contrastText: '#fafafa',
                 },
-
-            }),
-        },
-    }),
-);
-
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme({
-
-    palette: {
-        primary: {
-            main: '#757575',
-            darker: '#424242',
-            contrastText: '#fafafa',
-        },
-        neutral: {
-            main: '#e0e0e0',
-            contrastText: '#fafafa ',
-        },
-    },
-});
-
-
-
-
-export default function Dashboard() {
-    const [open, setOpen] = React.useState(true);
-    const toggleDrawer = () => {
-        setOpen(!open);
-    };
-
-    const { component } = useParams()
-    const renderComponents = () => {
-        switch (component) {
-            case "index":
-                return <UserManagement />
-            case "form":
-                return <Form />;
-            case "orders":
-                return <Orders />;
-            case "products":
-                return <Products />;
-            case "users":
-                return <UserManagement />;
-            default:
-                return <ErrorPage />;
-        }
-    };
-
-    return (
-        <ThemeProvider theme={defaultTheme}>
-
-            <Box sx={{ display: 'flex' }}>
-
-
+                neutral: {
+                    main: '#e0e0e0',
+                    contrastText: '#fafafa ',
+                },
+            },
+        });
+        
+        
+        
+        
+        export default function Dashboard() {
+            const [open, setOpen] = React.useState(true);
+            const toggleDrawer = () => {
+                setOpen(!open);
+            };
+            
+            const { component } = useParams()
+            const renderComponents = () => {
+                switch (component) {
+                    case "index":
+                    return <UserManagement />
+                    case "form":
+                    return <Form />;
+                    case "orders":
+                    return <Orders />;
+                    case "products":
+                    return <Products />;
+                    case "users":
+                    return <UserManagement />;
+                    default:
+                    return <ErrorPage />;
+                }
+            };
+            
+            return (
+                <ThemeProvider theme={defaultTheme}>
+                
+                <Box sx={{ display: 'flex' }}>
+                
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
                 <Toolbar sx={{ pr: '24px', }}>
@@ -177,8 +161,8 @@ export default function Dashboard() {
                 </Typography>
                 
                 <IconButton
-                color="primary.contrastText" sx={{ mr: 5, color: "fafafa", fontSize: 20, }} >
-                <Profile sx={{ fontSize: 10, color: "fafafa", marginTop: 20, mr:5 }} />  </IconButton>
+                color="primary.contrastText" sx={{ mr: '4px', color: "fafafa", fontSize: 20, }} >
+                <Profile sx={{ fontSize: 10, color: "fafafa", marginTop: 20 }} />  </IconButton>
                 </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open}>
