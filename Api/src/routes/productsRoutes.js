@@ -25,6 +25,6 @@ productsRouter.get("/", getProductsFromDb);
 productsRouter.post("/", createProductCtrl);
 productsRouter.get("/:id", productsByIdCtrl);
 
-productsRouter.put("/:productId", updateProductCtrl)
+// productsRouter.put("/:productId", updateProductCtrl)
 
 module.exports = productsRouter;
