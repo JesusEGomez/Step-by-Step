@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "node ./index",
+        "start": " node ./index",
+
         "test": "mocha -w ./tests/**/*.spec.js"
     },
     "author": "Luciano Gramajo",
@@ -14,7 +15,7 @@
         "npm": ">=6.14.6"
     },
     "dependencies": {
-         "axios": "^1.4.0",
+        "axios": "^1.4.0",
         "body-parser": "^1.19.0",
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",

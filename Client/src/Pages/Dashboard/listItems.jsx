@@ -11,46 +11,39 @@ import { useNavigate } from 'react-router-dom';
 import { formControlClasses } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-
-
-
 export const mainListItems = (
-    
-    
     <React.Fragment>
-    <Link to="/administracion/orders">
-    <ListItemButton>
-    <ListItemIcon>
-    <ShoppingCartIcon />
-    </ListItemIcon>
-    <ListItemText primary="Orderdenes" />
-    </ListItemButton>
-    </Link>
-    <Link to="/administracion/users">
-    <ListItemButton>
-    <ListItemIcon>
-    <PeopleIcon />
-    </ListItemIcon>
-    <ListItemText primary="Usuarios" />
-    </ListItemButton>
-    </Link>
-    <Link to="/administracion/products">
-    <ListItemButton>
-    <ListItemIcon>
-    <BarChartIcon />
-    </ListItemIcon>
-    <ListItemText primary="Productos" />
-    </ListItemButton>
-    </Link>
-    <Link to="/administracion/form">
-    <ListItemButton >
-    <ListItemIcon>
-    <AddBoxIcon />
-    </ListItemIcon>
-    <ListItemText primary="Crear Productos" />
-    </ListItemButton>
-    </Link>
-    
+        <Link to="/administracion/orders" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <ListItemButton>
+                <ListItemIcon>
+                    <ShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Orderdenes" />
+            </ListItemButton>
+        </Link>
+        <Link to="/administracion/users" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <ListItemButton>
+                <ListItemIcon>
+                    <PeopleIcon />
+                </ListItemIcon>
+                <ListItemText primary="Usuarios" />
+            </ListItemButton>
+        </Link>
+        <Link to="/administracion/products" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <ListItemButton>
+                <ListItemIcon>
+                    <BarChartIcon />
+                </ListItemIcon>
+                <ListItemText primary="Productos" />
+            </ListItemButton>
+        </Link>
+        <Link to="/administracion/form" style={{ color: 'inherit', textDecoration: 'none' }}>
+            <ListItemButton>
+                <ListItemIcon>
+                    <AddBoxIcon />
+                </ListItemIcon>
+                <ListItemText primary="Crear Productos" />
+            </ListItemButton>
+        </Link>
     </React.Fragment>
-    );
-    
+);
