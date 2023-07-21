@@ -15,12 +15,12 @@ const Footer = () => {
         </div>
 
         <div >
-            <button onClick={() => window.location.href = "/about"}>
+            <button className=' border-2 mt-10 ml-16 text-xs border-gray-300 hover:border-gray-600 ' onClick={() => window.location.href = "/about"}>
               Conocenos 
             </button>
           </div>
 
-        <div className='ml-[50%]'>
+        <div className='ml-60'>
           <span className="footer-title">TECNOLOGIAS</span>
           <div className="grid grid-flow-col gap-6">
             <LiaReact size={30} className="fill-current" />
