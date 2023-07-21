@@ -2,32 +2,28 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { verifyAdmin } from "../../../hooks/verifierForRoutes.js";
 import { addNewUsers } from "../../../features/users.slice.js";
-import { useEffect, useMemo } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 
 function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
   const isAdmin = verifyAdmin();
+  const dispatch = useDispatch();
 
-  console.log(user)
-
-
+  const [newUser, setNewUser] = useState({
+    name: user?.given_name ?? "none",
+    lastname: user?.family_name ?? "none",
+    user: user?.nickname ?? "",
+    mail: user?.email ?? "",
+    isAdmin: false,
+  })
 
   useEffect(() => {
-    const handleAddNewUser = async () => {
-      try {
-        const { family_name, given_name, nickname, email } = user;
-        const newUser = { name: given_name, lastname: family_name, user: nickname, mail: email, isAdmin: false };
-
-        await addNewUsers(newUser);
-        // console.log("usuario creado", newUser)
-      } catch (error) {
-        console.error("Error al agregar nuevo usuario:", error.message);
-      }
-    };
-    handleAddNewUser();
-
-  }, [])
+    if (newUser.mail !== "" || newUser !== "") {
+      dispatch(addNewUsers(newUser));
+    }
+  }, [dispatch])
 
   return (
     isAuthenticated && (
