@@ -9,17 +9,24 @@ const createComments = async () => {
 
       const commentData = {
         content: comment.content,
-        email: comment.email,
+        // email: comment.email,
       };
 
-      const createComment = await Comment.create(commentData);
+      const createComment = await Comment.create({ content: comment.content });
 
       const foundUser = await User.findOne({
         where: { mail: comment.email },
       });
 
-      // if (foundUser) {
-      //   await createComment.setUser(foundUser.id);
+      if (foundUser) {
+        await createComment.setUser(foundUser.id);
+      }
+      // const foundBrand = await Brand.findOne({
+      //   where: { name: product.brand[0] },
+      // });
+
+      // if (foundBrand) {
+      //   await createProduct.setBrand(foundBrand.id);
       // }
     }
   } catch (error) {
