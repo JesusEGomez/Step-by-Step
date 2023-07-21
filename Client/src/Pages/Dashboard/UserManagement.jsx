@@ -20,6 +20,7 @@ function UserManagement() {
         };
         // Llama a la acción updateUser para enviar la solicitud PUT.
         dispatch(updateUser({ id: userId, data: updatedUser }));
+        location.reload()
     }
 
     const handlerOrderId = () => {

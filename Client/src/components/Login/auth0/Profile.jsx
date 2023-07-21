@@ -1,14 +1,15 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { verifyAdmin } from "../../../hooks/verifierForRoutes.js";
-import { addNewUsers } from "../../../features/users.slice.js";
+import { addNewUsers, getAllUsers } from "../../../features/users.slice.js";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
   const isAdmin = verifyAdmin();
   const dispatch = useDispatch();
+  const dbUsers = useSelector(getAllUsers)
 
   const [newUser, setNewUser] = useState({
     name: user?.given_name ?? "none",
@@ -21,12 +22,16 @@ function Profile() {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
+    localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    if (newUser.mail !== "" || newUser !== "") {
-      dispatch(addNewUsers(newUser));
+    const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
+
+    if (newUser.mail !== "" || newUser.user !== "") {
+      if (!userExists) { dispatch(addNewUsers(newUser)); }
     }
+
   }, [dispatch])
 
   return (
