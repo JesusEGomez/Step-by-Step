@@ -1,33 +1,38 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { verifyAdmin } from "../../../hooks/verifierForRoutes.js";
-import { addNewUsers } from "../../../features/users.slice.js";
-import { useEffect, useMemo } from "react";
-
+import { addNewUsers, getAllUsers } from "../../../features/users.slice.js";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
   const isAdmin = verifyAdmin();
+  const dispatch = useDispatch();
+  const dbUsers = useSelector(getAllUsers)
 
-  console.log(user)
-
-
+  const [newUser, setNewUser] = useState({
+    name: user?.given_name ?? "none",
+    lastname: user?.family_name ?? "none",
+    user: user?.nickname ?? "",
+    mail: user?.email ?? "",
+    isAdmin: false,
+  })
 
   useEffect(() => {
-    const handleAddNewUser = async () => {
-      try {
-        const { family_name, given_name, nickname, email } = user;
-        const newUser = { name: given_name, lastname: family_name, user: nickname, mail: email, isAdmin: false };
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
+    localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
+  }, [user, isAuthenticated]);
 
-        await addNewUsers(newUser);
-        // console.log("usuario creado", newUser)
-      } catch (error) {
-        console.error("Error al agregar nuevo usuario:", error.message);
-      }
-    };
-    handleAddNewUser();
+  useEffect(() => {
+    const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
 
-  }, [])
+    if (newUser.mail !== "" || newUser.user !== "") {
+      if (!userExists) { dispatch(addNewUsers(newUser)); }
+    }
+
+  }, [dispatch])
 
   return (
     isAuthenticated && (
