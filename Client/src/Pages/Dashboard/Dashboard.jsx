@@ -161,8 +161,8 @@ function Copyright(props) {
                 </Typography>
                 
                 <IconButton
-                color="primary.contrastText" sx={{ mr: '4px', color: "fafafa", fontSize: 20, }} >
-                <Profile sx={{ fontSize: 10, color: "fafafa", marginTop: 20 }} />  </IconButton>
+                color="primary.contrastText" sx={{ mr: 5, color: "fafafa", fontSize: 20, }} >
+                <Profile sx={{ fontSize: 10, color: "fafafa", marginTop: 20, mr:5 }} />  </IconButton>
                 </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open}>
