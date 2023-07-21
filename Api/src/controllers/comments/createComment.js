@@ -2,7 +2,8 @@ const { Comment } = require("../../db.js");
 
 const createComment = async ({ content, email }) => {
   try {
-    console.log(content, email);
+    console.log("controller", content, email);
+
     const createComment = await Comment.create({ content });
     await createComment.setUser(email);
   } catch (error) {
