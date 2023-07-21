@@ -18,9 +18,9 @@ const createComments = async () => {
         where: { mail: comment.email },
       });
 
-      //   if (foundUser) {
-      //     await createComment.setUser(foundUser.id);
-      //   }
+      // if (foundUser) {
+      //   await createComment.setUser(foundUser.id);
+      // }
     }
   } catch (error) {
     console.log(error);
