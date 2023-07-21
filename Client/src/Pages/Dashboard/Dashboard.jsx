@@ -104,7 +104,7 @@ const defaultTheme = createTheme({
         neutral: {
             main: '#e0e0e0',
             contrastText: '#fafafa ',
-        }
+        },
     },
 });
 
@@ -139,7 +139,6 @@ export default function Dashboard() {
         <ThemeProvider theme={defaultTheme}>
 
             <Box sx={{ display: 'flex' }}>
-
 
                 <CssBaseline />
                 <AppBar position="absolute" open={open}>
