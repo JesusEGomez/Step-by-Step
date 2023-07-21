@@ -18,6 +18,7 @@ function Comments() {
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
 
+  console.log(user);
   useEffect(() => {
     // Check if the user has a comment
     const findHasComment = comments?.find((c) => c.mail === user?.email);
@@ -88,7 +89,7 @@ function Comments() {
       <ul>
         <li>
           <h2 className="text-black text-xl font-bold">{`"${comments[currentCommentIndex]?.content}"`}</h2>{" "}
-          <h3 className="text-gray-400">{` - ${comments[currentCommentIndex]?.user.user} `}</h3>
+          <h3 className="text-gray-400">{` - ${comments[currentCommentIndex]?.user?.user} `}</h3>
         </li>
       </ul>
     );
@@ -100,7 +101,7 @@ function Comments() {
   //       {comments?.map((c, i) => (
   //         <li key={i}>
   //           <h2 className="text-black">{`"${c.content}"`}</h2>{" "}
-  //           <h3 className="text-gray-400">{` - ${c.user.user} `}</h3>
+  //           <h3 className="text-gray-400">{` - ${c.user?.user} `}</h3>
   //         </li>
   //       ))}
   //     </ul>
