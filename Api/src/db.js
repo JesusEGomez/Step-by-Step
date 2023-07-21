@@ -65,11 +65,11 @@ const {
 
 User.hasOne(Comment, {
   foreignKey: "mail",
-  sourceKey: "mail",
+  // sourceKey: "mail",
 }),
   Comment.belongsTo(User, {
     foreignKey: "mail",
-    targetKey: "mail",
+    // targetKey: "mail",
   });
 
 Address.hasMany(User, { foreignKey: "addressId" });
