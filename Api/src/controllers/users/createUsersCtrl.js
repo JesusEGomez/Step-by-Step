@@ -1,7 +1,5 @@
 const { User } = require("../../db");
 const { Op } = require("sequelize");
-const { emailController } = require("../../../test");
-const { welcomeEmail } = require("../../config/mailling/handlerMail");
 
 
 const createUserCtrl = async (req, res) => {
@@ -32,13 +30,16 @@ const createUserCtrl = async (req, res) => {
       isAdmin,
     });
 
-    // Llama a la función welcomeEmail después de crear el usuario exitosamente
-    // await welcomeEmail(newUser.mail, newUser.name)
 
-    return res.status(201).json({ message: "Usuario creado exitosamente", usuario: newUser });
+    return res
+      .status(201)
+      .json({ message: "Usuario creado exitosamente", usuario: newUser });
+
   } catch (error) {
     console.error("Error al crear el usuario:", error.message);
-    return res.status(500).json({ message: "Usuario no pudo ser creado", error: error.message });
+    return res
+      .status(500)
+      .json({ message: "Usuario no pudo ser creado", error: error.message });
   }
 };
 

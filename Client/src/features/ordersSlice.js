@@ -15,6 +15,7 @@ export const fetchOrders = createAsyncThunk("orders/fetchOrders", async () => {
 
     return data;
   } catch (error) {
+    
     return error.message;
   }
 });
