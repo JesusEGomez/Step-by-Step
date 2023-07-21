@@ -38,11 +38,10 @@ const createOrder = async (orderData) => {
         paymentStatus,
         fullFillmentStatus,
       } = order;
-      console.log("orderNumber", productId);
 
       const product = await Product.findByPk(productId);
       const user = await User.findOne({ where: { mail: email } });
-      // console.log("orderNumber", orderData);
+
       const data = {
         orderNumber: orderNumber,
         paymentStatus: paymentStatus,

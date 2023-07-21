@@ -244,5 +244,3 @@ function Copyright(props) {
         </ThemeProvider>
         );
     }
-    
-    
