@@ -18,7 +18,6 @@ function Comments() {
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
 
-  console.log(user);
   useEffect(() => {
     // Check if the user has a comment
     const findHasComment = comments?.find((c) => c.mail === user?.email);
