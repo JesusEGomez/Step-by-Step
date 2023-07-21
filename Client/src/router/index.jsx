@@ -5,7 +5,7 @@ import { Home, Landing, Tienda, ErrorPage, Form, Detail, Checkout, Dashboard, Ab
 
 import { createBrowserRouter, Route } from "react-router-dom";
 import { verifyAdmin, verifyLoged } from "../hooks/verifierForRoutes.js";
-import UserManagement from "../components/UserManagement/UserManagement.jsx";
+import UserManagement from "../Pages/Dashboard/UserManagement.jsx";
 
 
 const ProtectedRoute = ({ element, verify }) => {
