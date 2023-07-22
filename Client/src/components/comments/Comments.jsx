@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { getOrders } from "../../features/ordersSlice";
 
+
 const URL = import.meta.env.VITE_URL;
 const INTERVAL_DELAY = 2000;
 
