@@ -6,31 +6,32 @@ import axios from "axios";
 import { getOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
-const INTERVAL_DELAY = 5000;
+const INTERVAL_DELAY = 2000;
+
 function Comments() {
+  const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
   const comments = useSelector(getComments);
-  const { user, isAuthenticated } = useAuth0();
-  const [hasOrder, setHasOrder] = useState(false);
+  const { isAuthenticated } = useAuth0();
+  const [hasOrder, setHasOrder] = useState(true);
   const [hasComment, setHasComment] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
   // console.log("comments", hasOrder, hasComment);
   useEffect(() => {
-    const findHasComment = comments?.find((c) => c.mail === user?.email);
-    if (findHasComment) {
-      setHasComment(true);
-    }
-
-    const findHasOrder = orders?.find(
-      (o) => o.email === user?.email && o.paymentStatus === "approved"
-    );
-    if (findHasOrder) {
-      setHasOrder(true);
-    }
+    // const findHasComment = comments?.find((c) => c.mail === user?.email);
+    // if (findHasComment) {
+    //   setHasComment(true);
+    // }
+    // const findHasOrder = orders?.find(
+    //   (o) => o.email === user?.email && o.paymentStatus === "approved"
+    // );
+    // if (findHasOrder) {
+    //   setHasOrder(true);
+    // }
   }, [comments, orders, user]);
-
+  // console.log("user.email", user.email);
   useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * comments.length);
@@ -93,48 +94,54 @@ function Comments() {
     <div className="m-6 mt-9 mb-9 text-center">
       {renderComments()}
 
-      {isAuthenticated && hasOrder && !hasComment ? ( //
+      {isAuthenticated && hasOrder && !hasComment ? (
         <button
-          className="rounded-xl mt-6 bg-black text-white"
+          className="rounded-xl mt-6 bg-black text-white border-2 border-gray-200 hover:border-gray-500 hover:bg-gray-800"
           onClick={handleButtonClick}
         >
           Deja tu comentario
         </button>
       ) : (
-        <button className="rounded-xl mt-6 bg-gray-200 text-white" disabled>
+        <button
+          className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2  bg-gray-200 text-white"
+          disabled
+        >
           Deja tu comentario
         </button>
       )}
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          {" "}
-          <div className="bg-white  p-6 rounded-lg shadow-lg">
+          <div className=" bg-white border-gray-100 border-1  p-6 rounded-lg shadow-lg modal-box">
             <form onSubmit={handleSubmit}>
-              <label htmlFor="comment">Comment: </label>
+              <button
+                type="button"
+                onClick={() => setShowModal(false)}
+                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+              >
+                ✕
+              </button>
+              <h2 className="m-2 text-xl font-light" htmlFor="comment">
+                Dejanos tu comentario
+              </h2>
               <input
                 type="text"
                 id="comment"
                 value={commentText}
                 placeholder="Escribe aqui"
+                className="m-2 p-2 w-full  bg-gray-50 border-1 border-gray-100"
                 onChange={(e) => setCommentText(e.target.value)}
               />
 
               <button
                 type="submit"
-                className="bg-black text-white px-4 py-2 rounded-lg mt-4"
+                className="bg-black text-white border-2 border-gray-600 hover:border-gray-100 hover:bg-gray-900 px-4 py-2 rounded-lg mt-4"
               >
-                Submit
+                {" "}
+                Guardar{" "}
               </button>
-            </form>{" "}
+            </form>
           </div>
-          <button
-            type="button"
-            onClick={() => setShowModal(false)}
-            className=" text-black px-4 py-2 rounded-lg -mt-20"
-          >
-            X
-          </button>
         </div>
       )}
     </div>

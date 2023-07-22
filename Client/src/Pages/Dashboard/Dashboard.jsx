@@ -236,7 +236,7 @@ export default function Dashboard() {
                     p: 2,
                     display: "flex",
                     flexDirection: "column",
-                    height: 2400,
+                    height: 2600,
                     width: 1000,
                   }}
                 >

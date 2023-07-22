@@ -8,8 +8,11 @@ const {
   Stock,
 } = require("../../db");
 
-const getDbProducts = async () => {
+const getPublishedProducts = async () => {
   const result = await Product.findAll({
+    where: {
+      isPublish: true, // Filter to get only published products
+    },
     include: [
       {
         model: Category,
@@ -84,17 +87,9 @@ const getDbProducts = async () => {
       sizes: sizes,
       stock: stock,
     };
-
-    // console.log("images", images);//funciona
-    // console.log("brand", brand);//funciona
-    // console.log("colors", colors); //&funciona
-    // console.log("sizes", sizes); // no funciona
-    // console.log("categories", categories); //
-    // console.log("stocks", stock);
-    // console.log(product.stocks);
   });
-  // return result;
+
   return newResult;
 };
 
-module.exports = getDbProducts;
+module.exports = getPublishedProducts;

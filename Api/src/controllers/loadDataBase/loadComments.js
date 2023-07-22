@@ -7,10 +7,10 @@ const createComments = async () => {
     for (let i = 0; i < comments.length; i++) {
       const comment = comments[i];
 
-      const commentData = {
-        content: comment.content,
-        // email: comment.email,
-      };
+      // const commentData = {
+      //   content: comment.content,
+      //   // email: comment.email,
+      // };
 
       const createComment = await Comment.create({ content: comment.content });
 
