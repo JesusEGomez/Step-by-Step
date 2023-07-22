@@ -1,10 +1,11 @@
-const { Comment } = require("../../db.js");
+const { Comment, User } = require("../../db.js");
 
 const createComment = async ({ content, email }) => {
   try {
     console.log("controller", content, email);
 
-    const createComment = await Comment.create({ content, email });
+    const createComment = await Comment.create({ content: content });
+
     const foundUser = await User.findOne({
       where: { mail: email },
     });
