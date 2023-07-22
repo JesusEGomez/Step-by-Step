@@ -64,11 +64,11 @@ const {
 // Product.hasMany(Reviews);
 
 User.hasOne(Comment, {
-  foreignKey: "mail",
+  // foreignKey: "mail",
   // sourceKey: "mail",
 }),
   Comment.belongsTo(User, {
-    foreignKey: "mail",
+    // foreignKey: "mail",
     // targetKey: "mail",
   });
 

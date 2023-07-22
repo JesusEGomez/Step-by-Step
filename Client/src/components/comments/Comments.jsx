@@ -16,15 +16,13 @@ function Comments() {
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
-
+  // console.log("comments", hasOrder, hasComment);
   useEffect(() => {
-    // Check if the user has a comment
     const findHasComment = comments?.find((c) => c.mail === user?.email);
     if (findHasComment) {
       setHasComment(true);
     }
 
-    // Check if the user has an approved order
     const findHasOrder = orders?.find(
       (o) => o.email === user?.email && o.paymentStatus === "approved"
     );
@@ -34,7 +32,6 @@ function Comments() {
   }, [comments, orders, user]);
 
   useEffect(() => {
-    // Update the displayed comment index every 5 seconds
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * comments.length);
       setCurrentCommentIndex(randomIndex);
@@ -53,7 +50,6 @@ function Comments() {
     } else if (!hasComment) {
       setShowModal(true);
     } else {
-      // Shuffle the comments array and set a random index
       const shuffledComments = shuffleArray(comments);
       const randomIndex = Math.floor(Math.random() * shuffledComments.length);
       setCurrentCommentIndex(randomIndex);
@@ -76,7 +72,7 @@ function Comments() {
 
       setCommentText("");
       setShowModal(false);
-      setHasComment(true); // Mark that the user has commented
+      setHasComment(true);
     } catch (error) {
       console.log(error);
     }
@@ -87,44 +83,28 @@ function Comments() {
       <ul>
         <li>
           <h2 className="text-black text-xl font-bold">{`"${comments[currentCommentIndex]?.content}"`}</h2>{" "}
-          <h3 className="text-gray-400">{` - ${comments[currentCommentIndex]?.user} `}</h3>
+          <h3 className="text-gray-400">{` - ${comments[currentCommentIndex]?.user?.user} `}</h3>
         </li>
       </ul>
     );
   };
 
-  // const renderComments = () => {
-  //   return (
-  //     <ul>
-  //       {comments?.map((c, i) => (
-  //         <li key={i}>
-  //           <h2 className="text-black">{`"${c.content}"`}</h2>{" "}
-  //           <h3 className="text-gray-400">{` - ${c.user.user} `}</h3>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   );
-  // };
-
-  const isDisabled = !isAuthenticated || !hasOrder || hasComment;
-
   return (
     <div className="m-6 mt-9 mb-9 text-center">
       {renderComments()}
 
-      {!isAuthenticated || !hasOrder || hasComment ? (
+      {isAuthenticated && hasOrder && !hasComment ? ( //
         <button
-          className={`rounded-xl mt-6 text-white ${
-            !isAuthenticated || !hasOrder || hasComment
-              ? "bg-gray-200"
-              : "bg-black"
-          }`}
+          className="rounded-xl mt-6 bg-black text-white"
           onClick={handleButtonClick}
-          disabled={!isAuthenticated || !hasOrder || hasComment}
         >
           Deja tu comentario
         </button>
-      ) : null}
+      ) : (
+        <button className="rounded-xl mt-6 bg-gray-200 text-white" disabled>
+          Deja tu comentario
+        </button>
+      )}
 
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center z-50">

@@ -6,7 +6,6 @@ import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
-
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
@@ -16,7 +15,6 @@ const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
@@ -37,7 +35,7 @@ const Home = () => {
             productId: id,
             size: sizes[0],
             quantity,
-            ordenNumber: orderId,
+            orderNumber: orderId,
             paymentStatus: status,
             email: user?.email,
           };
@@ -100,9 +98,8 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? "active" : "bg-gray-300"
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
+            }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -118,10 +115,6 @@ const Home = () => {
     }
 
     return buttons;
-  };
-
-  const handleBrandClick = (e) => {
-    e.preventDefault();
   };
 
   return (
@@ -168,15 +161,9 @@ const Home = () => {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center tooltip"
                 data-tip="Reebok"
               >
-                <Link to="/tienda">
-                  <button
-                    name="reebok"
-                    onClick={handleBrandClick}
-                    className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
-                  >
-                    <SiReebok />
-                  </button>{" "}
-                </Link>
+                <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
+                  <SiReebok />
+                </button>
               </div>
             </div>
             <div className="w-1/3 h-96 overflow-hidden relative">
@@ -189,12 +176,9 @@ const Home = () => {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center tooltip"
                 data-tip="Nike"
               >
-                {" "}
-                <Link to="/tienda">
-                  <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
-                    <SiNike />
-                  </button>
-                </Link>
+                <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
+                  <SiNike />
+                </button>
               </div>
             </div>
             <div className="w-1/3 h-96 overflow-hidden relative">
@@ -207,11 +191,9 @@ const Home = () => {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center tooltip"
                 data-tip="Adidas"
               >
-                <Link to="/tienda">
-                  <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
-                    <CgAdidas />
-                  </button>
-                </Link>
+                <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
+                  <CgAdidas />
+                </button>
               </div>
             </div>
           </div>{" "}
