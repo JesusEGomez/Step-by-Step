@@ -20,9 +20,9 @@ async function sendEmailsToRegisteredUser(email) {
     // Llama a la función de compra fallida (failPurchase) y pasa el correo electrónico del usuario registrado
     await failPurchase(email, 'Usuario');
 
-    console.log('Correos electrónicos enviados correctamente');
+    
   } catch (error) {
-    console.error('Error al enviar los correos electrónicos:', error);
+
   }
 }
 
