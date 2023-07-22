@@ -10,8 +10,11 @@ module.exports = (sequelize) => {
         primaryKey: true,
       },
       content: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
       },
+      // email: {
+      //   type: DataTypes.STRING,
+      // },
     },
     {
       timestamps: false,

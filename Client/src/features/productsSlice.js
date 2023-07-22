@@ -16,6 +16,10 @@ const recorrerArray = (array, propiedad) => {
 const initialState = {
   filteredProducts: [],
   products: [],
+  nikeProducts: [],
+  reebokProducts: [],
+  adidasProducts: [],
+
   currentPage: 1,
 };
 
@@ -24,9 +28,12 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(`${URL}/products`);
+      const data = response.data;
+      // const filteredIsPublished = data.filter((p) => p.isPublish === false)
+      // return filteredIsPublished;
       return [...response.data];
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
     }
   }
 );
