@@ -5,15 +5,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { getOrders } from "../../features/ordersSlice";
 
+
 const URL = import.meta.env.VITE_URL;
 const INTERVAL_DELAY = 2000;
 
 function Comments() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
   const comments = useSelector(getComments);
-  const { isAuthenticated } = useAuth0();
-  const [hasOrder, setHasOrder] = useState(true);
+  const { user, isAuthenticated } = useAuth0();
+  const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
