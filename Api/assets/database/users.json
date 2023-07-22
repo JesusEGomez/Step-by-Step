@@ -1,5 +1,37 @@
 [
   {
+    "name": "mair",
+    "lastname": "mair",
+    "user": "mair",
+    "mail": "mair@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "trup",
+    "lastname": "trup",
+    "user": "trup",
+    "mail": "trup@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "gomez77",
+    "lastname": "gomez77",
+    "user": "gomez77",
+    "mail": "gomez77@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "pepe",
+    "lastname": "pepe",
+    "user": "pepe",
+    "mail": "pepe@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
     "name": "lucho",
     "lastname": "gramajo",
     "user": "luchog",
