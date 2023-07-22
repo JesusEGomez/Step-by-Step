@@ -1,26 +1,13 @@
 [
   {
-    "item_number": "ADHQ1825",
+    "item id": "...",
     "name": "Zapatillas adidas Galaxy 6",
     "description": "Las Zapatillas adidas Galaxy 6 fueron diseñadas pensando en los atletas. Estas zapatillas de running son perfectas para todo momento y lugar, incorporan tecnología innovadora. El exterior de malla ligero favorece el flujo de aire y la mediasuela Cloudfoam le inyecta amortiguación a cada paso. La plantilla suave brinda soporte, sin importar la frecuencia con que las usés para una caminata larga o entrenamiento.",
-    "price": 33,
-    "discount_percentage": 0,
+    "price": 33.99,
+    "discountPercentage": 0,
     "rating": [3],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
-    "brand": ["adidas"],
+    "stock": 50,
+    "brand": "adidas",
     "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw22b1c0a5/products/AD_GW3848/AD_GW3848-1.JPG",
@@ -30,30 +17,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3894",
+    "item id": "...",
     "name": "Zapatillas adidas Terrex Ax3 Gore-Tex",
     "description": "Conquistá cualquier sendero con confianza y seguridad con las Zapatillas adidas Terrex Ax3 Gore-Tex. Están diseñadas para conquistar terrenos irregulares y exigentes. El recubrimiento GORE-TEX transpirable e impermeable mantiene los pies secos y cómodos en todo momento. La suela de caucho de gran resistencia al desgaste proporciona una excelente tracción en terreno seco y mojado.",
-    "price": 81,
-    "discount_percentage": 0,
+    "price": 81.99,
+    "discountPercentage": 0,
     "rating": [4],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 10,
     "brand": ["adidas"],
     "category": ["trekking"],
     "images": [
@@ -64,30 +37,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3811",
+    "item id": "...",
     "name": "Zapatillas adidas Streetcheck",
     "description": "Las Zapatillas adidas Streetcheck son discretas, resistentes y versátiles, todo lo que necesitas para tu calzado del día a día. La capella de sintético con un poco de brillo optimiza tu estilo y la plantilla Cloudfoam brinda amortiguación y suavidad a tus pisadas para que atravieses tu rutina con un look superior y en pleno confort.",
-    "price": 39,
-    "discount_percentage": 0,
+    "price": 39.99,
+    "discountPercentage": 0,
     "rating": [5],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 25,
     "brand": ["adidas"],
     "category": ["casual"],
     "images": [
@@ -98,30 +57,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3822",
+    "item id": "...",
     "name": "Zapatillas Running adidas Response Super 3.0 Hombre",
     "description": "Corré contra el reloj con estas zapatillas de running adidas. Traen un exterior de malla transpirable y un cuello acolchado Geofit que sujeta el tobillo. Bounce en el talón y Bounce+ a lo largo del pie aumentan la sensación de amortiguación para una mayor velocidad y comodidad. La suela de caucho proporciona un agarre excelente, así que atrévete a dejar atrás el asfalto.",
-    "price": 54,
-    "discount_percentage": 0,
+    "price": 54.99,
+    "discountPercentage": 0,
     "rating": [2],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 30,
     "brand": ["adidas"],
     "category": ["training"],
     "images": [
@@ -132,30 +77,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["Red"],
-    "gender": ["women"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3833",
+    "item id": "...",
     "name": "Zapatillas adidas Grand Court Cloudfoam Lifestyle",
     "description": "Las Zapatillas adidas Grand Court Cloudfoam Lifestyle son tus compañeras de excelencia. Con el diseño atemporal marcado por las 3Trayas pero con aires renovados para mantener tu estilo actual. Concentradas en el confort, la suavidad y versatilidad, incorporan la amortiguación Cloudfoam para que no solo piensas en el rendimiento a la hora de entrenar, sino todos los días. Hechas con contenido reciclado para que el bienestar sea total. Con este par, elegir las prendas para vestir será muy fácil. Porque van muy bien con todo!",
-    "price": 38,
-    "discount_percentage": 0,
+    "price": 38.99,
+    "discountPercentage": 0,
     "rating": [1],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 5,
     "brand": ["adidas"],
     "category": ["all day"],
     "images": [
@@ -166,30 +97,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["White"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3844",
+    "item id": "...",
     "name": "Zapatillas adidas Terrex Soulstride",
     "description": "Llegá más lejos con estas zapatillas de trail running adidas Terrex. La amortiguación en la mediasuela y amortiguación ultrasuave en el talón te permiten avanzar con total comodidad. La suela ranurada híbrida te permite pasar del sendero al asfalto con facilidad. Los bordes elevados complementan el exterior de malla técnica para ofrecer estabilidad a tus pasos sin importar a donde te lleve el camino.",
-    "price": 58,
-    "discount_percentage": 0,
+    "price": 58.99,
+    "discountPercentage": 0,
     "rating": [5],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 50,
     "brand": ["adidas"],
     "category": ["training"],
     "images": [
@@ -200,30 +117,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3877",
+    "item id": "...",
     "name": "Zapatillas Adidas Eq21 Run Hombre",
     "description": "Cuando el running es tu deporte, no hay nada que te guste más que correr a diario. Acumulá kilómetros con total comodidad con las Zapatillas Adidas Eq21 Run en tus pies. El exterior transpirable mantiene tus pies frescos y secos en los días de calor y la amortiguación ligera hace que cada paso sea más agradable.",
-    "price": 29,
-    "discount_percentage": 0,
+    "price": 29.99,
+    "discountPercentage": 0,
     "rating": [4],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 45,
     "brand": ["adidas"],
     "category": ["training"],
     "images": [
@@ -234,30 +137,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["gray"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3888",
+    "item id": "...",
     "name": "Zapatillas adidas Tracefinder",
     "description": "Agilidad, cardio, fuerza. Estas zapatillas de trail running adidas presentan una suela Traxion que proporciona una excelente tracción en todas las direcciones para que puedas dominar los senderos de montaña con total confianza. El exterior transpirable favorece el flujo de aire para mantenerte fresco desde el primer al último paso.",
-    "price": 42,
-    "discount_percentage": 0,
+    "price": 42.99,
+    "discountPercentage": 0,
     "rating": [5],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 50,
     "brand": ["adidas"],
     "category": ["all day"],
     "images": [
@@ -268,30 +157,16 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["men"],
-    "sold_count": 0
+    "gender": ["mens"]
   },
   {
-    "item_number": "ADGW3800",
+    "item id": "...",
     "name": "Zapatillas adidas Tensaur Run 2.0",
     "description": "Las Zapatillas adidas Tenasur Run 2.0 son ideales para la comodidad de tus niños durante el juego o cuando van al club. Tiene una calidad duradera que permite que disfruten de sus actividades sin preocupaciones, además de la seguridad en la pisada que ofrece la suela de una pieza de Eva. La parte superior en mesh, hace de este calzado una pieza confortable, brinda libertad de movimiento y favorece la ventilación de sus pies. Ponéselas para verlos disfrutar como nunca antes.",
-    "price": 27,
-    "discount_percentage": 0,
+    "price": 27.99,
+    "discountPercentage": 0,
     "rating": [2],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "stock": 20,
     "brand": ["adidas"],
     "category": ["casual"],
     "images": [
@@ -302,31 +177,31 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["women"],
-    "sold_count": 0
+    "gender": ["womens"]
   },
-
   {
-    "item id": "ADGW3835",
+    "item id": "...",
+    "name": "Zapatillas adidas Duramo 10",
+    "description": "...",
+    "price": 54.99,
+    "discountPercentage": 0,
+    "rating": [3],
+    "stock": 50,
+    "brand": ["adidas"],
+    "category": ["training", "trekking", "casual", "all day"],
+    "images": ["...", "...", "...", "..."],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
     "name": "Zapatillas adidas Duramo 10",
     "description": "La variedad es lo que te motiva. Estas zapatillas de running cómoda y versátil es perfecta para correr, levantar pesas o jugar partidos. Posee un diseño ligero con amortiguación suave. Los refuerzos sin costuras sujetan el pie en los movimientos laterales y cambios de dirección rápidos. De horma clásica, cuenta con cierre de cordones, la parte superior de malla, mediasuela de lightmotion, plantilla OrthoLite y suela de goma.",
-    "price": 41,
-    "discount_percentage": 0,
-    "rating": [3],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
+    "price": 41.99,
+    "discountPercentage": 0,
+    "rating": [1],
+    "stock": 50,
     "brand": ["adidas"],
     "category": ["training"],
     "images": [
@@ -337,7 +212,6 @@
     ],
     "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["unisex"],
-    "sold_count": 0
+    "gender": ["unisex"]
   }
 ]

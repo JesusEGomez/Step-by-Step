@@ -13,7 +13,7 @@ function Comments() {
   const orders = useSelector(getOrders);
   const comments = useSelector(getComments);
   const { user, isAuthenticated } = useAuth0();
-  const [hasOrder, setHasOrder] = useState(true);
+  const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
