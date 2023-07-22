@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
+import { setSelectedBrand } from "../../features/productsSlice";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -119,8 +120,8 @@ const Home = () => {
     return buttons;
   };
 
-  const handleBrandClick = (e) => {
-    e.preventDefault();
+  const handleBrandClick = (brandName) => {
+    dispatch(setSelectedBrand(brandName));
   };
 
   return (
@@ -167,10 +168,11 @@ const Home = () => {
                 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex justify-center tooltip"
                 data-tip="Reebok"
               >
+                {" "}
                 <Link to="/tienda">
                   <button
                     name="reebok"
-                    onClick={handleBrandClick}
+                    onClick={() => handleBrandClick("reebok")}
                     className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
                   >
                     <SiReebok />
@@ -190,7 +192,10 @@ const Home = () => {
               >
                 {" "}
                 <Link to="/tienda">
-                  <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
+                  <button
+                    onClick={() => handleBrandClick("nike")}
+                    className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
+                  >
                     <SiNike />
                   </button>
                 </Link>
@@ -207,7 +212,10 @@ const Home = () => {
                 data-tip="Adidas"
               >
                 <Link to="/tienda">
-                  <button className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2">
+                  <button
+                    onClick={() => handleBrandClick("adidas")}
+                    className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
+                  >
                     <CgAdidas />
                   </button>
                 </Link>

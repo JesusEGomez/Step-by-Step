@@ -21,16 +21,16 @@ function Comments() {
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
   // console.log("comments", hasOrder, hasComment);
   useEffect(() => {
-    // const findHasComment = comments?.find((c) => c.mail === user?.email);
-    // if (findHasComment) {
-    //   setHasComment(true);
-    // }
-    // const findHasOrder = orders?.find(
-    //   (o) => o.email === user?.email && o.paymentStatus === "approved"
-    // );
-    // if (findHasOrder) {
-    //   setHasOrder(true);
-    // }
+    const findHasComment = comments?.find((c) => c.mail === user?.email);
+    if (findHasComment) {
+      setHasComment(true);
+    }
+    const findHasOrder = orders?.find(
+      (o) => o.email === user?.email && o.paymentStatus === "approved"
+    );
+    if (findHasOrder) {
+      setHasOrder(true);
+    }
   }, [comments, orders, user]);
   // console.log("user.email", user.email);
   useEffect(() => {
