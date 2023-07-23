@@ -26,7 +26,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         clientId={clientId}
         redirectUri={`${window.location.origin}/home`}
         cacheLocation="localstorage"
-        
 
       >
         <RouterProvider router={router} />
