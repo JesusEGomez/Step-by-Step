@@ -11,11 +11,10 @@ export const fetchOrders = createAsyncThunk("orders/fetchOrders", async () => {
   try {
     const response = await axios.get(`${URL}/orders`);
     const data = response.data;
-    console.log(data);
+    // console.log(data);
 
     return data;
   } catch (error) {
-    
     return error.message;
   }
 });

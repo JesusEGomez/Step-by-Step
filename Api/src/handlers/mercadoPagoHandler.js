@@ -21,10 +21,12 @@ const mercadoPagoCheckout = async (req, res) => {
         id: product.id,
       })),
       auto_return: "approved",
+
       back_urls: {
         success: `${URL}/home`,
         failure: `${URL}/home`,
       },
+
       // notification_url: `${URL}/checkout/notify`,
       // notification_url: `http://localhost:3001/checkout/notify`,
     };
