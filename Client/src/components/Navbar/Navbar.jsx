@@ -58,7 +58,10 @@ const NavBar = () => {
         </main>
       </div>
       <div className="cart-container absolute top-1/2  right-4 transform -translate-y-1/2">
-        <label tabIndex={0} className="btn absolute top-1/2  right-4 btn-ghost btn-circle peer">
+        <label
+          tabIndex={0}
+          className="btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
+        >
           <div className="indicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +102,9 @@ const NavBar = () => {
                       src={product.images[0].imageUrl}
                       alt={product.model}
                     />
-                    <h6 className="text-base font-light py-2">{product.model}</h6>
+                    <h6 className="text-base font-light py-2">
+                      {product.model}
+                    </h6>
                     <h5 className="font-medium text-xs">
                       <strong>Precio:</strong> ${`${product.totalPrice}`}
                     </h5>
@@ -126,26 +131,30 @@ const NavBar = () => {
               </div>
             </div>
             <div className="card-actions">
-              {(isAuthenticated && user.email_verified) ?
+              {isAuthenticated && user.email_verified ? (
                 <Link to="/checkout" className="text-black hover:no-underline ">
                   <button className="bg-black mx-10 px-8 text-white hover:border-gray-200 hover:bg-gray-800">
                     Ir a pagar
                   </button>
-                </Link> :
-                <button onClick={() => {
-                  Swal.fire({
-                    icon: 'error',
-                    title: 'Oops... No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.',
-                  })
-                }}>
+                </Link>
+              ) : (
+                <button
+                  onClick={() => {
+                    Swal.fire({
+                      icon: "error",
+                      title:
+                        "Oops... No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.",
+                    });
+                  }}
+                >
                   Ir a pagar
                 </button>
-              }
+              )}
             </div>
           </div>
         </div>
       </div>
-    </div >
+    </div>
   );
 };
 

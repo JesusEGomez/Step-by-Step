@@ -74,6 +74,7 @@ export const productsSlice = createSlice({
       })
       .addCase(setSelectedBrand.fulfilled, (state, actions) => {
         const selectedBrand = actions.payload;
+        console.log(actions.payload);
         if (selectedBrand === "all") {
           state.filteredProducts = [...state.products];
         } else {
