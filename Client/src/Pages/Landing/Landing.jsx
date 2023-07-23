@@ -12,7 +12,6 @@ function Landing() {
   };
 
 
-
   return (
     <div className={`relative ${styles.container}`}>
       <video
