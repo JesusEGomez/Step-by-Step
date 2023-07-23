@@ -20,9 +20,9 @@ function Profile() {
   })
 
   useEffect(() => {
-    localStorage.setItem("user", JSON.stringify(user));
-    localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-    localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
+    // localStorage.setItem("user", JSON.stringify(user));
+    // localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
+    // localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
   }, [user, isAuthenticated]);
 
   useEffect(() => {

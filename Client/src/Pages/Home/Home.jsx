@@ -6,18 +6,20 @@ import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
 import { setSelectedBrand } from "../../features/productsSlice";
+import Swal from "sweetalert2"
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate()
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
@@ -38,7 +40,7 @@ const Home = () => {
             productId: id,
             size: sizes[0],
             quantity,
-            ordenNumber: orderId,
+            orderNumber: orderId,
             paymentStatus: status,
             email: user?.email,
           };
@@ -49,12 +51,22 @@ const Home = () => {
       sendOrder();
       console.log("orden", cart);
       dispatch(clearCart());
-      Swal.fire(
-        'Felicitaciones!',
-        'Tu compra fue realizada correctamente!',
-        'success'
-      )
+      Swal.fire({
+        title: 'Felicidades tu compra se realizo con exito',
+        text: "Gracias por elegirnos",
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continuar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/tienda")
+        }
+      })
     }
+
+
     dispatch(fetchComments());
     dispatch(fetchOrders());
   }, []);
