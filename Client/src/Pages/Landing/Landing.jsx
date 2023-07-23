@@ -47,7 +47,7 @@ function Landing() {
         'success'
       )
     }
-  })
+  },[])
 
 
   return (
