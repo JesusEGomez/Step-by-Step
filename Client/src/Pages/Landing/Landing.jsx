@@ -22,12 +22,6 @@ function Landing() {
     const status = urlParams.get("status");
     const orderId = urlParams.get("payment_id");
     if (status === "approved") {
-      Swal.fire(
-        'Felicitaciones!',
-        'Tu compra fue realizada correctamente!',
-        'success'
-      )
-
       const user = JSON.parse(localStorage.getItem("user"));
       const sendOrder = async () => {
         const order = cart.map((product) => {
@@ -47,6 +41,11 @@ function Landing() {
       sendOrder();
       console.log("orden", cart);
       dispatch(clearCart());
+       Swal.fire(
+        'Felicitaciones!',
+        'Tu compra fue realizada correctamente!',
+        'success'
+      )
     }
   })
 
