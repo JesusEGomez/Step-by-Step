@@ -49,6 +49,11 @@ const Home = () => {
       sendOrder();
       console.log("orden", cart);
       dispatch(clearCart());
+      Swal.fire(
+        'Felicitaciones!',
+        'Tu compra fue realizada correctamente!',
+        'success'
+      )
     }
     dispatch(fetchComments());
     dispatch(fetchOrders());
