@@ -31,38 +31,41 @@ const Home = () => {
     const status = urlParams.get("status");
     const orderId = urlParams.get("payment_id");
     if (status === "approved") {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const sendOrder = async () => {
-        const order = cart.map((product) => {
-          const { id, sizes, quantity } = product;
-          const newOrden = {
-            productId: id,
-            size: sizes[0],
-            quantity,
-            ordenNumber: orderId,
-            paymentStatus: status,
-            email: user?.email,
-          };
-          return newOrden;
-        });
-        response = await axios.post(`${URL}/orders/create`, order);
-      };
-      sendOrder();
-      console.log("orden", cart);
-      dispatch(clearCart());
-       Swal.fire({
-        title: 'Felicidades tu compra se realizo con exito',
-        text: "Gracias por elegirnos",
-        icon: 'success',
-        showCancelButton: false,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Continuar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          location.reload()
-        }
-      })
+     if (localStorage.getItem("user") !== undefined) {
+
+        const user = JSON.parse(localStorage.getItem("user"));
+        const sendOrder = async () => {
+          const order = cart.map((product) => {
+            const { id, sizes, quantity } = product;
+            const newOrden = {
+              productId: id,
+              size: sizes[0],
+              quantity,
+              ordenNumber: orderId,
+              paymentStatus: status,
+              email: user?.email,
+            };
+            return newOrden;
+          });
+          response = await axios.post(`${URL}/orders/create`, order);
+        };
+        sendOrder();
+        console.log("orden", cart);
+        dispatch(clearCart());
+        Swal.fire({
+          title: 'Felicidades tu compra se realizo con exito',
+          text: "Gracias por elegirnos",
+          icon: 'success',
+          showCancelButton: false,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Continuar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            location.reload()
+          }
+        })
+      }
     }
     dispatch(fetchComments());
     dispatch(fetchOrders());
