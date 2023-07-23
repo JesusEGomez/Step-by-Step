@@ -2,6 +2,11 @@
 import { useNavigate } from 'react-router-dom';
 import landingvideo from '../../assets/zapatillas.mp4_Trim.mp4';
 import styles from "./Landing.module.css";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { clearCart } from "../../features/cartSlice";
+import Swal from 'sweetalert2';
+
 
 
 function Landing() {
@@ -10,6 +15,40 @@ function Landing() {
   const handleExploreClick = () => {
     navigate('/home');
   };
+  const dispatch = useDispatch();
+  const cart = JSON.parse(localStorage.getItem("cart"));
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const status = urlParams.get("status");
+    const orderId = urlParams.get("payment_id");
+    if (status === "approved") {
+      Swal.fire(
+        'Felicitaciones!',
+        'Tu compra fue realizada correctamente!',
+        'success'
+      )
+
+      const user = JSON.parse(localStorage.getItem("user"));
+      const sendOrder = async () => {
+        const order = cart.map((product) => {
+          const { id, sizes, quantity } = product;
+          const newOrden = {
+            productId: id,
+            size: sizes[0],
+            quantity,
+            ordenNumber: orderId,
+            paymentStatus: status,
+            email: user?.email,
+          };
+          return newOrden;
+        });
+        response = await axios.post(`${URL}/orders/create`, order);
+      };
+      sendOrder();
+      console.log("orden", cart);
+      dispatch(clearCart());
+    }
+  })
 
 
   return (
