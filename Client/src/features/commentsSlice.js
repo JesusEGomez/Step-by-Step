@@ -17,7 +17,7 @@ export const fetchComments = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
     }
   }
 );
