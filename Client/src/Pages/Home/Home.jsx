@@ -54,6 +54,7 @@ const Home = () => {
         'Tu compra fue realizada correctamente!',
         'success'
       )
+      location.reload()
     }
     dispatch(fetchComments());
     dispatch(fetchOrders());
