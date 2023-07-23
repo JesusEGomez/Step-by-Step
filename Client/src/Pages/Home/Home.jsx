@@ -52,7 +52,7 @@ const Home = () => {
         };
         sendOrder();
         console.log("orden", cart);
-        // dispatch(clearCart());
+        dispatch(clearCart());
         Swal.fire({
           title: 'Felicidades tu compra se realizo con exito',
           text: "Gracias por elegirnos",
