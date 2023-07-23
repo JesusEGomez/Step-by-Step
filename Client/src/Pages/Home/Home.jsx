@@ -50,12 +50,19 @@ const Home = () => {
       sendOrder();
       console.log("orden", cart);
       dispatch(clearCart());
-      Swal.fire(
-        'Felicitaciones!',
-        'Tu compra fue realizada correctamente!',
-        'success'
-      )
-      location.reload()
+       Swal.fire({
+        title: 'Felicidades tu compra se realizo con exito',
+        text: "Gracias por elegirnos",
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Continuar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          location.reload()
+        }
+      })
     }
     dispatch(fetchComments());
     dispatch(fetchOrders());
