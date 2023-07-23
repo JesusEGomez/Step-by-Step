@@ -6,6 +6,7 @@ import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
