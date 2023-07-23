@@ -12,6 +12,7 @@ const createComment = async ({ content, email }) => {
 
     if (foundUser) {
       await createComment.setUser(foundUser.id);
+      await createComment.setUser(foundUser.mail);
     }
     // await createComment.setUser(email);
   } catch (error) {

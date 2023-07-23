@@ -5,7 +5,6 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { getOrders } from "../../features/ordersSlice";
 
-
 const URL = import.meta.env.VITE_URL;
 const INTERVAL_DELAY = 2000;
 
@@ -19,9 +18,13 @@ function Comments() {
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
-  // console.log("comments", hasOrder, hasComment);
+  // console.log("comments", comments);
+
+  // console.log("hasOrder", hasOrder, hasComment);
   useEffect(() => {
-    const findHasComment = comments?.find((c) => c.mail === user?.email);
+    const findHasComment = comments?.find((c) => c.mail === user?.mail);
+
+    // console.log("findHasComment", findHasComment);
     if (findHasComment) {
       setHasComment(true);
     }
