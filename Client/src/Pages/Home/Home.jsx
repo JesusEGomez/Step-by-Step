@@ -5,7 +5,7 @@ import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
@@ -13,6 +13,7 @@ import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
 import { setSelectedBrand } from "../../features/productsSlice";
+import { filterNike } from "../../components/FilterOptions/filtersOptions";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -143,7 +144,7 @@ const Home = () => {
   // };
 
   const handleBrandClick = (brandName) => {
-    dispatch(setSelectedBrand(brandName));
+    filterNike();
   };
 
   return (
@@ -191,9 +192,10 @@ const Home = () => {
                 data-tip="Reebok"
               >
                 {" "}
-                <Link to="/tienda">
+                <Link to="/tienda/reebok">
                   <button
                     name="reebok"
+                    // onClick={() => handleBrandClick("reebok")}
                     onClick={() => handleBrandClick("reebok")}
                     className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
                   >

@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import PaginationControls from "../../components/PaginationControls/PaginationControls";
 import Card from "../../components/Card/Card";
 
-function Tienda() {
+function Tienda(brand) {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
 
