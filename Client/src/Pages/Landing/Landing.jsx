@@ -1,6 +1,6 @@
 
 import { useNavigate } from 'react-router-dom';
-import landingvideo from '../../assets/zapatillas.mp4_Trim.mp4';
+import landingvideo from '../../assets/shoes.mp4';
 import styles from "./Landing.module.css";
 
 

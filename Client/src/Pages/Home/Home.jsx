@@ -6,20 +6,22 @@ import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
 import { setSelectedBrand } from "../../features/productsSlice";
-import Swal from "sweetalert2"
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
+
   const navigate = useNavigate()
+
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);

@@ -1,0 +1,217 @@
+[
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Galaxy 6",
+    "description": "Las Zapatillas adidas Galaxy 6 fueron diseñadas pensando en los atletas. Estas zapatillas de running son perfectas para todo momento y lugar, incorporan tecnología innovadora. El exterior de malla ligero favorece el flujo de aire y la mediasuela Cloudfoam le inyecta amortiguación a cada paso. La plantilla suave brinda soporte, sin importar la frecuencia con que las usés para una caminata larga o entrenamiento.",
+    "price": 33.99,
+    "discountPercentage": 0,
+    "rating": [3],
+    "stock": 50,
+    "brand": "adidas",
+    "category": ["all day"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw22b1c0a5/products/AD_GW3848/AD_GW3848-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfb5350d/products/AD_GW3848/AD_GW3848-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5b9bd308/products/AD_GW3848/AD_GW3848-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfcfb79c/products/AD_GW3848/AD_GW3848-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Terrex Ax3 Gore-Tex",
+    "description": "Conquistá cualquier sendero con confianza y seguridad con las Zapatillas adidas Terrex Ax3 Gore-Tex. Están diseñadas para conquistar terrenos irregulares y exigentes. El recubrimiento GORE-TEX transpirable e impermeable mantiene los pies secos y cómodos en todo momento. La suela de caucho de gran resistencia al desgaste proporciona una excelente tracción en terreno seco y mojado.",
+    "price": 81.99,
+    "discountPercentage": 0,
+    "rating": [4],
+    "stock": 10,
+    "brand": ["adidas"],
+    "category": ["trekking"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3163ba7f/products/ADBC0466/ADBC0466-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw511f66db/products/ADBC0466/ADBC0466-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw27a67e79/products/ADBC0466/ADBC0466-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw23aaec60/products/ADBC0466/ADBC0466-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Streetcheck",
+    "description": "Las Zapatillas adidas Streetcheck son discretas, resistentes y versátiles, todo lo que necesitas para tu calzado del día a día. La capella de sintético con un poco de brillo optimiza tu estilo y la plantilla Cloudfoam brinda amortiguación y suavidad a tus pisadas para que atravieses tu rutina con un look superior y en pleno confort.",
+    "price": 39.99,
+    "discountPercentage": 0,
+    "rating": [5],
+    "stock": 25,
+    "brand": ["adidas"],
+    "category": ["casual"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa81d764c/products/AD_GW5489/AD_GW5489-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwec1f3e38/products/AD_GW5489/AD_GW5489-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd001cc98/products/AD_GW5489/AD_GW5489-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe5e936cf/products/AD_GW5489/AD_GW5489-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas Running adidas Response Super 3.0 Hombre",
+    "description": "Corré contra el reloj con estas zapatillas de running adidas. Traen un exterior de malla transpirable y un cuello acolchado Geofit que sujeta el tobillo. Bounce en el talón y Bounce+ a lo largo del pie aumentan la sensación de amortiguación para una mayor velocidad y comodidad. La suela de caucho proporciona un agarre excelente, así que atrévete a dejar atrás el asfalto.",
+    "price": 54.99,
+    "discountPercentage": 0,
+    "rating": [2],
+    "stock": 30,
+    "brand": ["adidas"],
+    "category": ["training"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb8569ea0/products/ADHP5934/ADHP5934-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf45b3246/products/ADHP5934/ADHP5934-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa382e544/products/ADHP5934/ADHP5934-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe3d95122/products/ADHP5934/ADHP5934-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["Red"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Grand Court Cloudfoam Lifestyle",
+    "description": "Las Zapatillas adidas Grand Court Cloudfoam Lifestyle son tus compañeras de excelencia. Con el diseño atemporal marcado por las 3Trayas pero con aires renovados para mantener tu estilo actual. Concentradas en el confort, la suavidad y versatilidad, incorporan la amortiguación Cloudfoam para que no solo piensas en el rendimiento a la hora de entrenar, sino todos los días. Hechas con contenido reciclado para que el bienestar sea total. Con este par, elegir las prendas para vestir será muy fácil. Porque van muy bien con todo!",
+    "price": 38.99,
+    "discountPercentage": 0,
+    "rating": [1],
+    "stock": 5,
+    "brand": ["adidas"],
+    "category": ["all day"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw009895a6/products/AD_GW9195/AD_GW9195-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw33b77ce8/products/AD_GW9195/AD_GW9195-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw988f3cd3/products/AD_GW9195/AD_GW9195-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc17b592/products/AD_GW9195/AD_GW9195-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["White"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Terrex Soulstride",
+    "description": "Llegá más lejos con estas zapatillas de trail running adidas Terrex. La amortiguación en la mediasuela y amortiguación ultrasuave en el talón te permiten avanzar con total comodidad. La suela ranurada híbrida te permite pasar del sendero al asfalto con facilidad. Los bordes elevados complementan el exterior de malla técnica para ofrecer estabilidad a tus pasos sin importar a donde te lleve el camino.",
+    "price": 58.99,
+    "discountPercentage": 0,
+    "rating": [5],
+    "stock": 50,
+    "brand": ["adidas"],
+    "category": ["training"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwaaab818e/products/AD_GZ9034/AD_GZ9034-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw31101a56/products/AD_GZ9034/AD_GZ9034-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw83f3375c/products/AD_GZ9034/AD_GZ9034-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3b7d5d0a/products/AD_GZ9034/AD_GZ9034-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["gray"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas Adidas Eq21 Run Hombre",
+    "description": "Cuando el running es tu deporte, no hay nada que te guste más que correr a diario. Acumulá kilómetros con total comodidad con las Zapatillas Adidas Eq21 Run en tus pies. El exterior transpirable mantiene tus pies frescos y secos en los días de calor y la amortiguación ligera hace que cada paso sea más agradable.",
+    "price": 29.99,
+    "discountPercentage": 0,
+    "rating": [4],
+    "stock": 45,
+    "brand": ["adidas"],
+    "category": ["training"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe216d46a/products/ADGY2192/ADGY2192-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1d4f1343/products/ADGY2192/ADGY2192-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd2138207/products/ADGY2192/ADGY2192-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9cf631de/products/ADGY2192/ADGY2192-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["gray"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Tracefinder",
+    "description": "Agilidad, cardio, fuerza. Estas zapatillas de trail running adidas presentan una suela Traxion que proporciona una excelente tracción en todas las direcciones para que puedas dominar los senderos de montaña con total confianza. El exterior transpirable favorece el flujo de aire para mantenerte fresco desde el primer al último paso.",
+    "price": 42.99,
+    "discountPercentage": 0,
+    "rating": [5],
+    "stock": 50,
+    "brand": ["adidas"],
+    "category": ["all day"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw58b73b5b/products/ADQ47235/ADQ47235-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw45f73ab6/products/ADQ47235/ADQ47235-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4a1b65c9/products/ADQ47235/ADQ47235-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb5c8c8a3/products/ADQ47235/ADQ47235-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Tensaur Run 2.0",
+    "description": "Las Zapatillas adidas Tenasur Run 2.0 son ideales para la comodidad de tus niños durante el juego o cuando van al club. Tiene una calidad duradera que permite que disfruten de sus actividades sin preocupaciones, además de la seguridad en la pisada que ofrece la suela de una pieza de Eva. La parte superior en mesh, hace de este calzado una pieza confortable, brinda libertad de movimiento y favorece la ventilación de sus pies. Ponéselas para verlos disfrutar como nunca antes.",
+    "price": 27.99,
+    "discountPercentage": 0,
+    "rating": [2],
+    "stock": 20,
+    "brand": ["adidas"],
+    "category": ["casual"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw752973cf/products/AD_GW0396/AD_GW0396-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw224db5ba/products/AD_GW0396/AD_GW0396-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2e049f86/products/AD_GW0396/AD_GW0396-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb6fb96b3/products/AD_GW0396/AD_GW0396-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["womens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Duramo 10",
+    "description": "...",
+    "price": 54.99,
+    "discountPercentage": 0,
+    "rating": [3],
+    "stock": 50,
+    "brand": ["adidas"],
+    "category": ["training", "trekking", "casual", "all day"],
+    "images": ["...", "...", "...", "..."],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["mens"]
+  },
+  {
+    "item id": "...",
+    "name": "Zapatillas adidas Duramo 10",
+    "description": "La variedad es lo que te motiva. Estas zapatillas de running cómoda y versátil es perfecta para correr, levantar pesas o jugar partidos. Posee un diseño ligero con amortiguación suave. Los refuerzos sin costuras sujetan el pie en los movimientos laterales y cambios de dirección rápidos. De horma clásica, cuenta con cierre de cordones, la parte superior de malla, mediasuela de lightmotion, plantilla OrthoLite y suela de goma.",
+    "price": 41.99,
+    "discountPercentage": 0,
+    "rating": [1],
+    "stock": 50,
+    "brand": ["adidas"],
+    "category": ["training"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw545277bb/products/ADHP2376/ADHP2376-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc81b0c3a/products/ADHP2376/ADHP2376-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw498423b4/products/ADHP2376/ADHP2376-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1405f480/products/ADHP2376/ADHP2376-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["unisex"]
+  }
+]

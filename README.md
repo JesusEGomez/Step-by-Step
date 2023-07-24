@@ -38,7 +38,7 @@ Step-By-Step es una página web diseñada para brindar a los entusiastas de las 
 
 ## Equipo
 
-- [Regina Fenoglio ](https://www.linkedin.com/in/regi-fenoglio-bb2499209/)
+- [Marisa Fenoglio ](https://www.linkedin.com/in/regi-fenoglio-bb2499209/)
 - [Jesus Emanuel Gomez](https://www.linkedin.com/in/jesus-emanuel-gomez-33a0ba244/)
 - [Tomas Hastrup](https://www.linkedin.com/in/tomas-hastrup-1a28a413/)
 
