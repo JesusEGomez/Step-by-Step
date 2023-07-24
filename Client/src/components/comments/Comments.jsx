@@ -6,7 +6,7 @@ import axios from "axios";
 import { getOrders } from "../../features/ordersSlice";
 
 const URL = import.meta.env.VITE_URL;
-const INTERVAL_DELAY = 200000;
+const INTERVAL_DELAY = 2000;
 
 function Comments() {
   // const user = JSON.parse(localStorage.getItem("user"));
