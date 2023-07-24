@@ -7,7 +7,7 @@ mercadopago.configure({
 
 const mercadoPagoNotify = async (req, res) => {
   const response = req.query;
-  console.log(response);
+  //console.log(response);
 };
 
 module.exports = mercadoPagoNotify;

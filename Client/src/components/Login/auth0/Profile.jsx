@@ -49,7 +49,9 @@ function Profile() {
     const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
 
     if (newUser.mail !== "" || newUser.user !== "") {
-      if (!userExists) { dispatch(addNewUsers(newUser)); }
+      if (!userExists) {
+        dispatch(addNewUsers(newUser));
+      }
     }
 
   }, [dispatch])

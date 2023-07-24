@@ -1,6 +1,6 @@
 const team = [
     {
-      name: "Regina Fenoglio",
+      name: "Regi Fenoglio",
       phrase: "FullStack Developer",
       image:
         "https://pbs.twimg.com/media/DORGTXaWAAE6eNu.jpg",
@@ -36,7 +36,7 @@ const team = [
       phrase: "FullStack",
       image:
         "https://pbs.twimg.com/media/DORGTXaWAAE6eNu.jpg",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/lucianogramajo/",
       github: "https://github.com/lgramajo99",
     },
     {
@@ -47,14 +47,14 @@ const team = [
       linkedin: "",
       github: "",
     },
-    {
-        name: "Facundo Moreno",
-        phrase: "FullStack",
-        image:
-          "https://pbs.twimg.com/media/DORGTXaWAAE6eNu.jpg",
-        linkedin: "",
-        github: "",
-      },
+    // {
+    //     name: "Facundo Moreno",
+    //     phrase: "FullStack",
+    //     image:
+    //       "https://pbs.twimg.com/media/DORGTXaWAAE6eNu.jpg",
+    //     linkedin: "",
+    //     github: "",
+    //   },
     
   ];
 

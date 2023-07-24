@@ -19,7 +19,7 @@ const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-   const navigate = useNavigate()
+  const navigate = useNavigate();
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
@@ -32,8 +32,7 @@ const Home = () => {
     const status = urlParams.get("status");
     const orderId = urlParams.get("payment_id");
     if (status === "approved") {
-     if (localStorage.getItem("user") !== undefined) {
-
+      if (localStorage.getItem("user") !== undefined) {
         const user = JSON.parse(localStorage.getItem("user"));
         const sendOrder = async () => {
           const order = cart.map((product) => {
@@ -54,27 +53,29 @@ const Home = () => {
         console.log("orden", cart);
         dispatch(clearCart());
         Swal.fire({
-          title: 'Felicidades tu compra se realizo con exito',
+          title: "Felicidades tu compra se realizo con exito",
           text: "Gracias por elegirnos",
-          icon: 'success',
+          icon: "success",
           showCancelButton: false,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Continuar'
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Continuar",
         }).then((result) => {
           if (result.isConfirmed) {
-            navigate("/tienda")
+            navigate("/tienda");
           }
-        })
+        });
       }
     }
+
+
     dispatch(fetchComments());
     dispatch(fetchOrders());
   }, []);
 
   const fetchCarouselImages = async () => {
     try {
-      const response = await axios.get(`${URL}/products`);
+      const response = await axios.get(`${URL}/products/published`);
       const data = response.data;
       setProducts(data); // Guardar la matriz de productos en el estado
       const images = data.map((product) => product.images[1]);
@@ -119,9 +120,8 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? "active" : "bg-gray-300"
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
+            }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -138,6 +138,10 @@ const Home = () => {
 
     return buttons;
   };
+
+  // const handleBrandClick = (brandName) => {
+  //   dispatch(setSelectedBrand(brandName));
+  // };
 
   const handleBrandClick = (brandName) => {
     dispatch(setSelectedBrand(brandName));
