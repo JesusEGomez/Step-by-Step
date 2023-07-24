@@ -13,7 +13,6 @@ import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
 import { setSelectedBrand } from "../../features/productsSlice";
-import { filterNike } from "../../components/FilterOptions/filtersOptions";
 
 const URL = import.meta.env.VITE_URL;
 const IMAGES_PER_SLIDE = 5;
@@ -139,12 +138,8 @@ const Home = () => {
     return buttons;
   };
 
-  // const handleBrandClick = (brandName) => {
-  //   dispatch(setSelectedBrand(brandName));
-  // };
-
   const handleBrandClick = (brandName) => {
-    filterNike();
+    dispatch(setSelectedBrand(brandName));
   };
 
   return (

@@ -4,7 +4,7 @@ import { addProduct } from "../../features/cartSlice";
 import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
 import Carousel from "./Carousel.jsx";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const URL = import.meta.env.VITE_URL;
 
@@ -41,8 +41,7 @@ function Detail(clickHandler) {
       dispatch(addProduct({ ...product, sizes: [selectedSize.size] }));
       setAddedToCart(true);
     } else {
-      Swal.fire('Selecciona un talle')
-
+      Swal.fire("Selecciona un talle");
     }
   };
 
@@ -89,7 +88,9 @@ function Detail(clickHandler) {
                 ${productData.totalPrice}
               </div>
               <div>
-                <p className="font-extralight text-sm w-96">{productData.description}</p>
+                <p className="font-extralight text-sm w-96">
+                  {productData.description}
+                </p>
               </div>
               <div className="flex flex-row justify-start mb-4 relative items-center">
                 {/* Mostrar las imágenes adicionales */}
@@ -112,7 +113,6 @@ function Detail(clickHandler) {
               <div className="whitespace-nowrap text-xs font-sans  tracking-[-0.0840000033378601] leading-[24px] text-gray-600  mb-2 relative w-20 font-semibold">
                 Stock:{" "}
                 {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
-
               </div>
               <div className=" inline  text-gray-800  text-xs font-light mb-1 w-52">
                 SELECCIONA UN TALLE:
@@ -130,18 +130,18 @@ function Detail(clickHandler) {
                       }`}
                       onClick={() => handleImageSize(size)}
                     >
-                      <label class="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
+                      <label className="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none  p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1  cursor-pointer  text-gray-900 shadow-sm">
                         <input
                           type="radio"
                           name="size-choice"
                           value="3XL"
-                          class="sr-only"
+                          className="sr-only"
                           aria-labelledby="size-choice-7-label"
                         />
                         <span id="size-choice-7-label">{size.size}</span>
 
                         <span
-                          class="pointer-events-none absolute -inset-px rounded-md"
+                          className="pointer-events-none absolute -inset-px rounded-md"
                           aria-hidden="true"
                         ></span>
                       </label>
@@ -154,25 +154,24 @@ function Detail(clickHandler) {
               }`}</p>
               <div></div>
               {addedToCart && (
-
                 <div className="text-green-600 text-base font-normal mb-1">
                   Producto agregado al carrito
                 </div>
               )}
 
               <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 mr-12">
-                {selectedSize.stockPerSize > 0 ?
+                {selectedSize.stockPerSize > 0 ? (
                   <button
                     onClick={() => clickAddHandler(productData)}
                     className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
                   >
                     Comprar
                   </button>
-                  :
+                ) : (
                   <button className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md">
                     Sin Stock
                   </button>
-                }
+                )}
               </div>
 
               <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start mr-40 relative">
@@ -184,9 +183,7 @@ function Detail(clickHandler) {
           </div>
         </div>
       ) : (
-
         <button disabled className="bg-white w-96 h-96 ml-80 mt-20  mb-96">
-
           <span className="loading loading-spinner loading-3xl text-black"></span>
         </button>
       )}

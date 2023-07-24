@@ -9,7 +9,7 @@ function Profile() {
   const { user, logout, isAuthenticated } = useAuth0();
   const isAdmin = verifyAdmin();
   const dispatch = useDispatch();
-  const dbUsers = useSelector(getAllUsers)
+  const dbUsers = useSelector(getAllUsers);
 
   const [newUser, setNewUser] = useState({
     name: user?.given_name ?? "none",
@@ -17,22 +17,25 @@ function Profile() {
     user: user?.nickname ?? "",
     mail: user?.email ?? "",
     isAdmin: false,
-  })
-
+  });
+  // console.log("newUser", newUser);
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-    localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
+    localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
+    const userExists = dbUsers.some(
+      (dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user
+    );
 
     if (newUser.mail !== "" || newUser.user !== "") {
-      if (!userExists) { dispatch(addNewUsers(newUser)); }
+      if (!userExists) {
+        // dispatch(addNewUsers(newUser));
+      }
     }
-
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     isAuthenticated && (
@@ -53,15 +56,21 @@ function Profile() {
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li >
-            <Link className="text-gray-500" to={"/cuenta"}>Mi cuenta</Link>
+          <li>
+            <Link className="text-gray-500" to={"/cuenta"}>
+              Mi cuenta
+            </Link>
           </li>
           <li>
-            <Link className="text-gray-500" to={"/compras"}>Mis compras</Link>
+            <Link className="text-gray-500" to={"/compras"}>
+              Mis compras
+            </Link>
           </li>
           {isAdmin && (
             <li>
-              <Link className="text-gray-500" to={"/administracion/index"}>Administracion</Link>
+              <Link className="text-gray-500" to={"/administracion/index"}>
+                Administracion
+              </Link>
             </li>
           )}
           <li onClick={() => logout()}>

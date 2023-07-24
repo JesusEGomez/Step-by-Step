@@ -109,12 +109,6 @@ const Filters = () => {
 
   // console.log("filterPanel", filterPanel);
 
-  const filterNike = (brand) => {
-    setFilterPanel(() => {
-      return { ...filterPanel, brand: "nike" };
-    });
-  };
-
   const handleChange = (e) => {
     e.preventDefault();
     setFilterPanel(() => {
