@@ -49,8 +49,32 @@ export const fetchIsPublishProducts = createAsyncThunk(
 
 export const setSelectedBrand = createAsyncThunk(
   "products/setSelectedBrand",
-  async (brandName) => {
-    return brandName;
+  async (brandName, { getState, dispatch }) => {
+    const state = getState();
+    const products = getAllProducts(state);
+
+    // If products are not fetched yet, wait for fetchProducts to fulfill
+    if (products.length === 0) {
+      try {
+        await dispatch(fetchProducts());
+      } catch (error) {
+        throw new Error(error.message);
+      }
+    }
+
+    // Now that products are available, apply the brand filter
+    const selectedBrand = brandName;
+    if (selectedBrand === "all") {
+      dispatch(setFilteredProducts([...products]));
+    } else {
+      dispatch(
+        setFilteredProducts(
+          products.filter((product) => product.brand === selectedBrand)
+        )
+      );
+    }
+
+    return selectedBrand;
   }
 );
 
@@ -98,6 +122,7 @@ export const productsSlice = createSlice({
       })
       .addCase(setSelectedBrand.fulfilled, (state, actions) => {
         const selectedBrand = actions.payload;
+        console.log(actions.payload);
         if (selectedBrand === "all") {
           state.filteredProducts = [...state.isPublishProducts];
         } else {

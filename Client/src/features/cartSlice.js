@@ -77,7 +77,8 @@ export const cartSlice = createSlice({
       state.cart = [];
       state.total = 0;
 
-      localStorage.clear();
+      localStorage.setItem("cart", JSON.stringify([]));
+      localStorage.setItem("totalPrice", JSON.stringify(0));
     },
   },
 });

@@ -36,7 +36,7 @@ const team = [
       phrase: "FullStack",
       image:
         "https://pbs.twimg.com/media/DORGTXaWAAE6eNu.jpg",
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/lucianogramajo/",
       github: "https://github.com/lgramajo99",
     },
     {

@@ -6,6 +6,8 @@ import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
@@ -17,7 +19,7 @@ const IMAGES_PER_SLIDE = 5;
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate();
   const [carouselImages, setCarouselImages] = useState([]);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [products, setProducts] = useState([]);
@@ -30,25 +32,40 @@ const Home = () => {
     const status = urlParams.get("status");
     const orderId = urlParams.get("payment_id");
     if (status === "approved") {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const sendOrder = async () => {
-        const order = cart.map((product) => {
-          const { id, sizes, quantity } = product;
-          const newOrden = {
-            productId: id,
-            size: sizes[0],
-            quantity,
-            ordenNumber: orderId,
-            paymentStatus: status,
-            email: user?.email,
-          };
-          return newOrden;
+      if (localStorage.getItem("user") !== undefined) {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const sendOrder = async () => {
+          const order = cart.map((product) => {
+            const { id, sizes, quantity } = product;
+            const newOrden = {
+              productId: id,
+              size: sizes[0],
+              quantity,
+              orderNumber: orderId,
+              paymentStatus: status,
+              email: user?.email,
+            };
+            return newOrden;
+          });
+          response = await axios.post(`${URL}/orders/create`, order);
+        };
+        sendOrder();
+        console.log("orden", cart);
+        dispatch(clearCart());
+        Swal.fire({
+          title: "Felicidades tu compra se realizo con exito",
+          text: "Gracias por elegirnos",
+          icon: "success",
+          showCancelButton: false,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Continuar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/tienda");
+          }
         });
-        response = await axios.post(`${URL}/orders/create`, order);
-      };
-      sendOrder();
-      console.log("orden", cart);
-      dispatch(clearCart());
+      }
     }
     dispatch(fetchComments());
     dispatch(fetchOrders());
@@ -101,8 +118,9 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
-            }`}
+          className={`carousel-button ${
+            i === currentSlideIndex ? "active" : "bg-gray-300"
+          }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -119,6 +137,10 @@ const Home = () => {
 
     return buttons;
   };
+
+  // const handleBrandClick = (brandName) => {
+  //   dispatch(setSelectedBrand(brandName));
+  // };
 
   const handleBrandClick = (brandName) => {
     dispatch(setSelectedBrand(brandName));
