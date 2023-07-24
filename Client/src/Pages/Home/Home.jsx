@@ -73,7 +73,7 @@ const Home = () => {
 
   const fetchCarouselImages = async () => {
     try {
-      const response = await axios.get(`${URL}/products`);
+      const response = await axios.get(`${URL}/products/published`);
       const data = response.data;
       setProducts(data); // Guardar la matriz de productos en el estado
       const images = data.map((product) => product.images[1]);
