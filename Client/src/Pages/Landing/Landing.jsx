@@ -25,14 +25,11 @@ function Landing() {
       </video>
 
       <div className={`flex flex-col items-center justify-center h-full text-white relative font-sans ${styles.content}`}>
-        <h1 className={`text-5xl font-extrabold font-sans ${styles.title}`}>Step-By-Step</h1>
+        <h1 className="text-5xl font-bold font-sans drop-shadow-2xl">Step-By-Step</h1>
         <p>&nbsp;</p>
-        <p className={`text-xl font-sans ${styles.description}`}>Descubre lo ultimo en zapatillas</p>
-        <button
-          className={`px-4 py-2 mt-4 text-white bg-black rounded hover:bg-black-800 hover:border-2 hover:border-gray-300 font-sans ${styles.button}`}
-          onClick={handleExploreClick}
+        <button className=" btn glass btn-wide bg-gradient-to-r from-black to-transparent px-6 py-2 mt-4 text-white rounded font-sans transition duration-300 ease-in-out hover:from-black hover:to-transparent hover:text-black hover:border-white"          onClick={handleExploreClick}
         >
-          Explorar colección
+          Acceder a la tienda
         </button>
       </div>
     </div>
