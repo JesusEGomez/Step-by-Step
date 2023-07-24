@@ -67,6 +67,8 @@ const Home = () => {
         });
       }
     }
+
+
     dispatch(fetchComments());
     dispatch(fetchOrders());
   }, []);
@@ -118,9 +120,8 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? "active" : "bg-gray-300"
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
+            }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",

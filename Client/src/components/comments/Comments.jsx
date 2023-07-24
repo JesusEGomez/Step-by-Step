@@ -11,7 +11,7 @@ const INTERVAL_DELAY = 2000;
 function Comments() {
   // const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
-  const comments = useSelector(getComments);
+  const comments = useSelector(getComments) || [];
   const { user, isAuthenticated } = useAuth0();
   const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);
@@ -24,9 +24,9 @@ function Comments() {
   useEffect(() => {
     const findHasOrder = orders
 
-      ?.map((o) => o.paymentStatus === "approved" && o.email)
+      ?.map((o) => o.paymentStatus === "approved" && o?.email)
 
-      .includes(user.email);
+      .includes(user?.email);
     if (findHasOrder) {
       setHasOrder(true);
     }
@@ -36,7 +36,7 @@ function Comments() {
 
     const findHasComment = comments
       ?.map((c) => c.user.mail)
-      .includes(user.email);
+      .includes(user?.email);
 
     if (findHasComment) {
       setHasComment(true);
