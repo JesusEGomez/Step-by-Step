@@ -1,9 +1,9 @@
 const { User } = require("../../db");
 const { Op } = require("sequelize");
-
+const { welcomeEmail } = require("../../handlers/maillingHandler");
 
 const createUserCtrl = async (req, res) => {
-  const { name, lastname, user, mail, phone, isAdmin, pass } = req.body;
+  const { name, lastname, user, mail, isAdmin, pass } = req.body;
 
   try {
     const existsUserOrMail = await User.findOne({
@@ -31,9 +31,8 @@ const createUserCtrl = async (req, res) => {
     });
 
 
-    return res
-      .status(201)
-      .json({ message: "Usuario creado exitosamente", usuario: newUser });
+    await welcomeEmail(newUser.mail, newUser.name)
+    return res.status(201).json({ message: "Usuario creado exitosamente", usuario: newUser });
 
   } catch (error) {
     console.error("Error al crear el usuario:", error.message);

@@ -41,7 +41,7 @@ const Home = () => {
               productId: id,
               size: sizes[0],
               quantity,
-              ordenNumber: orderId,
+              orderNumber: orderId,
               paymentStatus: status,
               email: user?.email,
             };
