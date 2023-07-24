@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllProducts } from "../../features/productsSlice";
+import { getIsPublishProducts } from "../../features/productsSlice";
 import { setFilteredProducts } from "../../features/productsSlice";
 import { getAllColors } from "../../features/colorSlice";
 import { getAllCategories } from "../../features/categoriesSlice";
@@ -19,7 +19,7 @@ const Filters = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const allProducts = useSelector(getAllProducts);
+  const allProducts = useSelector(getIsPublishProducts);
 
   const [brandSelect, setBrandSelect] = useState("");
   const [colorSelect, setColorSelect] = useState("");
