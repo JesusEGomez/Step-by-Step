@@ -57,6 +57,7 @@ function Profile() {
       }
     }
   }, [dispatch]);
+
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
