@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { getAllUsers, fetchUsers, toggleOrderBy } from '../../features/users.slice.js';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import Swal from 'sweetalert2';
+const URL = import.meta.env.VITE_URL;
 
 function UserManagement() {
     const dispatch = useDispatch();
@@ -21,9 +23,25 @@ function UserManagement() {
         };
         // Llama a la acción updateUser para enviar la solicitud PUT.
         // dispatch(updateUser({ id: userId, data: updatedUser }));
-        const response = await axios.put(`http://localhost:3001/users/${userId}`, updatedUser);
-        console.log(response)
-        location.reload()
+        const updateUSer = async () => {
+            const response = await axios.put(`${URL}/users/${userId}`, updatedUser);
+            console.log(response)
+            location.reload()
+
+        }
+        Swal.fire({
+            title: 'Estas seguro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, estoy seguro!',
+            cancelButtonText: "No"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                updateUSer()
+            }
+        })
     }
 
     const handlerOrderId = () => {
