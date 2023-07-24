@@ -24,9 +24,9 @@ function Comments() {
   useEffect(() => {
     const findHasOrder = orders
 
-      ?.map((o) => o.paymentStatus === "approved" && o.email)
+      ?.map((o) => o.paymentStatus === "approved" && o?.email)
 
-      .includes(user.email);
+      .includes(user?.email);
     if (findHasOrder) {
       setHasOrder(true);
     }
@@ -36,7 +36,7 @@ function Comments() {
 
     const findHasComment = comments
       ?.map((c) => c.user.mail)
-      .includes(user.email);
+      .includes(user?.email);
 
     if (findHasComment) {
       setHasComment(true);
