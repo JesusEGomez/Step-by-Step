@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
-import { getAllUsers, fetchUsers, toggleOrderBy, updateUser } from '../../features/users.slice.js';
+import { getAllUsers, fetchUsers, toggleOrderBy } from '../../features/users.slice.js';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+const URL = import.meta.env.VITE_URL;
 
 function UserManagement() {
     const dispatch = useDispatch();
@@ -11,7 +14,7 @@ function UserManagement() {
     }, [])
 
     // users.map(({ id }) => console.log(id))
-    const handlerAdmin = (userId, isAdmin) => {
+    const handlerAdmin = async (userId, isAdmin) => {
         // Crea un nuevo objeto con los datos actualizados del usuario.
         // En este caso, solo actualizamos el campo "isAdmin".
         const updatedUser = {
@@ -19,8 +22,26 @@ function UserManagement() {
             isAdmin: isAdmin
         };
         // Llama a la acción updateUser para enviar la solicitud PUT.
-        dispatch(updateUser({ id: userId, data: updatedUser }));
-        location.reload()
+        // dispatch(updateUser({ id: userId, data: updatedUser }));
+        const updateUSer = async () => {
+            const response = await axios.put(`${URL}/users/${userId}`, updatedUser);
+            console.log(response)
+            location.reload()
+
+        }
+        Swal.fire({
+            title: 'Estas seguro?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, estoy seguro!',
+            cancelButtonText: "No"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                updateUSer()
+            }
+        })
     }
 
     const handlerOrderId = () => {

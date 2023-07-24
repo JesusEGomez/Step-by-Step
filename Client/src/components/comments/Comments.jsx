@@ -11,7 +11,7 @@ const INTERVAL_DELAY = 2000;
 function Comments() {
   // const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
-  const comments = useSelector(getComments);
+  const comments = useSelector(getComments) || [];
   const { user, isAuthenticated } = useAuth0();
   const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);

@@ -4,9 +4,10 @@ import { verifyAdmin } from "../../../hooks/verifierForRoutes.js";
 import { addNewUsers, getAllUsers } from "../../../features/users.slice.js";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 function Profile() {
-  const { user, logout, isAuthenticated } = useAuth0();
+  const { user, logout, isAuthenticated, auth0 } = useAuth0();
   const isAdmin = verifyAdmin();
   const dispatch = useDispatch();
   const dbUsers = useSelector(getAllUsers);
@@ -18,11 +19,31 @@ function Profile() {
     mail: user?.email ?? "",
     isAdmin: false,
   });
-  // console.log("newUser", newUser);
+
+  const sendVerificationEmail = () => {
+    if (auth0 && user?.email) {
+      auth0
+        .sendEmailVerification({ email: user.email })
+        .then(() => {
+          Swal.fire(
+            "Correo enviado con éxito!",
+            "Si no encuentras el correo, revisa en tu bandeja de correos no deseados.",
+            "success"
+          );
+        })
+        .catch((error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Hubo un problema al enviar el correo, inténtalo más tarde.",
+          });
+        });
+    }
+  };
+
   useEffect(() => {
-    // localStorage.setItem("user", JSON.stringify(user));
-    // localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-    // localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
+    localStorage.setItem("user", JSON.stringify(user));
+    localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
+    localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
   }, [user, isAuthenticated]);
 
   useEffect(() => {
@@ -32,11 +53,10 @@ function Profile() {
 
     if (newUser.mail !== "" || newUser.user !== "") {
       if (!userExists) {
-        // dispatch(addNewUsers(newUser));
+        dispatch(addNewUsers(newUser));
       }
     }
   }, [dispatch]);
-
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
@@ -66,6 +86,13 @@ function Profile() {
               Mis compras
             </Link>
           </li>
+          {user.email_verified === false && (
+            <li onClick={sendVerificationEmail}>
+              <span className="text-gray-500 cursor-pointer text-red-600 font-semibold">
+                Verificar email
+              </span>
+            </li>
+          )}
           {isAdmin && (
             <li>
               <Link className="text-gray-500" to={"/administracion/index"}>
