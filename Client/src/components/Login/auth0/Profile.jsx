@@ -19,17 +19,14 @@ function Profile() {
     isAdmin: false,
   })
 
-  useEffect(() => {
-    // localStorage.setItem("user", JSON.stringify(user));
-    // localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-    // localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
-  }, [user, isAuthenticated]);
 
   useEffect(() => {
     const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
 
     if (newUser.mail !== "" || newUser.user !== "") {
-      if (!userExists) { dispatch(addNewUsers(newUser)); }
+      if (!userExists) {
+        dispatch(addNewUsers(newUser));
+      }
     }
 
   }, [dispatch])
