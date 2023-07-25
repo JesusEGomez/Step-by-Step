@@ -173,18 +173,18 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-full" >
+    <div className="w-full">
       <div className="flex space-x-2 ml-52">
-        <button className="link" onClick={handleClickAll}>
+        <button className="link" onClick={handleClickTienda}>
           TIENDA
         </button>
-        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickWomen}>
+        <button className="link" onClick={handleClickWomen}>
           MUJER
         </button>
-        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickMen}>
+        <button className="link" onClick={handleClickMen}>
           VARON
         </button>
-        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickUnisex}>
+        <button className="link" onClick={handleClickUnisex}>
           UNISEX
         </button>{" "}
         <button className="link" onClick={handleClickTodos}>
