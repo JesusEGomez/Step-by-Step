@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllProducts } from "../../features/productsSlice";
+import { getIsPublishProducts } from "../../features/productsSlice";
 import { setFilteredProducts } from "../../features/productsSlice";
 import { getAllColors } from "../../features/colorSlice";
 import { getAllCategories } from "../../features/categoriesSlice";
@@ -11,7 +11,7 @@ import { fetchBrands } from "../../features/brandsSlice";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
-import { BiSearchAlt2 } from "react-icons/bi"
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
@@ -19,7 +19,7 @@ const Filters = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const allProducts = useSelector(getAllProducts);
+  const allProducts = useSelector(getIsPublishProducts);
 
   const [brandSelect, setBrandSelect] = useState("");
   const [colorSelect, setColorSelect] = useState("");
@@ -116,12 +116,18 @@ const Filters = () => {
     });
   };
 
-  const handleClickAll = (e) => {
+  const handleClickTienda = (e) => {
     e.preventDefault();
-    // setFilterPanel(() => {
-    //   return { ...filterPanel };
-    // });
-    // handleResetClick();
+
+    navigate("/tienda");
+  };
+
+  const handleClickTodos = (e) => {
+    e.preventDefault();
+    setFilterPanel(() => {
+      return { ...filterPanel };
+    });
+    handleResetClick();
     navigate("/tienda");
   };
 
@@ -150,7 +156,6 @@ const Filters = () => {
   };
 
   const handleResetClick = (e) => {
-    e.preventDefault();
     setFilterPanel({
       name: "",
       brand: "none",
@@ -169,8 +174,8 @@ const Filters = () => {
 
   return (
     <div className="w-full" >
-      <div className="flex flex-wrap justify-center md:space-x-4 md:justify-start ml-4 md:ml-0"> 
-        <button className="link text-xs ml-90 xs:mx-20 md:text-base ml-90 md:mx-20"  onClick={handleClickAll}> 
+      <div className="flex space-x-2 ml-52">
+        <button className="link" onClick={handleClickAll}>
           TIENDA
         </button>
         <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickWomen}>
@@ -181,9 +186,11 @@ const Filters = () => {
         </button>
         <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickUnisex}>
           UNISEX
+        </button>{" "}
+        <button className="link" onClick={handleClickTodos}>
+          TODOS
         </button>
       </div>
-
 
       {location.pathname === "/tienda" && (
         <div className=" flex items-center w-full">
@@ -225,9 +232,7 @@ const Filters = () => {
               // value={categorySelect}
               className="p-2 mr-1"
             >
-              <option value={"none"} >
-                Category
-              </option>
+              <option value={"none"}>Category</option>
               {categoriesList?.map((c, i) => (
                 <option key={i} value={c}>
                   {c}
@@ -245,17 +250,22 @@ const Filters = () => {
               className="p-2 mr-1"
             >
               {" "}
-              <option value={"none"}  >
-                Color
-              </option>
+              <option value={"none"}>Color</option>
               {colorsList?.map((c, i) => (
-                <option key={i} value={c}>{c}</option>
+                <option key={i} value={c}>
+                  {c}
+                </option>
               ))}
             </select>
           </div>
 
           <div className="link ">
-            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mr-1 ">
+            <select
+              id="price"
+              name="price"
+              onChange={(e) => handleChange(e)}
+              className="p-2 mr-1 "
+            >
               <option key="none" value="none">
                 Precio
               </option>
@@ -268,12 +278,13 @@ const Filters = () => {
             </select>
           </div>
 
-          <button onClick={handleResetClick} className="p-2 border-gray-500 hover:border-gray-700   ">
+          <button
+            onClick={handleResetClick}
+            className="p-2 border-gray-500 hover:border-gray-700   "
+          >
             <span>Reset</span>
           </button>
         </div>
-
-
       )}
     </div>
   );

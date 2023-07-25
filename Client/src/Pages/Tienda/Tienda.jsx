@@ -1,7 +1,7 @@
 //filtros
 import { useState, useEffect } from "react";
 import {
-  fetchProducts,
+  fetchIsPublishProducts,
   getCurrentPage,
   getfilteredProducts,
 } from "../../features/productsSlice";
@@ -15,7 +15,7 @@ function Tienda() {
 
   useEffect(() => {
     setIsLoading(true);
-    dispatch(fetchProducts()).then(() => setIsLoading(false));
+    dispatch(fetchIsPublishProducts()).then(() => setIsLoading(false));
   }, []);
 
   const currentPage = useSelector(getCurrentPage);

@@ -97,4 +97,4 @@ const getDbProducts = async () => {
   return newResult;
 };
 
-module.exports = { getDbProducts };
+module.exports = getDbProducts;

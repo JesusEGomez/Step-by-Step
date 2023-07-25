@@ -5,7 +5,7 @@ const URL = import.meta.env.VITE_URL;
 
 const initialState = {
   users: [],
-  orderBy: 'asc'
+  orderBy: "asc",
 };
 
 export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
@@ -25,25 +25,24 @@ export const addNewUsers = createAsyncThunk(
       const response = await axios.post(`${URL}/users`, data);
       const newUserData = response.data;
       return newUserData;
-
     } catch (error) {
       throw new Error(error.message);
     }
   }
 );
 
-export const updateUser = createAsyncThunk("users/updateUsers",
-  async ({ id, data }) => {
-    try {
-      const response = await axios.put(`http://localhost:3001/users/${id}`, data);
-      const updatedUser = response.data;
-      return updatedUser;
+// export const updateUser = createAsyncThunk("users/updateUsers",
+//   async ({ id, data }) => {
+//     try {
+//       const response = await axios.put(`http://localhost:3001/users/${id}`, data);
+//       const updatedUser = response.data;
+//       return updatedUser;
 
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-)
+//     } catch (error) {
+//       throw new Error(error.message);
+//     }
+//   }
+// )
 
 export const usersSlice = createSlice({
   name: "users",
@@ -54,7 +53,7 @@ export const usersSlice = createSlice({
     },
     toggleOrderBy: (state) => {
       state.orderBy = state.orderBy === "asc" ? "desc" : "asc";
-    }
+    },
   },
   extraReducers(builder) {
     builder
@@ -72,5 +71,5 @@ export const { toggleOrderBy } = usersSlice.actions;
 export const getAllUsers = (state) => {
   const sortedUsers = [...state.users.users].sort((a, b) => a.id - b.id);
   return state.users.orderBy === "desc" ? sortedUsers.reverse() : sortedUsers;
-}
+};
 export default usersSlice.reducer;

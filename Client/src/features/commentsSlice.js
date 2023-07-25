@@ -13,11 +13,11 @@ export const fetchComments = createAsyncThunk(
     try {
       const response = await axios.get(`${URL}/comments`);
       const data = response.data;
-      console.log(data);
+      // console.log(data);
 
       return data;
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
     }
   }
 );

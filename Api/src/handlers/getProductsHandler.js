@@ -1,12 +1,19 @@
 const getNikeProducts = require("../controllers/products/getNikeProductsController");
 const getAdidasProducts = require("../controllers/products/getAdidasProductsController.js");
 const getReebokProducts = require("../controllers/products/getReebokProductsController");
-
-const {
-  getDbProducts,
-} = require("../controllers/products/getProductsController");
+const getPublishedProducts = require("../controllers/products/getPublishedProductsController");
+const getDbProducts = require("../controllers/products/getProductsController");
 
 const updateProduct = require("../controllers/products/updateProductController");
+
+const getPublishedProductsHandler = async (req, res) => {
+  try {
+    const allProducts = await getPublishedProducts();
+    res.status(200).json(allProducts);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+};
 
 const getProductsFromDb = async (req, res) => {
   try {
@@ -62,4 +69,5 @@ module.exports = {
   getAdidasProductsHandler,
   getReebokProductsHandler,
   updateProductHandler,
+  getPublishedProductsHandler,
 };
