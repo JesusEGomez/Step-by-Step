@@ -169,17 +169,17 @@ const Filters = () => {
 
   return (
     <div className="w-full" >
-      <div className="flex space-x-2 ml-52">
-        <button className="link" onClick={handleClickAll}>
+      <div className="flex flex-wrap justify-center md:space-x-4 md:justify-start ml-4 md:ml-0"> 
+        <button className="link text-xs ml-90 xs:mx-20 md:text-base ml-90 md:mx-20"  onClick={handleClickAll}> 
           TIENDA
         </button>
-        <button className="link" onClick={handleClickWomen}>
+        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickWomen}>
           MUJER
         </button>
-        <button className="link" onClick={handleClickMen}>
+        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickMen}>
           VARON
         </button>
-        <button className="link" onClick={handleClickUnisex}>
+        <button className="link text-xs md:text-base mx-auto md:mx-auto" onClick={handleClickUnisex}>
           UNISEX
         </button>
       </div>

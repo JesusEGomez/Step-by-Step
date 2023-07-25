@@ -33,7 +33,7 @@ const NavBar = () => {
           <img
             src={logo}
             alt="logo"
-            className="w-28 h-24 rounded-sm ml-5 mt-1"
+            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-sm ml-5 mt-1" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
           />
         </Link>
       </div>
@@ -86,7 +86,7 @@ const NavBar = () => {
                 return (
                   <div
                     key={i}
-                    className="bg-gray-50 pb-2 m-2 border-2 border-gray-200 text-gray-700  box-border px-4 rounded-xl"
+                    className="hover:bg-white hover:text-black text-gray-500 ml-1 mt-1 pl-1 py-1 w-6 h-6 md:w-8 md:h-8 border-none rounded-full text-lg md:text-xl" //se ajustan elementos del carrito el icono de eliminacion tendra un tamaño de 6x6 pixeles en pantallas pequeñas
                   >
                     <button
                       className="hover:bg-white hover:text-black text-gray-500 ml-36 mt-1 pl-1 py-1 w-2 border-none rounded-full text-lg"
@@ -128,7 +128,7 @@ const NavBar = () => {
             <div className="card-actions">
               {(isAuthenticated && user.email_verified) ?
                 <Link to="/checkout" className="text-black hover:no-underline ">
-                  <button className="bg-black mx-10 px-8 text-white hover:border-gray-200 hover:bg-gray-800">
+                  <button className="bg-black mx-4 px-4 py-2 text-white hover:border-gray-200 hover:bg-gray-800">
                     Ir a pagar
                   </button>
                 </Link> :
