@@ -55,6 +55,13 @@ function Profile() {
     }
 
   }, [dispatch])
+
+  const logoutHandler = () => {
+    localStorage.setItem("cart", JSON.stringify([]));
+    localStorage.setItem("totalPrice", JSON.stringify(0));
+    logout()
+  }
+
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
@@ -90,7 +97,7 @@ function Profile() {
               <Link className="text-gray-500" to={"/administracion/index"}>Administracion</Link>
             </li>
           )}
-          <li onClick={() => logout()}>
+          <li onClick={logoutHandler}>
             <a className="text-gray-500">Cerrar sesión</a>
           </li>
         </ul>
