@@ -89,7 +89,7 @@ function Profile() {
           </li>
           {user.email_verified === false && (
             <li onClick={sendVerificationEmail}>
-              <span className="cursor-pointer text-red-600 font-semibold">
+              <span className="text-red-700 cursor-pointer  font-semibold">
                 Verificar email
               </span>
             </li>
