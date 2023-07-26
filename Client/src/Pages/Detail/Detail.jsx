@@ -122,9 +122,9 @@ function Detail(clickHandler) {
               </div>
               <div className="flex flex-row justify-start mb-2 relative items-center">
                 {/* Mostrar las imágenes adicionales */}
-                <div className="grid grid-cols-5 gap-2">
+                <ul className="grid grid-cols-5 gap-2">
                   {productData.stock.map((size, index) => (
-                    <div
+                    <li
                       key={index}
                       className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
                         selectedSize.size === size.size
@@ -142,16 +142,16 @@ function Detail(clickHandler) {
                           aria-labelledby="size-choice-7-label"
                         />
                         {/* <span id="size-choice-7-label">{size.size}</span> */}
-                        <span id={index}>{size.size}</span>
+                        <span id="size-choice-7-label">{size.size}</span>
 
-                        <span
+                        {/* <span
                           className="pointer-events-none absolute -inset-px rounded-md"
                           aria-hidden="true"
-                        ></span>
+                        ></span> */}
                       </label>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
               <p className="font-semibold text-sm">{`Talle seleccionado: ${
                 selectedSize.size ? selectedSize.size : ""

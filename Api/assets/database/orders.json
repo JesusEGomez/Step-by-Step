@@ -3,8 +3,8 @@
     "orderNumber": "ML334342",
     "fullFillmentStatus": "pending",
     "paymentStatus": "approved",
-    "productId": 14,
-    "size": 36,
+    "productId": 1,
+    "size": 43,
     "quantity": 1,
     "email": "pepe@gmail.com"
   },
@@ -12,8 +12,8 @@
     "orderNumber": "ML334342",
     "fullFillmentStatus": "pending",
     "paymentStatus": "approved",
-    "productId": 44,
-    "size": 36,
+    "productId": 1,
+    "size": 44,
     "quantity": 1,
     "email": "pepe@gmail.com"
   },
@@ -21,8 +21,8 @@
     "orderNumber": "ML334342",
     "fullFillmentStatus": "pending",
     "paymentStatus": "approved",
-    "productId": 4,
-    "size": 36,
+    "productId": 1,
+    "size": 45,
     "quantity": 1,
     "email": "pepe@gmail.com"
   },
@@ -80,30 +80,7 @@
     "quantity": 1,
     "email": "gomez77@gmail.com"
   },
-  {
-    "orderNumber": "ML334345",
-    "paymentStatus": "approved",
-    "productId": 11,
-    "size": 36,
-    "quantity": 1,
-    "email": "majo@gmail.com"
-  },
-  {
-    "orderNumber": "ML334345",
-    "paymentStatus": "approved",
-    "productId": 62,
-    "size": 36,
-    "quantity": 1,
-    "email": "majo@gmail.com"
-  },
-  {
-    "orderNumber": "ML334345",
-    "paymentStatus": "approved",
-    "productId": 28,
-    "size": 36,
-    "quantity": 1,
-    "email": "majo@gmail.com"
-  },
+
   {
     "orderNumber": "ML334346",
     "paymentStatus": "approved",

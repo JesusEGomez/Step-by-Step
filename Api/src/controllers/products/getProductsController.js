@@ -57,13 +57,30 @@ const getDbProducts = async () => {
     //   "sizeId": 7,
     //   "productId": 1
     // },
-    const stock = product.stocks.map((s) => {
-      return {
-        size: s.sizeId + 34,
-        stockPerSize: s.stockPerSize,
-      };
-    });
+    // const stock = product.stocks.map((s) => {
+    //   return {
+    //     size: s.sizeId + 34,
+    //     stockPerSize: s.stockPerSize,
+    //   };
+    // });
+    // const stock = product.stocks
+    //   .map((s) => {
+    //     return {
+    //       size: s.sizeId + 34,
+    //       stockPerSize: s.stockPerSize,
+    //     };
+    //   })
+    //   .sort((a, b) => a.sizeId - b.sizeId);
+    const stock = product.stocks
+      .map((s) => {
+        return {
+          size: s.sizeId + 34,
+          stockPerSize: s.stockPerSize,
+        };
+      })
+      .sort((a, b) => a.size - b.size);
 
+    console.log(stock[0]);
     return {
       totalPrice: product.totalPrice,
       totalStock: product.totalStock,

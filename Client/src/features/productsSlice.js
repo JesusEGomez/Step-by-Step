@@ -46,17 +46,16 @@ export const fetchIsPublishProducts = createAsyncThunk(
   }
 );
 
-
 export const setSelectedBrand = createAsyncThunk(
   "products/setSelectedBrand",
   async (brandName, { getState, dispatch }) => {
     const state = getState();
-    const products = getAllProducts(state);
+    const products = getisPublishProducts(state);
 
     // If products are not fetched yet, wait for fetchProducts to fulfill
     if (products.length === 0) {
       try {
-        await dispatch(fetchProducts());
+        await dispatch(fetchIsPublishProducts());
       } catch (error) {
         throw new Error(error.message);
       }
@@ -138,8 +137,6 @@ export const productsSlice = createSlice({
   },
 });
 
-
-
 export const getIsPublishProducts = (state) => state.products.isPublishProducts;
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
@@ -147,4 +144,3 @@ export const getfilteredProducts = (state) => state.products.filteredProducts;
 
 export const { setCurrentPage, setFilteredProducts } = productsSlice.actions;
 export default productsSlice.reducer;
-
