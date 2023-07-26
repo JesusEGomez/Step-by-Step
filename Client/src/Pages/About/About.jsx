@@ -5,7 +5,6 @@ import team from '../About/team';
 const About = () => {
   return (
     <div className="dark:bg-[#27242C] bg-[#EFF0F3]">
-   
       <div className="w-full h-[1px] bg-gray-500 dark:bg-gray-800" />
 
       <h1 className="mt-8 text-center text-5xl font-bold text-[#060606] mb-12 dark:text-[#F0EEEE]">
@@ -21,6 +20,7 @@ const About = () => {
             image={person.image}
             name={person.name}
             phrase={person.phrase}
+            className="mb-8 md:mb-0"
           />
         ))}
       </div>
