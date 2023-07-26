@@ -13,6 +13,9 @@ import { fetchSizes, getAllSizes } from "../../features/sizeSlice";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa"
+import { useRef } from "react";
+
+
 export default function Form() {
   const brands = useSelector(getAllBrands);
   const categories = useSelector(getAllCategories);
@@ -21,6 +24,7 @@ export default function Form() {
   const [checked, setChecked] = useState(false);
   const dispatch = useDispatch();
   const URL = import.meta.env.VITE_URL;
+  const fileInputRef = useRef(null);
 
 
   useEffect(() => {
@@ -86,9 +90,8 @@ export default function Form() {
   const validate = (form) => {
     const errors = {};
 
-    if (!/^[a-zA-Z0-9]{3,20}$/.test(form.item_number)) {
-      errors.item_number =
-        "Debe contener entre 3 y 20 caracteres alfanuméricos";
+    if (!/^[a-zA-Z0-9-]{3,20}$/.test(form.item_number)) {
+      errors.item_number = "Debe contener entre 3 y 20 caracteres alfanuméricos";
     }
 
     if (!/.+/.test(form.model)) {
@@ -193,6 +196,22 @@ export default function Form() {
       };
     });
   };
+
+  const confirmImageDeletion = (index) => {
+    Swal.fire({
+      title: "¿Está seguro?",
+      text: "Esta acción eliminará la imagen seleccionada",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Sí, eliminar",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        handleDeleteImg(index);
+      }
+    });
+  };
+
   const handleDeleteImg = (index) => {
     setForm((prevState) => {
       const updatedImages = [...prevState.images];
@@ -202,7 +221,14 @@ export default function Form() {
         images: updatedImages,
       };
     });
+    setIsFormValid(false);
+
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
+
+
 
   function handlerInputChange(e) {
     const { name, value, type } = e.target;
@@ -338,8 +364,10 @@ export default function Form() {
   console.log("estas son las brands", brands)
 
   return (
+    <div className="bg-white rounded-md mt-2 mb-10 ml-2 p-6 w-[120%] h-full">
+
     <form onSubmit={handleSubmit}>
-      <div className="space-y-12 mt-5 mb-10 ml-10">
+      <div className="space-y-2 rounded-sm mt-2 mb-10 ml-2 ">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
             Formulario
@@ -691,27 +719,27 @@ export default function Form() {
               <label htmlFor="image" className="text-md font-semibold m-2 leading-6 text-gray-900 mb-2">
                 Elige una Imagen:
               </label>
-              <input type="file" className="file-input file-input-bordered w-full max-w-xl m-2" onChange={submitImage} />
+              <input type="file" className="file-input file-input-bordered w-full max-w-xl m-2" onChange={submitImage} ref={fileInputRef} />
               {/* <div className="flex space-x-4">
-                              {form.images.map((image, index) => (
-                                <img className="flex-shrink-0 w-1/4 m-3" src={image} key={index} alt={`Image ${index}`} />
-                                ))}
-                              </div> */}
+                                {form.images.map((image, index) => (
+                                  <img className="flex-shrink-0 w-1/4 m-3" src={image} key={index} alt={`Image ${index}`} />
+                                  ))}
+                                </div> */}
 
               <div className="flex space-x-4">
                 {form.images.map((image, index) => (
                   <div className="relative" key={index}>
                     <img className="w-48 h-48 object-cover m-3" src={image} alt={`Image ${index}`} />
                     <button
-                      onClick={() => handleDeleteImg(index)}
+                      onClick={() => confirmImageDeletion(index)}
                       className="absolute top-0 right-0 w-6 h-6 bg-red-800 border-none text-white px-2 py-1 rounded-full"
                     >
                       <FaTrashAlt className="pr-2" />
                     </button>
-
                   </div>
                 ))}
               </div>
+
 
 
             </div>
@@ -740,5 +768,6 @@ export default function Form() {
         </button>
       </div>
     </form>
+    </div>
   );
 }

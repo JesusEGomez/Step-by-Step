@@ -3,6 +3,7 @@ import { getAllUsers, fetchUsers, toggleOrderBy } from '../../features/users.sli
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import Title from './Title.jsx';
 const URL = import.meta.env.VITE_URL;
 
 function UserManagement() {
@@ -48,7 +49,8 @@ function UserManagement() {
         dispatch(toggleOrderBy())
     }
 
-    return (
+    return ( <div className='bg-white p-3 w-[120%] h-full'>
+        <Title>Usuarios</Title>
         <table className="table table-zebra text-center w-100% mx-auto">
             <thead>
                 <tr>
@@ -105,6 +107,7 @@ function UserManagement() {
                 ))}
             </tbody>
         </table>
+        </div>
     )
 }
 
