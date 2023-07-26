@@ -14,7 +14,7 @@ export default function Orders() {
     dispatch(fetchOrders());
   }, [dispatch]);
 
-  // console.log(orders)
+  console.log(orders);
 
   const rows = orders.map((order) => ({
     id: order.id,
@@ -30,15 +30,29 @@ export default function Orders() {
     { field: "col2", headerName: "Numero de orden", width: 150 },
     { field: "col3", headerName: "Estado del pago ", width: 150 },
     { field: "col4", headerName: "Envio", width: 150 },
-    { field: "col5", headerName: "Email", width: 350 },
+    { field: "col5", headerName: "Email", width: 250 },
   ];
 
   return (
-    <React.Fragment>
-      <div style={{ height: "20%", width: "100%" }}>
+    <div
+      style={{
+        backgroundColor: "white",
+        height: "70%",
+        width: "110%",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          height: "90%",
+          width: "98%",
+          marginLeft: "20px",
+          marginRight: "20px",
+        }}
+      >
         <Title>Ultimas Ordenes</Title>
         <DataGrid rows={rows} columns={columns} />
       </div>
-    </React.Fragment>
+    </div>
   );
 }

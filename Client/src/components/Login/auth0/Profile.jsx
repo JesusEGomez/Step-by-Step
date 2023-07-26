@@ -57,7 +57,6 @@ function Profile() {
       }
     }
   }, [dispatch]);
-
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
@@ -77,16 +76,12 @@ function Profile() {
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li>
-            <Link className="text-gray-500" to={"/cuenta"}>
-              Mi cuenta
-            </Link>
+          {/* <li >
+            <Link className="text-gray-500" to={"/cuenta"}>Mi cuenta</Link>
           </li>
           <li>
-            <Link className="text-gray-500" to={"/compras"}>
-              Mis compras
-            </Link>
-          </li>
+            <Link className="text-gray-500" to={"/compras"}>Mis compras</Link>
+          </li> */}
           {user.email_verified === false && (
             <li onClick={sendVerificationEmail}>
               <span className="text-red-700 cursor-pointer  font-semibold">

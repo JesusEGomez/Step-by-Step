@@ -14,8 +14,9 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Swal from "sweetalert2";
 
+
 const NavBar = () => {
-  const { isAuthenticated, isLoading, error, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, isLoading, error, user } = useAuth0();
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
@@ -141,9 +142,18 @@ const NavBar = () => {
                 <button
                   onClick={() => {
                     Swal.fire({
+                      title: "Oops..",
+                      text: "No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.",
                       icon: "error",
-                      title:
-                        "Oops... No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.",
+                      showCancelButton: false,
+                      confirmButtonColor: "#3085d6",
+                      cancelButtonColor: "#d33",
+                      confirmButtonText: "Ir al login",
+                    }).then((result) => {
+                      if (result.isConfirmed) {
+
+                        loginWithRedirect()
+                      }
                     });
                   }}
                 >

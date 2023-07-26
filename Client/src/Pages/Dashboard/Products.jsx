@@ -93,7 +93,7 @@ function Products() {
     axios
       .put(`${URL}/products/update`, updateData)
       .then((response) => {
-        // console.log('Update successful:', response.data);
+        console.log("Update successful:", response.data);
       })
       .catch((error) => {
         console.error("Error updating data:", error);
@@ -155,15 +155,27 @@ function Products() {
   ];
 
   return (
-    <div style={{ height: "95%", width: "100%" }}>
+    <div
+      style={{
+        backgroundColor: "white",
+        height: "100%",
+        width: "110%",
+        padding: "20px",
+      }}
+    >
       <Title>Productos</Title>
       {loading ? (
-        <span className="loading loading-bars ml-96 mt-28 loading-3xl"></span>
+        <span className="loading loading-bars ml-80 mt-28 mb-28 loading-3xl"></span>
       ) : (
         <DataGrid
+          style={{ height: "90%", width: "98%" }}
           rows={rows}
           columns={columns}
           slots={{ toolbar: CustomToolbar }}
+          initialState={{
+            pagination: { paginationModel: { pageSize: 10 } },
+          }}
+          pageSizeOptions={[10, 25, 50, 100]}
         />
       )}
     </div>
