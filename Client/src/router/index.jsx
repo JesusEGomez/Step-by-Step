@@ -43,23 +43,23 @@ const router = createBrowserRouter([
                 path: '/*',
                 element: <ErrorPage />
             },
-            {
+            // {
 
-                path: '/administracion',
-                element: (
-                    <ProtectedRoute element={<Form />} verify={verifyAdmin} />
-                )
-            },
-            {
-                path: '/login',
-                element: <ViewLoginRegister />
-            },
-            {
-                path: '/checkout',
-                element: (
-                    <ProtectedRoute element={<Checkout />} verify={verifyLoged} />
-                )
-            },
+            //     path: '/administracion',
+            //     element: (
+            //         <ProtectedRoute element={<Form />} verify={verifyAdmin} />
+            //     )
+            // },
+            // {
+            //     path: '/login',
+            //     element: <ViewLoginRegister />
+            // },
+            // {
+            //     path: '/checkout',
+            //     element: (
+            //         <ProtectedRoute element={<Checkout />} verify={verifyLoged} />
+            //     )
+            // },
             {
                 path: '/prueba',
                 element: <UserManagement />
@@ -71,13 +71,11 @@ const router = createBrowserRouter([
             {
                 path: '/administracion/:component',
                 element: <ProtectedRoute element={<Dashboard />} verify={verifyAdmin} />
-
-
             },
-            {
-                path: '/login',
-                element: <ViewLoginRegister />
-            },
+            // {
+            //     path: '/login',
+            //     element: <ViewLoginRegister />
+            // },
             {
                 path: '/checkout',
                 element: (
