@@ -158,7 +158,7 @@ const Home = () => {
         </button>
       ) : (
         <>
-          <div className="carousel rounded-box mt-16">
+          <div className="carousel rounded-box flex justify-center mt-32">
             {renderCarouselItems()}
           </div>
           {/* Botones de cambio de slide */}
