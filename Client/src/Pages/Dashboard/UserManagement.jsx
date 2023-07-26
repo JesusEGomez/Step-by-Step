@@ -29,7 +29,7 @@ function UserManagement() {
     // dispatch(updateUser({ id: userId, data: updatedUser }));
     const updateUSer = async () => {
       const response = await axios.put(`${URL}/users/${userId}`, updatedUser);
-      console.log(response);
+      // console.log(response);
       location.reload();
     };
 

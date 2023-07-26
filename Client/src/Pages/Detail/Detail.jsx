@@ -22,6 +22,7 @@ function Detail(clickHandler) {
       try {
         const response = await fetch(`${URL}/products/${id}`);
         const data = await response.json();
+        console.log(data);
         setProductData(data);
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
         const carouselImages = data.images.map((image) => image.imageUrl);
@@ -36,7 +37,7 @@ function Detail(clickHandler) {
   }, [id]);
 
   const clickAddHandler = (product) => {
-    console.log("Producto", productData);
+    // console.log("Producto", productData);
     if (selectedSize !== "Ninguno seleccionado") {
       dispatch(addProduct({ ...product, sizes: [selectedSize.size] }));
       setAddedToCart(true);
@@ -50,6 +51,7 @@ function Detail(clickHandler) {
   };
 
   const handleImageSize = (size) => {
+    // console.log(size);
     setSelectedSize(size);
   };
 
@@ -58,7 +60,8 @@ function Detail(clickHandler) {
   // };
 
   const dispatch = useDispatch();
-
+  // const selectSizeTest = productData.stock.map((size, index) => size);
+  // console.log("selectedSize", selectSizeTest);
   return (
     <div className="mb-96 w-96">
       {productData ? (
@@ -124,7 +127,7 @@ function Detail(clickHandler) {
                     <div
                       key={index}
                       className={` border-gray-200 p-1 rounded  transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
-                        selectedSize === size.size
+                        selectedSize.size === size.size
                           ? "bg-gray-200 border-solid rounded  border-sm"
                           : ""
                       }`}
@@ -138,7 +141,8 @@ function Detail(clickHandler) {
                           className="sr-only"
                           aria-labelledby="size-choice-7-label"
                         />
-                        <span id="size-choice-7-label">{size.size}</span>
+                        {/* <span id="size-choice-7-label">{size.size}</span> */}
+                        <span id={index}>{size.size}</span>
 
                         <span
                           className="pointer-events-none absolute -inset-px rounded-md"

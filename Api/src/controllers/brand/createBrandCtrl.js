@@ -10,7 +10,7 @@ const createBrand = async (brand) => {
   //     message: `No se puede crear el BRAND debido a que hay un conflicto con un dato unico existente`,
   //   };
   // }
-  console.log("controller", brand);
+  // console.log("controller", brand);
   const newBrand = await Brand.create({ name: brand });
   return newBrand;
 };

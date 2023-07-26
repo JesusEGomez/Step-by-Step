@@ -22,7 +22,7 @@ const NavBar = () => {
 
   const handlerDelete = (size) => {
     const product = CartProducts.find((element) => element.sizes[0] === size);
-    console.log(product);
+    // console.log(product);
     dispatch(deleteProduct(product));
   };
 

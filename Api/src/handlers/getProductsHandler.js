@@ -54,9 +54,9 @@ const getReebokProductsHandler = async (req, res) => {
 const updateProductHandler = async (req, res) => {
   const { id, isPublish } = req.body;
   try {
-    console.log("handler", id, isPublish);
+    // console.log("handler", id, isPublish);
     const updatedProduct = await updateProduct(id, isPublish);
-    console.log("updatedProduct", updatedProduct);
+    // console.log("updatedProduct", updatedProduct);
     res.status(200).json(updatedProduct);
   } catch (error) {
     res.status(500).json(error);
