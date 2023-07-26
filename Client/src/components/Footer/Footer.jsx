@@ -14,11 +14,14 @@ const Footer = () => {
           <p>HENRY proyecto final<br />julio 2023</p>
         </div>
 
-        <div >
-            <button className=' border-2 mt-10 ml-16 text-xs border-gray-300 hover:border-gray-600 ' onClick={() => window.location.href = "/about"}>
-              Conocenos 
-            </button>
-          </div>
+        <div className="flex justify-center mt-8">
+      <button
+        className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-black bg-white hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+        onClick={() => (window.location.href = '/about')}
+      >
+        Conócenos
+      </button>
+    </div>
 
         <div className='ml-60'>
           <span className="footer-title">TECNOLOGIAS</span>
