@@ -97,7 +97,7 @@ export default function Form() {
     if (!/.+/.test(form.model)) {
       errors.model = "Nombre no puede estar vacio";
     }
-    if (!/^[a-zA-Z\s]+$/.test(form.description)) {
+    if (!/^[a-zA-ZñÑ\s.,!?¡¿"-]+$/.test(form.description)) {
       errors.description = "Descripcion obligatoria";
     }
     if (!/^[1-9]\d*(\.\d{1,2})?$/.test(form.price)) {
@@ -106,9 +106,9 @@ export default function Form() {
     if (!/^(?:100|\d{1,2})$/.test(form.discountPercentage)) {
       errors.discountPercentage = "Solo nuemeros positivos del 1 al 100";
     }
-    if (!checked) {
-      errors.checked = "Debes seleccionar al menos un Talle"
-    }
+    // if (!checked) {
+    //   errors.checked = "Debes seleccionar al menos un Talle"
+    // }
     
     setErrors(errors);
     
