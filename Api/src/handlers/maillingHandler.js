@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-const homeURL = "http://localhost:5173/tienda";
+const homeURL = "https://step-by-step-pi.vercel.app/home";
 const MAIL = process.env.NEXT_MAIL;
 const MAIL_PASSWORD = process.env.NEXT_MAIL_PASSWORD;
 
@@ -25,7 +25,7 @@ async function welcomeEmail(email, displayName) {
       html: `
         <h2> Bienvenido a Step-by-Step ${displayName} </h2>
         <h3> Estamos muy felices que nos hayas escogido para tus futuras compras. </h3>
-        <h4> Ir a Step-by-Step haciendo clic aquí <a href="${homeURL}">${homeURL}</a></h4>
+        <h4> Ir a Step-by-Step haciendo clic aquí <a href="${homeURL}">Step-By-Step</a></h4>
       `,
     });
 

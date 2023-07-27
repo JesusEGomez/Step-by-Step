@@ -3,7 +3,7 @@ import React from 'react';
 
 const GithubBtn = ({github}) => {
     return ( 
-        <a href={github}  target="_blank" rel="noopener noreferrer" className="px-2">
+        <a href={github}  target="_blank" rel="noopener noreferrer" className="px-2 text-gray-600 no-underline">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 496 512"
