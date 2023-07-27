@@ -22,7 +22,7 @@ const Checkout = () => {
     return (
         <div className="flex items-center justify-center w-full h-full mt-32 bg-gray-100">
             <div className="bg-white rounded-lg shadow-lg p-8 w-[90%] mx-4 md:mx-auto md:flex">
-                
+
                 <div className="md:w-full">
                     <h2 className="text-2xl font-bold mb-4 m-3">Carrito</h2>
                     <div className="bg-white rounded-lg shadow-md p-4 mb-4">
@@ -68,10 +68,10 @@ const Checkout = () => {
 
                         </div>
                     </div>
-                    <button className="bg-black text-white  font-bold py-2 px-4  rounded w-5/6 content-center mx-20 my-2 mt-4 hover:bg-gray-800 ">
 
-                        <MercadoPagoButton carrito={CartProducts} />
-                    </button>
+
+                    <MercadoPagoButton carrito={CartProducts} />
+
                 </div>
             </div>
         </div>
