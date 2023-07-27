@@ -113,7 +113,7 @@ function Comments() {
     };
     
     return (
-      <div className="m-6 mt-9 mb-9 text-center">
+      <div className="m-6 mt-9 mb-9 text-center ">
       {renderComments()}
       
       {isAuthenticated && hasOrder && !hasComment ? (
@@ -124,12 +124,14 @@ function Comments() {
         Deja tu comentario
         </button>
         ) : (
+          <div className="tooltip tooltip-bottom" data-tip="Deja tu comentario después de comprar">
           <button
           className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2  bg-gray-200 text-white"
           disabled
           >
           Deja tu comentario
           </button>
+          </div>
           )}
           
           {showModal && (
