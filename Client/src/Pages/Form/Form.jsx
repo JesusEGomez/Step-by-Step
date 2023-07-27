@@ -96,6 +96,8 @@ export default function Form() {
     
     if (!/.+/.test(form.model)) {
       errors.model = "Nombre no puede estar vacio";
+    } else if (form.model.length > 200) {
+      errors.model = "Nombre no puede exceder los 200 caracteres";
     }
     if (!/^[a-zA-ZñÑ\s.,!?¡¿"-]+$/.test(form.description)) {
       errors.description = "Descripcion obligatoria";
