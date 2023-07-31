@@ -9,27 +9,27 @@ module.exports = (sequelize) => {
     },
     item_number: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     model: {
       type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: {
-          args: [2],
-          msg: "El modelo debe tener al menos 2 caracteres",
-        },
-      },
+      // allowNull: false,
+      // validate: {
+      //   len: {
+      //     args: [2],
+      //     msg: "El modelo debe tener al menos 2 caracteres",
+      //   },
+      // },
     },
     description: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      validate: {
-        len: {
-          args: [1],
-          msg: "El eslogan debe tener al menos 10 caracteres",
-        },
-      },
+      // allowNull: false,
+      // validate: {
+      //   len: {
+      //     args: [1],
+      //     msg: "El eslogan debe tener al menos 10 caracteres",
+      //   },
+      // },
     },
     gender: {
       type: DataTypes.ENUM("men", "women", "unisex"),
@@ -44,21 +44,21 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: true,
       defaultValue: 0.0,
-      validate: {
-        min: 0.0,
-      },
+      // validate: {
+      //   min: 0.0,
+      // },
     },
     discountPercentage: {
       type: DataTypes.FLOAT,
       defaultValue: 0.0,
       allowNull: true,
-      validate: {
-        min: 0.0,
-        max: {
-          args: 100.0,
-          msg: "El porcentaje de descuento no puede ser mayor a 100",
-        },
-      },
+      // validate: {
+      //   min: 0.0,
+      //   max: {
+      //     args: 100.0,
+      //     msg: "El porcentaje de descuento no puede ser mayor a 100",
+      //   },
+      // },
     },
     totalPrice: {
       type: DataTypes.VIRTUAL,
@@ -83,14 +83,14 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
       allowNull: true,
-      validate: {
-        min: 0,
-      },
+      // validate: {
+      //   min: 0,
+      // },
     },
     isPublish: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
-      allowNull: false,
+      defaultValue: true,
+      // allowNull: false,
     },
   });
 };

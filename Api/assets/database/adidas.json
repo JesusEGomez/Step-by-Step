@@ -1,46 +1,11 @@
 [
   {
-    "item_number": "ADFX3593",
-    "name": "Coreracer",
-    "description": "Urbanas, livianas y frescas, las Zapatillas adidas Coreracer están pensadas para cumplir con las demandas de los corredores más exigentes. Su suela tiene un estabilizador de talón y su capellada es transpirable para mantener el confort que mereces durante todo tu trayecto.",
-    "price": 27,
-    "discount_percentage": 0,
-    "rating": [1],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
-    "brand": ["adidas"],
-    "category": ["casual", "running"],
-    "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc5a9ade5/products/AD_FX3593/AD_FX3593-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw42d6d624/products/AD_FX3593/AD_FX3593-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0cf102b5/products/AD_FX3593/AD_FX3593-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw552ad863/products/AD_FX3593/AD_FX3593-6.JPG"
-    ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
-    "color": ["black"],
-    "gender": ["mens"]
-  },
-  {
-    "item_number": "ADGW3848",
-    "name": "Galaxy 6",
+    "item_number": "ADHQ1825",
+    "name": "Zapatillas adidas Galaxy 6",
     "description": "Las Zapatillas adidas Galaxy 6 fueron diseñadas pensando en los atletas. Estas zapatillas de running son perfectas para todo momento y lugar, incorporan tecnología innovadora. El exterior de malla ligero favorece el flujo de aire y la mediasuela Cloudfoam le inyecta amortiguación a cada paso. La plantilla suave brinda soporte, sin importar la frecuencia con que las usés para una caminata larga o entrenamiento.",
     "price": 33,
     "discount_percentage": 0,
-    "rating": [1],
+    "rating": [3],
     "stock": {
       "34": 10,
       "35": 10,
@@ -56,25 +21,93 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["running"],
+    "category": ["all day"],
     "images": [
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw22b1c0a5/products/AD_GW3848/AD_GW3848-1.JPG",
       "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfb5350d/products/AD_GW3848/AD_GW3848-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfcfb79c/products/AD_GW3848/AD_GW3848-4.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfcfb79c/products/AD_GW3848/AD_GW3848-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw5b9bd308/products/AD_GW3848/AD_GW3848-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwbfcfb79c/products/AD_GW3848/AD_GW3848-4.JPG"
     ],
-    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["women"]
+    "gender": ["men"],
+    "sold_count": 0
   },
   {
-    "item_number": "ADGW1376",
-    "name": "Response Super 3.0",
-    "description": "Las Zapatillas adidas Response Super 3.0 son cómodas, versátiles, estables y amortiguadas. La tecnología Boost ayuda a aportar confort a tus pies y el exterior de malla técnica los mantiene ventilados durante más tiempo. Disfruta de la calidad de adidas gracias al refuerzo de TPU en el talón y la plantilla de EVA Adibouncy que mejoran tus carreras al 100%.",
+    "item_number": "ADGW3894",
+    "name": "Zapatillas adidas Terrex Ax3 Gore-Tex",
+    "description": "Conquistá cualquier sendero con confianza y seguridad con las Zapatillas adidas Terrex Ax3 Gore-Tex. Están diseñadas para conquistar terrenos irregulares y exigentes. El recubrimiento GORE-TEX transpirable e impermeable mantiene los pies secos y cómodos en todo momento. La suela de caucho de gran resistencia al desgaste proporciona una excelente tracción en terreno seco y mojado.",
+    "price": 81,
+    "discount_percentage": 0,
+    "rating": [4],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["trekking"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3163ba7f/products/ADBC0466/ADBC0466-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw511f66db/products/ADBC0466/ADBC0466-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw27a67e79/products/ADBC0466/ADBC0466-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw23aaec60/products/ADBC0466/ADBC0466-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["men"],
+    "sold_count": 0
+  },
+  {
+    "item_number": "ADGW3811",
+    "name": "Zapatillas adidas Streetcheck",
+    "description": "Las Zapatillas adidas Streetcheck son discretas, resistentes y versátiles, todo lo que necesitas para tu calzado del día a día. La capella de sintético con un poco de brillo optimiza tu estilo y la plantilla Cloudfoam brinda amortiguación y suavidad a tus pisadas para que atravieses tu rutina con un look superior y en pleno confort.",
+    "price": 39,
+    "discount_percentage": 0,
+    "rating": [5],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["casual"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa81d764c/products/AD_GW5489/AD_GW5489-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwec1f3e38/products/AD_GW5489/AD_GW5489-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd001cc98/products/AD_GW5489/AD_GW5489-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe5e936cf/products/AD_GW5489/AD_GW5489-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["men"],
+    "sold_count": 0
+  },
+  {
+    "item_number": "ADGW3822",
+    "name": "Zapatillas Running adidas Response Super 3.0 Hombre",
+    "description": "Corré contra el reloj con estas zapatillas de running adidas. Traen un exterior de malla transpirable y un cuello acolchado Geofit que sujeta el tobillo. Bounce en el talón y Bounce+ a lo largo del pie aumentan la sensación de amortiguación para una mayor velocidad y comodidad. La suela de caucho proporciona un agarre excelente, así que atrévete a dejar atrás el asfalto.",
     "price": 54,
     "discount_percentage": 0,
-    "rating": [1],
+    "rating": [2],
     "stock": {
       "34": 10,
       "35": 10,
@@ -90,24 +123,23 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["running"],
+    "category": ["training"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb62edc25/products/AD_GW1376/AD_GW1376-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb62edc25/products/AD_GW1376/AD_GW1376-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb62edc25/products/AD_GW1376/AD_GW1376-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb62edc25/products/AD_GW1376/AD_GW1376-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb8569ea0/products/ADHP5934/ADHP5934-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwf45b3246/products/ADHP5934/ADHP5934-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwa382e544/products/ADHP5934/ADHP5934-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe3d95122/products/ADHP5934/ADHP5934-4.JPG"
     ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
-    "color": ["pink"],
-    "gender": ["unisex"]
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["Red"],
+    "gender": ["women"],
+    "sold_count": 0
   },
   {
-    "item_number": "AD_EF0103",
-    "name": "Grand Court",
-    "description": "Las nuevas Zapatillas adidas Grand Court Infantil están confeccionadas para que los más chicos luzcan un estilo súper canchero y a la moda y a la vez disfruten de la mayor comodidad en sus pies.",
-    "price": 21,
+    "item_number": "ADGW3833",
+    "name": "Zapatillas adidas Grand Court Cloudfoam Lifestyle",
+    "description": "Las Zapatillas adidas Grand Court Cloudfoam Lifestyle son tus compañeras de excelencia. Con el diseño atemporal marcado por las 3Trayas pero con aires renovados para mantener tu estilo actual. Concentradas en el confort, la suavidad y versatilidad, incorporan la amortiguación Cloudfoam para que no solo piensas en el rendimiento a la hora de entrenar, sino todos los días. Hechas con contenido reciclado para que el bienestar sea total. Con este par, elegir las prendas para vestir será muy fácil. Porque van muy bien con todo!",
+    "price": 38,
     "discount_percentage": 0,
     "rating": [1],
     "stock": {
@@ -125,25 +157,25 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["running"],
+    "category": ["all day"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw01eae9ca/products/AD_EF0103/AD_EF0103-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw01eae9ca/products/AD_EF0103/AD_EF0103-2.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw01eae9ca/products/AD_EF0103/AD_EF0103-3.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw01eae9ca/products/AD_EF0103/AD_EF0103-5.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw009895a6/products/AD_GW9195/AD_GW9195-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw33b77ce8/products/AD_GW9195/AD_GW9195-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw988f3cd3/products/AD_GW9195/AD_GW9195-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc17b592/products/AD_GW9195/AD_GW9195-4.JPG"
     ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
-    "color": ["white"],
-    "gender": ["mens"]
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["White"],
+    "gender": ["men"],
+    "sold_count": 0
   },
   {
-    "item_number": "AD_H02001",
-    "name": "Fluidup",
-    "description": "Listas para ser parte de tus entrenamientos, las Zapatillas adidas Fluidup cuentan con amortiguación Bounce que mejora tus pasos y te mantiene relajado aun cuando estás dando tu máximo esfuerzo. Su suela es resistente y se adapta a distintas superficies para brindarte función y que superes todas tus metas. Su estilo es clásico y elegante para completar tu look deportivo ideal.",
-    "price": 25,
+    "item_number": "ADGW3844",
+    "name": "Zapatillas adidas Terrex Soulstride",
+    "description": "Llegá más lejos con estas zapatillas de trail running adidas Terrex. La amortiguación en la mediasuela y amortiguación ultrasuave en el talón te permiten avanzar con total comodidad. La suela ranurada híbrida te permite pasar del sendero al asfalto con facilidad. Los bordes elevados complementan el exterior de malla técnica para ofrecer estabilidad a tus pasos sin importar a donde te lleve el camino.",
+    "price": 58,
     "discount_percentage": 0,
-    "rating": [1],
+    "rating": [5],
     "stock": {
       "34": 10,
       "35": 10,
@@ -159,26 +191,25 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["running"],
+    "category": ["training"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8d4950b8/products/AD_H02001/AD_H02001-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8d4950b8/products/AD_H02001/AD_H02001-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8d4950b8/products/AD_H02001/AD_H02001-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8d4950b8/products/AD_H02001/AD_H02001-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwaaab818e/products/AD_GZ9034/AD_GZ9034-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw31101a56/products/AD_GZ9034/AD_GZ9034-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw83f3375c/products/AD_GZ9034/AD_GZ9034-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw3b7d5d0a/products/AD_GZ9034/AD_GZ9034-4.JPG"
     ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
-    "color": ["black"],
-    "gender": ["women"]
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["gray"],
+    "gender": ["men"],
+    "sold_count": 0
   },
   {
-    "item_number": "ADGY2193",
-    "name": " Eq21 Run",
-    "description": "Las Zapatillas Running adidas Eq21 Run Hombre están diseñadas para los corredores más exigentes. La malla transpirable de la capellada favorece la ventilación y te ayuda a sumar más kilómetros todos los días con una comodidad superior. Su amortiguación ligera ayuda a mejorar todos tus pasos y la suela de goma aporta mayor tracción. Para mantener la estabilidad y evitar accidentes cuentan con estabilizadores de TPU en el talón y el lateral. El estilo te permite combinarlas con todo y hasta usarlas en tu día a día.",
+    "item_number": "ADGW3877",
+    "name": "Zapatillas Adidas Eq21 Run Hombre",
+    "description": "Cuando el running es tu deporte, no hay nada que te guste más que correr a diario. Acumulá kilómetros con total comodidad con las Zapatillas Adidas Eq21 Run en tus pies. El exterior transpirable mantiene tus pies frescos y secos en los días de calor y la amortiguación ligera hace que cada paso sea más agradable.",
     "price": 29,
     "discount_percentage": 0,
-    "rating": [1],
+    "rating": [4],
     "stock": {
       "34": 10,
       "35": 10,
@@ -194,59 +225,59 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["street"],
+    "category": ["training"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd0715c38/products/ADGY2193/ADGY2193-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd0715c38/products/ADGY2193/ADGY2193-2.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd0715c38/products/ADGY2193/ADGY2193-4.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd0715c38/products/ADGY2193/ADGY2193-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe216d46a/products/ADGY2192/ADGY2192-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1d4f1343/products/ADGY2192/ADGY2192-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwd2138207/products/ADGY2192/ADGY2192-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw9cf631de/products/ADGY2192/ADGY2192-4.JPG"
     ],
-    "size": [39, 40, 41, 42, 43, 44, 45],
-    "color": ["red and orange"],
-    "gender": ["mens"]
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["gray"],
+    "gender": ["men"],
+    "sold_count": 0
   },
   {
-    "item_number": "ADFY9624",
-    "name": "Run Falcon 2.0",
-    "description": "Saltá de tus planes deportivos a la plaza con amigos con las Zapatillas adidas Run Falcon 2.0 está confeccionada para brindar estabilidad y amortiguación, te dan mejor tracción sin importar cuántos kilómetros recorras. Creada para runners eventuales, su construcción en malla las hace transpirables y ligeras. La horma clásica y media suela de EVA proporciona mejor flexibilidad y una sensación de suavidad en cada pisada. Además, el espesor de la suela de caucho ofrece mayor reacción de golpes para que puedas correr cómodamente.",
+    "item_number": "ADGW3888",
+    "name": "Zapatillas adidas Tracefinder",
+    "description": "Agilidad, cardio, fuerza. Estas zapatillas de trail running adidas presentan una suela Traxion que proporciona una excelente tracción en todas las direcciones para que puedas dominar los senderos de montaña con total confianza. El exterior transpirable favorece el flujo de aire para mantenerte fresco desde el primer al último paso.",
+    "price": 42,
+    "discount_percentage": 0,
+    "rating": [5],
+    "stock": {
+      "34": 10,
+      "35": 10,
+      "36": 10,
+      "37": 10,
+      "38": 10,
+      "39": 10,
+      "40": 10,
+      "41": 10,
+      "42": 10,
+      "43": 10,
+      "44": 10,
+      "45": 10
+    },
+    "brand": ["adidas"],
+    "category": ["all day"],
+    "images": [
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw58b73b5b/products/ADQ47235/ADQ47235-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw45f73ab6/products/ADQ47235/ADQ47235-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw4a1b65c9/products/ADQ47235/ADQ47235-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb5c8c8a3/products/ADQ47235/ADQ47235-4.JPG"
+    ],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["men"],
+    "sold_count": 0
+  },
+  {
+    "item_number": "ADGW3800",
+    "name": "Zapatillas adidas Tensaur Run 2.0",
+    "description": "Las Zapatillas adidas Tenasur Run 2.0 son ideales para la comodidad de tus niños durante el juego o cuando van al club. Tiene una calidad duradera que permite que disfruten de sus actividades sin preocupaciones, además de la seguridad en la pisada que ofrece la suela de una pieza de Eva. La parte superior en mesh, hace de este calzado una pieza confortable, brinda libertad de movimiento y favorece la ventilación de sus pies. Ponéselas para verlos disfrutar como nunca antes.",
     "price": 27,
     "discount_percentage": 0,
-    "rating": [1],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
-    "brand": ["adidas"],
-    "category": ["running"],
-    "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8b03e12c/products/AD_FY9624/AD_FY9624-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8b03e12c/products/AD_FY9624/AD_FY9624-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8b03e12c/products/AD_FY9624/AD_FY9624-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw8b03e12c/products/AD_FY9624/AD_FY9624-6.JPG"
-    ],
-    "size": [34, 35, 36, 38],
-    "color": ["black"],
-    "gender": ["women"]
-  },
-  {
-    "item_number": "ADGW9786",
-    "name": "Court Platform",
-    "description": "Llevá tu estilo a otro nivel con las Zapatillas adidas Court Platform Mujer. Cuentan con una mediasuela elevada que brinda un toque de audacia y mayor altura para cualquier look casual. Su diseño con animal print en el talón y las 3 tiras perforadas añaden un plus a tu outfit canchero, ideales para usarlas ya sea en una salida con amigos o para tu rutina diaria. Combinalas con el atuendo que más te guste y salí a darlo todo.",
-    "price": 36,
-    "discount_percentage": 0,
-    "rating": [1],
+    "rating": [2],
     "stock": {
       "34": 10,
       "35": 10,
@@ -264,24 +295,24 @@
     "brand": ["adidas"],
     "category": ["casual"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc1a3a55/products/AD_GW9786/AD_GW9786-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc1a3a55/products/AD_GW9786/AD_GW9786-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc1a3a55/products/AD_GW9786/AD_GW9786-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwfc1a3a55/products/AD_GW9786/AD_GW9786-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw752973cf/products/AD_GW0396/AD_GW0396-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw224db5ba/products/AD_GW0396/AD_GW0396-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw2e049f86/products/AD_GW0396/AD_GW0396-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwb6fb96b3/products/AD_GW0396/AD_GW0396-4.JPG"
     ],
-    "size": [35, 37, 39, 40],
-    "color": ["pink"],
-    "gender": ["women"]
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
+    "color": ["black"],
+    "gender": ["women"],
+    "sold_count": 0
   },
+
   {
-    "item_number": "ADGV9007",
-    "name": "Startyourrun",
-    "description": "Las Zapatillas Running adidas Startyourrun Mujer están diseñadas específicamente para mujeres que quieren desafiarse en sus entrenamientos de running. Con un ajuste cómodo y ligero, ofrecen un excelente soporte y amortiguación para tus carreras diarias. Con su estilo moderno y elegante, te ayudarán a superar tus límites y comenzar tu carrera con confianza.",
+    "item id": "ADGW3835",
+    "name": "Zapatillas adidas Duramo 10",
+    "description": "La variedad es lo que te motiva. Estas zapatillas de running cómoda y versátil es perfecta para correr, levantar pesas o jugar partidos. Posee un diseño ligero con amortiguación suave. Los refuerzos sin costuras sujetan el pie en los movimientos laterales y cambios de dirección rápidos. De horma clásica, cuenta con cierre de cordones, la parte superior de malla, mediasuela de lightmotion, plantilla OrthoLite y suela de goma.",
     "price": 41,
     "discount_percentage": 0,
-    "rating": [1],
+    "rating": [3],
     "stock": {
       "34": 10,
       "35": 10,
@@ -297,50 +328,16 @@
       "45": 10
     },
     "brand": ["adidas"],
-    "category": ["casual"],
+    "category": ["training"],
     "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-2.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-4.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw0da54c65/products/ADGV9007/ADGV9007-6.JPG"
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw545277bb/products/ADHP2376/ADHP2376-1.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwc81b0c3a/products/ADHP2376/ADHP2376-2.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw498423b4/products/ADHP2376/ADHP2376-3.JPG",
+      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dw1405f480/products/ADHP2376/ADHP2376-4.JPG"
     ],
-    "size": [34, 35, 36, 37, 39],
-    "color": ["pink"],
-    "gender": ["women"]
-  },
-  {
-    "item_number": "ADGY6347",
-    "name": "Showtheway 2.0",
-    "description": "Salí a correr por tu vecindario o inyectale el estilo del running a tu look diario con las Zapatillas Adidas Showtheway 2.0. El exterior de malla liviana transpirable mantiene tus pies frescos incluso en climas cálidos, mientras que la mediasuela acolchada proporciona comodidad durante todo el día. Las clásicas 3 Tiras añaden un auténtico toque deportivo. El exterior incorpora la menos 50% de materiales reciclados.",
-    "price": 29,
-    "discount_percentage": 0,
-    "rating": [1],
-    "stock": {
-      "34": 10,
-      "35": 10,
-      "36": 10,
-      "37": 10,
-      "38": 10,
-      "39": 10,
-      "40": 10,
-      "41": 10,
-      "42": 10,
-      "43": 10,
-      "44": 10,
-      "45": 10
-    },
-    "brand": ["adidas"],
-    "category": ["running"],
-    "images": [
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-1.JPG",
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-2.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-4.JPG",
-
-      "https://www.stockcenter.com.ar/on/demandware.static/-/Sites-365-dabra-catalog/default/dwe808d872/products/ADGY6347/ADGY6347-6.JPG"
-    ],
-    "size": [38, 39, 40, 41, 42, 43, 44, 45],
+    "size": [34, 35, 37, 38, 39, 40, 42, 43, 44, 45],
     "color": ["black"],
-    "gender": ["unisex"]
+    "gender": ["unisex"],
+    "sold_count": 0
   }
 ]

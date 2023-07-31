@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-const GET_BRAND_URL = "http://localhost:3001/brands";
+
+const URL = import.meta.env.VITE_URL;
 
 const recorrerArray = (array, propiedad) => {
   const newArray = [];
@@ -19,7 +20,7 @@ export const fetchBrands = createAsyncThunk(
   "brands/fetchBrands", //
   async () => {
     try {
-      const response = await axios.get(GET_BRAND_URL);
+      const response = await axios.get(`${URL}/brands`);
       const end = response.data;
       //   console.log(response.data); // Verificar los datos recibidos
       return end;

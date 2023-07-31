@@ -10,17 +10,22 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, action) => {
-      console.log("product Size", current(state.cart));
+      console.log("product Size", action.payload.sizes[0]);
       state.total += action.payload.totalPrice;
       const findProduct = state.cart.findIndex(
-        (product) => product.id === action.payload.id
+        (product) =>
+          product.id === action.payload.id &&
+          product.sizes[0] === action.payload.sizes[0]
       );
+      // const size = state.cart[findProduct]?.sizes.find(
+      //   (element) => element === action.payload.sizes[0]
+      // );
 
       if (findProduct !== -1) {
         state.cart[findProduct] = {
           ...state.cart[findProduct],
           quantity: state.cart[findProduct].quantity + 1,
-          sizes: [...state.cart[findProduct].sizes, ...action.payload.sizes],
+          // sizes: [...state.cart[findProduct].sizes, ...action.payload.sizes],
         };
         console.log(state.cart[findProduct].quantity);
       } else {
@@ -33,23 +38,26 @@ export const cartSlice = createSlice({
     },
     deleteProduct: (state, action) => {
       state.total -= action.payload.totalPrice;
+      console.log("producto a eleminar", action.payload.sizes);
       const findProduct = state.cart.findIndex(
-        (product) => product.id === action.payload.id
+        (product) =>
+          // product.id === action.payload.id &&
+          product.sizes[0] === action.payload.sizes[0]
       );
 
       if (current(state.cart)[findProduct].quantity !== 1) {
         state.cart[findProduct] = {
           ...state.cart[findProduct],
           quantity: state.cart[findProduct].quantity - 1,
-          sizes: state.cart[findProduct].sizes.slice(
-            1,
-            state.cart[findProduct].sizes.length
-          ),
+          // sizes: state.cart[findProduct].sizes.slice(
+          //   1,
+          //   state.cart[findProduct].sizes.length
+          // ),
         };
         console.log(state.cart[findProduct].quantity);
       } else {
         state.cart = state.cart.filter(
-          (product) => product.id !== action.payload.id
+          (product) => product.sizes[0] !== action.payload.sizes[0]
         );
       }
 
@@ -65,9 +73,17 @@ export const cartSlice = createSlice({
         state.total = localTotalCart;
       }
     },
+    clearCart: (state, action) => {
+      state.cart = [];
+      state.total = 0;
+
+      localStorage.setItem("cart", JSON.stringify([]));
+      localStorage.setItem("totalPrice", JSON.stringify(0));
+    },
   },
 });
-export const { addProduct, deleteProduct, updateState } = cartSlice.actions;
+export const { addProduct, deleteProduct, updateState, clearCart } =
+  cartSlice.actions;
 export const getCartProducts = (state) => state.cart.cart;
 export const getTotalCartProducts = (state) => state.cart.total;
 export default cartSlice.reducer;

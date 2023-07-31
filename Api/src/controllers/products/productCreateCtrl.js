@@ -27,16 +27,17 @@ const createProductCtrl = async (req, res) => {
       color,
       images,
     } = req.body;
+    console.log("size", req.body);
 
     // Verificar y crear la marca si no existe
     let existingBrand = await Brand.findOne({
       where: { name: { [Op.iLike]: brand } },
     });
 
-    if (!existingBrand) {
-      // return res.status(500).json({ message: 'Este brand no existe no puedes relacionarlo.' })
-      existingBrand = await Brand.create({ name: brand });
-    }
+    // if (!existingBrand) {
+    //   // return res.status(500).json({ message: 'Este brand no existe no puedes relacionarlo.' })
+    //   existingBrand = await Brand.create({ name: brand });
+    // }
 
     // Verificar y asociar los tamaños
     const existingSizes = await Size.findAll({
@@ -143,7 +144,7 @@ const createProductCtrl = async (req, res) => {
     res
       .status(201)
       // .json({ message: "Producto creado exitosamente", product: newProduct });
-      .json( newProduct );
+      .json(newProduct);
   } catch (error) {
     console.error(error);
     res

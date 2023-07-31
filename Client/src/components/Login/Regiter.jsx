@@ -45,7 +45,7 @@ function Register({ handleLoginOrRegister }) {
                 <label className='ml-2' htmlFor="isAdmin">¿Quieres ser administrador?</label>
             </div>
 
-            <button type='submit' onClick={() => dispatch(addNewUsers())}>Crear cuanta</button>
+            <button type='submit' onClick={() => dispatch(addNewUsers())}>Crear cuenta</button>
             <button onClick={handleLoginOrRegister} type='button'>Ya tiene una cuenta?</button>
         </form>
     )

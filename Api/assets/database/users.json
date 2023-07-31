@@ -1,0 +1,74 @@
+[
+  {
+    "name": "mair",
+    "lastname": "mair",
+    "user": "mair",
+    "mail": "mair@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "trup",
+    "lastname": "trup",
+    "user": "trup",
+    "mail": "trup@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "gomez77",
+    "lastname": "gomez77",
+    "user": "gomez77",
+    "mail": "gomez77@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "pepe",
+    "lastname": "pepe",
+    "user": "pepe",
+    "mail": "pepe@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "lucho",
+    "lastname": "gramajo",
+    "user": "luchog",
+    "mail": "lucianongramajo@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "tomas",
+    "lastname": "hast",
+    "user": "tomasg",
+    "mail": "thastrup@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "regi",
+    "lastname": "fogio",
+    "user": "regig",
+    "mail": "marisafenogliomnf@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "jesus",
+    "lastname": "gomez",
+    "user": "jechug",
+    "mail": "jesus.emanuel.gomez77@gmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  },
+  {
+    "name": "Dany",
+    "lastname": "Blizzard",
+    "user": "Dany",
+    "mail": "danosblizzard@hotmail.com",
+    "pass": "Asd123$",
+    "isAdmin": true
+  }
+]

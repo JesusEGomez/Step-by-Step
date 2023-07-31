@@ -2,16 +2,15 @@ require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-// const products = require("../productos");
-const { DB_USER, DB_PASSWORD, DB_HOST } = process.env;
 
-const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/step`,
-  {
-    logging: false, // set to console.log to see the raw SQL queries
-    native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  }
-);
+// const products = require("../productos");
+const { DB_USER, DB_PASSWORD, DB_HOST, URL } = process.env;
+
+const sequelize = new Sequelize(URL, {
+  logging: false, // set to console.log to see the raw SQL queries
+  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+});
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -41,23 +40,46 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Product, User, Brand, Size, Category, Image, Color, Order, Address, Stock } = sequelize.models;
+const {
+  Product,
+  User,
+  Brand,
+  Size,
+  Category,
+  Image,
+  Color,
+  Order,
+  Address,
+  Stock,
+  Comment,
+} = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+
+User.hasOne(Comment, {
+  // foreignKey: "mail",
+  // sourceKey: "mail",
+}),
+  Comment.belongsTo(User, {
+    // foreignKey: "mail",
+    // targetKey: "mail",
+  });
+
 Address.hasMany(User, { foreignKey: "addressId" });
 User.belongsTo(Address, { foreignKey: "addressId" });
 
-Product.hasMany(Order, {
+//ORIGINAL
+Product.hasOne(Order, {
   foreignKey: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    // allowNull: false,
   },
 });
 Order.belongsTo(Product);
 
 User.hasMany(Order, { foreignKey: "userId" });
-Order.belongsTo(User, { foreignKey: "userId" });
+Order.belongsTo(User);
 
 Brand.hasMany(Product, {
   foreignKey: {
@@ -94,4 +116,3 @@ module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };
-

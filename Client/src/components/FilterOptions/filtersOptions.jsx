@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllProducts } from "../../features/productsSlice";
+import { getIsPublishProducts } from "../../features/productsSlice";
 import { setFilteredProducts } from "../../features/productsSlice";
 import { getAllColors } from "../../features/colorSlice";
 import { getAllCategories } from "../../features/categoriesSlice";
@@ -11,7 +11,7 @@ import { fetchBrands } from "../../features/brandsSlice";
 import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
-import { BiSearchAlt2 } from "react-icons/bi"
+import { BiSearchAlt2 } from "react-icons/bi";
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
 
@@ -19,7 +19,7 @@ const Filters = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const allProducts = useSelector(getAllProducts);
+  const allProducts = useSelector(getIsPublishProducts);
 
   const [brandSelect, setBrandSelect] = useState("");
   const [colorSelect, setColorSelect] = useState("");
@@ -40,7 +40,7 @@ const Filters = () => {
   // let sizesList = useSelector(getAllSizes); //&& get all sizes
   let genderList = ["men", "women", "unisex"];
 
-  console.log("brandsList", brandsList);
+  // console.log("brandsList", brandsList);
 
   const [filterPanel, setFilterPanel] = useState({
     name: "",
@@ -54,14 +54,14 @@ const Filters = () => {
 
   useEffect(() => {
     let productsCopy = [...allProducts];
-    console.log("productsCopy", productsCopy);
+    // console.log("productsCopy", productsCopy);
 
     if (productsCopy.length > 0) {
       if (filterPanel.name !== "") {
         productsCopy = productsCopy.filter((p) =>
           p.model?.toLowerCase().includes(filterPanel.name.toLowerCase())
         );
-        console.log("productsCopy", productsCopy);
+        // console.log("productsCopy", productsCopy);
       }
 
       if (filterPanel.brand !== "none") {
@@ -107,7 +107,7 @@ const Filters = () => {
     }
   }, [filterPanel]);
 
-  console.log("filterPanel", filterPanel);
+  // console.log("filterPanel", filterPanel);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -116,11 +116,18 @@ const Filters = () => {
     });
   };
 
-  const handleClickAll = (e) => {
+  const handleClickTienda = (e) => {
+    e.preventDefault();
+
+    navigate("/tienda");
+  };
+
+  const handleClickTodos = (e) => {
     e.preventDefault();
     setFilterPanel(() => {
       return { ...filterPanel };
     });
+    handleResetClick();
     navigate("/tienda");
   };
 
@@ -149,7 +156,6 @@ const Filters = () => {
   };
 
   const handleResetClick = (e) => {
-    e.preventDefault();
     setFilterPanel({
       name: "",
       brand: "none",
@@ -167,9 +173,9 @@ const Filters = () => {
   };
 
   return (
-    <div >
-      <div className="flex space-x-2">
-        <button className="link" onClick={handleClickAll}>
+    <div className="w-full">
+      <div className="flex space-x-2 ml-52">
+        <button className="link" onClick={handleClickTienda}>
           TIENDA
         </button>
         <button className="link" onClick={handleClickWomen}>
@@ -180,33 +186,33 @@ const Filters = () => {
         </button>
         <button className="link" onClick={handleClickUnisex}>
           UNISEX
+        </button>{" "}
+        <button className="link" onClick={handleClickTodos}>
+          TODOS
         </button>
       </div>
 
-
       {location.pathname === "/tienda" && (
-        <div className="link flex justify-center -ml-80 mb-6s">
+        <div className=" flex items-center w-full">
           <div className="relative">
             <input
               name="name"
               value={filterPanel.name}
               onChange={handleChange}
               placeholder="Search..."
-              className="p-2 pl-8 mx-2"
+              className="p-2 pl-8 mr-1"
             ></input>
             <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
               <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
             </span>
           </div>
 
-          <div className="flex items-center">
+          <div className="link">
             <select
               id="brand"
               name="brand"
               onChange={handleChange}
-              value={brandSelect}
-              defaultValue={brandSelect}
-              className="p-2 mx-2"
+              className="p-2 mr-1"
             >
               <option value={"none"}>Brand</option>
 
@@ -218,17 +224,15 @@ const Filters = () => {
             </select>
           </div>
 
-          <div className="flex items-center">
+          <div className="link">
             <select
               id="category"
               name="category"
               onChange={(e) => handleChange(e)}
-              value={categorySelect}
-              className="p-2 mx-2"
+              // value={categorySelect}
+              className="p-2 mr-1"
             >
-              <option value={"none"} defaultValue={"Filter by Category"}>
-                Category
-              </option>
+              <option value={"none"}>Category</option>
               {categoriesList?.map((c, i) => (
                 <option key={i} value={c}>
                   {c}
@@ -237,26 +241,31 @@ const Filters = () => {
             </select>
           </div>
 
-          <div className="flex items-center">
+          <div className=" link ">
             <select
               id="color"
               name="color"
               onChange={(e) => handleChange(e)}
-              value={colorSelect}
-              className="p-2 mx-2"
+              // value={colorSelect}
+              className="p-2 mr-1"
             >
               {" "}
-              <option value={"none"} defaultValue={"Filter by color"}>
-                Color
-              </option>
+              <option value={"none"}>Color</option>
               {colorsList?.map((c, i) => (
-                <option key={i} value={c}>{c}</option>
+                <option key={i} value={c}>
+                  {c}
+                </option>
               ))}
             </select>
           </div>
 
-          <div className="flex items-center">
-            <select id="price" name="price" onChange={(e) => handleChange(e)} className="p-2 mx-2 ">
+          <div className="link ">
+            <select
+              id="price"
+              name="price"
+              onChange={(e) => handleChange(e)}
+              className="p-2 mr-1 "
+            >
               <option key="none" value="none">
                 Precio
               </option>
@@ -269,12 +278,13 @@ const Filters = () => {
             </select>
           </div>
 
-          <button onClick={handleResetClick} className="p-2 mx-2 hover:border-2 hover:border-gray-500 ">
+          <button
+            onClick={handleResetClick}
+            className="p-2 border-gray-500 hover:border-gray-700   "
+          >
             <span>Reset</span>
           </button>
         </div>
-
-
       )}
     </div>
   );

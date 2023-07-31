@@ -1,59 +1,75 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const URL_USERS = 'http://localhost:3001/users';
-
+const URL = import.meta.env.VITE_URL;
 
 const initialState = {
-    users: {},
-}
+  users: [],
+  orderBy: "asc",
+};
 
-export const fetchUsers = createAsyncThunk('users/fetchUsers',
-    async () => {
-        try {
-            const response = await axios.get(URL_USERS);
-            const data = response.data;
-            console.log(data);
+export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
+  try {
+    const response = await axios.get(`${URL}/users`);
+    const data = response.data;
+    return data;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+});
 
-            return data;
-        } catch (error) {
-            return error.message;
-        }
+export const addNewUsers = createAsyncThunk(
+  "users/addNewUsers",
+  async (data) => {
+    try {
+      const response = await axios.post(`${URL}/users`, data);
+      const newUserData = response.data;
+      return newUserData;
+    } catch (error) {
+      throw new Error(error.message);
     }
-)
+  }
+);
 
-export const usersSlices = createSlice({
-    name: "users",
-    initialState,
-    reducers: {
-        getAllUsers: (state, action) => {
-            console.log(action.payload)
-            state.users = action.payload;
-        },
+// export const updateUser = createAsyncThunk("users/updateUsers",
+//   async ({ id, data }) => {
+//     try {
+//       const response = await axios.put(`http://localhost:3001/users/${id}`, data);
+//       const updatedUser = response.data;
+//       return updatedUser;
+
+//     } catch (error) {
+//       throw new Error(error.message);
+//     }
+//   }
+// )
+
+export const usersSlice = createSlice({
+  name: "users",
+  initialState,
+  reducers: {
+    getAllUsers: (state, action) => {
+      state.users = action.payload;
     },
-    extraReducers(builder) {
-        builder
-            .addCase(fetchUsers.fulfilled, (state, action) => {
-                state.users = action.payload
-            })
-            .addCase(fetchUsers.rejected, (state, action) => {
-                console.log(action.error.message);
-            });
-    }
-})
+    toggleOrderBy: (state) => {
+      state.orderBy = state.orderBy === "asc" ? "desc" : "asc";
+    },
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.users = action.payload;
+      })
+      .addCase(fetchUsers.rejected, (state, action) => {
+        throw new Error(action.error.message);
+      });
+  },
+});
 
-export const addNewUsers = createAsyncThunk('users/addNewUsers',
-    async (data) => {
-        try {
-            const response = await axios.post(URL_USERS, data)
-            const end = response.data;
-            return end;
+export const { toggleOrderBy } = usersSlice.actions;
 
-        } catch (error) {
-            throw new Error(error.message);
-        }
-    })
-
-export const getAllUsers = (state) => state.users.users;
-export default usersSlices.reducer;
-
+export const getAllUsers = (state) => {
+  const sortedUsers = [...state.users.users].sort((a, b) => a.id - b.id);
+  return state.users.orderBy === "desc" ? sortedUsers.reverse() : sortedUsers;
+};
+export default usersSlice.reducer;
