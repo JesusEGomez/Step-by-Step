@@ -21,18 +21,16 @@ function Landing() {
         <source src={landingvideo} type="video/mp4" />
       </video>
 
-      <div className="flex items-center justify-center h-full">
-        <div className={`text-white font-sans text-xs md:text-base lg:text-3xl xl:text-4xl ${styles.content}`}>
-          <h1 className="font-extrabold">Step-By-Step</h1>
-          <p>&nbsp;</p>
-          <p>Descubre lo último en zapatillas</p>
-          <button
-            className={`px-4 py-2 mt-4 text-white bg-black rounded hover:bg-black-800 hover:border-2 hover:border-gray-300 font-sans ${styles.button}`}
-            onClick={handleExploreClick}
-          >
-            Explorar colección
-          </button>
-        </div>
+      <div className={`flex flex-col items-center justify-center h-full text-white relative font-sans ${styles.content}`}>
+        <h1 className={`text-5xl font-extrabold font-sans ${styles.title}`}>Step-By-Step</h1>
+        <p>&nbsp;</p>
+        <p className={`text-xl font-sans ${styles.description}`}>Descubre lo ultimo en zapatillas</p>
+        <button
+          className={`px-4 py-2 mt-4 text-white bg-black rounded hover:bg-black-800 hover:border-2 hover:border-gray-300 font-sans ${styles.button}`}
+          onClick={handleExploreClick}
+        >
+          Explorar colección
+        </button>
       </div>
     </div>
   );

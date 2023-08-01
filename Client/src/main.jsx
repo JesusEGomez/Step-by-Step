@@ -8,6 +8,7 @@ import router from "./router/index.jsx";
 import { Auth0Provider } from "@auth0/auth0-react";
 import axios from 'axios';
 
+
 axios.defaults.baseURL ='http://localhost:3001';
 // axios.defaults.baseURL = 'https://step-by-step-production.up.railway.app/products'; //si queremos trabajar de forma local hay que comentar esto 
 

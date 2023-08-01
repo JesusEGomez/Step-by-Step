@@ -8,17 +8,20 @@ import { SiMercadopago } from 'react-icons/si';
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-12 w-screen bg-gray-100 text-gray-600">
-        <div className="text-sm sm:text-left md:text-lg lg:text-xl">
-          <FaRegFileCode size={56} className="fill-current" />
+      <footer className="footer  md:bottom-40 md:right-0 p-12 w-screen bg-gray-100 text-gray-600 mt-50">
+        <div className="text-sm sm:text-left  lg:text-xl">
+          <FaRegFileCode size={56} className="fill-current sm:size-sm" />
           <p>HENRY proyecto final<br />julio 2023</p>
         </div>
 
-        <div >
-            <button onClick={() => window.location.href = "/about"}>
-              Conocenos 
-            </button>
-          </div>
+        <div className='flex justify-end sm:flex-col sm:justify-center sm:items-end'>
+  <div className='lg:mr-0 sm:mr-4 sm:mb-4'>
+    <button onClick={() => window.location.href = "/about"}>
+      Conocenos 
+    </button>
+  </div>
+</div>
+
 
         <div className='ml-[50%]'>
           <span className="footer-title">TECNOLOGIAS</span>
