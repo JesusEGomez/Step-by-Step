@@ -159,6 +159,7 @@ const Home = () => {
       ) : (
         <>
           <div className="carousel rounded-box mt-16 grid grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-0">
+
             {renderCarouselItems()}
           </div>
           {/* Botones de cambio de slide */}

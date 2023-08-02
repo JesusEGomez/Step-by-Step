@@ -2,7 +2,7 @@ import React from 'react'
 
 const LinkedinBtn = ({linkedin}) => {
     return ( 
-        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="px-2">
+        <a href={linkedin} target="_blank" rel="noopener noreferrer" className="px-2 text-gray-600 no-underline">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 448 512"

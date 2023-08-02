@@ -55,6 +55,13 @@ function Profile() {
     }
 
   }, [dispatch])
+
+  const logoutHandler = () => {
+    localStorage.setItem("cart", JSON.stringify([]));
+    localStorage.setItem("totalPrice", JSON.stringify(0));
+    logout()
+  }
+
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
@@ -74,12 +81,12 @@ function Profile() {
           tabIndex={0}
           className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
         >
-          <li >
+          {/* <li >
             <Link className="text-gray-500" to={"/cuenta"}>Mi cuenta</Link>
           </li>
           <li>
             <Link className="text-gray-500" to={"/compras"}>Mis compras</Link>
-          </li>
+          </li> */}
           {user.email_verified === false &&
             (<li onClick={sendVerificationEmail}>
               <span className="text-red-700 cursor-pointer  font-semibold">Verificar email</span>
@@ -90,7 +97,7 @@ function Profile() {
               <Link className="text-gray-500" to={"/administracion/index"}>Administracion</Link>
             </li>
           )}
-          <li onClick={() => logout()}>
+          <li onClick={logoutHandler}>
             <a className="text-gray-500">Cerrar sesión</a>
           </li>
         </ul>

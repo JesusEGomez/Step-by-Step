@@ -4,10 +4,11 @@ import { BiLogoPostgresql, BiLogoTailwindCss } from 'react-icons/bi';
 import { BsGithub } from 'react-icons/bs';
 import { LiaReact } from 'react-icons/lia';
 import { SiMercadopago } from 'react-icons/si';
-
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <div>
+
       <footer className="footer  md:bottom-40 md:right-0 p-12 w-screen bg-gray-100 text-gray-600 mt-50">
         <div className="text-sm sm:text-left  lg:text-xl">
           <FaRegFileCode size={56} className="fill-current sm:size-sm" />
@@ -39,4 +40,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

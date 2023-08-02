@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getAllProducts, fetchProducts } from '../../features/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { DataGrid, GridToolbarContainer ,GridToolbarColumnsButton,GridToolbarDensitySelector, GridToolbarFilterButton } from '@mui/x-data-grid';
+import { DataGrid, GridToolbarContainer, GridToolbarColumnsButton, GridToolbarDensitySelector, GridToolbarFilterButton } from '@mui/x-data-grid';
 import Switch from '@mui/material/Switch';
 import Title from './Title';
 import axios from 'axios';
 import { lightGreen } from '@mui/material/colors';
+
 
 
 const URL = import.meta.env.VITE_URL;
@@ -28,7 +29,6 @@ function CustomToolbar() {
         </GridToolbarContainer>
         );
     }
-    
     
     
     function renderImageCell(params) {
@@ -144,17 +144,20 @@ function CustomToolbar() {
                                     
                                     
                                     return (
-                                        <div style={{ height: '95%', width: '100%' }}>
+                                        <div style={{ backgroundColor: 'white', height: '100%', width: '110%',padding:'20px'  }}>
                                         <Title>Productos</Title>
                                         {loading ? (
-                                            <span className="loading loading-bars ml-96 mt-28 loading-3xl"></span>
+                                            <span className="loading loading-bars ml-80 mt-28 mb-28 loading-3xl"></span>
                                             ) : (
-                                                <DataGrid rows={rows} columns={columns} slots={{ toolbar: CustomToolbar,  }}
-                                                />
-                                                )}
-                                                </div>
-                                                );
-                                            }
-                                            
-                                            export default Products;
-                                            
+                                                <DataGrid style={{height:'90%',width:'98%' }}  rows={rows} columns={columns} slots={{ toolbar: CustomToolbar, }}
+                                                initialState={{
+                                                    pagination: { paginationModel: { pageSize: 10 } },
+                                                }}
+                                                pageSizeOptions={[10,25,50,100]}/>)
+                                            }                    
+                                            </div>
+                                            );
+                                        }
+                                        
+                                        export default Products;
+                                        
