@@ -158,7 +158,7 @@ const Home = () => {
         </button>
       ) : (
         <>
-          <div className="carousel rounded-box mt-16 grid grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 gap-0">
+          <div className="carousel rounded-box  grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
 
             {renderCarouselItems()}
           </div>

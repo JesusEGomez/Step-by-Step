@@ -12,9 +12,7 @@ import { fetchCategories } from "../../features/categoriesSlice";
 import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 // import { Link } from "react-router-dom";
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
@@ -201,118 +199,120 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-f">
       {/* <Slider {...settings}> */}
-        <button className="link" onClick={handleClickTienda}>
-          TIENDA
-        </button>
-        <button className="link" onClick={handleClickWomen}>
-          MUJER
-        </button>
-        <button className="link" onClick={handleClickMen}>
-          VARON
-        </button>
-        <button className="link" onClick={handleClickUnisex}>
-          UNISEX
-        </button>
-        <button className="link" onClick={handleClickTodos}>
-          TODOS
-        </button>
+      <button className="link" onClick={handleClickTienda}>
+        TIENDA
+      </button>
+      <button className="link" onClick={handleClickWomen}>
+        MUJER
+      </button>
+      <button className="link" onClick={handleClickMen}>
+        VARON
+      </button>
+      <button className="link" onClick={handleClickUnisex}>
+        UNISEX
+      </button>
+      <button className="link" onClick={handleClickTodos}>
+        TODOS
+      </button>
       {/* </Slider> */}
 
       {location.pathname === "/tienda" && (
-        <div className=" flex items-center w-full">
-          <div className="relative">
-            <input
-              name="name"
-              value={filterPanel.name}
-              onChange={handleChange}
-              placeholder="Search..."
-              className="p-2 pl-8 mr-1"
-            ></input>
-            <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
-              <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
-            </span>
-          </div>
+        <details className="dropdown mb-32">
+          <summary className="m-1 btn">Filtros</summary>
+          <ul className=" dropdown-content z-[1] bg-base-100 rounded-box ">
+            <li> <div className="relative">
+              <input
+                name="name"
+                value={filterPanel.name}
+                onChange={handleChange}
+                placeholder="Search..."
+                className="p-2 pl-8 mr-1"
+              ></input>
+              <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
+                <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
+              </span>
+            </div></li>
+            <li><div className="link">
+              <select
+                id="brand"
+                name="brand"
+                onChange={handleChange}
+                className="p-2 mr-1"
+              >
+                <option value={"none"}>Brand</option>
 
-          <div className="link">
-            <select
-              id="brand"
-              name="brand"
-              onChange={handleChange}
-              className="p-2 mr-1"
-            >
-              <option value={"none"}>Brand</option>
-
-              {brandsList?.map((b, i) => (
-                <option key={i} value={b}>
-                  {b}
+                {brandsList?.map((b, i) => (
+                  <option key={i} value={b}>
+                    {b}
+                  </option>
+                ))}
+              </select>
+            </div>
+            </li>
+            <li> <div className="link">
+              <select
+                id="category"
+                name="category"
+                onChange={(e) => handleChange(e)}
+                // value={categorySelect}
+                className="p-2 mr-1"
+              >
+                <option value={"none"}>Category</option>
+                {categoriesList?.map((c, i) => (
+                  <option key={i} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div></li>
+            <li> <div className=" link ">
+              <select
+                id="color"
+                name="color"
+                onChange={(e) => handleChange(e)}
+                // value={colorSelect}
+                className="p-2 mr-1"
+              >
+                {" "}
+                <option value={"none"}>Color</option>
+                {colorsList?.map((c, i) => (
+                  <option key={i} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+            </div></li>
+            <li> <div className="link ">
+              <select
+                id="price"
+                name="price"
+                onChange={(e) => handleChange(e)}
+                className="p-2 mr-1 "
+              >
+                <option key="none" value="none">
+                  Precio
                 </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="link">
-            <select
-              id="category"
-              name="category"
-              onChange={(e) => handleChange(e)}
-              // value={categorySelect}
-              className="p-2 mr-1"
-            >
-              <option value={"none"}>Category</option>
-              {categoriesList?.map((c, i) => (
-                <option key={i} value={c}>
-                  {c}
+                <option key="higher" value="higher">
+                  Mayor a menor
                 </option>
-              ))}
-            </select>
-          </div>
-
-          <div className=" link ">
-            <select
-              id="color"
-              name="color"
-              onChange={(e) => handleChange(e)}
-              // value={colorSelect}
-              className="p-2 mr-1"
-            >
-              {" "}
-              <option value={"none"}>Color</option>
-              {colorsList?.map((c, i) => (
-                <option key={i} value={c}>
-                  {c}
+                <option key="lower" value="lower">
+                  Menor a mayor
                 </option>
-              ))}
-            </select>
-          </div>
-
-          <div className="link ">
-            <select
-              id="price"
-              name="price"
-              onChange={(e) => handleChange(e)}
-              className="p-2 mr-1 "
+              </select>
+            </div></li>
+            <li> <button
+              onClick={handleResetClick}
+              className="p-2 border-gray-500 hover:border-gray-700 w-40   "
             >
-              <option key="none" value="none">
-                Precio
-              </option>
-              <option key="higher" value="higher">
-                Mayor a menor
-              </option>
-              <option key="lower" value="lower">
-                Menor a mayor
-              </option>
-            </select>
-          </div>
+              <span>Reset</span>
+            </button></li>
 
-          <button
-            onClick={handleResetClick}
-            className="p-2 border-gray-500 hover:border-gray-700   "
-          >
-            <span>Reset</span>
-          </button>
-        </div>
+          </ul>
+        </details>
+
+
       )}
     </div>
   );
