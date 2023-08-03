@@ -157,11 +157,9 @@ const Home = () => {
           <div className="carousel rounded-box flex justify-center mt-32">
             {renderCarouselItems()}
           </div>
-          {/* Botones de cambio de slide */}
           <div className="flex justify-center mt-4 ">
             {renderSlideButtons()}
           </div>
-          {/* Resto del código del componente Home */}
           <div className="m-6 mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
             <p className="flex items-center justify-center">
@@ -191,7 +189,6 @@ const Home = () => {
                 <Link to="/tienda">
                   <button
                     name="reebok"
-                    // onClick={() => handleBrandClick("reebok")}
                     onClick={() => handleBrandClick("reebok")}
                     className="text-4xl px-8 py-2 bg-black inline-flex items-center text-white font-bold rounded-full shadow-lg hover:bg-gray-950 hover:border-slate-200 hover:border-2 transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) duration-400 space-x-2"
                   >

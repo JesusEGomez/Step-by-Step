@@ -50,12 +50,12 @@ export const setSelectedBrand = createAsyncThunk(
   "products/setSelectedBrand",
   async (brandName, { getState, dispatch }) => {
     const state = getState();
-    const products = getisPublishProducts(state);
+    const products = getAllProducts(state);
 
     // If products are not fetched yet, wait for fetchProducts to fulfill
     if (products.length === 0) {
       try {
-        await dispatch(fetchIsPublishProducts());
+        await dispatch(fetchProducts());
       } catch (error) {
         throw new Error(error.message);
       }
