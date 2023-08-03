@@ -7,35 +7,32 @@ import { SiMercadopago } from 'react-icons/si';
 import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
-    <div>
 
-      <footer className="footer  md:bottom-40 md:right-0 p-12 w-screen bg-gray-100 text-gray-600 mt-50">
-        <div className="text-sm sm:text-left  lg:text-xl">
-          <FaRegFileCode size={56} className="fill-current sm:size-sm" />
-          <p>HENRY proyecto final<br />julio 2023</p>
+
+    <footer className="footer flex justify-evenly pt-3   bg-gray-100 text-gray-600 ">
+
+
+      <div className="flex flex-col w-2/5  text-sm sm:text-left  lg:text-xl">
+        <FaRegFileCode size={56} className="fill-current sm:size-sm" />
+        <p>HENRY proyecto final<br />julio 2023</p>
+        <button className='btn' onClick={() => window.location.href = "/about"}>
+          Conocenos
+        </button>
+      </div>
+
+      <div className='flex flex-col w-2/5'>
+        <span className="footer-title">TECNOLOGIAS</span>
+        <div className="grid grid-flow-col ">
+          <LiaReact size={30} className="fill-current" />
+          <BsGithub size={30} className="fill-current" />
+          <BiLogoPostgresql size={30} className="fill-current" />
+          <BiLogoTailwindCss size={30} className="fill-current" />
+          <SiMercadopago size={30} className="fill-current" />
         </div>
+      </div>
 
-        <div className='flex justify-end sm:flex-col sm:justify-center sm:items-end'>
-  <div className='lg:mr-0 sm:mr-4 sm:mb-4'>
-    <button onClick={() => window.location.href = "/about"}>
-      Conocenos 
-    </button>
-  </div>
-</div>
+    </footer>
 
-
-        <div className='ml-[50%]'>
-          <span className="footer-title">TECNOLOGIAS</span>
-          <div className="grid grid-flow-col gap-6">
-            <LiaReact size={30} className="fill-current" />
-            <BsGithub size={30} className="fill-current" />
-            <BiLogoPostgresql size={30} className="fill-current" />
-            <BiLogoTailwindCss size={30} className="fill-current" />
-            <SiMercadopago size={30} className="fill-current" />
-          </div>
-        </div>
-      </footer>
-    </div>
   );
 };
 

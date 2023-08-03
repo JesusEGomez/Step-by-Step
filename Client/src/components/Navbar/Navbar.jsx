@@ -28,8 +28,8 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 fixed top-0 shadow-md py-3 z-10">
-      <div className="flex-1">
+    <div className="navbar bg-base-100 fixed shadow-md py-3 z-10">
+      <div className="w-full">
         <Link to="/home" className="text-black hover:text-gray-500">
           <img
             src={logo}
@@ -45,13 +45,13 @@ const NavBar = () => {
           </div>
         </div>
 
-        <main>
+        <main >
           {error && <p> Authentication Error </p>}
           {!error && isLoading && (
             <span className="loading loading-spinner loading-md fixed top-0 right-0"></span>
           )}
           {!error && !isLoading && (
-            <div className="fixed top-0 right-0">
+            <div >
               <LoginButton />
               <Profile />
             </div>
@@ -64,7 +64,7 @@ const NavBar = () => {
         } transform -translate-y-1/2`}>
         <label
           tabIndex={0}
-          className="btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
+          className=" btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
         >
           <div className="indicator">
             <svg

@@ -13,6 +13,9 @@ import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 
+;
+
+
 // import { Link } from "react-router-dom";
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
@@ -201,21 +204,25 @@ const Filters = () => {
   return (
     <div className="w-f">
       {/* <Slider {...settings}> */}
-      <button className="link" onClick={handleClickTienda}>
-        TIENDA
-      </button>
-      <button className="link" onClick={handleClickWomen}>
-        MUJER
-      </button>
-      <button className="link" onClick={handleClickMen}>
-        VARON
-      </button>
-      <button className="link" onClick={handleClickUnisex}>
-        UNISEX
-      </button>
-      <button className="link" onClick={handleClickTodos}>
-        TODOS
-      </button>
+
+      <div className="max-sm:hidden">
+        <button className="link " onClick={handleClickTienda}>
+          TIENDA
+        </button>
+        <button className="link" onClick={handleClickWomen}>
+          MUJER
+        </button>
+        <button className="link" onClick={handleClickMen}>
+          VARON
+        </button>
+        <button className="link" onClick={handleClickUnisex}>
+          UNISEX
+        </button>
+        <button className="link" onClick={handleClickTodos}>
+          TODOS
+        </button>
+      </div>
+
       {/* </Slider> */}
 
       {location.pathname === "/tienda" && (
