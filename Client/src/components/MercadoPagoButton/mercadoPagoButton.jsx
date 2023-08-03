@@ -36,13 +36,13 @@ const MercadoPagoButton = ({ carrito }) => {
         generateLink();
     }, [carrito]);
     return (
-        <div>
+        <div className="flex text-center" >
             {loading ? (
-                <button disabled className="bg-black h-1">
+                <button disabled className="bg-black h-1 font-bold py-2 px-4  rounded w-5/6 content-center mx-20  hover:bg-gray-800 min-h-12">
                     <span className="loading loading-spinner loading-md text-white"></span>
                 </button>
             ) : (
-                isAuthenticated ? <a href={url} className="no-underline text-white visited:text-white">
+                isAuthenticated ? <a href={url} className="bg-black text-white  font-bold py-2 px-4  rounded w-5/6 content-center mx-20 my-2 mt-4 hover:bg-gray-800 ">
                     Finalizar compra
                 </a> : <p className="no-underline text-white visited:text-white">Debes estar Registrado para comprar</p>
 

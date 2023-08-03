@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 // const products = require("../productos");
-const {  URL } = process.env;
+const { URL } = process.env;
 
 const sequelize = new Sequelize(URL, {
   logging: false, // set to console.log to see the raw SQL queries

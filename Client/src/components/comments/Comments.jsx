@@ -7,43 +7,32 @@ import { getOrders } from "../../features/ordersSlice";
 import Swal from "sweetalert2";
 
 const URL = import.meta.env.VITE_URL;
-const INTERVAL_DELAY = 2000;
+const INTERVAL_DELAY = 5000;
 
 function Comments() {
-  // const user = JSON.parse(localStorage.getItem("user"));
   const orders = useSelector(getOrders);
-  const comments = useSelector(getComments) || [];
+  const comments = useSelector(getComments);
   const { user, isAuthenticated } = useAuth0();
   const [hasOrder, setHasOrder] = useState(false);
   const [hasComment, setHasComment] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [commentText, setCommentText] = useState("");
   const [currentCommentIndex, setCurrentCommentIndex] = useState(0);
-  // console.log("comments", comments);
 
-  // console.log("hasOrder", hasOrder, hasComment);
   useEffect(() => {
-    const findHasOrder = orders
-
-      ?.map((o) => o.paymentStatus === "approved" && o?.email)
-
-      .includes(user?.email);
-    if (findHasOrder) {
-      setHasOrder(true);
-    }
-
-    // console.log("findHasOrder", findHasOrder);
-    // console.log("orders", orders);
-
-    const findHasComment = comments
-      ?.map((c) => c.user.mail)
-      .includes(user?.email);
-
+    const findHasComment = comments?.find((c) => c.mail === user?.email);
     if (findHasComment) {
       setHasComment(true);
     }
+
+    const findHasOrder = orders?.find(
+      (o) => o.email === user?.email && o.paymentStatus === "approved"
+    );
+    if (findHasOrder) {
+      setHasOrder(true);
+    }
   }, [comments, orders, user]);
-  // console.log("user.email", user.email);
+
   useEffect(() => {
     const interval = setInterval(() => {
       const randomIndex = Math.floor(Math.random() * comments.length);
@@ -113,7 +102,7 @@ function Comments() {
   };
 
   return (
-    <div className="m-6 mt-9 mb-9 text-center">
+    <div className="m-6 mt-9 mb-9 text-center ">
       {renderComments()}
 
       {isAuthenticated && hasOrder && !hasComment ? (
@@ -124,12 +113,17 @@ function Comments() {
           Deja tu comentario
         </button>
       ) : (
-        <button
-          className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2  bg-gray-200 text-white"
-          disabled
+        <div
+          className="tooltip tooltip-bottom"
+          data-tip="Deja tu comentario después de comprar"
         >
-          Deja tu comentario
-        </button>
+          <button
+            className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2  bg-gray-200 text-white"
+            disabled
+          >
+            Deja tu comentario
+          </button>
+        </div>
       )}
 
       {showModal && (

@@ -154,7 +154,8 @@ const Home = () => {
         </button>
       ) : (
         <>
-          <div className="carousel rounded-box flex justify-center mt-32">
+          <div className="carousel rounded-box  grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
+
             {renderCarouselItems()}
           </div>
           <div className="flex justify-center mt-4 ">
