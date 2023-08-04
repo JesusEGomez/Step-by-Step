@@ -148,22 +148,21 @@ const Home = () => {
       {loading ? (
         <button
           disabled
-          className="bg-white w-64 h-48 mt-36   ml-96 mb-32 hover:border-none border-none"
+          className="bg-white w-64 h-48 mt-36    mb-32 hover:border-none border-none"
         >
           <span className="loading loading-spinner loading-3xl text-black"></span>
         </button>
       ) : (
         <>
           <div className="carousel rounded-box  grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
-
             {renderCarouselItems()}
           </div>
-          <div className="flex justify-center mt-4 ">
+          <div className="flex flex-row justify-center mt-4 ">
             {renderSlideButtons()}
           </div>
-          <div className="m-6 mt-9 mb-9 text-center ">
+          <div className=" mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
-            <p className="flex items-center justify-center">
+            <p className="flex flex-row items-center justify-center ">
               todo lo que buscas en zapas{" "}
               <GiRunningShoe className="ml-1 text-2xl" />
             </p>
