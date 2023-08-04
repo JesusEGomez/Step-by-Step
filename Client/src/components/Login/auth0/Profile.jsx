@@ -10,7 +10,7 @@ function Profile() {
   const { user, logout, isAuthenticated, auth0 } = useAuth0();
   const isAdmin = verifyAdmin();
   const dispatch = useDispatch();
-  const dbUsers = useSelector(getAllUsers)
+  const dbUsers = useSelector(getAllUsers);
 
   const [newUser, setNewUser] = useState({
     name: user?.given_name ?? "none",
@@ -18,22 +18,23 @@ function Profile() {
     user: user?.nickname ?? "",
     mail: user?.email ?? "",
     isAdmin: false,
-  })
+  });
 
   const sendVerificationEmail = () => {
     if (auth0 && user?.email) {
-      auth0.sendEmailVerification({ email: user.email })
+      auth0
+        .sendEmailVerification({ email: user.email })
         .then(() => {
           Swal.fire(
-            'Correo enviado con éxito!',
-            'Si no encuentras el correo, revisa en tu bandeja de correos no deseados.',
-            'success'
+            "Correo enviado con éxito!",
+            "Si no encuentras el correo, revisa en tu bandeja de correos no deseados.",
+            "success"
           );
         })
         .catch((error) => {
           Swal.fire({
-            icon: 'error',
-            title: 'Hubo un problema al enviar el correo, inténtalo más tarde.',
+            icon: "error",
+            title: "Hubo un problema al enviar el correo, inténtalo más tarde.",
           });
         });
     }
@@ -42,26 +43,20 @@ function Profile() {
   useEffect(() => {
     localStorage.setItem("user", JSON.stringify(user));
     localStorage.setItem("isAuthenticated", JSON.stringify(isAuthenticated));
-    localStorage.setItem("isAdmin", JSON.stringify(isAdmin))
+    localStorage.setItem("isAdmin", JSON.stringify(isAdmin));
   }, [user, isAuthenticated]);
 
   useEffect(() => {
-    const userExists = dbUsers.some((dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user);
+    const userExists = dbUsers.some(
+      (dbUser) => dbUser.mail !== newUser.mail || dbUser.user !== newUser.user
+    );
 
     if (newUser.mail !== "" || newUser.user !== "") {
       if (!userExists) {
         dispatch(addNewUsers(newUser));
       }
     }
-
-  }, [dispatch])
-
-  const logoutHandler = () => {
-    localStorage.setItem("cart", JSON.stringify([]));
-    localStorage.setItem("totalPrice", JSON.stringify(0));
-    logout()
-  }
-
+  }, [dispatch]);
   return (
     isAuthenticated && (
       <div className="fixed right-0 top-0 dropdown dropdown-end">
@@ -87,17 +82,28 @@ function Profile() {
           <li>
             <Link className="text-gray-500" to={"/compras"}>Mis compras</Link>
           </li> */}
-          {user.email_verified === false &&
-            (<li onClick={sendVerificationEmail}>
-              <span className="text-red-700 cursor-pointer  font-semibold">Verificar email</span>
-            </li>)
-          }
-          {isAdmin && (
-            <li>
-              <Link className="text-gray-500" to={"/administracion/index"}>Administracion</Link>
+          {user.email_verified === false && (
+            <li onClick={sendVerificationEmail}>
+              <span className="text-red-700 cursor-pointer  font-semibold">
+                Verificar email
+              </span>
             </li>
           )}
-          <li onClick={logoutHandler}>
+          {isAdmin && (
+            <li>
+              <Link className="text-gray-500" to={"/administracion/index"}>
+                Administracion
+              </Link>
+            </li>
+          )}
+          {isAdmin && (
+            <li>
+              <Link className="text-gray-500" to={"/administracion/index"}>
+                Administracion
+              </Link>
+            </li>
+          )}
+          <li onClick={() => logout()}>
             <a className="text-gray-500">Cerrar sesión</a>
           </li>
         </ul>

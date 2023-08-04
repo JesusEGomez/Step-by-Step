@@ -5,7 +5,7 @@ const createCategory = require("../controllers/category/createCategoryCtrl");
 const createCategoryHandler = async (req, res) => {
   const { name } = req.body;
   try {
-    console.log("handler", name);
+    // console.log("handler", name);
     const newCategory = await createCategory(name);
 
     return res.status(201).json({

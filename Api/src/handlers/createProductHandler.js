@@ -27,7 +27,7 @@ const postProduct = async (req, res) => {
       images,
     } = req.body;
 
-    console.log("req.body", req.body);
+    // console.log("req.body", req.body);
     const newProduct = await createProductController(req.body);
 
     //&reemplazar esta funcion y ponerla en controllers

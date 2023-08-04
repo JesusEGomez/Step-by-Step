@@ -10,7 +10,7 @@ import PaginationControls from "../../components/PaginationControls/PaginationCo
 import Card from "../../components/Card/Card";
 import {FaHeartBroken} from "react-icons/fa"
 
-function Tienda() {
+function Tienda(brand) {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(true);
   

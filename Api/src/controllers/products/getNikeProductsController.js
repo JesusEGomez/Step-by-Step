@@ -42,6 +42,8 @@ const getNikeProducts = async () => {
     ],
   });
 
+
+
   const newResult = result.map((product) => {
     const images = product.images.map((i) => i.imageUrl);
     const brand = product.brand.name;

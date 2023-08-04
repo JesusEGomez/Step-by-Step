@@ -46,7 +46,6 @@ export const fetchIsPublishProducts = createAsyncThunk(
   }
 );
 
-
 export const setSelectedBrand = createAsyncThunk(
   "products/setSelectedBrand",
   async (brandName, { getState, dispatch }) => {
@@ -138,8 +137,6 @@ export const productsSlice = createSlice({
   },
 });
 
-
-
 export const getIsPublishProducts = (state) => state.products.isPublishProducts;
 export const getAllProducts = (state) => state.products.products;
 export const getCurrentPage = (state) => state.products.currentPage;
@@ -147,4 +144,3 @@ export const getfilteredProducts = (state) => state.products.filteredProducts;
 
 export const { setCurrentPage, setFilteredProducts } = productsSlice.actions;
 export default productsSlice.reducer;
-

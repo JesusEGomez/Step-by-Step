@@ -62,12 +62,12 @@ const createProductController = async ({
   const foundBrand = await Brand.findOne({
     where: { name: brand },
   });
-  console.log("foundBrand", foundBrand.id);
+  // console.log("foundBrand", foundBrand.id);
   if (foundBrand) {
     await newProduct.setBrand(foundBrand.id);
   }
 
-  console.log(categories);
+  // console.log(categories);
   const categoryIds = await Promise.all(
     categories.map(async (category) => {
       const foundCategories = await Category.findOne({
@@ -108,7 +108,7 @@ const createProductController = async ({
       image.setProduct(newProduct);
     })
   );
-  console.log(newProduct);
+  // console.log(newProduct);
   return newProduct;
 };
 

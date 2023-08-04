@@ -27,7 +27,7 @@ const createProductCtrl = async (req, res) => {
       color,
       images,
     } = req.body;
-    console.log("size", req.body);
+    // console.log("size", req.body);
 
     // Verificar y crear la marca si no existe
     let existingBrand = await Brand.findOne({
@@ -127,7 +127,7 @@ const createProductCtrl = async (req, res) => {
     await Promise.all(
       allSizes.map(async (size) => {
         const sizeStock = stock[size.size]; // Obtener el stock para el tamaño actual
-        console.log("sizeStock", sizeStock);
+        // console.log("sizeStock", sizeStock);
         // Crear el registro de stock y asociarlo al tamaño y producto correspondientes
         await Stock.create({
           sizeId: size.id,

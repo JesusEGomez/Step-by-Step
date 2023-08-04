@@ -5,7 +5,7 @@ const createColor = require("../controllers/color/createColorCtrl");
 const createColorHandler = async (req, res) => {
   const { color } = req.body;
   try {
-    console.log("handler", color);
+    // console.log("handler", color);
     const newColor = await createColor(color);
 
     return res.status(201).json({

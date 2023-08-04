@@ -4,7 +4,7 @@ const getBrands = require("../controllers/brand/getBrandsCtrl");
 const createBrandHandler = async (req, res) => {
   const { name } = req.body;
   try {
-    console.log("handler", name);
+    // console.log("handler", name);
     const newBrand = await createBrand(name);
 
     return res
