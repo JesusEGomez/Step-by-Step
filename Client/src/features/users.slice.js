@@ -26,7 +26,7 @@ export const addNewUsers = createAsyncThunk(
       const newUserData = response.data;
       return newUserData;
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error("error.message");
     }
   }
 );

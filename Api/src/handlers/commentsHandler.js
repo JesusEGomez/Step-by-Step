@@ -3,7 +3,7 @@ const getComments = require("../controllers/comments/getComments");
 
 const createCommentHandler = async (req, res) => {
   try {
-    console.log("handler", req.body);
+    // console.log("handler", req.body);
     const comment = await createComment(req.body);
     res.status(200).json(comment);
   } catch (error) {

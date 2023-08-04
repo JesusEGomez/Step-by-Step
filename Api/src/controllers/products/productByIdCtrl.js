@@ -35,7 +35,7 @@ const productsByIdCtrl = async (req, res) => {
         stockPerSize: s.stockPerSize,
       };
     });
-    console.log(newStock);
+    // console.log(newStock);
 
     const newProduct = {
       totalPrice: products.totalPrice,
@@ -58,7 +58,7 @@ const productsByIdCtrl = async (req, res) => {
 
       stock: newStock,
     };
-    console.log(newProduct);
+    // console.log(newProduct);
     return res.status(200).json(newProduct);
 
     // return res.status(200).json(products);

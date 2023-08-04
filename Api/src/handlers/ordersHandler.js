@@ -1,6 +1,7 @@
 const createOrder = require("../controllers/orders/createOrder");
 const getAllOrders = require("../controllers/orders/getAllOrders");
 const getOrdersByEmail = require("../controllers/orders/getOrdersByEmail");
+const updateOrderFullFillment = require("../controllers/orders/updateOrderFulfillmentController");
 const updateStockPerSize = require("../controllers/stock/updateStockController");
 
 const createOrderHandler = async (req, res) => {
@@ -41,9 +42,24 @@ const getOrdersByEmailHandler = async (req, res) => {
       .json({ error: "Error getting orders", message: error.message });
   }
 };
+const updateOrderFullFillmentHandler = async (req, res) => {
+  const { orderNumber, fullFillmentStatus } = req.body;
+  try {
+    const order = await updateOrderFullFillment(
+      orderNumber,
+      fullFillmentStatus
+    );
+    res.status(200).json(order);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: "Error getting orders", message: error.message });
+  }
+};
 
 module.exports = {
   getOrdersHandler,
   createOrderHandler,
   getOrdersByEmailHandler,
+  updateOrderFullFillmentHandler,
 };

@@ -14,16 +14,16 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Swal from "sweetalert2";
 
-
 const NavBar = () => {
-  const { loginWithRedirect, isAuthenticated, isLoading, error, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, isLoading, error, user } =
+    useAuth0();
   const dispatch = useDispatch();
   const total = useSelector(getTotalCartProducts);
   const CartProducts = useSelector(getCartProducts);
 
   const handlerDelete = (size) => {
     const product = CartProducts.find((element) => element.sizes[0] === size);
-    console.log(product);
+    // console.log(product);
     dispatch(deleteProduct(product));
   };
 
@@ -58,10 +58,12 @@ const NavBar = () => {
           )}
         </main>
       </div>
-      <div className={`cart-container absolute top-1/2 ${
-        // Aplicar clases diferentes para diferentes tamaños de pantalla
-        "left-40 md:right-5"
-        } transform -translate-y-1/2`}>
+      <div
+        className={`cart-container absolute top-1/2 ${
+          // Aplicar clases diferentes para diferentes tamaños de pantalla
+          "left-40 md:right-5"
+          } transform -translate-y-1/2`}
+      >
         <label
           tabIndex={0}
           className=" btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
@@ -154,8 +156,7 @@ const NavBar = () => {
                       confirmButtonText: "Ir al login",
                     }).then((result) => {
                       if (result.isConfirmed) {
-
-                        loginWithRedirect()
+                        loginWithRedirect();
                       }
                     });
                   }}

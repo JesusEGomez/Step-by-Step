@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
     user: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
+      // unique: true,
       validate: {
         notEmpty: {
           msg: "El campo usuario no puede estar vacío",
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
     mail: {
       type: DataTypes.STRING,
       allowNull: true,
-      unique: true,
+      // unique: true,
       validate: {
         isEmail: true,
         // validateEmailOrCellphone: function () {

@@ -5,7 +5,7 @@ import { SiReebok, SiNike } from "react-icons/si";
 import { CgAdidas } from "react-icons/cg";
 import axios from "axios";
 import { clearCart } from "../../features/cartSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import Comments from "../../components/comments/Comments";
@@ -66,7 +66,6 @@ const Home = () => {
         });
       }
     }
-
 
     dispatch(fetchComments());
     dispatch(fetchOrders());
@@ -138,10 +137,6 @@ const Home = () => {
     return buttons;
   };
 
-  // const handleBrandClick = (brandName) => {
-  //   dispatch(setSelectedBrand(brandName));
-  // };
-
   const handleBrandClick = (brandName) => {
     dispatch(setSelectedBrand(brandName));
   };
@@ -151,7 +146,7 @@ const Home = () => {
       {loading ? (
         <button
           disabled
-          className="bg-white w-64 h-48 mt-36   ml-96 mb-32 hover:border-none border-none"
+          className="bg-white w-64 h-48 mt-36    mb-32 hover:border-none border-none"
         >
           <span className="loading loading-spinner loading-3xl text-black"></span>
         </button>
@@ -161,14 +156,12 @@ const Home = () => {
 
             {renderCarouselItems()}
           </div>
-          {/* Botones de cambio de slide */}
-          <div className="flex justify-center mt-4 ">
+          <div className="flex flex-row justify-center mt-4 ">
             {renderSlideButtons()}
           </div>
-          {/* Resto del código del componente Home */}
-          <div className="m-6 mt-9 mb-9 text-center ">
+          <div className=" mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
-            <p className="flex items-center justify-center">
+            <p className="flex flex-row items-center justify-center ">
               todo lo que buscas en zapas{" "}
               <GiRunningShoe className="ml-1 text-2xl" />
             </p>

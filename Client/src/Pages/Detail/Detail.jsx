@@ -21,6 +21,7 @@ function Detail(clickHandler) {
       try {
         const response = await fetch(`${URL}/products/${id}`);
         const data = await response.json();
+        console.log(data);
         setProductData(data);
         setSelectedImage(data.images[0].imageUrl); // Establecer la primera imagen como seleccionada inicialmente
         const carouselImages = data.images.map((image) => image.imageUrl);
@@ -35,13 +36,12 @@ function Detail(clickHandler) {
   }, [id]);
 
   const clickAddHandler = (product) => {
-    console.log("Producto", productData);
+    // console.log("Producto", productData);
     if (selectedSize !== "Ninguno seleccionado") {
       dispatch(addProduct({ ...product, sizes: [selectedSize.size] }));
       setAddedToCart(true);
     } else {
-      Swal.fire('Selecciona un talle')
-
+      Swal.fire("Selecciona un talle");
     }
   };
 
@@ -50,6 +50,7 @@ function Detail(clickHandler) {
   };
 
   const handleImageSize = (size) => {
+    // console.log(size);
     setSelectedSize(size);
   };
 
@@ -58,7 +59,8 @@ function Detail(clickHandler) {
   // };
 
   const dispatch = useDispatch();
-
+  // const selectSizeTest = productData.stock.map((size, index) => size);
+  // console.log("selectedSize", selectSizeTest);
   return (
     <div className="mb-96  w-screen">
       {productData ? (
@@ -87,7 +89,9 @@ function Detail(clickHandler) {
               ${productData.totalPrice}
             </div>
             <div>
-              <p className="font-extralight text-sm w-full">{productData.description}</p>
+              <p className="font-extralight text-sm w-full">
+                {productData.description}
+              </p>
             </div>
             <div className="flex flex-row justify-start mb-4 relative items-center">
               {/* Mostrar las imágenes adicionales */}
@@ -145,7 +149,8 @@ function Detail(clickHandler) {
               </div>
             </div>
             <p className="font-semibold text-sm">
-              {`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""}`}
+              {`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""
+                }`}
             </p>
             <div></div>
             {addedToCart && (
@@ -181,7 +186,6 @@ function Detail(clickHandler) {
       )}
     </div>
   );
-
 }
 
 export default Detail;
