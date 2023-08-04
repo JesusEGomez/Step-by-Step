@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
 import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
-import Carousel from "./Carousel.jsx";
 import Swal from 'sweetalert2'
 
 const URL = import.meta.env.VITE_URL;
