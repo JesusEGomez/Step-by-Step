@@ -13,9 +13,6 @@ import { fetchColors } from "../../features/colorSlice";
 import { useNavigate, useLocation } from "react-router-dom";
 import { BiSearchAlt2 } from "react-icons/bi";
 
-;
-
-
 // import { Link } from "react-router-dom";
 
 const sizes = [34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
@@ -175,6 +172,7 @@ const Filters = () => {
     setBrandSelect("");
     setGenderSelect("");
     setPriceSelect("");
+    setColorSelect("");
   };
 
   const settings = {
@@ -202,11 +200,10 @@ const Filters = () => {
   };
 
   return (
-    <div className="w-f">
-      {/* <Slider {...settings}> */}
-
-      <div className="max-sm:hidden">
-        <button className="link " onClick={handleClickTienda}>
+    <div className=" flex flex-row items-baseline">
+      <div>
+        {/* <Slider {...settings}> */}
+        <button className="link" onClick={handleClickTienda}>
           TIENDA
         </button>
         <button className="link" onClick={handleClickWomen}>
@@ -221,106 +218,120 @@ const Filters = () => {
         <button className="link" onClick={handleClickTodos}>
           TODOS
         </button>
+        {/* </Slider> */}
       </div>
 
-      {/* </Slider> */}
-
-      {location.pathname === "/tienda" && (
-        <details className="dropdown mb-32">
-          <summary className="m-1 btn">Filtros</summary>
-          <ul className=" dropdown-content z-[1] bg-base-100 rounded-box ">
-            <li> <div className="relative">
-              <input
-                name="name"
-                value={filterPanel.name}
-                onChange={handleChange}
-                placeholder="Search..."
-                className="p-2 pl-8 mr-1"
-              ></input>
-              <span className="absolute top-2 left-2 text-gray-300 pointer-events-none">
-                <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
-              </span>
-            </div></li>
-            <li><div className="link">
-              <select
-                id="brand"
-                name="brand"
-                onChange={handleChange}
-                className="p-2 mr-1"
-              >
-                <option value={"none"}>Brand</option>
-
-                {brandsList?.map((b, i) => (
-                  <option key={i} value={b}>
-                    {b}
-                  </option>
-                ))}
-              </select>
-            </div>
-            </li>
-            <li> <div className="link">
-              <select
-                id="category"
-                name="category"
-                onChange={(e) => handleChange(e)}
-                // value={categorySelect}
-                className="p-2 mr-1"
-              >
-                <option value={"none"}>Category</option>
-                {categoriesList?.map((c, i) => (
-                  <option key={i} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </div></li>
-            <li> <div className=" link ">
-              <select
-                id="color"
-                name="color"
-                onChange={(e) => handleChange(e)}
-                // value={colorSelect}
-                className="p-2 mr-1"
-              >
+      <div>
+        {location.pathname === "/tienda" && (
+          <details className="dropdown ">
+            <summary className="btn">Filtros</summary>
+            <ul className=" dropdown-content  bg-base-100 rounded-box ">
+              <li>
                 {" "}
-                <option value={"none"}>Color</option>
-                {colorsList?.map((c, i) => (
-                  <option key={i} value={c}>
-                    {c}
-                  </option>
-                ))}
-              </select>
-            </div></li>
-            <li> <div className="link ">
-              <select
-                id="price"
-                name="price"
-                onChange={(e) => handleChange(e)}
-                className="p-2 mr-1 "
-              >
-                <option key="none" value="none">
-                  Precio
-                </option>
-                <option key="higher" value="higher">
-                  Mayor a menor
-                </option>
-                <option key="lower" value="lower">
-                  Menor a mayor
-                </option>
-              </select>
-            </div></li>
-            <li> <button
-              onClick={handleResetClick}
-              className="p-2 border-gray-500 hover:border-gray-700 w-40   "
-            >
-              <span>Reset</span>
-            </button></li>
+                <div className="relative">
+                  <input
+                    name="name"
+                    value={filterPanel.name}
+                    onChange={handleChange}
+                    placeholder="Search..."
+                    className="p-2 pl-8 mr-1"
+                  ></input>
+                  <span className=" text-gray-300 pointer-events-none">
+                    <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
+                  </span>
+                </div>
+              </li>
+              <li>
+                <div className="link">
+                  <select
+                    id="brand"
+                    name="brand"
+                    onChange={handleChange}
+                    className="p-2 mr-1"
+                  >
+                    <option value={"none"}>Brand</option>
 
-          </ul>
-        </details>
-
-
-      )}
+                    {brandsList?.map((b, i) => (
+                      <option key={i} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </li>
+              <li>
+                {" "}
+                <div className="link">
+                  <select
+                    id="category"
+                    name="category"
+                    onChange={(e) => handleChange(e)}
+                    // value={categorySelect}
+                    className="p-2 mr-1"
+                  >
+                    <option value={"none"}>Category</option>
+                    {categoriesList?.map((c, i) => (
+                      <option key={i} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </li>
+              <li>
+                {" "}
+                <div className=" link ">
+                  <select
+                    id="color"
+                    name="color"
+                    onChange={(e) => handleChange(e)}
+                    // value={colorSelect}
+                    className="p-2 mr-1"
+                  >
+                    {" "}
+                    <option value={"none"}>Color</option>
+                    {colorsList?.map((c, i) => (
+                      <option key={i} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </li>
+              <li>
+                {" "}
+                <div className="link ">
+                  <select
+                    id="price"
+                    name="price"
+                    onChange={(e) => handleChange(e)}
+                    className="p-2 mr-1 "
+                  >
+                    <option key="none" value="none">
+                      Precio
+                    </option>
+                    <option key="higher" value="higher">
+                      Mayor a menor
+                    </option>
+                    <option key="lower" value="lower">
+                      Menor a mayor
+                    </option>
+                  </select>
+                </div>
+              </li>
+              <li>
+                {" "}
+                <button
+                  onClick={handleResetClick}
+                  className="p-2 border-gray-500 hover:border-gray-700 w-40   "
+                >
+                  <span>Reset</span>
+                </button>
+              </li>
+            </ul>
+          </details>
+        )}
+      </div>
     </div>
   );
 };

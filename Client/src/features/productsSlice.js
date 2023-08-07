@@ -47,10 +47,10 @@ export const fetchIsPublishProducts = createAsyncThunk(
 );
 
 export const setSelectedBrand = createAsyncThunk(
-  "products/setSelectedBrand",
+  "filteredProducts/setSelectedBrand",
   async (brandName, { getState, dispatch }) => {
     const state = getState();
-    const products = getAllProducts(state);
+    const products = getfilteredProducts(state);
 
     // If products are not fetched yet, wait for fetchProducts to fulfill
     if (products.length === 0) {
@@ -63,7 +63,7 @@ export const setSelectedBrand = createAsyncThunk(
 
     // Now that products are available, apply the brand filter
     const selectedBrand = brandName;
-    if (selectedBrand === "all") {
+    if (selectedBrand === "") {
       dispatch(setFilteredProducts([...products]));
     } else {
       dispatch(

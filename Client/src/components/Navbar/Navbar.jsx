@@ -13,6 +13,10 @@ import Profile from "../Login/auth0/Profile";
 import { useAuth0 } from "@auth0/auth0-react";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import Swal from "sweetalert2";
+import Carrito from "../carrito/Carrito";
+import Carrito2 from "../carrito/Carrito2";
+import Carrito3 from "../carrito/Carrito3";
+import Carrito4 from "../carrito/Carrito4";
 
 const NavBar = () => {
   const { loginWithRedirect, isAuthenticated, isLoading, error, user } =
@@ -28,8 +32,8 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 fixed shadow-md py-3 z-10">
-      <div className="w-full">
+    <div className="navbar flex-row justify-between  bg-base-100  fixed  shadow-md  z-10 ">
+      <div className=" ">
         <Link to="/home" className="text-black hover:text-gray-500">
           <img
             src={logo}
@@ -38,27 +42,46 @@ const NavBar = () => {
           />
         </Link>
       </div>
-      <div className=" flex ">
-        <div className="">
-          <div className="flex  fixed top-9 left-40 text-sm">
-            <Filters />
-          </div>
-        </div>
 
-        <main >
-          {error && <p> Authentication Error </p>}
-          {!error && isLoading && (
-            <span className="loading loading-spinner loading-md fixed top-0 right-0"></span>
-          )}
-          {!error && !isLoading && (
-            <div >
-              <LoginButton />
-              <Profile />
-            </div>
-          )}
-        </main>
+      <div className="">
+        <Filters />
       </div>
-      <div
+
+      <div className=" flex flex-row items-center   ">
+        <div>
+          <main>
+            {error && <p> Authentication Error </p>}
+            {!error && isLoading && (
+              <span className="loading loading-spinner loading-md "></span>
+            )}
+            {!error && !isLoading && (
+              <div className="">
+                <LoginButton />
+                <Profile />
+              </div>
+            )}
+          </main>
+        </div>
+        {/* <div>
+            <Carrito3 />
+          </div> */}
+
+        {/* <div>
+            <Carrito2 />
+          </div> */}
+        <div>
+          <Carrito4 />
+        </div>
+        <div>{/* <Carrito /> */}</div>
+      </div>
+    </div>
+  );
+};
+
+export default NavBar;
+
+{
+  /* <div
         className={`cart-container absolute top-1/2 ${
           // Aplicar clases diferentes para diferentes tamaños de pantalla
           "left-40 md:right-5"
@@ -167,9 +190,5 @@ const NavBar = () => {
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
-};
-
-export default NavBar;
+      </div> */
+}
