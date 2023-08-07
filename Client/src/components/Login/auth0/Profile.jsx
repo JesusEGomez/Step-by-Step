@@ -59,7 +59,8 @@ function Profile() {
   }, [dispatch]);
   return (
     isAuthenticated && (
-      <div className="fixed right-0 top-0 dropdown dropdown-end">
+      // <div className="fixed right-0 top-0 dropdown dropdown-end">
+      <div className=" dropdown dropdown-end">
         <label tabIndex={0} className="cursor-pointer m-1 flex items-center">
           <strong>{user?.nickname}</strong>
           <svg
