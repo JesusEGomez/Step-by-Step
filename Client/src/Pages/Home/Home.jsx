@@ -8,7 +8,6 @@ import { clearCart } from "../../features/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
 import Comments from "../../components/comments/Comments";
 import { fetchComments, getComments } from "../../features/commentsSlice";
 import { fetchOrders } from "../../features/ordersSlice";
@@ -119,9 +118,8 @@ const Home = () => {
       buttons.push(
         <button
           key={i}
-          className={`carousel-button ${
-            i === currentSlideIndex ? "active" : "bg-gray-300"
-          }`}
+          className={`carousel-button ${i === currentSlideIndex ? "active" : "bg-gray-300"
+            }`}
           onClick={() => handleSlideChange(i)}
           style={{
             width: "15px",
@@ -144,7 +142,7 @@ const Home = () => {
   };
 
   return (
-    <div className="mt-20">
+    <div className="mt-20 w-screen">
       {loading ? (
         <button
           disabled
@@ -154,7 +152,8 @@ const Home = () => {
         </button>
       ) : (
         <>
-          <div className="carousel rounded-box  grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
+          <div className="carousel rounded-box grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
+
             {renderCarouselItems()}
           </div>
           <div className="flex flex-row justify-center mt-4 ">

@@ -85,11 +85,11 @@ export default NavBar;
         className={`cart-container absolute top-1/2 ${
           // Aplicar clases diferentes para diferentes tamaños de pantalla
           "left-40 md:right-5"
-        } transform -translate-y-1/2`}
+          } transform -translate-y-1/2`}
       >
         <label
           tabIndex={0}
-          className="btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
+          className=" btn absolute top-1/2  right-4 btn-ghost btn-circle peer"
         >
           <div className="indicator">
             <svg

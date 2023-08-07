@@ -3,8 +3,7 @@ import { useParams } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
 import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
-import Carousel from "./Carousel.jsx";
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2'
 
 const URL = import.meta.env.VITE_URL;
 
@@ -63,7 +62,7 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className="mb-96 w-full">
+    <div className="mb-96  w-screen">
       {productData ? (
         <div className="container h-screen flex flex-col md:flex-row mt-28 mb-8 px-2 md:px-8 lg:px-16 xl:px-20">
           <div className="bg-white relative flex-shrink-0 w-full md:w-[50%] lg:w-[60%] xl:w-[65%] h-[300px] md:h-[725px]">
@@ -118,17 +117,16 @@ function Detail(clickHandler) {
             <div className="inline text-gray-800 text-xs font-light mb-1 w-52 md:w-auto">
               SELECCIONA UN TALLE:
             </div>
-            <div className="flex flex-row justify-start mb-2 relative items-center">
+            <div className="flex flex-row justify-start mb-2 flex-wrap relative items-center">
               {/* Mostrar las imágenes adicionales */}
               <div className="grid grid-cols-5 gap-2">
                 {productData.stock.map((size, index) => (
                   <div
                     key={index}
-                    className={`border-gray-200 p-1 rounded transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
-                      selectedSize === size.size
-                        ? "bg-gray-200 border-solid rounded  border-sm"
-                        : ""
-                    }`}
+                    className={`border-gray-200 p-1 rounded transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size
+                      ? "bg-gray-200 border-solid rounded  border-sm"
+                      : ""
+                      }`}
                     onClick={() => handleImageSize(size)}
                   >
                     <label className="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1 cursor-pointer text-gray-900 shadow-sm">
@@ -151,9 +149,8 @@ function Detail(clickHandler) {
               </div>
             </div>
             <p className="font-semibold text-sm">
-              {`Talle seleccionado: ${
-                selectedSize.size ? selectedSize.size : ""
-              }`}
+              {`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""
+                }`}
             </p>
             <div></div>
             {addedToCart && (
