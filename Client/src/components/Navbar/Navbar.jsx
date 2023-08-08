@@ -71,6 +71,7 @@ const NavBar = () => {
             <Carrito2 />
           </div> */}
         <div>
+
           <Carrito4 />
         </div>
         <div>{/* <Carrito /> */}</div>

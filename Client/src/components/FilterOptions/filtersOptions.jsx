@@ -202,7 +202,7 @@ const Filters = () => {
   return (
     <div className=" flex flex-row  max-lg:items-center max-lg:w-screen">
       {location.pathname === "/home" &&
-        <div>
+        <div className="flex w-full justify-center">
           <button className="link" onClick={handleClickTienda}>
             TIENDA
           </button>
@@ -221,11 +221,25 @@ const Filters = () => {
         </div>
       }
 
-      <div   >
+      <div className="max-lg:w-full content-center flex "   >
         {location.pathname === "/tienda" && (
-          <details className="dropdown z-30 m-2 w-64  ">
+          <details className="dropdown z-30 m-2 w-64  flex  max-lg:w-screen ">
             <summary className="btn">Filtros</summary>
             <ul className=" dropdown-content  bg-base-100 rounded-box w-full flex flex-col items-center max-lg:w-screen ">
+              <li>
+                <div className="relative">
+                  <input
+                    name="name"
+                    value={filterPanel.name}
+                    onChange={handleChange}
+                    placeholder="Search..."
+                    className="p-2 pl-8 mr-1"
+                  ></input>
+                  <span className=" absolute top-2 left-2 text-gray-300 pointer-events-none">
+                    <BiSearchAlt2 className="text-lg mt-0.5 m-2  " />
+                  </span>
+                </div>
+              </li>
               <li>
                 <button className="link" onClick={handleClickMen}>
                   VARON
@@ -246,20 +260,7 @@ const Filters = () => {
                   TODOS
                 </button>
               </li>
-              <li>
-                <div className="relative">
-                  <input
-                    name="name"
-                    value={filterPanel.name}
-                    onChange={handleChange}
-                    placeholder="Search..."
-                    className="p-2 pl-8 mr-1"
-                  ></input>
-                  <span className=" absolute top-2 left-2 text-gray-300 pointer-events-none">
-                    <BiSearchAlt2 className="text-lg mt-0.5 m-2  " />
-                  </span>
-                </div>
-              </li>
+
               <li>
                 <div className="link">
                   <select
