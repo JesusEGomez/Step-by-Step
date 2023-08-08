@@ -200,34 +200,53 @@ const Filters = () => {
   };
 
   return (
-    <div className=" flex flex-row items-baseline">
-      <div>
-        {/* <Slider {...settings}> */}
-        <button className="link" onClick={handleClickTienda}>
-          TIENDA
-        </button>
-        <button className="link" onClick={handleClickWomen}>
-          MUJER
-        </button>
-        <button className="link" onClick={handleClickMen}>
-          VARON
-        </button>
-        <button className="link" onClick={handleClickUnisex}>
-          UNISEX
-        </button>
-        <button className="link" onClick={handleClickTodos}>
-          TODOS
-        </button>
-        {/* </Slider> */}
-      </div>
+    <div className=" flex flex-row  max-lg:items-center max-lg:w-screen">
+      {location.pathname === "/home" &&
+        <div>
+          <button className="link" onClick={handleClickTienda}>
+            TIENDA
+          </button>
+          <button className="link" onClick={handleClickWomen}>
+            MUJER
+          </button>
+          <button className="link" onClick={handleClickMen}>
+            VARON
+          </button>
+          <button className="link" onClick={handleClickUnisex}>
+            UNISEX
+          </button>
+          <button className="link" onClick={handleClickTodos}>
+            TODOS
+          </button>
+        </div>
+      }
 
-      <div>
+      <div   >
         {location.pathname === "/tienda" && (
-          <details className="dropdown ">
+          <details className="dropdown z-30 m-2 w-64  ">
             <summary className="btn">Filtros</summary>
-            <ul className=" dropdown-content  bg-base-100 rounded-box ">
+            <ul className=" dropdown-content  bg-base-100 rounded-box w-full flex flex-col items-center max-lg:w-screen ">
               <li>
-                {" "}
+                <button className="link" onClick={handleClickMen}>
+                  VARON
+                </button>
+              </li>
+              <li>
+                <button className="link" onClick={handleClickWomen}>
+                  MUJER
+                </button>
+              </li>
+              <li>
+                <button className="link" onClick={handleClickUnisex}>
+                  UNISEX
+                </button>
+              </li>
+              <li>
+                <button className="link" onClick={handleClickTodos}>
+                  TODOS
+                </button>
+              </li>
+              <li>
                 <div className="relative">
                   <input
                     name="name"
@@ -236,8 +255,8 @@ const Filters = () => {
                     placeholder="Search..."
                     className="p-2 pl-8 mr-1"
                   ></input>
-                  <span className=" text-gray-300 pointer-events-none">
-                    <BiSearchAlt2 className="text-lg mt-0.5 m-2" />
+                  <span className=" absolute top-2 left-2 text-gray-300 pointer-events-none">
+                    <BiSearchAlt2 className="text-lg mt-0.5 m-2  " />
                   </span>
                 </div>
               </li>
@@ -323,7 +342,7 @@ const Filters = () => {
                 {" "}
                 <button
                   onClick={handleResetClick}
-                  className="p-2 border-gray-500 hover:border-gray-700 w-40   "
+                  className="p-2 border-gray-500 hover:border-gray-700 w-40 mb-5   "
                 >
                   <span>Reset</span>
                 </button>
