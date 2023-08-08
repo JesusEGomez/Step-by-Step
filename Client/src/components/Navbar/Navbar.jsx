@@ -38,7 +38,7 @@ const NavBar = () => {
           <img
             src={logo}
             alt="logo"
-            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-sm ml-5 mt-1" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
+            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-sm  mt-1" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
           />
         </Link>
       </div>
