@@ -62,7 +62,7 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className=" max-lg:h-screen  w-screen h-screen   max-lg:mb-48 ">
+    <div className=" max-lg:h-screen  w-screen h-screen  max-lg:mb-20 ">
       {productData ? (
         <div className="   flex flex-col md:flex-row mt-36  px-2 md:px-8 lg:px-16 xl:px-20">
           <div className="bg-white  relative max-lg:mt-5 flex-shrink-0 w-1/3">
