@@ -27,7 +27,7 @@ function Tienda(brand) {
   const arrayLength = products.length;
 
   return (
-    <div className="flex-col w-screen text-center mt-40">
+    <div className="flex-col w-screen text-center mt-40 max-lg:mt-60">
       {isLoading ? (
         <button
           disabled

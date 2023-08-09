@@ -62,50 +62,50 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className="h-screen max-lg:mb-96 ">
+    <div className=" max-lg:h-screen  w-screen h-screen   max-lg:mb-48 ">
       {productData ? (
-        <div className=" h-screen flex w-screen flex-col md:flex-row mt-36 mb-8 px-2 md:px-8 lg:px-16 xl:px-20">
-          <div className="bg-white relative flex-shrink-0 w-full md:w-[50%] lg:w-[60%] xl:w-[65%] h-[300px] md:h-[725px]">
+        <div className="   flex flex-col md:flex-row mt-36  px-2 md:px-8 lg:px-16 xl:px-20">
+          <div className="bg-white  relative max-lg:mt-5 flex-shrink-0 w-1/3">
             <img
               src={selectedImage}
               alt="Shoes"
-              className="w-screen h-full object-contain"
+              className=" h-full  object-contain"
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="flex flex-col justify-start gap-2 relative w-full md:w-auto items-start md:ml-8">
+          <div className="flex flex-col  justify-start   relative w-full md:w-auto items-start md:ml-8">
             <div className="overflow-hidden bg-[#edf0f1] flex flex-col justify-start mb-2 relative w-20 md:w-auto items-stretch px-2 rounded">
               <div className="text-sm font-['Inter'] font-semibold tracking-[-0.0840000033378601] leading-[24px] text-[#242c31] relative">
                 New!
               </div>
             </div>
-            <div className="mt-4 dark:text-white whitespace-wrap text-xl font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
+            <div className="mt-4 dark:text-white whitespace-wrap text-xl max-lg:text-sm  font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
               {productData.model}
             </div>
-            <div className="whitespace-nowrap text-sm font-sans tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-1 relative w-20 md:w-auto">
+            <div className="whitespace-nowrap text-x font-sans tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-1 relative w-20 md:w-auto">
               {productData.gender}
             </div>
-            <div className="text-xl dark:text-white  font-['Inter'] font-semibold tracking-[-0.7920000171661377] leading-[48px] text-[#242c31] mb-1 relative w-20 md:w-auto">
+            <div className="text-xl max-lg:text-sm  dark:text-white  font-['Inter'] font-semibold tracking-[-0.7920000171661377] leading-[48px] text-[#242c31] mb-1 relative w-20 md:w-auto">
               ${productData.totalPrice}
             </div>
-            <div>
-              <p className="font-extralight  text-sm w-full ">
+            <div className="m-5 overflow-">
+              <p className="font-extralight max-lg:text-sm  ">
                 {productData.description}
               </p>
             </div>
             <div className="flex flex-row justify-start mb-4 relative items-center">
               {/* Mostrar las imágenes adicionales */}
-              <div className="flex space-x-2">
+              <div className="flex space-x-2 flex-wrap items-center  ">
                 {productData.images.map((image, index) => (
                   <div
                     key={index}
-                    className="border border-gray-300 p-1 transition-transform duration-300 hover:scale-110 hover:border-gray-500"
+                    className="border border-gray-300 mx-2  transition-transform duration-300 hover:scale-110  hover:border-gray-500"
                     onClick={() => handleImageClick(image.imageUrl)}
                   >
                     <img
                       src={image.imageUrl}
                       alt="Shoes"
-                      className="min-h-0 min-w-0 relative w-20 h-20 shrink-0 cursor-pointer"
+                      className="w-20 h-20 shrink-0 cursor-pointer "
                     />
                   </div>
                 ))}

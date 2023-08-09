@@ -179,7 +179,7 @@ const Filters = () => {
   };
 
   return (
-    <div className=" flex flex-row  max-lg:items-center max-lg:w-screen">
+    <div className=" flex   max-lg:items-center max-lg:w-screen">
       {location.pathname === "/home" && (
         <div className="flex w-full justify-center">
           <button className="link" onClick={handleClickTienda}>
@@ -202,9 +202,9 @@ const Filters = () => {
 
       <div className="max-lg:w-full content-left flex ">
         {location.pathname === "/tienda" && (
-          <details className="dropdown z-30 m-2 w-64  flex  max-lg:w-screen ">
+          <details className="dropdown dropdown-bottom z-30 m-2 w-64  flex  max-lg:w-screen ">
             <summary className="btn">Filtros</summary>
-            <ul className=" dropdown-content   rounded-box w-full flex flex-col items-center max-lg:w-screen bg-base-300">
+            <ul className=" dropdown-content    rounded-box w-full flex flex-col items-center max-lg:w-screen bg-base-300">
               <li>
                 <div className="relative">
                   <input
