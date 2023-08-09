@@ -42,8 +42,6 @@ const Filters = () => {
   // let sizesList = useSelector(getAllSizes); //&& get all sizes
   let genderList = ["men", "women", "unisex"];
 
-  // console.log("brandsList", brandsList);
-
   const [filterPanel, setFilterPanel] = useState({
     name: "",
     brand: "none",
@@ -93,6 +91,11 @@ const Filters = () => {
       if (filterPanel.size !== "none") {
         productsCopy = productsCopy.filter((p) =>
           p.sizes?.includes(filterPanel.size)
+        );
+      }
+      if (filterPanel.gender !== "none") {
+        productsCopy = productsCopy.filter((p) =>
+          p.gender?.includes(filterPanel.gender)
         );
       }
 
@@ -175,33 +178,9 @@ const Filters = () => {
     setColorSelect("");
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
-
   return (
     <div className=" flex flex-row  max-lg:items-center max-lg:w-screen">
-      {location.pathname === "/home" &&
+      {location.pathname === "/home" && (
         <div className="flex w-full justify-center">
           <button className="link" onClick={handleClickTienda}>
             TIENDA
@@ -219,13 +198,13 @@ const Filters = () => {
             TODOS
           </button>
         </div>
-      }
+      )}
 
-      <div className="max-lg:w-full content-center flex "   >
+      <div className="max-lg:w-full content-left flex ">
         {location.pathname === "/tienda" && (
           <details className="dropdown z-30 m-2 w-64  flex  max-lg:w-screen ">
             <summary className="btn">Filtros</summary>
-            <ul className=" dropdown-content  bg-base-100 rounded-box w-full flex flex-col items-center max-lg:w-screen ">
+            <ul className=" dropdown-content   rounded-box w-full flex flex-col items-center max-lg:w-screen bg-base-300">
               <li>
                 <div className="relative">
                   <input
@@ -233,32 +212,31 @@ const Filters = () => {
                     value={filterPanel.name}
                     onChange={handleChange}
                     placeholder="Search..."
-                    className="p-2 pl-8 mr-1"
+                    className="p-2 w-[220px] mt-3 mr-1"
                   ></input>
-                  <span className=" absolute top-2 left-2 text-gray-300 pointer-events-none">
+                  <span className=" absolute mt-4 right-2 text-gray-300 pointer-events-none ">
                     <BiSearchAlt2 className="text-lg mt-0.5 m-2  " />
                   </span>
                 </div>
               </li>
+
               <li>
-                <button className="link" onClick={handleClickMen}>
-                  VARON
-                </button>
-              </li>
-              <li>
-                <button className="link" onClick={handleClickWomen}>
-                  MUJER
-                </button>
-              </li>
-              <li>
-                <button className="link" onClick={handleClickUnisex}>
-                  UNISEX
-                </button>
-              </li>
-              <li>
-                <button className="link" onClick={handleClickTodos}>
-                  TODOS
-                </button>
+                <div className="link">
+                  <select
+                    id="gender"
+                    name="gender"
+                    onChange={handleChange}
+                    className="p-2 border-gray-500 hover:border-gray-700 w-[220px] mt-3  mr-1"
+                  >
+                    <option value={"none"}>Gender</option>
+
+                    {genderList?.map((b, i) => (
+                      <option key={i} value={b}>
+                        {b}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </li>
 
               <li>
@@ -267,7 +245,7 @@ const Filters = () => {
                     id="brand"
                     name="brand"
                     onChange={handleChange}
-                    className="p-2 mr-1"
+                    className="p-2 border-gray-500 hover:border-gray-700 w-[220px]   mr-1"
                   >
                     <option value={"none"}>Brand</option>
 
@@ -281,13 +259,13 @@ const Filters = () => {
               </li>
               <li>
                 {" "}
-                <div className="link">
+                <div className=" link">
                   <select
                     id="category"
                     name="category"
                     onChange={(e) => handleChange(e)}
                     // value={categorySelect}
-                    className="p-2 mr-1"
+                    className="p-2 border-gray-500 hover:border-gray-700 w-[220px]   mr-1"
                   >
                     <option value={"none"}>Category</option>
                     {categoriesList?.map((c, i) => (
@@ -306,7 +284,7 @@ const Filters = () => {
                     name="color"
                     onChange={(e) => handleChange(e)}
                     // value={colorSelect}
-                    className="p-2 mr-1"
+                    className="p-2 border-gray-500 hover:border-gray-700 w-[220px]  mr-1"
                   >
                     {" "}
                     <option value={"none"}>Color</option>
@@ -320,12 +298,12 @@ const Filters = () => {
               </li>
               <li>
                 {" "}
-                <div className="link ">
+                <div className="link">
                   <select
                     id="price"
                     name="price"
                     onChange={(e) => handleChange(e)}
-                    className="p-2 mr-1 "
+                    className=" mr-1 p-2 border-gray-500 hover:border-gray-700 w-[220px] mb-5 "
                   >
                     <option key="none" value="none">
                       Precio
@@ -343,7 +321,7 @@ const Filters = () => {
                 {" "}
                 <button
                   onClick={handleResetClick}
-                  className="p-2 border-gray-500 hover:border-gray-700 w-40 mb-5   "
+                  className="p-2 border-gray-500 hover:border-gray-700 w-[220px]  mb-5   "
                 >
                   <span>Reset</span>
                 </button>

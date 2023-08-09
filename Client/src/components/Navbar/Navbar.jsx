@@ -41,10 +41,9 @@ const NavBar = () => {
             className="w-16 h-16 md:w-24 md:h-24 lg:w-28 max-lg:h-28 rounded-xl ml-5 mt-1 max-lg:ml-2 max-lg:w-32 dark:bg-white dark:shadow-g dark:shadow-sm" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
           />
         </Link>
-
       </div>
 
-      <div >
+      <div>
         <Filters />
       </div>
 
@@ -71,7 +70,6 @@ const NavBar = () => {
             <Carrito2 />
           </div> */}
         <div>
-
           <Carrito4 />
         </div>
         <div>{/* <Carrito /> */}</div>
