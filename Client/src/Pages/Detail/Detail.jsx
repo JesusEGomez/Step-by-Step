@@ -62,14 +62,14 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className="mb-96  w-screen">
+    <div className="h-screen max-lg:mb-96 ">
       {productData ? (
-        <div className="container h-screen flex flex-col md:flex-row mt-28 mb-8 px-2 md:px-8 lg:px-16 xl:px-20">
+        <div className=" h-screen flex w-screen flex-col md:flex-row mt-36 mb-8 px-2 md:px-8 lg:px-16 xl:px-20">
           <div className="bg-white relative flex-shrink-0 w-full md:w-[50%] lg:w-[60%] xl:w-[65%] h-[300px] md:h-[725px]">
             <img
               src={selectedImage}
               alt="Shoes"
-              className="w-full h-full object-contain"
+              className="w-screen h-full object-contain"
               style={{ objectFit: "contain" }}
             />
           </div>
@@ -79,17 +79,17 @@ function Detail(clickHandler) {
                 New!
               </div>
             </div>
-            <div className="mt-4 whitespace-nowrap text-2xl font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31] self-stretch mr-8 md:mr-20 relative">
+            <div className="mt-4 dark:text-white whitespace-wrap text-xl font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
               {productData.model}
             </div>
             <div className="whitespace-nowrap text-sm font-sans tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-1 relative w-20 md:w-auto">
               {productData.gender}
             </div>
-            <div className="text-xl font-['Inter'] font-semibold tracking-[-0.7920000171661377] leading-[48px] text-[#242c31] mb-1 relative w-20 md:w-auto">
+            <div className="text-xl dark:text-white  font-['Inter'] font-semibold tracking-[-0.7920000171661377] leading-[48px] text-[#242c31] mb-1 relative w-20 md:w-auto">
               ${productData.totalPrice}
             </div>
             <div>
-              <p className="font-extralight text-sm w-full">
+              <p className="font-extralight  text-sm w-full ">
                 {productData.description}
               </p>
             </div>
@@ -111,10 +111,10 @@ function Detail(clickHandler) {
                 ))}
               </div>
             </div>
-            <div className="whitespace-nowrap text-xs font-sans tracking-[-0.0840000033378601] leading-[24px] text-gray-600 mb-2 relative w-20 md:w-auto font-semibold">
+            <div className="whitespace-nowrap dark:text-white  text-xs font-sans tracking-[-0.0840000033378601] leading-[24px] text-gray-600 mb-2 relative w-20 md:w-auto font-semibold">
               Stock: {selectedSize.stockPerSize ? selectedSize.stockPerSize : 0}
             </div>
-            <div className="inline text-gray-800 text-xs font-light mb-1 w-52 md:w-auto">
+            <div className="inline dark:text-white text-gray-800 text-xs font-light mb-1 w-52 md:w-auto">
               SELECCIONA UN TALLE:
             </div>
             <div className="flex flex-row justify-start mb-2 flex-wrap relative items-center">
@@ -158,7 +158,7 @@ function Detail(clickHandler) {
                 Producto agregado al carrito
               </div>
             )}
-            <div className="self-stretch flex flex-row justify-start gap-5 relative items-center mb-3 w-full md:w-auto">
+            <div className="self-stretch  flex flex-row justify-start gap-5 relative items-center mb-3 w-full md:w-auto">
               {selectedSize.stockPerSize > 0 ? (
                 <button
                   onClick={() => clickAddHandler(productData)}

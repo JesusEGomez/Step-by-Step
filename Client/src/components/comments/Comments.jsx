@@ -107,7 +107,7 @@ function Comments() {
 
       {isAuthenticated && hasOrder && !hasComment ? (
         <button
-          className="rounded-xl mt-6 bg-black text-white border-2 border-gray-200 hover:border-gray-500 hover:bg-gray-800"
+          className="rounded-xl mt-6 bg-black text-white border-2 dark:text-black border-gray-200 hover:border-gray-500 hover:bg-gray-800"
           onClick={handleButtonClick}
         >
           Deja tu comentario
@@ -118,7 +118,7 @@ function Comments() {
           data-tip="Deja tu comentario después de comprar"
         >
           <button
-            className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2  bg-gray-200 text-white"
+            className="rounded-xl mt-6 border-gray-200 hover:border-gray-400 border-2 dark:text-black  bg-gray-200 text-white"
             disabled
           >
             Deja tu comentario

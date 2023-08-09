@@ -142,7 +142,7 @@ const Home = () => {
   };
 
   return (
-    <div className="mt-20 w-screen">
+    <div className="mt-20 w-screen  max-lg:mt-56">
       {loading ? (
         <button
           disabled
@@ -152,7 +152,7 @@ const Home = () => {
         </button>
       ) : (
         <>
-          <div className="carousel rounded-box grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
+          <div className="carousel rounded-box bg-white grid justify-items-center xl:mt-36 grid-cols-5 md:grid-cols-5 md:mt-32 lg:grid-cols-5 xl:grid-cols-5 gap-0 max-sm:mt-24">
 
             {renderCarouselItems()}
           </div>
@@ -162,7 +162,7 @@ const Home = () => {
           <div className=" mt-9 mb-9 text-center ">
             <h1 className="text-4xl">STEP-BY-STEP</h1>
             <p className="flex flex-row items-center justify-center">
-              todo lo que buscas en zapas{" "}
+              todo lo que buscas en zapas
               <GiRunningShoe className="ml-1 text-2xl" />
             </p>
             <div className="flex justify-center mt-4">

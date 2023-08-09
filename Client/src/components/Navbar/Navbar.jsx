@@ -32,18 +32,18 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar flex-row justify-between  bg-base-100  fixed  shadow-md  z-10 ">
+    <div className="navbar flex flex-row  max-lg:flex-col justify-between  bg-base-100  fixed shadow-md   z-10 ">
       <div className=" ">
-        <Link to="/home" className="text-black hover:text-gray-500">
+        <Link to="/home" className="text-black  hover:text-gray-500">
           <img
             src={logo}
             alt="logo"
-            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 lg:h-28 rounded-sm  mt-1" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
+            className="w-16 h-16 md:w-24 md:h-24 lg:w-28 max-lg:h-28 rounded-xl ml-5 mt-1 max-lg:ml-2 max-lg:w-32 dark:bg-white dark:shadow-g dark:shadow-sm" //se ajusto que el logo sea responsive segun el tamaño de la pantalla
           />
         </Link>
       </div>
 
-      <div className="">
+      <div>
         <Filters />
       </div>
 
