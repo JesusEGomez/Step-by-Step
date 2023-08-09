@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { addProduct } from "../../features/cartSlice";
 import heartImage from "./imagenes/bx-heart.svg.jpg";
 import { useDispatch } from "react-redux";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const URL = import.meta.env.VITE_URL;
 
@@ -74,7 +74,6 @@ function Detail(clickHandler) {
             />
           </div>
           <div className="flex flex-col  justify-start    relative w-full md:w-auto items-start md:ml-8">
-
             <div className="mt-4  dark:text-white whitespace-wrap text-xl max-lg:text-sm  font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
               {productData.model}
             </div>
@@ -119,10 +118,11 @@ function Detail(clickHandler) {
                 {productData.stock.map((size, index) => (
                   <div
                     key={index}
-                    className={`border-gray-200 p-1 rounded transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${selectedSize === size.size
-                      ? "bg-gray-200 border-solid rounded  border-sm"
-                      : ""
-                      }`}
+                    className={`border-gray-200 p-1 rounded transition-transform duration-300 hover:scale-110 hover:border-gray-300 ${
+                      selectedSize === size.size
+                        ? "bg-gray-200 border-solid rounded  border-sm"
+                        : ""
+                    }`}
                     onClick={() => handleImageSize(size)}
                   >
                     <label className="group relative flex items-center justify-center bg-gray-50 rounded-sm border-none p-3 text-base font-medium uppercase hover:bg-gray-100 focus:outline-none sm:flex-1 cursor-pointer text-gray-900 shadow-sm">
@@ -145,8 +145,9 @@ function Detail(clickHandler) {
               </div>
             </div>
             <p className="font-semibold text-sm">
-              {`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""
-                }`}
+              {`Talle seleccionado: ${
+                selectedSize.size ? selectedSize.size : ""
+              }`}
             </p>
             <div></div>
             {addedToCart && (
@@ -160,7 +161,7 @@ function Detail(clickHandler) {
                   onClick={() => clickAddHandler(productData)}
                   className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
                 >
-                  Comprar
+                  Agregar al carrito
                 </button>
               ) : (
                 <button className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md">
