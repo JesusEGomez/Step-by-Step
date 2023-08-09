@@ -62,10 +62,10 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className=" max-lg:h-screen  w-screen h-full   ">
+    <div className="   w-screen h-full mb-5   ">
       {productData ? (
         <div className="   flex  flex-col items-center md:flex-row mt-36 max-lg:mt-44   px-2 md:px-8 lg:px-16 xl:px-20">
-          <div className="bg-white  shadow-sm shadow-gray-300  max-lg:mt-5 flex-shrink-0 w-1/3">
+          <div className="bg-white  shadow-sm shadow-gray-300   max-lg:mt-5 flex-shrink-0 w-1/3">
             <img
               src={selectedImage}
               alt="Shoes"
@@ -154,7 +154,7 @@ function Detail(clickHandler) {
                 Producto agregado al carrito
               </div>
             )}
-            <div className="self-stretch  flex flex-row justify-start gap-5  items-center mb-3 w-full md:w-auto">
+            <div className="self-stretch  flex flex-row justify-start gap-5  items-center  w-full md:w-auto">
               {selectedSize.stockPerSize > 0 ? (
                 <button
                   onClick={() => clickAddHandler(productData)}
@@ -168,11 +168,7 @@ function Detail(clickHandler) {
                 </button>
               )}
             </div>
-            <div className="whitespace-nowrap text-sm font-['Inter'] tracking-[-0.0840000033378601] leading-[24px] text-[#252c32] self-stretch justify-start w-full md:w-auto mr-40 relative">
-              {/* Shipping* */}
-              <br />
-              {/* <Carousel /> */}
-            </div>
+
           </div>
         </div>
       ) : (
