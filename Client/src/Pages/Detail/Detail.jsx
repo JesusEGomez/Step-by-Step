@@ -62,7 +62,7 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className=" max-lg:h-screen  w-screen h-full mb-5   ">
+    <div className=" max-lg:h-screen  w-screen h-full mb-28   ">
       {productData ? (
         <div className="   flex  flex-col items-center md:flex-row mt-36  px-2 md:px-8 lg:px-16 xl:px-20">
           <div className="bg-white  relative max-lg:mt-5 flex-shrink-0 w-1/3">
@@ -73,9 +73,9 @@ function Detail(clickHandler) {
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="flex flex-col  justify-start   relative w-full md:w-auto items-start md:ml-8">
+          <div className="flex flex-col  justify-start    relative w-full md:w-auto items-start md:ml-8">
 
-            <div className="mt-4 dark:text-white whitespace-wrap text-xl max-lg:text-sm  font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
+            <div className="mt-4  dark:text-white whitespace-wrap text-xl max-lg:text-sm  font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
               {productData.model}
             </div>
             <div className="whitespace-nowrap text-x font-sans tracking-[-0.0840000033378601] leading-[24px] text-[#6e7c86] mb-1 relative w-20 md:w-auto">

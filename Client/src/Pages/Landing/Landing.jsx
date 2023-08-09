@@ -12,7 +12,7 @@ function Landing() {
   return (
     <div className={`relative ${styles.container} h-screen w-screen `}>
       <video
-        className={`absolute top-0 left-0 w-full h-full object-fill`}
+        className={`absolute top-0 left-0 w-screen h-screen object-fill`}
         autoPlay
         loop
         muted
