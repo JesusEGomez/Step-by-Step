@@ -206,16 +206,16 @@ const Filters = () => {
             <summary className="btn">Filtros</summary>
             <ul className=" dropdown-content   rounded-box w-full flex flex-col items-center max-lg:w-screen bg-base-300">
               <li>
-                <div className="relative">
+                <div className="relative flex flex-row items-center">
                   <input
                     name="name"
                     value={filterPanel.name}
                     onChange={handleChange}
                     placeholder="Search..."
-                    className="p-2 w-[220px] mt-3 mr-1"
-                  ></input>
-                  <span className=" absolute mt-4 right-2 text-gray-300 pointer-events-none ">
-                    <BiSearchAlt2 className="text-lg mt-0.5 m-2  " />
+                    className="p-2 w-[220px] mt-3 "
+                  />
+                  <span className="text-2xl absolute  top-5 right-3 text-gray-300 pointer-events-none ">
+                    <BiSearchAlt2 className="   " />
                   </span>
                 </div>
               </li>
@@ -321,7 +321,7 @@ const Filters = () => {
                 {" "}
                 <button
                   onClick={handleResetClick}
-                  className="p-2 border-gray-500 hover:border-gray-700 w-[220px]  mb-5   "
+                  className="p-2 border-gray-500 hover:border-gray-700 hover:bg-slate-200 w-[220px]  mb-5   "
                 >
                   <span>Reset</span>
                 </button>

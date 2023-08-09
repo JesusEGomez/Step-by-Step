@@ -32,7 +32,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar flex flex-row  max-lg:flex-col justify-between  bg-base-100  fixed shadow-md   z-10 ">
+    <div className="navbar  flex-row   justify-between  bg-base-100  fixed shadow-md   z-10 ">
       <div className=" ">
         <Link to="/home" className="text-black  hover:text-gray-500">
           <img
