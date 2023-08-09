@@ -179,9 +179,9 @@ const Filters = () => {
   };
 
   return (
-    <div className=" flex   max-lg:items-center max-lg:w-screen">
+    <div className=" flex  max-lg:items-center max-lg:w-full">
       {location.pathname === "/home" && (
-        <div className="flex w-full justify-center">
+        <div className="flex  max-w-full justify-center">
           <button className="link" onClick={handleClickTienda}>
             TIENDA
           </button>

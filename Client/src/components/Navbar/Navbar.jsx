@@ -47,7 +47,7 @@ const NavBar = () => {
         <Filters />
       </div>
 
-      <div className=" flex flex-row items-center   ">
+      <div className=" flex flex-row    ">
         <div>
           <main>
             {error && <p> Authentication Error </p>}
