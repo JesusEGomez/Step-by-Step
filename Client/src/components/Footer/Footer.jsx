@@ -7,8 +7,8 @@ import { SiMercadopago } from "react-icons/si";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <footer className="  w-screen  md:bottom-40 md:justify-center p-10  bg-gray-100 text-gray-600 ">
-      <div className=" flex  flex-col justify-between items-center md:items-start md:flex-row  ">
+    <footer className="  w-screen  md:bottom-40 md:justify-center p-10   bg-gray-100 text-gray-600 ">
+      <div className=" flex  flex-col justify-evenly items-center md:items-center md:flex-row  ">
         <div className=" flex flex-row text-center text-lg  ">
           <FaRegFileCode size={56} className="text-center sm:size-sm" />
           <div className=" flex flex-col items-start pl-1">

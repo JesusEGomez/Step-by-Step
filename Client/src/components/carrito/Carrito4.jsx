@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { IoMdCloseCircleOutline } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { TiDelete } from 'react-icons/ti';
 
 import {
   deleteProduct,
@@ -32,7 +33,7 @@ function Carrito2() {
   return (
     <div className="flex-none">
       {isAuthenticated && user.email_verified ?
-        <div className=" dropdown dropdown-hover w-32  ">
+        <div className="dropdown dropdown-hover dropdown-bottom dropdown-end ml-3 ">
           <Link to="/checkout" className="text-black hover:no-underline ">
             <label tabIndex={0} className="btn btn-ghost btn-circle ">
               <div className="indicator dark:text-white">
@@ -60,29 +61,56 @@ function Carrito2() {
             </label>
 
           </Link>
+          <ul tabIndex={0} className="dropdown-content   menu p-5 transition-all shadow bg-base-100 rounded-box w-72  ">
+            {CartProducts.map((product) => {
+              return (
+                <li>
+                  <div>
+                    <img src={product.images[0].imageUrl} width={"50px"} alt={product.model} />
+                    <p className="text-s">{product.model}</p>
+                    <div className="flex flex-col">
+                      <p>catidad: <span className="font-bold">{product.quantity}</span></p>
+                      <p>precio: $<span className="font-bold">{product.totalPrice}</span></p>
+                      <p>talle: <span className="font-bold">{product.sizes[0]}</span></p>
+
+                    </div>
+
+                    <TiDelete
+                      onClick={() => handlerDelete(product.sizes[0])}
+                      className="text-xl hover:bg-white hover:rounded-full hover:text-black " />
+
+                  </div>
+                </li>
+              )
+            })}
+
+          </ul>
 
         </div>
         :
         <div
-          className="dropdown dropdown-hover dropdown-bottom dropdown-left "
-          onClick={() => {
-            Swal.fire({
-              title: "Oops..",
-              text: "No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.",
-              icon: "error",
-              showCancelButton: false,
-              confirmButtonColor: "#3085d6",
-              cancelButtonColor: "#d33",
-              confirmButtonText: "Ir al login",
-            }).then((result) => {
-              if (result.isConfirmed) {
-
-                loginWithRedirect()
-              }
-            });
-          }}>
+          className="dropdown dropdown-hover dropdown-bottom dropdown-end ml-3 "
+        >
           <label tabIndex={0} className="btn btn-ghost btn-circle ">
-            <div className="indicator dark:text-white">
+            <div
+              onClick={() => {
+                Swal.fire({
+                  title: "Oops..",
+                  text: "No puedes realizar la compra sin antes iniciar sesión en una cuenta verificada.",
+                  icon: "error",
+                  showCancelButton: false,
+                  confirmButtonColor: "#3085d6",
+                  cancelButtonColor: "#d33",
+                  confirmButtonText: "Ir al login",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+
+                    loginWithRedirect()
+                  }
+                });
+              }}
+              className="indicator dark:text-white">
+
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -103,13 +131,24 @@ function Carrito2() {
               </span>
             </div>
           </label>
-          <ul tabIndex={0} className="dropdown-content  menu p-2 shadow bg-base-100 rounded-box w-50 ">
+          <ul tabIndex={0} className="dropdown-content   menu p-5 transition-all shadow bg-base-100 rounded-box w-72  ">
             {CartProducts.map((product) => {
               return (
                 <li>
                   <div>
                     <img src={product.images[0].imageUrl} width={"50px"} alt={product.model} />
                     <p className="text-s">{product.model}</p>
+                    <div className="flex flex-col">
+                      <span>{`catidad: ${product.quantity}`}</span>
+                      <span>{`Precio: ${product.totalPrice}`}</span>
+                      <span>{`talle: ${product.sizes[0]}`}</span>
+
+                    </div>
+
+                    <TiDelete
+                      onClick={() => handlerDelete(product.sizes[0])}
+                      className="text-xl hover:bg-white hover:rounded-full hover:text-black " />
+
                   </div>
                 </li>
               )

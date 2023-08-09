@@ -86,15 +86,8 @@ function Profile() {
           {user.email_verified === false && (
             <li onClick={sendVerificationEmail}>
               <span className="text-red-700 cursor-pointer  font-semibold">
-                Verificar email
+                Debes verificar tu email
               </span>
-            </li>
-          )}
-          {isAdmin && (
-            <li>
-              <Link className="text-gray-500" to={"/administracion/index"}>
-                Administracion
-              </Link>
             </li>
           )}
           {isAdmin && (
