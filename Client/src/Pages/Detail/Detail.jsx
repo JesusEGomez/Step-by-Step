@@ -62,18 +62,18 @@ function Detail(clickHandler) {
   // const selectSizeTest = productData.stock.map((size, index) => size);
   // console.log("selectedSize", selectSizeTest);
   return (
-    <div className=" max-lg:h-screen  w-screen h-full mb-28   ">
+    <div className=" max-lg:h-screen  w-screen h-full   ">
       {productData ? (
-        <div className="   flex  flex-col items-center md:flex-row mt-36  px-2 md:px-8 lg:px-16 xl:px-20">
-          <div className="bg-white  relative max-lg:mt-5 flex-shrink-0 w-1/3">
+        <div className="   flex  flex-col items-center md:flex-row mt-36 max-lg:mt-44   px-2 md:px-8 lg:px-16 xl:px-20">
+          <div className="bg-white  shadow-sm shadow-gray-300  max-lg:mt-5 flex-shrink-0 w-1/3">
             <img
               src={selectedImage}
               alt="Shoes"
-              className="  object-contain"
+              className="   object-contain"
               style={{ objectFit: "contain" }}
             />
           </div>
-          <div className="flex flex-col  justify-start    relative w-full md:w-auto items-start md:ml-8">
+          <div className="flex flex-col  justify-start     relative w-full md:w-auto items-start md:ml-8">
 
             <div className="mt-4  dark:text-white whitespace-wrap text-xl max-lg:text-sm  font-sans font-bold tracking-[-0.7920000171661377] leading-[58px] text-[#242c31]  mr-8 md:mr-20 ">
               {productData.model}
@@ -84,8 +84,8 @@ function Detail(clickHandler) {
             <div className="text-xl max-lg:text-sm  dark:text-white  font-['Inter'] font-semibold tracking-[-0.7920000171661377] leading-[48px] text-[#242c31] mb-1 relative w-20 md:w-auto">
               ${productData.totalPrice}
             </div>
-            <div className="m-5 overflow-">
-              <p className="font-extralight max-lg:text-sm  ">
+            <div className="m-5  ">
+              <p className="font-extralight max-lg:text-sm max-sm:hidden ">
                 {productData.description}
               </p>
             </div>
@@ -136,7 +136,7 @@ function Detail(clickHandler) {
                       <span id="size-choice-7-label">{size.size}</span>
 
                       <span
-                        className="pointer-events-none absolute -inset-px rounded-md"
+                        className="pointer-events-none  -inset-px rounded-md"
                         aria-hidden="true"
                       ></span>
                     </label>
@@ -148,22 +148,22 @@ function Detail(clickHandler) {
               {`Talle seleccionado: ${selectedSize.size ? selectedSize.size : ""
                 }`}
             </p>
-            <div></div>
+
             {addedToCart && (
               <div className="text-green-600 text-base font-normal mb-1">
                 Producto agregado al carrito
               </div>
             )}
-            <div className="self-stretch  flex flex-row justify-start gap-5 relative items-center mb-3 w-full md:w-auto">
+            <div className="self-stretch  flex flex-row justify-start gap-5  items-center mb-3 w-full md:w-auto">
               {selectedSize.stockPerSize > 0 ? (
                 <button
                   onClick={() => clickAddHandler(productData)}
-                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
+                  className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-32 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md"
                 >
                   Comprar
                 </button>
               ) : (
-                <button className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-1/2 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md">
+                <button className="bg-black text-white cursor-pointer flex flex-col justify-center relative w-32 h-10 border-gray-400 hover:border-2 hover:border-gray-300 hover:bg-gray-800 items-center rounded-md">
                   Sin Stock
                 </button>
               )}
