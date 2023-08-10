@@ -20,10 +20,9 @@ const Checkout = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center  mt-32 bg-yellow-300 ">
-      {" "}
+    <div className="flex flex-col items-center  justify-center  mt-32 ">
       <h2 className="text-2xl font-bold dark:text-black   ">Checkout</h2>
-      <div className=" bg-pink-400 rounded-lg shadow-lg p-8  w-full  h-80 md:flex">
+      <div className=" rounded-lg shadow-lg p-8  w-full h-96 md:flex">
         <div className="md:w-full flex items-center flex-col">
           <div className="bg-white rounded-lg shadow-md flex  items-center justify-center  p-4 mb-4">
             <div className=" m-6 ">
