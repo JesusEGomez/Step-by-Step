@@ -7,7 +7,6 @@ import { SiMercadopago } from "react-icons/si";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-
     <footer className="  w-screen  md:bottom-40 md:justify-center p-10   bg-gray-100 text-gray-600 ">
       <div className=" flex  flex-col justify-evenly items-center md:items-center md:flex-row  ">
         <div className=" flex flex-row text-center text-lg  ">
@@ -18,15 +17,13 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-end sm:flex-row sm:justify-center sm:items-end">
-          <div className="">
-            <button
-              className=" bg-transparent font-bold text-md"
-              onClick={() => (window.location.href = "/about")}
-            >
-              CONOCENOS
-            </button>
-          </div>
+        <div className="flex  sm:flex-row sm:justify-center sm:items-start">
+          <button
+            className=" bg-transparent font-bold text-md items-start"
+            onClick={() => (window.location.href = "/about")}
+          >
+            CONOCENOS
+          </button>
         </div>
 
         <div className="flex flex-col justify-center items-center ">
@@ -41,7 +38,6 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-
   );
 };
 
