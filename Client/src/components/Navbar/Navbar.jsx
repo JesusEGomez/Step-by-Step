@@ -32,7 +32,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="navbar  flex-row   justify-between  bg-base-100  fixed shadow-md   z-10 ">
+    <div className="navbar flex flex-row  max-lg:flex-col justify-between  bg-base-100  fixed shadow-md   z-10 ">
       <div className=" ">
         <Link to="/home" className="text-black  hover:text-gray-500">
           <img
@@ -47,9 +47,9 @@ const NavBar = () => {
         <Filters />
       </div>
 
-      <div className=" flex flex-row    ">
-        <div>
-          <main>
+      <div className=" flex flex-row   ">
+        <div >
+          <main >
             {error && <p> Authentication Error </p>}
             {!error && isLoading && (
               <span className="loading loading-spinner loading-md "></span>

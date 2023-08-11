@@ -5,7 +5,7 @@ function LoginButton() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     !isAuthenticated && (
-      <h2 onClick={() => loginWithRedirect()}>Iniciar sesión</h2>
+      <h2 onClick={() => loginWithRedirect()} className="cursor-pointer  hover:text-gray-400" >Iniciar sesión</h2>
     )
   );
 }
